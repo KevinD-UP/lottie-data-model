@@ -1,5 +1,6 @@
 plugins {
     kotlin("jvm") version "1.8.0"
+    kotlin("plugin.serialization") version "1.8.0"
     application
 }
 
@@ -12,6 +13,7 @@ repositories {
 
 dependencies {
     implementation("org.codehaus.jettison:jettison:1.4.1")
+    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.5.0-RC")
     testImplementation(kotlin("test"))
 }
 

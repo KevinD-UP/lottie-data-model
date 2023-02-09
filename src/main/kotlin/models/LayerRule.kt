@@ -1,21 +1,24 @@
 package io.kannelle.models
 
+import kotlinx.serialization.Serializable
+
+@Serializable
 data class LayerRule(
     val ind: Int,
-    val textInd: List<Int>?,
+    val textInd: List<Int>? = null,
     val lines: Int? = 1,
     val maxLines: Int = 1,
-    val minWidth: Int?,
-    val maxWidth: Int?,
-    val maxHeight: Int?,
-    val fontKey: String?,
-    val minFontSize: Int?,
-    val colorKey: String?,
-    val colorKeys: List<String>?,
-    val fillColorKey: String?,
-    val opacityKey: String?,
-    val gradientColorKey: List<String>?,
-    val shadowKey: String?,
-    val shadowOpacityKey: String?,
-    val separator: String?
+    val minWidth: Int? = null,
+    val maxWidth: Int? = null,
+    val maxHeight: Int? = null,
+    val fontKey: String? = null,
+    val minFontSize: Int? = null,
+    val colorKey: String? = null,
+    val colorKeys: List<String>? = null,
+    val fillColorKey: String? = null,
+    val opacityKey: String? = null,
+    val gradientColorKey: List<String>? = null,
+    val shadowKey: String? = null,
+    val shadowOpacityKey: String? = null,
+    val separator: String? = null
 )

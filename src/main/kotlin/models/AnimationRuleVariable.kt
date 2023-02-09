@@ -1,10 +1,14 @@
 package io.kannelle.models
 
+import kotlinx.serialization.Serializable
+
+@Serializable
 data class AnimationRuleVariable(
     val key: String,
     val value: String,
     val type: String,
-    var result: String?) {
+    val description: String? = null,
+    var result: String? = null) {
 
     companion object{
         const val TYPE_STRING = "string"
