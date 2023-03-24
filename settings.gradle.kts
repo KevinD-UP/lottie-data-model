@@ -1,3 +1,19 @@
+pluginManagement {
+    repositories {
+        google()
+        gradlePluginPortal()
+        mavenCentral()
+    }
+}
 
-rootProject.name = "animation-transformer-rework"
+dependencyResolutionManagement {
+    repositories {
+        google()
+        mavenCentral()
+    }
+}
 
+rootProject.name = "AnimationTransformer"
+include(":androidApp")
+include(":shared")
+include(":jsApp")
