@@ -46,7 +46,7 @@ data class TextDocumentKeyframe(
     /**
      * Time
      */
-    val t: Int
+    val t: JsonElement
 )
 
 @Serializable
@@ -74,19 +74,19 @@ data class TextDocument(
      * Color as a [r, g, b] array with values in [0, 1] range
      * array of size >=3 and <= 4
      */
-    val fc: List<Int>,
+    val fc: List<JsonElement>,
 
     /**
      * Stroke Color
      * Color as a [r, g, b] array with values in [0, 1] range
      * array of size >=3 and <= 4
      */
-    val sc: List<Int>? = null,
+    val sc: List<JsonElement>? = null,
 
     /**
      * Stroke Width
      */
-    val sw: Int? = null,
+    val sw: JsonElement? = null,
 
     /**
      * Stroke Over Fill
@@ -97,27 +97,27 @@ data class TextDocument(
     /**
      * Font Size
      */
-    val s: Int? = null,
+    val s: JsonElement? = null,
 
     /**
      * Line Height
      * Distance between lines on multiline or wrapped text
      */
-    val lh: Int? = null,
+    val lh: JsonElement? = null,
 
     /**
      * Wrap Size
      * Size of the box containing the text
      * array of 2 items
      */
-    val sz: List<Int>? = null,
+    val sz: List<JsonElement>? = null,
 
     /**
      * Wrap position
      * Position of the box containing the text
      * array of 2 items
      */
-    val ps: List<Int>? = null,
+    val ps: List<JsonElement>? = null,
 
     /**
      * Text
@@ -138,12 +138,12 @@ data class TextDocument(
     /**
      * Text Tracking
      */
-    val tr: Int? = null,
+    val tr: JsonElement? = null,
 
     /**
      * Baseline Shift
      */
-    val ls: Int? = null
+    val ls: JsonElement? = null
 )
 
 @Serializable

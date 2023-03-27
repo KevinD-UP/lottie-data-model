@@ -38,7 +38,7 @@ interface BaseLayer: VisualObject {
     /**
      * Time Stretch
      */
-    val sr: Int?
+    val sr: JsonElement?
 
     /**
      * Frame when the layer becomes visible

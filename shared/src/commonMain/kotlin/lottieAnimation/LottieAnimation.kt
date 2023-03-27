@@ -51,7 +51,7 @@ data class LottieAnimation (
     /**
      * Framerate in frames per second
      */
-    val fr: Int,
+    val fr: JsonElement,
 
     /**
      * Height of the animation
@@ -61,7 +61,7 @@ data class LottieAnimation (
     /**
      * "In Point", which frame the animation starts at (usually 0)
      */
-    val ip: Int,
+    val ip: JsonElement,
 
     /**
      * Markers defining named sections of the composition.
@@ -81,7 +81,7 @@ data class LottieAnimation (
      * "Out Point", which frame the animation stops/loops at, which makes this the duration in
      * frames when `ip` is 0
      */
-    val op: Int,
+    val op: JsonElement,
 
     val v: String? = null,
 
@@ -157,7 +157,7 @@ data class Asset (
     /**
      * Framerate in frames per second
      */
-    val fr: Int? = null,
+    val fr: JsonElement? = null,
 
     /**
      * Extra composition
@@ -1243,7 +1243,7 @@ data class Data (
     /**
      * Frame when the layer becomes visible
      */
-    val ip: Int? = null,
+    val ip: JsonElement? = null,
 
     /**
      * Layer transform
@@ -1253,7 +1253,7 @@ data class Data (
     /**
      * Frame when the layer becomes invisible
      */
-    val op: Int? = null,
+    val op: JsonElement? = null,
 
     /**
      * ID of the precomp as specified in the assets
@@ -1261,8 +1261,8 @@ data class Data (
     @SerialName("refId")
     val refID: String? = null,
 
-    val sr: Int? = null,
-    val st: Int? = null
+    val sr: JsonElement? = null,
+    val st: JsonElement? = null
 )
 
 /**
@@ -1290,7 +1290,7 @@ data class Precomposition (
     /**
      * Framerate in frames per second
      */
-    val fr: Int? = null,
+    val fr: JsonElement? = null,
 
     /**
      * Extra composition
@@ -1314,7 +1314,7 @@ data class Font (
     /**
      * Text will be moved down based on this value
      */
-    val ascent: Int? = null,
+    val ascent: JsonElement? = null,
 
     /**
      * CSS Class applied to text objects using this font
