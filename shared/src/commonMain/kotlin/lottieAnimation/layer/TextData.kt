@@ -46,7 +46,7 @@ data class TextDocumentKeyframe(
     /**
      * Time
      */
-    val t: Double
+    val t: Int
 )
 
 @Serializable
@@ -74,19 +74,19 @@ data class TextDocument(
      * Color as a [r, g, b] array with values in [0, 1] range
      * array of size >=3 and <= 4
      */
-    val fc: List<Double>,
+    val fc: List<Int>,
 
     /**
      * Stroke Color
      * Color as a [r, g, b] array with values in [0, 1] range
      * array of size >=3 and <= 4
      */
-    val sc: List<Double>? = null,
+    val sc: List<Int>? = null,
 
     /**
      * Stroke Width
      */
-    val sw: Double? = null,
+    val sw: Int? = null,
 
     /**
      * Stroke Over Fill
@@ -97,27 +97,27 @@ data class TextDocument(
     /**
      * Font Size
      */
-    val s: Double? = null,
+    val s: Int? = null,
 
     /**
      * Line Height
      * Distance between lines on multiline or wrapped text
      */
-    val lh: Double? = null,
+    val lh: Int? = null,
 
     /**
      * Wrap Size
      * Size of the box containing the text
      * array of 2 items
      */
-    val sz: List<Double>? = null,
+    val sz: List<Int>? = null,
 
     /**
      * Wrap position
      * Position of the box containing the text
      * array of 2 items
      */
-    val ps: List<Double>? = null,
+    val ps: List<Int>? = null,
 
     /**
      * Text
@@ -138,12 +138,12 @@ data class TextDocument(
     /**
      * Text Tracking
      */
-    val tr: Double? = null,
+    val tr: Int? = null,
 
     /**
      * Baseline Shift
      */
-    val ls: Double? = null
+    val ls: Int? = null
 )
 
 @Serializable

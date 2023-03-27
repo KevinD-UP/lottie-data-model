@@ -38,7 +38,7 @@ interface BaseLayer: VisualObject {
     /**
      * Time Stretch
      */
-    val sr: Double?
+    val sr: Int?
 
     /**
      * Frame when the layer becomes visible

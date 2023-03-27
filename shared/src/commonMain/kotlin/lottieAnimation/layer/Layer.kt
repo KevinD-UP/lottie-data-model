@@ -17,7 +17,7 @@ data class PrecompositionLayer(
     override val hd: Boolean? = null,
     override val ind: Int? = null,
     override val parent: Int? = null,
-    override val sr: Double? = null,
+    override val sr: Int? = null,
     override val ip: JsonElement,
     override val op: JsonElement,
     override val st: JsonElement,
@@ -69,7 +69,7 @@ data class SolidColorLayer(
     override val hd: Boolean? = null,
     override val ind: Int? = null,
     override val parent: Int? = null,
-    override val sr: Double? = null,
+    override val sr: Int? = null,
     override val ip: JsonElement,
     override val op: JsonElement,
     override val st: JsonElement,
@@ -96,12 +96,12 @@ data class SolidColorLayer(
     /**
      * Height
      */
-    val sh: Double,
+    val sh: Int,
 
     /**
      * Width
      */
-    val sw: Double
+    val sw: Int
 ) : Layer(), VisualLayer {
     override val ty: LayerType = LayerType.SOLID_COLOR_LAYER
 }
@@ -115,7 +115,7 @@ data class ImageLayer(
     override val hd: Boolean? = null,
     override val ind: Int? = null,
     override val parent: Int? = null,
-    override val sr: Double? = null,
+    override val sr: Int? = null,
     override val ip: JsonElement,
     override val op: JsonElement,
     override val st: JsonElement,
@@ -152,7 +152,7 @@ data class ShapeLayer(
     override val hd: Boolean? = null,
     override val ind: Int? = null,
     override val parent: Int? = null,
-    override val sr: Double? = null,
+    override val sr: Int? = null,
     override val ip: JsonElement,
     override val op: JsonElement,
     override val st: JsonElement,
@@ -188,7 +188,7 @@ data class AudioLayer(
     override val hd: Boolean? = null,
     override val ind: Int? = null,
     override val parent: Int? = null,
-    override val sr: Double? = null,
+    override val sr: Int? = null,
     override val ip: JsonElement,
     override val op: JsonElement,
     override val st: JsonElement,
@@ -216,7 +216,7 @@ data class CameraLayer(
     override val hd: Boolean? = null,
     override val ind: Int? = null,
     override val parent: Int? = null,
-    override val sr: Double? = null,
+    override val sr: Int? = null,
     override val ip: JsonElement,
     override val op: JsonElement,
     override val st: JsonElement,
@@ -243,7 +243,7 @@ data class DataLayer(
     override val hd: Boolean? = null,
     override val ind: Int? = null,
     override val parent: Int? = null,
-    override val sr: Double? = null,
+    override val sr: Int? = null,
     override val ip: JsonElement,
     override val op: JsonElement,
     override val st: JsonElement,
@@ -266,7 +266,7 @@ data class NullLayer(
     override val hd: Boolean? = null,
     override val ind: Int? = null,
     override val parent: Int? = null,
-    override val sr: Double? = null,
+    override val sr: Int? = null,
     override val ip: JsonElement,
     override val op: JsonElement,
     override val st: JsonElement,
@@ -297,7 +297,7 @@ data class TextLayer(
     override val hd: Boolean? = null,
     override val ind: Int? = null,
     override val parent: Int? = null,
-    override val sr: Double? = null,
+    override val sr: Int? = null,
     override val ip: JsonElement,
     override val op: JsonElement,
     override val st: JsonElement,

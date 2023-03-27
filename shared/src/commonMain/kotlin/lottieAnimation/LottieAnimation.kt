@@ -51,7 +51,7 @@ data class LottieAnimation (
     /**
      * Framerate in frames per second
      */
-    val fr: Double,
+    val fr: Int,
 
     /**
      * Height of the animation
@@ -61,7 +61,7 @@ data class LottieAnimation (
     /**
      * "In Point", which frame the animation starts at (usually 0)
      */
-    val ip: Double,
+    val ip: Int,
 
     /**
      * Markers defining named sections of the composition.
@@ -81,7 +81,7 @@ data class LottieAnimation (
      * "Out Point", which frame the animation stops/loops at, which makes this the duration in
      * frames when `ip` is 0
      */
-    val op: Double,
+    val op: Int,
 
     val v: String? = null,
 
@@ -139,7 +139,7 @@ data class Asset (
     /**
      * Height of the image
      */
-    val h: Double? = null,
+    val h: Int? = null,
 
     /**
      * Marks as part of an image sequence if present
@@ -149,7 +149,7 @@ data class Asset (
     /**
      * Width of the image
      */
-    val w: Double? = null,
+    val w: Int? = null,
 
     @Serializable(with = LayerListSerializer::class)
     val layers: List<Layer>,
@@ -157,7 +157,7 @@ data class Asset (
     /**
      * Framerate in frames per second
      */
-    val fr: Double? = null,
+    val fr: Int? = null,
 
     /**
      * Extra composition
@@ -645,7 +645,7 @@ data class ShapeList (
     val cix: Long? = null,
 
     val it: List<ShapeList>? = null,
-    val np: Double? = null,
+    val np: Int? = null,
 
     /**
      * Bezier path
@@ -1064,7 +1064,7 @@ data class GradientColors (
 
 @Serializable
 sealed class Ml {
-    class DoubleValue(val value: Double) : Ml()
+    class IntValue(val value: Int) : Ml()
     class ValueValue(val value: Value)   : Ml()
 }
 
@@ -1223,9 +1223,9 @@ data class CharacterData (
     val ch: String,
     val data: Data,
     val fFamily: String,
-    val size: Double,
+    val size: Int,
     val style: String,
-    val w: Double
+    val w: Int
 )
 
 /**
@@ -1243,7 +1243,7 @@ data class Data (
     /**
      * Frame when the layer becomes visible
      */
-    val ip: Double? = null,
+    val ip: Int? = null,
 
     /**
      * Layer transform
@@ -1253,7 +1253,7 @@ data class Data (
     /**
      * Frame when the layer becomes invisible
      */
-    val op: Double? = null,
+    val op: Int? = null,
 
     /**
      * ID of the precomp as specified in the assets
@@ -1261,8 +1261,8 @@ data class Data (
     @SerialName("refId")
     val refID: String? = null,
 
-    val sr: Double? = null,
-    val st: Double? = null
+    val sr: Int? = null,
+    val st: Int? = null
 )
 
 /**
@@ -1290,7 +1290,7 @@ data class Precomposition (
     /**
      * Framerate in frames per second
      */
-    val fr: Double? = null,
+    val fr: Int? = null,
 
     /**
      * Extra composition
@@ -1314,7 +1314,7 @@ data class Font (
     /**
      * Text will be moved down based on this value
      */
-    val ascent: Double? = null,
+    val ascent: Int? = null,
 
     /**
      * CSS Class applied to text objects using this font
@@ -1341,8 +1341,8 @@ data class Font (
 @Serializable
 data class Marker (
     val cm: String? = null,
-    val dr: Double? = null,
-    val tm: Double? = null
+    val dr: Int? = null,
+    val tm: Int? = null
 )
 
 /**
@@ -1350,19 +1350,19 @@ data class Marker (
  */
 @Serializable
 data class MotionBlur (
-    val asl: Double? = null,
+    val asl: Int? = null,
 
     /**
      * Angle in degrees
      */
-    val sa: Double? = null,
+    val sa: Int? = null,
 
     /**
      * Angle in degrees
      */
-    val sp: Double? = null,
+    val sp: Int? = null,
 
-    val spf: Double? = null
+    val spf: Int? = null
 )
 
 /**
