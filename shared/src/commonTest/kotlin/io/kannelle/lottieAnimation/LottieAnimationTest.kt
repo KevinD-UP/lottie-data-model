@@ -23,7 +23,6 @@ class LottieAnimationTest {
 
         animationsToTest.forEach {filename ->
             val path = filename.toPath()
-            println("path = $path")
             val animationJson = FileSystem.SYSTEM.read(path) {
                 readUtf8()
             }
