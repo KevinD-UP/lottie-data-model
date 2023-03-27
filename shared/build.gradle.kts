@@ -1,5 +1,5 @@
 plugins {
-    kotlin("multiplatform")
+    kotlin("multiplatform") version "1.8.0"
     kotlin("native.cocoapods")
     id("com.android.library")
     kotlin("plugin.serialization") version "1.8.0"
@@ -65,7 +65,6 @@ kotlin {
             kotlin.srcDir("build/generated/ksp/test/kotlin")
         }
         val androidMain by getting
-        val androidUnitTest by getting
         val iosX64Main by getting
         val iosArm64Main by getting
         val iosSimulatorArm64Main by getting
