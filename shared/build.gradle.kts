@@ -4,6 +4,7 @@ plugins {
     id("com.android.library")
     kotlin("plugin.serialization") version "1.8.0"
     id("com.google.devtools.ksp") version "1.8.10-1.0.9"
+    id("io.kotest.multiplatform") version "5.0.2"
 }
 
 kotlin {
@@ -42,16 +43,17 @@ kotlin {
     }
     
     sourceSets {
+        val okioVersion = "3.3.0"
         val commonMain by getting {
             dependencies {
                 implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.5.0-RC")
                 //ksp("at.kopyk:kopykat-ksp:1.0.1")
                 //implementation("com.google.devtools.ksp:symbol-processing-api:")
                 //implementation("com.google.devtools.ksp:symbol-processing-api:1.8.10-1.0.9")
+                implementation("com.squareup.okio:okio:$okioVersion")
             }
             kotlin.srcDir("build/generated/ksp/main/kotlin")
         }
-
 
         val commonTest by getting {
             dependencies {
@@ -61,6 +63,7 @@ kotlin {
                 //implementation("io.kotest:kotest-assertions-core:5.5.5")
                 //implementation("io.kotest:kotest-assertions-json:5.5.5")
                 //implementation("com.squareup.okio:okio:3.3.0")
+                implementation("com.squareup.okio:okio-fakefilesystem:$okioVersion")
             }
             kotlin.srcDir("build/generated/ksp/test/kotlin")
         }
