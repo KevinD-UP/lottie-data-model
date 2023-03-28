@@ -2,6 +2,9 @@ package lottieAnimation.layer
 
 import kotlinx.serialization.Serializable
 import kotlinx.serialization.json.JsonObject
+import lottieAnimation.layer.properties.Position
+import lottieAnimation.layer.serializers.PositionSerializer
+import lottieAnimation.layer.serializers.ShapeListSerializer
 
 @Serializable
 data class Transform(
@@ -14,7 +17,8 @@ data class Transform(
      * Position
      * Transform Position
      */
-    val p: JsonObject? = null,
+    @Serializable(with = PositionSerializer::class)
+    val p: Position? = null,
     /**
      * Scale
      * Transform Scale

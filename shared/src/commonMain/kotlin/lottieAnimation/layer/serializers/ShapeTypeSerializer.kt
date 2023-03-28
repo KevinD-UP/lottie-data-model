@@ -9,7 +9,7 @@ import kotlinx.serialization.encoding.Encoder
 import lottieAnimation.layer.ShapeType
 
 object ShapeTypeSerializer : KSerializer<ShapeType> {
-    override val descriptor: SerialDescriptor = PrimitiveSerialDescriptor("layerType", PrimitiveKind.INT)
+    override val descriptor: SerialDescriptor = PrimitiveSerialDescriptor("shapeType", PrimitiveKind.INT)
 
     override fun serialize(output: Encoder, obj: ShapeType) {
         output.encodeString(obj.toString())
