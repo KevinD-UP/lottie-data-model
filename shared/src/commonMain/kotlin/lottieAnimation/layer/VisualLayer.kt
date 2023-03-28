@@ -13,7 +13,7 @@ interface VisualLayer: BaseLayer {
     /**
      * Layer transform
      */
-    val ks: JsonElement
+    val ks: Transform
 
     /**
      * Auto Orient
