@@ -4,6 +4,7 @@ import kotlinx.serialization.Serializable
 import kotlinx.serialization.json.JsonArray
 import kotlinx.serialization.json.JsonElement
 import kotlinx.serialization.json.JsonObject
+import lottieAnimation.layer.serializers.ShapeListSerializer
 
 @Serializable
 sealed class Layer
@@ -174,7 +175,8 @@ data class ShapeLayer(
     /**
      * Shapes
      */
-    val shapes: JsonArray
+    @Serializable(with = ShapeListSerializer::class)
+    val shapes: List<Shape>?
 ): Layer(), VisualLayer {
     override val ty: LayerType = LayerType.SHAPE_LAYER
 }
