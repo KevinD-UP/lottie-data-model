@@ -1,5 +1,6 @@
 package io.kannelle.lottieAnimation
 
+import kotlinx.serialization.ExperimentalSerializationApi
 import kotlinx.serialization.decodeFromString
 import kotlinx.serialization.encodeToString
 import kotlinx.serialization.json.*
@@ -10,6 +11,7 @@ import kotlin.test.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertNotNull
 
+@ExperimentalSerializationApi
 class LottieAnimationTest {
     fun animationsFor(theme: String): List<String> {
         return listOf(
@@ -43,7 +45,7 @@ class LottieAnimationTest {
             val animationJson = FileSystem.SYSTEM.read(path) {
                 readUtf8()
             }
-            val json = Json{
+            val json = Json {
                 explicitNulls = false
                 encodeDefaults = true
             }
