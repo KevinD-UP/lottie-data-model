@@ -7,24 +7,24 @@ import kotlinx.serialization.encoding.Encoder
 import kotlinx.serialization.json.*
 import lottieAnimation.layer.properties.*
 
-object PositionKSerializer : KSerializer<PositionK> {
-    override val descriptor: SerialDescriptor = PositionK.serializer().descriptor
+object PositionKSerializer : KSerializer<MultiDimensionalK> {
+    override val descriptor: SerialDescriptor = MultiDimensionalK.serializer().descriptor
 
-    override fun serialize(encoder: Encoder, value: PositionK) {
+    override fun serialize(encoder: Encoder, value: MultiDimensionalK) {
         when (value) {
-            is PositionKeyframe -> encoder.encodeSerializableValue(PositionKeyframe.serializer(), value)
-            is PositionKPrimitive -> encoder.encodeSerializableValue(JsonPrimitive.serializer(), value.value)
+            is MultiDimensionObject -> encoder.encodeSerializableValue(MultiDimensionObject.serializer(), value)
+            is MultiDimensionalKPrimitive -> encoder.encodeSerializableValue(JsonPrimitive.serializer(), value.value)
         }
     }
 
-    override fun deserialize(decoder: Decoder): PositionK {
+    override fun deserialize(decoder: Decoder): MultiDimensionalK {
         val layer = decoder.decodeSerializableValue(JsonElement.serializer())
         return when (layer) {
             is JsonObject -> Json.decodeFromJsonElement(
-                PositionKeyframe.serializer(),
+                MultiDimensionObject.serializer(),
                 layer.jsonObject
             )
-            is JsonPrimitive -> PositionKPrimitive(value = layer.jsonPrimitive)
+            is JsonPrimitive -> MultiDimensionalKPrimitive(value = layer.jsonPrimitive)
             else -> throw Exception("unknown PositionK Layer....")
         }
     }

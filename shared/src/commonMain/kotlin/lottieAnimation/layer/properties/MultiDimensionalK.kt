@@ -6,10 +6,10 @@ import kotlinx.serialization.json.JsonObject
 import kotlinx.serialization.json.JsonPrimitive
 
 @Serializable
-sealed class PositionK
+sealed class MultiDimensionalK
 
 @Serializable
-data class PositionKeyframe(
+data class MultiDimensionObject(
     val t: JsonPrimitive? = null,
     val s: JsonArray? = null,
     val i: JsonObject? = null,
@@ -18,11 +18,11 @@ data class PositionKeyframe(
     val e: JsonArray? = null,
     val to: JsonArray? = null,
     val ti: JsonArray? = null
-): PositionK()
+): MultiDimensionalK()
 
 
 
 @Serializable
-data class PositionKPrimitive(
+data class MultiDimensionalKPrimitive(
     val value: JsonPrimitive
-): PositionK()
+): MultiDimensionalK()

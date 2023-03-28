@@ -7,21 +7,21 @@ import kotlinx.serialization.encoding.Encoder
 import kotlinx.serialization.json.Json
 import kotlinx.serialization.json.JsonObject
 import kotlinx.serialization.json.jsonObject
-import lottieAnimation.layer.properties.MultiDimensional
+import lottieAnimation.layer.properties.MultiDimensionalSimple
 import lottieAnimation.layer.properties.MultiDimensionalKeyframed
-import lottieAnimation.layer.properties.Position
+import lottieAnimation.layer.properties.MultiDimensional
 
-object PositionSerializer : KSerializer<Position> {
-    override val descriptor: SerialDescriptor = Position.serializer().descriptor
+object MultiDimensionalSerializer : KSerializer<MultiDimensional> {
+    override val descriptor: SerialDescriptor = MultiDimensional.serializer().descriptor
 
-    override fun serialize(encoder: Encoder, value: Position) {
+    override fun serialize(encoder: Encoder, value: MultiDimensional) {
         when (value) {
-            is MultiDimensional -> encoder.encodeSerializableValue(MultiDimensional.serializer(), value)
+            is MultiDimensionalSimple -> encoder.encodeSerializableValue(MultiDimensionalSimple.serializer(), value)
             is MultiDimensionalKeyframed -> encoder.encodeSerializableValue(MultiDimensionalKeyframed.serializer(), value)
         }
     }
 
-    override fun deserialize(decoder: Decoder): Position {
+    override fun deserialize(decoder: Decoder): MultiDimensional {
         val layer = decoder.decodeSerializableValue(JsonObject.serializer())
 
         return if (layer.jsonObject["ti"] != null && layer.jsonObject["to"] != null) {
@@ -31,7 +31,7 @@ object PositionSerializer : KSerializer<Position> {
             )
         } else {
             Json.decodeFromJsonElement(
-                MultiDimensional.serializer(),
+                MultiDimensionalSimple.serializer(),
                 layer.jsonObject
             )
         }

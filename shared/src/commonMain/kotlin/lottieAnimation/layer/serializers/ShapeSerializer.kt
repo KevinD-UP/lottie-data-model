@@ -81,8 +81,12 @@ object ShapeSerializer : KSerializer<Shape> {
                 ShapeTrim.serializer(),
                 layer.jsonObject
             )
+            ShapeType.STROKE -> Json.decodeFromJsonElement(
+                ShapeStroke.serializer(),
+                layer.jsonObject
+            )
 
-            else -> throw Exception("unknown Layer....${layer.jsonObject}")
+            else -> throw Exception("unknown Shape....${layer.jsonObject}")
         }
     }
 }
