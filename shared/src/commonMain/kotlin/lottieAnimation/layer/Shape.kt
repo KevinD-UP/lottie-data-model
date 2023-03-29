@@ -144,12 +144,14 @@ data class ShapeStar(
     val nm: String,
     val d: JsonElement? = null,
     val ty: String,
-    val p: JsonObject,
+    @Serializable(with = MultiDimensionalSerializer::class)
+    val p: MultiDimensional? = null,
     val ir: JsonObject,
     val `is`: JsonObject,
     val or: JsonObject,
     val os: JsonObject,
-    val r: JsonObject,
+    @Serializable(with = MultiDimensionalSerializer::class)
+    val r: MultiDimensional? = null,
     val pt: JsonObject,
     val sy: JsonObject,
     val hd: Boolean? = null,
@@ -177,13 +179,16 @@ data class ShapeTransform(
     val ind: JsonPrimitive? = null,
     val nm: String,
     val ty: String,
-    val a: JsonObject? = null,
+    @Serializable(with = MultiDimensionalSerializer::class)
+    val a: MultiDimensional? = null,
     @Serializable(with = MultiDimensionalSerializer::class)
     val p: MultiDimensional? = null,
     @Serializable(with = MultiDimensionalSerializer::class)
     val s: MultiDimensional? = null,
-    val r: JsonObject? = null,
-    val o: JsonElement? = null,
+    @Serializable(with = MultiDimensionalSerializer::class)
+    val r: MultiDimensional? = null,
+    @Serializable(with = MultiDimensionalSerializer::class)
+    val o: MultiDimensional? = null,
     val sk: JsonObject? = null,
     val sa: JsonObject? = null,
     val cix: Int? = null,

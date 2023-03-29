@@ -6,10 +6,10 @@ import kotlinx.serialization.json.JsonObject
 import kotlinx.serialization.json.JsonPrimitive
 
 @Serializable
-sealed class MultiDimensionalK
+sealed class MultiDimensionalNodeObjectOrPrimitive
 
 @Serializable
-data class MultiDimensionObject(
+data class MultiDimensionNodeObject(
     val t: JsonPrimitive? = null,
     val s: JsonArray? = null,
     val i: JsonObject? = null,
@@ -18,11 +18,10 @@ data class MultiDimensionObject(
     val e: JsonArray? = null,
     val to: JsonArray? = null,
     val ti: JsonArray? = null
-): MultiDimensionalK()
-
+): MultiDimensionalNodeObjectOrPrimitive()
 
 
 @Serializable
-data class MultiDimensionalKPrimitive(
+data class MultiDimensionalNodePrimitive(
     val value: JsonPrimitive
-): MultiDimensionalK()
+): MultiDimensionalNodeObjectOrPrimitive()

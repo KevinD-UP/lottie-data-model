@@ -23,7 +23,6 @@ object MultiDimensionalSerializer : KSerializer<MultiDimensional> {
 
     override fun deserialize(decoder: Decoder): MultiDimensional {
         val layer = decoder.decodeSerializableValue(JsonObject.serializer())
-
         return if (layer.jsonObject["ti"] != null && layer.jsonObject["to"] != null) {
             Json.decodeFromJsonElement(
                 MultiDimensionalKeyframed.serializer(),

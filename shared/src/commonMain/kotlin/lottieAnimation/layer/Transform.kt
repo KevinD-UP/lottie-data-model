@@ -11,7 +11,8 @@ data class Transform(
      * Anchor point
      * Transform Anchor Point
      */
-    val a: JsonObject? = null,
+    @Serializable(with = MultiDimensionalSerializer::class)
+    val a: MultiDimensional? = null,
     /**
      * Position
      * Transform Position
@@ -22,17 +23,20 @@ data class Transform(
      * Scale
      * Transform Scale
      */
-    val s: JsonObject? = null,
+    @Serializable(with = MultiDimensionalSerializer::class)
+    val s: MultiDimensional? = null,
     /**
      * Rotation
      * Transform Rotation
      */
-    val r: JsonObject? = null,
+    @Serializable(with = MultiDimensionalSerializer::class)
+    val r: MultiDimensional? = null,
     /**
      * Opacity
      * Transform Opacity
      */
-    val o: JsonObject? = null,
+    @Serializable(with = MultiDimensionalSerializer::class)
+    val o: MultiDimensional? = null,
     /**
      * Position X
      * Transform Position X
