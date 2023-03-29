@@ -9,13 +9,7 @@ plugins {
 
 kotlin {
     jvmToolchain(8)
-    android {
-        compilations.all {
-            kotlinOptions {
-                jvmTarget = "1.8"
-            }
-        }
-    }
+    android()
     iosX64()
     iosArm64()
     iosSimulatorArm64()
@@ -68,6 +62,7 @@ kotlin {
             kotlin.srcDir("build/generated/ksp/test/kotlin")
         }
         val androidMain by getting
+//        val androidTest by getting
         val iosX64Main by getting
         val iosArm64Main by getting
         val iosSimulatorArm64Main by getting
@@ -105,8 +100,8 @@ ksp {
 }
 
 android {
-    namespace = "io.kannelle.testkmp"
     compileSdk = 33
+    sourceSets["main"].manifest.srcFile("src/androidMain/AndroidManifest.xml")
     defaultConfig {
         minSdk = 24
         targetSdk = 33
