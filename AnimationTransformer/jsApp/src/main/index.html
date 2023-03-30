@@ -1,27 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Including a External JavaScript File</title>
+    <script type="text/javascript" src="../../../shared/build/developmentExecutable/kmp_lib.js"></script>
+    <script src="lottie.min.js" type="text/javascript"></script>
+
 </head>
+
 <body>
-<script type="text/javascript" src="../../../shared/build/developmentExecutable/kmp_lib.js"></script>
-<script>
-    var kmpLib = this['kmpLib'];
-    console.log(kmpLib);
-    var example = new kmpLib.io.kannelle.testkmp.AnimationTransformerExample();
-    console.log(example.animText());
-    // Get a reference to the body element
-    var body = document.getElementsByTagName('body')[0];
-
-    // Create a new paragraph element to display the greeting
-    var paragraph = document.createElement('p');
-
-    // Set the contents of the paragraph element to the greeting
-    paragraph.textContent = example.animText();
-
-    // Add the paragraph element to the body
-    body.appendChild(paragraph);
-</script>
+    <div id="container" style="height: 100%; width: 100%;">
+    </div>
+    <script>
+        var kmpLib = this['kmpLib'];
+        var example = new kmpLib.io.kannelle.testkmp.AnimationTransformerExample();
+        var animationData = JSON.parse(example.animJsonString(2));
+        var animation = bodymovin.loadAnimation({
+            container: document.getElementById('container'), // Required            
+            renderer: 'svg', // Required
+            loop: true, // Optional
+            autoplay: true, // Optional
+            animationData: animationData,
+            name: "Hello World", // Name for future reference. Optional.
+        })
+    </script>
 </body>
+
 </html>

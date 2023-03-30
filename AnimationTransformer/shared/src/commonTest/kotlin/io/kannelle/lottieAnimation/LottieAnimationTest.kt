@@ -13,7 +13,7 @@ import kotlin.test.assertNotNull
 
 @ExperimentalSerializationApi
 class LottieAnimationTest {
-    fun animationsFor(theme: String): List<String> {
+    private fun animationsFor(theme: String): List<String> {
         return listOf(
             "src/commonTest/resources/animations/$theme/a.json",
             "src/commonTest/resources/animations/$theme/b.json",
