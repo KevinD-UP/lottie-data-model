@@ -37,3 +37,15 @@ bin/
 
 ### Mac OS ###
 .DS_Store
+
+### KMM ###
+*.iml
+.gradle
+.idea
+.DS_Store
+build
+captures
+.externalNativeBuild
+.cxx
+local.properties
+xcuserdata

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Including a External JavaScript File</title>
+    <script type="text/javascript" src="../../../shared/build/developmentExecutable/kmp_lib.js"></script>
+    <script src="lottie.min.js" type="text/javascript"></script>
+
+</head>
+
+<body>
+    <div id="container" style="height: 100%; width: 100%;">
+    </div>
+    <script>
+        var kmpLib = this['kmpLib'];
+        var example = new kmpLib.io.kannelle.testkmp.AnimationTransformerExample();
+        var animationData = JSON.parse(example.animJsonString(2));
+        var animation = bodymovin.loadAnimation({
+            container: document.getElementById('container'), // Required            
+            renderer: 'svg', // Required
+            loop: true, // Optional
+            autoplay: true, // Optional
+            animationData: animationData,
+            name: "Hello World", // Name for future reference. Optional.
+        })
+    </script>
+</body>
+
+</html>
