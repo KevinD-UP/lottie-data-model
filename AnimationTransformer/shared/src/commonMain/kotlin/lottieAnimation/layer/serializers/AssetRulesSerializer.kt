@@ -5,6 +5,9 @@ import kotlinx.serialization.encoding.Decoder
 import kotlinx.serialization.encoding.Encoder
 
 object AssetRulesSerializer : KSerializer<AssetRules> {
+
+    override val descriptor: SerialDescriptor = AssetRules.serializer().descriptor
+
     override fun serialize(encoder: Encoder, value: AssetRules) {
         encoder.encodeNullableSerializableValue(MapSerializer(String.serializer(), String.serializer()), value.originalColors)
         encoder.encodeNullableSerializableValue(String.serializer(), value.shadowColorKey)

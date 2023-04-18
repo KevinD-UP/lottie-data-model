@@ -5,6 +5,8 @@ import kotlinx.serialization.encoding.Decoder
 import kotlinx.serialization.encoding.Encoder
 
 object LayerRuleSerializer : KSerializer<LayerRule> {
+
+    override val descriptor: SerialDescriptor = LayerRule.serializer().descriptor
     override fun serialize(encoder: Encoder, value: LayerRule) {
         encoder.encodeInt(value.ind)
         encoder.encodeNullableSerializableValue(ListSerializer(Int.serializer()), value.textInd)

@@ -5,6 +5,8 @@ import kotlinx.serialization.encoding.Decoder
 import kotlinx.serialization.encoding.Encoder
 
 object AnimationRulesSerializer : KSerializer<AnimationRules> {
+
+    override val descriptor: SerialDescriptor = AnimationRules.serializer().descriptor
     override fun serialize(encoder: Encoder, value: AnimationRules) {
         encoder.encodeSerializableValue(ListSerializer(LayerRule.serializer()), value.layerRules)
         encoder.encodeNullableSerializableValue(AssetRules.serializer(), value.assetRules)

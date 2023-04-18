@@ -5,6 +5,8 @@ import kotlinx.serialization.encoding.Decoder
 import kotlinx.serialization.encoding.Encoder
 
 object AnimationRuleVariableSerializer : KSerializer<AnimationRuleVariable> {
+
+    override val descriptor: SerialDescriptor = AnimationRuleVariable.serializer().descriptor
     override fun serialize(encoder: Encoder, value: AnimationRuleVariable) {
         encoder.encodeString(value.key)
         encoder.encodeString(value.value)
