@@ -1,4 +1,4 @@
-package lottieAnimation.layer.properties
+package lottieAnimation.rules.properties
 
 import kotlinx.serialization.Serializable
 
