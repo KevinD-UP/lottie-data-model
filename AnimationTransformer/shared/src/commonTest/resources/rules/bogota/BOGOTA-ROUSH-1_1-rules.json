@@ -1,0 +1,86 @@
+{
+  "layerRules": [
+    {
+      "ind": 4,
+      "fontKey": "text",
+      "textInd": [1],
+      "maxLines": 2,
+      "maxWidth": 1200,
+      "colorKey": "cta",
+      "shadowOpacityKey": "textShadowOpacity",
+      "shadowColorKey": "textShadow"
+    },
+    {
+      "ind": 5,
+      "fontKey": "text",
+      "textInd": [0],
+      "maxLines": 2,
+      "maxWidth": 1200,
+      "colorKey": "ctaTitle",
+      "fillColorKey": "ctaTitleBlinking",
+      "shadowOpacityKey": "textShadowOpacity",
+      "shadowColorKey": "textShadow"
+    },
+    {
+      "ind": 7,
+      "colorKey": "background"
+    },
+    {
+      "ind": 9,
+      "colorKey": "background"
+    }
+  ],
+  "assetRules": {
+    "originalColors": {
+      "shapeMain": "#00FFC6",
+      "shapeSecondary": "#572DED",
+      "shapeNeutral": "#FFFFFF"
+    },
+    "shadowOpacityKey": "shapeShadowOpacity",
+    "shadowColorKey": "shapeShadow"
+  },
+  "variables": [
+    {
+      "key": "$var0",
+      "value": "720+30-64.6+getAscent(4)",
+      "type": "number",
+      "description": "y bottom text position => y center + margin - anchor point + ascent"
+    },
+    {
+      "key": "$var1",
+      "value": "720-30-(getLineCount(5)-1)*getTextLineHeight(5)-getLastLineDescent(5)",
+      "type": "number",
+      "description": "y top text position => y center - margin - (line number - 1) * Line height - descent"
+    },
+    {
+      "key": "$var2",
+      "value": "720-getTextLayerWidth(4)-20-20",
+      "type": "number",
+      "description": "x bottom text position => x center - width - alpha text margin - security margin"
+    },
+    {
+      "key": "$var3",
+      "value": "720+796.939-getTextLayerWidth(4)/2-20",
+      "type": "number",
+      "description": "x alpha text shape width => x center + anchor point - width/2 - alpha text margin"
+    },
+    {
+      "key": "$var4",
+      "value": "(720+796.939-getTextLayerWidth(4)/2-20)/2 ",
+      "type": "number",
+      "description": "x alpha text position => (x center + anchor point - width/2 - alpha text margin)/2"
+    },
+    {
+      "key": "$var5",
+      "value": "getAnimationFrameCount()",
+      "type": "number",
+      "description": "end of transition out"
+    },
+    {
+      "key": "$var6",
+      "value": "getAnimationFrameCount()-15",
+      "type": "number",
+      "description": "start of transition out"
+    }
+  ]
+}

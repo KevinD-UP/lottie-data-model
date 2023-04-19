@@ -20,5 +20,6 @@ data class LayerRule(
     val gradientColorKey: List<String>?,
     val shadowKey: String?,
     val shadowOpacityKey: String?,
+    val shadowColorKey: String?,
     val separator: String?
 )

@@ -1,0 +1,172 @@
+{
+  "layerRules": [
+    {
+      "ind": 1,
+      "fontKey": "title",
+      "textInd": [0],
+      "maxLines": 1,
+      "maxWidth": 918,
+      "colorKey": "titleText"
+    },
+    {
+      "ind": 2,
+      "fontKey": "title",
+      "textInd": [1],
+      "maxLines": 1,
+      "maxWidth": 918,
+      "colorKey": "titleText"
+    },
+    {
+      "ind": 3,
+      "colorKey": "shape"
+    },
+    {
+      "ind": 4,
+      "colorKey": "shape"
+    },
+    {
+      "ind": 5,
+      "colorKey": "shape"
+    },
+    {
+      "ind": 6,
+      "colorKey": "shape"
+    },
+    {
+      "ind": 7,
+      "fontKey": "textBold",
+      "textInd": [2],
+      "maxLines": 1,
+      "maxWidth": 810,
+      "colorKey": "text"
+    },
+    {
+      "ind": 8,
+      "fontKey": "text",
+      "textInd": [3],
+      "maxLines": 1,
+      "maxWidth": 810,
+      "colorKey": "text"
+    },
+    {
+      "ind": 9,
+      "colorKey": "background",
+      "opacityKey": "backgroundOpacity"
+    },
+    {
+      "ind": 10,
+      "colorKey": "titleBackground",
+      "opacityKey": "titleBackgroundOpacity"
+    }
+  ],
+  "variables": [
+    {
+      "key": "",
+      "value": "harmonizeFontSize(1,2)",
+      "type": "unit",
+      "description": "harmonize titleTop and titleBottom fontSize"
+    },
+    {
+      "key": "$var0",
+      "value": "min(getBottomOfSafeArea()+getAscent(8)-getTextMeasureHeight(8)+getLastLineDescent(8)-120,1700+getAscent(8)-getTextMeasureHeight(8)+getLastLineDescent(8))",
+      "type": "number",
+      "description": "textBottom y position"
+    },
+    {
+      "key": "$var1",
+      "value": "$var0-getAscent(8)-getTextMeasureHeight(7)+getAscent(7)-40",
+      "type": "number",
+      "description": "textTop y position"
+    },
+    {
+      "key": "$var2",
+      "value": "max(getTextLayerWidth(7),getTextLayerWidth(8))+40",
+      "type": "number",
+      "description": "subTitleContainer width"
+    },
+    {
+      "key": "$var3",
+      "value": "getTextMeasureHeight(7)+40+getTextMeasureHeight(8)+100",
+      "type": "number",
+      "description": "subTitleContainer height"
+    },
+    {
+      "key": "$var4",
+      "value": "$var0-getAscent(8)-20",
+      "type": "number",
+      "description": "subTitleContainer position y"
+    },
+    {
+      "key": "$var5",
+      "value": "$var4+$var3/2+10",
+      "type": "number",
+      "description": "lineLeft position y"
+    },
+    {
+      "key": "$var6",
+      "value": "$var4-$var3/2-10",
+      "type": "number",
+      "description": "lineRight position y"
+    },
+    {
+      "key": "$var7",
+      "value": "540+$var2/2+5",
+      "type": "number",
+      "description": "lineRight position x"
+    },
+    {
+      "key": "$var8",
+      "value": "($var3+20)*-1",
+      "type": "number",
+      "description": "lineLeft end position y"
+    },
+    {
+      "key": "$var9",
+      "value": "$var3+20",
+      "type": "number",
+      "description": "lineRight end position y"
+    },
+    {
+      "key": "$var10",
+      "value": "540-$var2/2-5",
+      "type": "number",
+      "description": "lineLeft position x"
+    },
+    {
+      "key": "$var11",
+      "value": "$var4-$var3/2-5",
+      "type": "number",
+      "description": "lineTop position y"
+    },
+    {
+      "key": "$var12",
+      "value": "$var2+10",
+      "type": "number",
+      "description": "lineBottom end position x"
+    },
+    {
+      "key": "$var13",
+      "value": "($var2+10)*-1",
+      "type": "number",
+      "description": "lineTop end position x"
+    },
+    {
+      "key": "$var14",
+      "value": "$var4+$var3/2+5",
+      "type": "number",
+      "description": "lineTop position y"
+    },
+    {
+      "key": "$var15",
+      "value": "960-getTextMeasureHeight(1)+getAscent(1)-getTextFontSize(1)*0.2",
+      "type": "number",
+      "description": "titleTop position y"
+    },
+    {
+      "key": "$var16",
+      "value": "960+getAscent(2)+getTextFontSize(2)*0.2",
+      "type": "number",
+      "description": "titleBottom position y"
+    }
+  ]
+}

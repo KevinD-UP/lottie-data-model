@@ -1,0 +1,63 @@
+{
+  "layerRules": [
+    {
+      "ind": 1,
+      "fontKey": "textBold",
+      "textInd": [0],
+      "maxLines": 1,
+      "colorKey": "text",
+      "fillColorKey": "background"
+    },
+    {
+      "ind": 2,
+      "fontKey": "textBold",
+      "textInd": [1],
+      "maxLines": 4,
+      "maxWidth": 1104,
+      "colorKey": "text"
+    },
+    {
+      "ind": 3,
+      "fontKey": "textBold",
+      "textInd": [0],
+      "lines": 1,
+      "colorKey": "text"
+    },
+    {
+      "ind": 4,
+      "colorKey": "background"
+    }
+  ],
+  "variables": [
+    {
+      "key": "$var0",
+      "value": "-getTextMeasureHeight(1)/2",
+      "type": "number",
+      "description": "text top y anchor point"
+    },
+    {
+      "key": "$var1",
+      "value": "-getTextMeasureHeight(3)/2",
+      "type": "number",
+      "description": "background text y anchor point"
+    },
+    {
+      "key": "$var2",
+      "value": "getTextLayerWidth(1)/2+168",
+      "type": "number",
+      "description": "text top final x position"
+    },
+    {
+      "key": "$var3",
+      "value": "getTextMeasureHeight(1)/2+getAscent(2)+720+106",
+      "type": "number",
+      "description": "main text y position"
+    },
+    {
+      "key": "$var4",
+      "value": "getAnimationFrameCount()",
+      "type": "number",
+      "description": "end of animation"
+    }
+  ]
+}

@@ -7,7 +7,7 @@ data class AnimationRuleVariable(
     val key: String,
     val value: String,
     val type: String,
-    var result: String?) {
+    var description: String?) {
 
     companion object{
         const val TYPE_STRING = "string"

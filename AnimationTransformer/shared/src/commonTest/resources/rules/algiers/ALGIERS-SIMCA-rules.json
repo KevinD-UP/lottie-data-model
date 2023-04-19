@@ -1,0 +1,24 @@
+{
+  "layerRules": [
+    {
+      "ind": 1,
+      "fontKey": "textBoldItalic",
+      "textInd": [0],
+      "maxLines": 1,
+      "maxWidth": 1632,
+      "colorKey": "gradientText"
+    },
+    {
+      "ind": 2,
+      "gradientColorKey": ["gradientLeft", "gradientRight"]
+    }
+  ],
+  "variables": [
+    {
+      "key": "$var0",
+      "value": "540-getTextMeasureHeight(1)/2+getAscent(1)",
+      "type": "number",
+      "description": "title y position"
+    }
+  ]
+}
