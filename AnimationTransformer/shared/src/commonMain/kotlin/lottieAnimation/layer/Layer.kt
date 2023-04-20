@@ -7,7 +7,9 @@ import kotlinx.serialization.json.JsonObject
 import lottieAnimation.layer.serializers.ShapeListSerializer
 
 @Serializable
-sealed class Layer
+sealed class Layer {
+    abstract val ind: Int?
+}
 
 @Serializable
 data class PrecompositionLayer(

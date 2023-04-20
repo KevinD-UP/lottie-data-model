@@ -6,7 +6,7 @@ import kotlinx.serialization.Serializable
 data class LayerRule(
     val ind: Int,
     val textInd: List<Int>?,
-    val lines: Int? = 1,
+    val lines: Int = 1,
     val maxLines: Int = 1,
     val minWidth: Int?,
     val maxWidth: Int?,
