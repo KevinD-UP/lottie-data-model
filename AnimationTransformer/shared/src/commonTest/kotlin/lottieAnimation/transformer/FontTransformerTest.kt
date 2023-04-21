@@ -8,6 +8,7 @@ import lottieAnimation.rules.properties.AnimationRules
 import okio.FileSystem
 import okio.Path.Companion.toPath
 import kotlin.test.Test
+import kotlin.test.assertNotEquals
 
 
 class FontTransformerTest {
@@ -32,5 +33,6 @@ class FontTransformerTest {
     val res = fontTransformer.transformFonts(lottieAnimation, animationRules)
     println(json.encodeToString(lottieAnimation))
     println(json.encodeToString(res))
+    assertNotEquals(lottieAnimation, res)
   }
 }
