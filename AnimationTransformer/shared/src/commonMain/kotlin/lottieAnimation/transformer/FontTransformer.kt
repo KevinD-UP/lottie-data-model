@@ -23,6 +23,7 @@ class FontTransformer {
                     when(wantedLayer) {
                         is TextLayer -> {
                             val fontList: List<Font> = res.fonts!!.list!!.plus(font)
+
                             val layers = res.layers.toMutableList()
                             val index = layers.indexOf(wantedLayer)
                             val newTextDocument : TextDocument = wantedLayer.t.d.k[0].s.copy(f = font.fName)
@@ -33,6 +34,7 @@ class FontTransformer {
                             val newTextData : TextData = wantedLayer.t.copy(d = newD)
                             val newLayer: TextLayer = wantedLayer.copy(t = newTextData)
                             layers[index] = newLayer
+
                             res = res.copy(fonts = FontList(fontList), layers = layers)
                         }
                         else -> {}
@@ -44,7 +46,6 @@ class FontTransformer {
     }
 
     private fun parseFontKey(fontKey: String): Font {
-        val splittedFontKey = fontKey.split('-')
-        return Font(fFamily = splittedFontKey[0], fStyle = splittedFontKey[1], fName = fontKey)
+        return Font(fFamily = fontKey, fStyle = fontKey, fName = fontKey)
     }
 }
