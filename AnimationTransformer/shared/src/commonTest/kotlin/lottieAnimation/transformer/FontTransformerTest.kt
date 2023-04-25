@@ -13,6 +13,18 @@ import kotlin.test.assertNotEquals
 
 class FontTransformerTest {
 
+  val fontFixture = mapOf(
+    "textBoldItalic" to "path-to-font/Arial-Black.ttf",
+    "titleBlackItalic" to "path-to-font/Arial-Bold.ttf",
+    "textBlackItalic" to "path-to-font/Arial-Black.ttf",
+    "textBold" to "path-to-font/Arial-Black.ttf",
+    "titleBoldItalic" to "path-to-font/Arial-Bold.ttf",
+    "titleBold" to "path-to-font/Arial-Bold.ttf",
+    "textBlack" to "path-to-font/Arial-Black.ttf",
+    "text" to "path-to-font/Arial-Black.ttf",
+    "title" to "path-to-font/Arial-Bold.ttf",
+  )
+
   @Test
   fun testFontTransformation() {
     val pathToAnimationAlgier = "src/commonTest/resources/animations/algiers/a.json"
@@ -30,7 +42,7 @@ class FontTransformerTest {
     }
     val lottieAnimation = json.decodeFromString<LottieAnimation>(animationJson)
     val animationRules = json.decodeFromString<AnimationRules>(animationRulesJson)
-    val res = fontTransformer.transformFonts(lottieAnimation, animationRules)
+    val res = fontTransformer.transformFonts(lottieAnimation, animationRules, fontFixture)
     println(json.encodeToString(lottieAnimation))
     println(json.encodeToString(res))
     assertNotEquals(lottieAnimation, res)

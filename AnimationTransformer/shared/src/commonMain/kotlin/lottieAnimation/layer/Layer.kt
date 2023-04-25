@@ -9,6 +9,7 @@ import lottieAnimation.layer.serializers.ShapeListSerializer
 @Serializable
 sealed class Layer {
     abstract val ind: Int?
+    abstract val ty: LayerType
 }
 
 @Serializable

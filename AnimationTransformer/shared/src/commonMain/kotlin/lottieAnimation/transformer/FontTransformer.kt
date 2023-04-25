@@ -5,6 +5,7 @@ import lottieAnimation.FontList
 import lottieAnimation.LottieAnimation
 import lottieAnimation.layer.AnimatedTextDocument
 import lottieAnimation.layer.Layer
+import lottieAnimation.layer.LayerType
 import lottieAnimation.layer.TextData
 import lottieAnimation.layer.TextDocument
 import lottieAnimation.layer.TextDocumentKeyframe
@@ -13,15 +14,15 @@ import lottieAnimation.rules.properties.AnimationRules
 
 class FontTransformer {
 
-    fun transformFonts(animation: LottieAnimation, animationRules: AnimationRules)
+    fun transformFonts(animation: LottieAnimation, animationRules: AnimationRules, fonts: Map<String, String>? = null)
         : LottieAnimation
     {
         var res = animation.copy()
         animationRules.layerRules.forEach { layerRule ->
             if (layerRule.fontKey != null) {
-                val font = parseFontKey(layerRule.fontKey)
-                val wantedLayer = animation.layers.find { it.ind == layerRule.ind }
-                if (wantedLayer != null) {
+                val font = fonts?.let { parseFontKey(it, layerRule.fontKey) }
+                val wantedLayer = animation.layers.find { it.ind == layerRule.ind && it.ty == LayerType.TEXT_LAYER }
+                if (font != null && wantedLayer != null) {
                     when(wantedLayer) {
                         is TextLayer -> {
                             // Adding the font to the list of Font
@@ -53,7 +54,10 @@ class FontTransformer {
         return res
     }
 
-    private fun parseFontKey(fontKey: String): Font {
-        return Font(fFamily = fontKey, fStyle = fontKey, fName = fontKey)
+    private fun parseFontKey(fonts: Map<String, String>, fontKey: String): Font? {
+        val fontPath = fonts[fontKey] ?: return null
+        val fontName = fontPath.substringAfterLast("/").substringBefore(".")
+        val splitFont = fontName.split('-')
+        return Font(fName = fontName, fFamily = splitFont[0], fStyle = splitFont[1])
     }
 }
