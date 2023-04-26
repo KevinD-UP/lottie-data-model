@@ -18,33 +18,41 @@ class FontTransformer {
         : LottieAnimation
     {
         var res = animation.copy()
+        if(fonts == null) return res
+
         animationRules.layerRules.forEach { layerRule ->
             if (layerRule.fontKey != null) {
-                val font = fonts?.let { parseFontKey(it, layerRule.fontKey) }
+                val font = parseFontKey(fonts, layerRule.fontKey)
                 val wantedLayer = animation.layers.find { it.ind == layerRule.ind && it.ty == LayerType.TEXT_LAYER }
+
                 if (font != null && wantedLayer != null) {
                     when(wantedLayer) {
                         is TextLayer -> {
-                            // Adding the font to the list of Font
-                            val fontList: List<Font> = res.fonts!!.list!!.plus(font)
+                            if(wantedLayer.t.d.k.isNotEmpty()) {
+                                // Adding the font to the list of Font
+                                val fontList = res.fonts?.list?.plus(font) ?: mutableListOf(font)
 
-                            /* We need to do a deep copy of the object.
-                             * It means that wherever we modify a "deep" value we also need to copy
-                             * the parent of the value.
-                             */
-                            val layers: MutableList<Layer> = res.layers.toMutableList()
-                            val indexOfWantedLayer: Int = layers.indexOf(wantedLayer)
-                            val newTextDocument : TextDocument = wantedLayer.t.d.k[0].s.copy(f = font.fName)
-                            val newKzero: TextDocumentKeyframe = wantedLayer.t.d.k[0].copy(s = newTextDocument)
-                            val newK: MutableList<TextDocumentKeyframe> = wantedLayer.t.d.k.toMutableList()
-                            newK[0] = newKzero
-                            val newD: AnimatedTextDocument = wantedLayer.t.d.copy(k = newK)
-                            val newTextData : TextData = wantedLayer.t.copy(d = newD)
-                            val newLayer: TextLayer = wantedLayer.copy(t = newTextData)
-                            layers[indexOfWantedLayer] = newLayer
+                                /* We need to do a deep copy of the object.
+                                 * It means that wherever we modify a "deep" value we also need to copy
+                                 * the parent of the value.
+                                 */
+                                val layers: MutableList<Layer> = res.layers.toMutableList()
+                                val indexOfWantedLayer: Int = layers.indexOf(wantedLayer)
+                                val newTextDocument: TextDocument =
+                                    wantedLayer.t.d.k[0].s.copy(f = font.fName)
+                                val newKzero: TextDocumentKeyframe =
+                                    wantedLayer.t.d.k[0].copy(s = newTextDocument)
+                                val newK: MutableList<TextDocumentKeyframe> =
+                                    wantedLayer.t.d.k.toMutableList()
+                                newK[0] = newKzero
+                                val newD: AnimatedTextDocument = wantedLayer.t.d.copy(k = newK)
+                                val newTextData: TextData = wantedLayer.t.copy(d = newD)
+                                val newLayer: TextLayer = wantedLayer.copy(t = newTextData)
+                                layers[indexOfWantedLayer] = newLayer
 
-                            // Create a copy of the animation with the updated fonts and layers
-                            res = res.copy(fonts = FontList(fontList), layers = layers)
+                                // Create a copy of the animation with the updated fonts and layers
+                                res = res.copy(fonts = FontList(fontList), layers = layers)
+                            }
                         }
                         else -> {}
                     }
@@ -58,6 +66,9 @@ class FontTransformer {
         val fontPath = fonts[fontKey] ?: return null
         val fontName = fontPath.substringAfterLast("/").substringBefore(".")
         val splitFont = fontName.split('-')
-        return Font(fName = fontName, fFamily = splitFont[0], fStyle = splitFont[1])
+        if(splitFont.size != 2) return null
+        val fontFamily = splitFont[0]
+        val fontStyle = splitFont[1]
+        return Font(fName = fontName, fFamily = fontFamily, fStyle = fontStyle)
     }
 }
