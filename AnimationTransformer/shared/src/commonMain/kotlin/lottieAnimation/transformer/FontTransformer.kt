@@ -28,7 +28,7 @@ class FontTransformer {
                 if (font != null && wantedLayer != null) {
                     when(wantedLayer) {
                         is TextLayer -> {
-                            if(wantedLayer.t.d.k.isNotEmpty()) {
+                            if (wantedLayer.t.d.k.isNotEmpty()) {
                                 // Adding the font to the list of Font
                                 val fontList = res.fonts?.list?.plus(font) ?: mutableListOf(font)
 
@@ -66,7 +66,7 @@ class FontTransformer {
         val fontPath = fonts[fontKey] ?: return null
         val fontName = fontPath.substringAfterLast("/").substringBefore(".")
         val splitFont = fontName.split('-')
-        if(splitFont.size != 2) return null
+        if (splitFont.size != 2) return null
         val fontFamily = splitFont[0]
         val fontStyle = splitFont[1]
         return Font(fName = fontName, fFamily = fontFamily, fStyle = fontStyle)
