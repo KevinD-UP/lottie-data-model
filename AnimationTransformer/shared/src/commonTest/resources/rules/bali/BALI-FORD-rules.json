@@ -1,0 +1,28 @@
+{
+  "layerRules": [
+    {
+      "ind": 1,
+      "fontKey": "textBold",
+      "textInd": [0,1],
+      "maxLines": 1,
+      "maxWidth": 1632,
+      "colorKey": "text"
+    },
+    {
+      "ind": 2,
+      "colorKey": "shape"
+    },
+    {
+      "ind": 3,
+      "colorKey": "background"
+    }
+  ],
+  "variables": [
+    {
+      "key": "$var0",
+      "value": "540-getTextMeasureHeight(1)/2+getAscent(1)",
+      "type": "number",
+      "description": "title y position"
+    }
+  ]
+}

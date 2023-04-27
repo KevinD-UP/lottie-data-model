@@ -1,4 +1,4 @@
-package io.kannelle.lottieAnimation
+package lottieAnimation
 
 import kotlinx.serialization.ExperimentalSerializationApi
 import kotlinx.serialization.decodeFromString

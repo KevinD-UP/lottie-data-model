@@ -1,0 +1,60 @@
+{
+  "layerRules": [
+    {
+      "ind": 1,
+      "fontKey": "textBlackItalic",
+      "textInd": [0],
+      "maxLines": 2,
+      "maxWidth": 918,
+      "colorKey": "text"
+    },
+    {
+      "ind": 2,
+      "colorKey": "shape"
+    },
+    {
+      "ind": 3,
+      "fontKey": "textBlackItalic",
+      "textInd": [1],
+      "maxLines": 2,
+      "maxWidth": 918,
+      "colorKey": "text"
+    },
+    {
+      "ind": 4,
+      "colorKey": "background"
+    }
+  ],
+  "variables": [
+    {
+      "key": "",
+      "value": "harmonizeFontSize(1,3)",
+      "type": "unit",
+      "description": "harmonize titleTop and titleBottom fontSize"
+    },
+    {
+      "key": "$var0",
+      "value": "960-getTextMeasureHeight(1)+getAscent(1)-getTextFontSize(1)*0.2",
+      "type": "number",
+      "description": "titleTop y position"
+    },
+    {
+      "key": "$var1",
+      "value": "960+getAscent(3)+getTextFontSize(3)*0.2",
+      "type": "number",
+      "description": "titleBottom y position"
+    },
+    {
+      "key": "$var2",
+      "value": "-max(getTextLayerWidth(1),getTextLayerWidth(3))/2",
+      "type": "number",
+      "description": "first line x position"
+    },
+    {
+      "key": "$var3",
+      "value": "max(getTextLayerWidth(1),getTextLayerWidth(3))/2",
+      "type": "number",
+      "description": "last line x position"
+    }
+  ]
+}

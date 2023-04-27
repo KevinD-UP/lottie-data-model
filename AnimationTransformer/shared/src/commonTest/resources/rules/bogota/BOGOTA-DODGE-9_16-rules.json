@@ -1,0 +1,146 @@
+{
+  "layerRules": [
+    {
+      "ind": 8,
+      "fontKey": "text",
+      "textInd": [0],
+      "maxLines": 1,
+      "maxWidth": 700,
+      "colorKey": "figure",
+      "fillColorKey": "figureBlink",
+      "shadowOpacityKey": "textShadowOpacity",
+      "shadowColorKey": "textShadow"
+    },
+    {
+      "ind": 5,
+      "fontKey": "text",
+      "textInd": [1],
+      "maxLines": 4,
+      "maxWidth": 700,
+      "colorKey": "figure",
+      "fillColorKey": "figureBlink",
+      "shadowOpacityKey": "textShadowOpacity",
+      "shadowColorKey": "textShadow"
+    },
+    {
+      "ind": 6,
+      "colorKey": "chartEmpty"
+    },
+    {
+      "ind": 7,
+      "colorKey": "chartEmpty"
+    },
+    {
+      "ind": 3,
+      "fontKey": "caption",
+      "textInd": [2],
+      "maxLines": 1,
+      "maxWidth": 900,
+      "colorKey": "sourceNeutral",
+      "shadowOpacityKey": "textShadowOpacity",
+      "shadowColorKey": "textShadow"
+    },
+    {
+      "ind": 9,
+      "colorKey": "background"
+    },
+    {
+      "ind": 12,
+      "colorKey": "background"
+    }
+  ],
+  "assetRules": {
+    "originalColors": {
+      "shapeMain": "#00FFC6",
+      "shapeSecondary": "#572DED",
+      "shapeNeutral": "#FFFFFF"
+    },
+    "shadowOpacityKey": "shapeShadowOpacity",
+    "shadowColorKey": "shapeShadow"
+  },
+  "variables": [
+    {
+      "key": "$var0",
+      "value": "createCounterKeyFrames(8,30,30,24)",
+      "type": "jsonObject"
+    },
+    {
+      "key": "$var1",
+      "value": "getAnimationFrameCount()-15",
+      "type": "number",
+      "description": "start of transition out"
+    },
+    {
+      "key": "$var2",
+      "value": "getAnimationFrameCount()",
+      "type": "number",
+      "description": "end of animation"
+    },
+    {
+      "key": "$var3",
+      "value": "getAnimationFrameCount()-30",
+      "type": "number",
+      "description": "1st key frame of number last blink"
+    },
+    {
+      "key": "$var4",
+      "value": "getAnimationFrameCount()-28",
+      "type": "number",
+      "description": "2nd key frame of number last blink"
+    },
+    {
+      "key": "$var5",
+      "value": "getAnimationFrameCount()-26",
+      "type": "number",
+      "description": "3rd key frame of number last blink"
+    },
+    {
+      "key": "$var6",
+      "value": "getAnimationFrameCount()-24",
+      "type": "number",
+      "description": "4th key frame of number last blink"
+    },
+    {
+      "key": "$var7",
+      "value": "getAnimationFrameCount()-22",
+      "type": "number",
+      "description": "5th key frame of number last blink"
+    },
+    {
+      "key": "$var8",
+      "value": "getAnimationFrameCount()-20",
+      "type": "number",
+      "description": "6th key frame of number last blink"
+    },
+    {
+      "key": "$var9",
+      "value": "getAnimationFrameCount()-22",
+      "type": "number",
+      "description": "1st key frame of textBottom last blink"
+    },
+    {
+      "key": "$var10",
+      "value": "getAnimationFrameCount()-20",
+      "type": "number",
+      "description": "2nd key frame of textBottom last blink"
+    },
+    {
+      "key": "$var11",
+      "value": "getAnimationFrameCount()-18",
+      "type": "number",
+      "description": "3rd key frame of textBottom last blink"
+    },
+    {
+      "key": "$var12",
+      "value": "getAnimationFrameCount()-16",
+      "type": "number",
+      "description": "4th key frame of textBottom last blink"
+    },
+    {
+      "key": "$var13",
+      "value": "getAnimationFrameCount()-13",
+      "type": "number",
+      "description": "last key frame of textBottom position"
+    }
+  ]
+}
