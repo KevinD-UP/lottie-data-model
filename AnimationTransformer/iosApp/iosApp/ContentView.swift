@@ -2,10 +2,17 @@ import SwiftUI
 import shared
 
 struct ContentView: View {
-	let animationTransformerExample = AnimationTransformerExample()
-
 	var body: some View {
-        Text(animationTransformerExample.animText())
+        TabView {
+            AnimationTransformerView()
+                .tabItem {
+                    Label("Animation", image: "plus")
+                }
+            ExpressionView()
+                .tabItem {
+                    Label("Expression", image: "plus")
+                }
+        }
 	}
 }
 
