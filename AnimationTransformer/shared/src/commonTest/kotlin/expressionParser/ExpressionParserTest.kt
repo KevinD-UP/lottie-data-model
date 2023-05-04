@@ -13,7 +13,7 @@ class ExpressionParserTest {
         "getNoParam" to NoParamFunction(),
     )
 
-    private val sut = ExpressionParser(functions)
+    private val sut = DefaultExpressionParser(functions)
 
     @Test
     fun testExpressionRawValue42() {

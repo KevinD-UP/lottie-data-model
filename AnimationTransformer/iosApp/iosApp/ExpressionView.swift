@@ -5,9 +5,10 @@ import shared
 class ExpressionManager {
     private let functions: [String : FunctionInterface] = [
         "multiplyBy33": FunctionMultiplyBy33(),
-        "addAndDivideBy2": FunctionAddAndDivideBy2()
+        "addAndDivideBy2": FunctionAddAndDivideBy2(),
+        "return123": FunctionReturn123()
     ]
-    lazy var parser = ExpressionParser(functions: self.functions)
+    lazy var parser = DefaultExpressionParser(functions: self.functions)
 }
 
 struct ExpressionView: View {
@@ -23,6 +24,7 @@ struct ExpressionView: View {
                     .bold()
                 Text("• multiplyBy33(value): value * 33")
                 Text("• addAndDivideBy2(value1, value2): (value1 + value2) / 2.0")
+                Text("• return123(): 123.0")
                 Divider()
             }
             VStack(alignment: .leading) {
@@ -33,13 +35,13 @@ struct ExpressionView: View {
                 Text("• multiplyBy33(2) * (1 + addAndDivideBy2(1, 2))")
                 Divider()
             }
-                VStack(alignment: .leading) {
+            VStack(alignment: .leading) {
                 Text("Expression:")
                     .bold()
                 TextField("expression", text: $text)
                     .padding(10)
             }
-                VStack(alignment: .leading) {
+            VStack {
                 Button {
                     evalExpression()
                 } label: {
@@ -47,7 +49,7 @@ struct ExpressionView: View {
                 }
                 Divider()
             }
-                VStack(alignment: .leading) {
+            VStack(alignment: .leading) {
                 Text("Result:")
                     .bold()
                 Text(result)
@@ -89,3 +91,10 @@ class FunctionAddAndDivideBy2: FunctionInterface {
         return (args[0].doubleValue + args[1].doubleValue) / 2.0
     }
 }
+
+class FunctionReturn123: FunctionInterface {
+    func execute(args: [KotlinDouble]) -> Double {
+        return 123.0
+    }
+}
+
