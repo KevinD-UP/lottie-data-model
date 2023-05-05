@@ -1,5 +1,6 @@
 package lottieAnimation.transformer
 
+import kotlinx.serialization.json.JsonPrimitive
 import lottieAnimation.Font
 import lottieAnimation.FontList
 import lottieAnimation.KPLottieAnimation
@@ -66,9 +67,12 @@ class KPFontTransformer {
         val fontPath = fonts[fontKey] ?: return null
         val fontName = fontPath.substringAfterLast("/").substringBefore(".")
         val splitFont = fontName.split('-')
+        // TODO: To compute ascent
+        if (splitFont.size == 1) return Font(fName = fontName, fFamily = splitFont[0], fStyle = splitFont[0], ascent = JsonPrimitive(value = 75.0))
         if (splitFont.size != 2) return null
         val fontFamily = splitFont[0]
         val fontStyle = splitFont[1]
-        return Font(fName = fontName, fFamily = fontFamily, fStyle = fontStyle)
+        // TODO: To compute ascent
+        return Font(fName = fontName, fFamily = fontFamily, fStyle = fontStyle, ascent = JsonPrimitive(value = 75.0))
     }
 }
