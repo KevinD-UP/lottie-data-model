@@ -4,7 +4,7 @@ import expressionParser.function.*
 import kotlin.test.Test
 import kotlin.test.assertEquals
 
-class ExpressionParserTest {
+class KPExpressionParserTest {
     private val functions = mapOf(
         "getTextMeasureHeight" to TextMeasureHeightFunction(),
         "getTestThirtyThree" to TestThirtyThreeFunction(),

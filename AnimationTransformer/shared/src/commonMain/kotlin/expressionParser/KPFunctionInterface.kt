@@ -8,7 +8,6 @@ package expressionParser
  * addition, subtraction, multiplication, or more complex operations.
  */
 interface KPFunctionInterface {
-
     /**
      * Executes the mathematical function using the provided arguments.
      *
