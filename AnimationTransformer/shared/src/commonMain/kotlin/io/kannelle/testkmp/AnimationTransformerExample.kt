@@ -3,7 +3,7 @@ package io.kannelle.testkmp
 import kotlinx.serialization.decodeFromString
 import kotlinx.serialization.encodeToString
 import kotlinx.serialization.json.Json
-import lottieAnimation.LottieAnimation
+import lottieAnimation.KPLottieAnimation
 import kotlin.js.JsExport
 
 @JsExport
@@ -11,7 +11,7 @@ class AnimationTransformerExample {
     private val platform: Platform = getPlatform()
 
     fun animText(): String {
-        val anim = Json.decodeFromString<LottieAnimation>(animationJson)
+        val anim = Json.decodeFromString<KPLottieAnimation>(animationJson)
         println(anim)
 
         return "Hello ${platform.name}, ${anim}!"
@@ -27,7 +27,7 @@ class AnimationTransformerExample {
             1 -> animationJson2
             else -> animationJson3
         }
-        val anim = json.decodeFromString<LottieAnimation>(animJson)
+        val anim = json.decodeFromString<KPLottieAnimation>(animJson)
         return json.encodeToString(anim)
     }
 }
