@@ -1,6 +1,6 @@
 package expressionParser
 
-interface ExpressionParser {
+interface KPExpressionParser {
     /**
      * Parse and evaluate a given string expression.
      *
@@ -28,7 +28,7 @@ interface ExpressionParser {
     fun parseAndEvaluate(expression: String): Double
 }
 
-class DefaultExpressionParser(private val functions: Map<String, FunctionInterface>): ExpressionParser {
+class KPDefaultExpressionParser(private val functions: Map<String, KPFunctionInterface>): KPExpressionParser {
     private lateinit var tokens: List<String>
     private var position: Int = 0
 

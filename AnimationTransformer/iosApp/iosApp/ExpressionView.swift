@@ -3,12 +3,12 @@ import shared
 
 
 class ExpressionManager {
-    private let functions: [String : FunctionInterface] = [
+    private let functions: [String : KPFunctionInterface] = [
         "multiplyBy33": FunctionMultiplyBy33(),
         "addAndDivideBy2": FunctionAddAndDivideBy2(),
         "return123": FunctionReturn123()
     ]
-    lazy var parser = DefaultExpressionParser(functions: self.functions)
+    lazy var parser = KPDefaultExpressionParser(functions: self.functions)
 }
 
 struct ExpressionView: View {
@@ -73,7 +73,7 @@ struct ExpressionView_Previews: PreviewProvider {
     }
 }
 
-class FunctionMultiplyBy33: FunctionInterface {
+class FunctionMultiplyBy33: KPFunctionInterface {
     func execute(args: [KotlinDouble]) -> Double {
         guard args.count == 1 else {
             return 0.0
@@ -83,7 +83,7 @@ class FunctionMultiplyBy33: FunctionInterface {
 
 }
 
-class FunctionAddAndDivideBy2: FunctionInterface {
+class FunctionAddAndDivideBy2: KPFunctionInterface {
     func execute(args: [KotlinDouble]) -> Double {
         guard args.count == 2 else {
             return 0.0
@@ -92,7 +92,7 @@ class FunctionAddAndDivideBy2: FunctionInterface {
     }
 }
 
-class FunctionReturn123: FunctionInterface {
+class FunctionReturn123: KPFunctionInterface {
     func execute(args: [KotlinDouble]) -> Double {
         return 123.0
     }

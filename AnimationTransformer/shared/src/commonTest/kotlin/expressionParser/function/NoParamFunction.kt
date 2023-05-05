@@ -1,8 +1,8 @@
 package expressionParser.function
 
-import expressionParser.FunctionInterface
+import expressionParser.KPFunctionInterface
 
-class NoParamFunction : FunctionInterface {
+class NoParamFunction : KPFunctionInterface {
     override fun execute(args: List<Double>): Double {
         return 123.0
     }

@@ -13,7 +13,7 @@ class ExpressionParserTest {
         "getNoParam" to NoParamFunction(),
     )
 
-    private val sut = DefaultExpressionParser(functions)
+    private val sut = KPDefaultExpressionParser(functions)
 
     @Test
     fun testExpressionRawValue42() {

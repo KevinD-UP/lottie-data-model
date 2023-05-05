@@ -1,8 +1,8 @@
 package expressionParser.function
 
-import expressionParser.FunctionInterface
+import expressionParser.KPFunctionInterface
 
-class TextMeasureHeightFunction : FunctionInterface {
+class TextMeasureHeightFunction : KPFunctionInterface {
     override fun execute(args: List<Double>): Double {
         return 2.0 * args[0]
     }

@@ -1,8 +1,8 @@
 package expressionParser.function
 
-import expressionParser.FunctionInterface
+import expressionParser.KPFunctionInterface
 
-class ComputationFortyTwoFunction : FunctionInterface {
+class ComputationFortyTwoFunction : KPFunctionInterface {
     override fun execute(args: List<Double>): Double {
         return (args[0] + args[1]) * 100.0
     }

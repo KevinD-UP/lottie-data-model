@@ -1,5 +1,5 @@
 package expressionParser
 
-interface FunctionInterface {
+interface KPFunctionInterface {
     fun execute(args: List<Double>): Double
 }
