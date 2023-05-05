@@ -1,5 +1,12 @@
 package expressionParser
 
+/**
+ * KPExpressionParser defines a contract for implementing expression parsers.
+ *
+ * Implementations should take a string representing a mathematical expression and
+ * return the result of the expression as a Double. This interface can be used to create
+ * various parsers for different expression formats, such as infix, prefix, or postfix notation.
+ */
 interface KPExpressionParser {
     /**
      * Parse and evaluate a given string expression.
