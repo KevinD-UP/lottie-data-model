@@ -3,15 +3,18 @@ import shared
 
 struct ContentView: View {
 	var body: some View {
-        TabView {
-            AnimationTransformerView()
-                .tabItem {
-                    Label("Animation", image: "plus")
+        NavigationView {
+            VStack {
+                NavigationLink(destination: AnimationTransformerView()) {
+                    Text("Animation")
                 }
-            ExpressionView()
-                .tabItem {
-                    Label("Expression", image: "plus")
+                NavigationLink(destination: ExpressionView()) {
+                    Text("Expression")
                 }
+                NavigationLink(destination: FontTransformerView()) {
+                    Text("FontTransformer")
+                }
+            }
         }
 	}
 }

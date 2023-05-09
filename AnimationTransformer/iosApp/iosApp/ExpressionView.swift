@@ -61,8 +61,7 @@ struct ExpressionView: View {
     func evalExpression() {
         let stringWithExtraSpaces = text
         let trimmedString = stringWithExtraSpaces.trimmingCharacters(in: .whitespaces)
-
-        let result = expressionManager.parser.parseAndEvaluate(expression: text)
+        let result = expressionManager.parser.parseAndEvaluate(expression: trimmedString)
         self.result = "\(result)"
     }
 }
