@@ -24,7 +24,7 @@ struct FontTransformerView: View {
 
     var body: some View {
         VStack {
-            AnimationLottieView(jsonString: $jsonString)
+            CustomAnimationLottieView(jsonString: $jsonString)
                 .frame(width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.width * 9 / 16.0)
 
             Menu {
@@ -164,7 +164,7 @@ struct FontTransformerView_Previews: PreviewProvider {
     }
 }
 
-struct AnimationLottieView: UIViewRepresentable {
+struct CustomAnimationLottieView: UIViewRepresentable {
     @Binding var jsonString: String?
 
     init(jsonString: Binding<String?>) {

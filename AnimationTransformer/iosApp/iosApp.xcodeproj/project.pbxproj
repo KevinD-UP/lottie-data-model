@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -15,26 +15,26 @@
 		56B0305B5D3847FC6B326502 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8509E5A49E4A5CAAEB3ADB /* ContentView.swift */; };
 		6252302A7323175212958E31 /* FontTransformerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A9D8D4B4603C6C5BF11D21 /* FontTransformerView.swift */; };
 		7493E81D9AFB4C154A2B73F2 /* AnimationTransformerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59BF3BA0D1F941F27557E238 /* AnimationTransformerView.swift */; };
-		7CEE0BECD8D69BF609370A72 /* Pods_iosApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D55A05A126F081945A7765C /* Pods_iosApp.framework */; };
 		84D49F2169A00DBE2EBC7CF5 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D79507B4FE35B12BCF209904 /* Preview Assets.xcassets */; };
+		9C34AEFCF4823FB4951B4284 /* Pods_iosApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59725CD5DC6D51C50A936149 /* Pods_iosApp.framework */; };
 		C55F21E845F0CA7680855267 /* ExpressionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBE80ADE737FF84EBBAA8D1D /* ExpressionView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		0E296746F8EB52E58596D1F9 /* Pods-iosApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iosApp.release.xcconfig"; path = "Target Support Files/Pods-iosApp/Pods-iosApp.release.xcconfig"; sourceTree = "<group>"; };
 		3E6D1187566C666564D251D1 /* animation.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = animation.json; sourceTree = "<group>"; };
+		49ACAFA8E874E8F41FC4785A /* Pods-iosApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iosApp.debug.xcconfig"; path = "Target Support Files/Pods-iosApp/Pods-iosApp.debug.xcconfig"; sourceTree = "<group>"; };
+		59725CD5DC6D51C50A936149 /* Pods_iosApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iosApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		59BF3BA0D1F941F27557E238 /* AnimationTransformerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationTransformerView.swift; sourceTree = "<group>"; };
 		668CECA83ACC03A83C85A623 /* iOSApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOSApp.swift; sourceTree = "<group>"; };
-		86038AE1032E284E79B32AD6 /* iosApp.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = iosApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		86038AE1032E284E79B32AD6 /* iosApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iosApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		88D29CCFE4D5F13EC3EED1B3 /* animation-rules.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "animation-rules.json"; sourceTree = "<group>"; };
-		9D55A05A126F081945A7765C /* Pods_iosApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iosApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C117AD187833E2513BD2F553 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		CE8509E5A49E4A5CAAEB3ADB /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		D4A9D8D4B4603C6C5BF11D21 /* FontTransformerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontTransformerView.swift; sourceTree = "<group>"; };
 		D79507B4FE35B12BCF209904 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		E4095840D78BE0CA82D309FD /* Pods-iosApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iosApp.debug.xcconfig"; path = "Target Support Files/Pods-iosApp/Pods-iosApp.debug.xcconfig"; sourceTree = "<group>"; };
 		F543015C899423D4B01CEB2E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FBE80ADE737FF84EBBAA8D1D /* ExpressionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpressionView.swift; sourceTree = "<group>"; };
+		FDA7F4B61404CD02573CEA57 /* Pods-iosApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iosApp.release.xcconfig"; path = "Target Support Files/Pods-iosApp/Pods-iosApp.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,7 +43,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1C81D6F669B7BB6D2FFCCEB3 /* Lottie in Frameworks */,
-				7CEE0BECD8D69BF609370A72 /* Pods_iosApp.framework in Frameworks */,
+				9C34AEFCF4823FB4951B4284 /* Pods_iosApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -67,22 +67,31 @@
 			path = iosApp;
 			sourceTree = "<group>";
 		};
+		31EE8F0266DA465BE911C7EE /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				59725CD5DC6D51C50A936149 /* Pods_iosApp.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		38B69C3F79CD97858CF7B609 = {
 			isa = PBXGroup;
 			children = (
 				1DB4B685CAEE8BEFEBBAEF94 /* iosApp */,
 				94C98B8B3A2BFC1966447269 /* Products */,
-				C3E3AFEAC654D166E5ED7CE0 /* Pods */,
-				5CEDBF923E786E6D89A027AF /* Frameworks */,
+				6357C8C4D6E28A5E0E640BF5 /* Pods */,
+				31EE8F0266DA465BE911C7EE /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
-		5CEDBF923E786E6D89A027AF /* Frameworks */ = {
+		6357C8C4D6E28A5E0E640BF5 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				9D55A05A126F081945A7765C /* Pods_iosApp.framework */,
+				49ACAFA8E874E8F41FC4785A /* Pods-iosApp.debug.xcconfig */,
+				FDA7F4B61404CD02573CEA57 /* Pods-iosApp.release.xcconfig */,
 			);
-			name = Frameworks;
+			path = Pods;
 			sourceTree = "<group>";
 		};
 		94C98B8B3A2BFC1966447269 /* Products */ = {
@@ -91,16 +100,6 @@
 				86038AE1032E284E79B32AD6 /* iosApp.app */,
 			);
 			name = Products;
-			sourceTree = "<group>";
-		};
-		C3E3AFEAC654D166E5ED7CE0 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				E4095840D78BE0CA82D309FD /* Pods-iosApp.debug.xcconfig */,
-				0E296746F8EB52E58596D1F9 /* Pods-iosApp.release.xcconfig */,
-			);
-			name = Pods;
-			path = Pods;
 			sourceTree = "<group>";
 		};
 		FECAC4265DC8BE5061013D4A /* Preview Content */ = {
@@ -118,11 +117,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 29DCA9F0B3A40325067EB163 /* Build configuration list for PBXNativeTarget "iosApp" */;
 			buildPhases = (
-				1841222EB234E34572B0C35F /* [CP] Check Pods Manifest.lock */,
+				4EC8550FC1D1185E89CFDFBE /* [CP] Check Pods Manifest.lock */,
 				297B59D9CE634556D6007C40 /* Sources */,
 				1623B02D10928C8101C1F806 /* Resources */,
 				EF8A6E9BFD470986D9D5C9B5 /* Frameworks */,
-				4C5F95A700D2DA954848CDF2 /* [CP] Embed Pods Frameworks */,
+				D63ED7E2C767A71FB16090E9 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -159,7 +158,7 @@
 			);
 			mainGroup = 38B69C3F79CD97858CF7B609;
 			packageReferences = (
-				4060D0FC6DB9B245B49323E0 /* XCRemoteSwiftPackageReference "lottie-spm.git" */,
+				4060D0FC6DB9B245B49323E0 /* XCRemoteSwiftPackageReference "lottie-spm" */,
 			);
 			productRefGroup = 94C98B8B3A2BFC1966447269 /* Products */;
 			projectDirPath = "";
@@ -185,7 +184,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		1841222EB234E34572B0C35F /* [CP] Check Pods Manifest.lock */ = {
+		4EC8550FC1D1185E89CFDFBE /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -207,7 +206,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		4C5F95A700D2DA954848CDF2 /* [CP] Embed Pods Frameworks */ = {
+		D63ED7E2C767A71FB16090E9 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -361,45 +360,56 @@
 		};
 		9221A1FDC06803E8A2FC6E61 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E4095840D78BE0CA82D309FD /* Pods-iosApp.debug.xcconfig */;
+			baseConfigurationReference = 49ACAFA8E874E8F41FC4785A /* Pods-iosApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 3BAP3ARWXJ;
 				INFOPLIST_FILE = iosApp/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0.0;
-				PRODUCT_BUNDLE_IDENTIFIER = orgIdentifier.iosApp;
+				PRODUCT_BUNDLE_IDENTIFIER = io.kannelle.app.test;
 				PRODUCT_MODULE_NAME = iosApp;
+				PRODUCT_NAME = iosApp;
 				SDKROOT = iphoneos;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
 		AF835BFF1220CA5AB5B867E4 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0E296746F8EB52E58596D1F9 /* Pods-iosApp.release.xcconfig */;
+			baseConfigurationReference = FDA7F4B61404CD02573CEA57 /* Pods-iosApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "Apple Distribution";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 3BAP3ARWXJ;
 				INFOPLIST_FILE = iosApp/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0.0;
-				PRODUCT_BUNDLE_IDENTIFIER = orgIdentifier.iosApp;
+				PRODUCT_BUNDLE_IDENTIFIER = io.kannelle.app.test;
 				PRODUCT_MODULE_NAME = iosApp;
+				PRODUCT_NAME = iosApp;
+				PROVISIONING_PROFILE_SPECIFIER = "Appstore Kannelle Test";
 				SDKROOT = iphoneos;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -427,7 +437,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		4060D0FC6DB9B245B49323E0 /* XCRemoteSwiftPackageReference "lottie-spm.git" */ = {
+		4060D0FC6DB9B245B49323E0 /* XCRemoteSwiftPackageReference "lottie-spm" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/airbnb/lottie-spm.git";
 			requirement = {
@@ -440,7 +450,7 @@
 /* Begin XCSwiftPackageProductDependency section */
 		CD0648495F7D64968E057E25 /* Lottie */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 4060D0FC6DB9B245B49323E0 /* XCRemoteSwiftPackageReference "lottie-spm.git" */;
+			package = 4060D0FC6DB9B245B49323E0 /* XCRemoteSwiftPackageReference "lottie-spm" */;
 			productName = Lottie;
 		};
 /* End XCSwiftPackageProductDependency section */
