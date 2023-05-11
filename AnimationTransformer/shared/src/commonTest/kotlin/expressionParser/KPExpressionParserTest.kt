@@ -345,7 +345,7 @@ class KPExpressionParserTest {
 
     @Test
     fun testExpression16() {
-        val expression = "getComputationFortyTwo(2, getTestThirtyThree(2)) + (getTestThirtyThree(2) / 2) * (getComputationBlabla(1, 2, 3) - 543 + 12345)"
+        val expression = "getComputationFortyTwo(2,getTestThirtyThree(2))+(getTestThirtyThree(2)/2)*(getComputationBlabla(1,2,3)-543+12345)"
         val result = sut.parseAndEvaluate(expression)
         val expected = (2 + (2 + 33)) * 100 + ((2 + 33) / 2.0) * (((1 + 2 + 3) / 10.0) - 543 + 12345)
         assertEquals(expected.toDouble(), result)
