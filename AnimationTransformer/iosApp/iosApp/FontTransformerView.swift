@@ -13,45 +13,47 @@ import SwiftUI
 
 struct FontTransformerView: View {
 
-    enum FontTypeAnim: String {
-        case arial = "Arial"
-        case chalkduster = "Chalkduster"
-        case papyrus = "Papyrus"
-        case zapfino = "Zapfino"
-    }
-
-    @State var jsonString: String? = nil
+    @StateObject var viewModel = FontTransformerViewModel()
 
     var body: some View {
-        VStack {
-            CustomAnimationLottieView(jsonString: $jsonString)
-                .frame(width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.width * 9 / 16.0)
+        ScrollView {
+            VStack {
+                textView()
+                Menu {
+                    Button {
+                        viewModel.selectedFont = .arial
+                    } label: {
+                        Text("Arial")
+                    }
+                    Button {
+                        viewModel.selectedFont = .chalkduster
+                    } label: {
+                        Text("Chalkduster")
+                    }
+                    Button {
+                        viewModel.selectedFont = .papyrus
+                    } label: {
+                        Text("Papyrus")
+                    }
+                    Button {
+                        viewModel.selectedFont = .zapfino
+                    } label: {
+                        Text("Zapfino")
+                    }
+                } label: {
+                    Text("Font: \(viewModel.selectedFont.rawValue)")
+                }
+                CustomAnimationLottieView(holder: viewModel.holder)
+                    .frame(width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.width * 9 / 16.0)
+                Button {
+                    viewModel.updateAnimation()
+                } label: {
+                    Text("Update anim")
+                }
 
-            Menu {
-                Button {
-                    fontChange(fonts: getFonts(type: .arial))
-                } label: {
-                    Text("Arial")
-                }
-                Button {
-                    fontChange(fonts: getFonts(type: .chalkduster))
-                } label: {
-                    Text("Chalkduster")
-                }
-                Button {
-                    fontChange(fonts: getFonts(type: .papyrus))
-                } label: {
-                    Text("Papyrus")
-                }
-                Button {
-                    fontChange(fonts: getFonts(type: .zapfino))
-                } label: {
-                    Text("Zapfino")
-                }
-            } label: {
-                Text("Font")
+                Spacer()
+
             }
-
         }
         .clipped()
         .navigationTitle("FontTransformerView")
@@ -66,6 +68,201 @@ struct FontTransformerView: View {
                     print("    Font name: " + font)
                 }
             }
+        }
+    }
+
+    @ViewBuilder
+    private func textView() -> some View {
+        VStack {
+            HStack {
+                TextField("Text1", text: $viewModel.text1)
+                    .padding(.vertical, 10)
+                    .padding(.horizontal, 15)
+                    .background(Color.gray.opacity(0.2))
+                    .cornerRadius(5)
+
+                if !viewModel.text1.isEmpty {
+                    Button(action: {
+                        viewModel.text1 = ""
+                    }) {
+                        Image(systemName: "xmark.circle.fill")
+                            .foregroundColor(.gray)
+                            .padding(5)
+                    }
+                }
+            }
+            HStack {
+                TextField("Text2", text: $viewModel.text2)
+                    .padding(.vertical, 10)
+                    .padding(.horizontal, 15)
+                    .background(Color.gray.opacity(0.2))
+                    .cornerRadius(5)
+
+                if !viewModel.text2.isEmpty {
+                    Button(action: {
+                        viewModel.text2 = ""
+                    }) {
+                        Image(systemName: "xmark.circle.fill")
+                            .foregroundColor(.gray)
+                            .padding(5)
+                    }
+                }
+            }
+            HStack {
+                TextField("Text3", text: $viewModel.text3)
+                    .padding(.vertical, 10)
+                    .padding(.horizontal, 15)
+                    .background(Color.gray.opacity(0.2))
+                    .cornerRadius(5)
+
+                if !viewModel.text3.isEmpty {
+                    Button(action: {
+                        viewModel.text3 = ""
+                    }) {
+                        Image(systemName: "xmark.circle.fill")
+                            .foregroundColor(.gray)
+                            .padding(5)
+                    }
+                }
+            }
+            HStack {
+                TextField("Text4", text: $viewModel.text4)
+                    .padding(.vertical, 10)
+                    .padding(.horizontal, 15)
+                    .background(Color.gray.opacity(0.2))
+                    .cornerRadius(5)
+
+                if !viewModel.text4.isEmpty {
+                    Button(action: {
+                        viewModel.text4 = ""
+                    }) {
+                        Image(systemName: "xmark.circle.fill")
+                            .foregroundColor(.gray)
+                            .padding(5)
+                    }
+                }
+            }
+        }
+    }
+}
+
+struct FontTransformerView_Previews: PreviewProvider {
+    static var previews: some View {
+        FontTransformerView()
+    }
+}
+
+class AnimatorHolder {
+    var functionCaller = PassthroughSubject<LottieAnimation, Never>()
+    var cancellables : [AnyCancellable] = []
+}
+
+struct CustomAnimationLottieView: UIViewRepresentable {
+    let holder: AnimatorHolder
+
+    init(holder: AnimatorHolder) {
+        self.holder = holder
+    }
+
+    private var lottieView: LottieAnimationView = {
+        let view = LottieAnimationView()
+        view.loopMode = .loop
+        view.backgroundColor = .orange
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.isUserInteractionEnabled = false
+        return view
+    }()
+
+    func makeUIView(context: Context) -> UIView {
+        let containerView = UIView()
+        setupLottieView(containerView: containerView)
+        return containerView
+    }
+
+    func setupLottieView(containerView: UIView, animation: LottieAnimation? = nil) {
+        containerView.subviews.forEach { $0.removeFromSuperview() }
+        let lottieView = LottieAnimationView()
+        lottieView.loopMode = .loop
+        lottieView.backgroundColor = .orange
+        lottieView.translatesAutoresizingMaskIntoConstraints = false
+        lottieView.isUserInteractionEnabled = false
+        lottieView.animation = animation
+        lottieView.play()
+        containerView.addSubview(lottieView)
+        let constraints = [
+            lottieView.leftAnchor.constraint(equalTo: containerView.leftAnchor),
+            lottieView.topAnchor.constraint(equalTo: containerView.topAnchor),
+            lottieView.rightAnchor.constraint(equalTo: containerView.rightAnchor),
+            lottieView.bottomAnchor.constraint(equalTo: containerView.bottomAnchor),
+        ]
+        NSLayoutConstraint.activate(constraints)
+    }
+
+    func updateUIView(_ webView: UIView, context: Context) {
+        holder.cancellables = []
+        holder.functionCaller.sink { lottieAnimation in
+            setupLottieView(containerView: webView, animation: lottieAnimation)
+//            lottieView.animation = lottieAnimation
+//            lottieView.play()
+        }
+        .store(in: &holder.cancellables)
+    }
+}
+
+@MainActor
+class FontTransformerViewModel: ObservableObject {
+
+    let holder = AnimatorHolder()
+
+    enum FontTypeAnim: String {
+        case arial = "Arial"
+        case chalkduster = "Chalkduster"
+        case papyrus = "Papyrus"
+        case zapfino = "Zapfino"
+    }
+
+    private var jsonString: String?
+    @Published var lottieAnimation: LottieAnimation?
+
+    @Published var text1: String = "Text 1"
+    @Published var text2: String = "Text 2"
+    @Published var text3: String = "Text 3"
+    @Published var text4: String = "Text 4"
+    @Published var selectedFont: FontTypeAnim = .arial
+
+    func updateAnimation() {
+        guard let animationURL = Bundle.main.url(forResource: "animation", withExtension: "json"),
+              let animationRulesURL = Bundle.main.url(forResource: "animation-rules", withExtension: "json") else {
+            print("Error: Cannot find the JSON file.")
+            return
+        }
+
+        guard let animationData = try? Data(contentsOf: animationURL),
+              let animationRulesData = try? Data(contentsOf: animationRulesURL) else {
+            print("Error: Cannot data the JSON file.")
+            return
+        }
+        guard let animationJsonString = String(data: animationData, encoding: .utf8),
+              let animationRulesJsonString = String(data: animationRulesData, encoding: .utf8) else {
+            print("Error: Cannot string the JSON file.")
+            return
+        }
+        let texts = [text1, text2, text3, text4]
+        let fonts = getFonts(type: selectedFont)
+        let animationTransformer = KPAnimationTransformer()
+        guard let result = animationTransformer.transform(
+            lottieJsonString: animationJsonString,
+            animationRulesJsonString: animationRulesJsonString,
+            texts: texts,
+            fonts: fonts
+        ) else {
+            print("Error: Cannot animation transformer the JSON file.")
+            return
+        }
+
+        jsonString = result
+        if let lottieAnimation = computeLottieAnimation() {
+            holder.functionCaller.send(lottieAnimation)
         }
     }
 
@@ -126,62 +323,7 @@ struct FontTransformerView: View {
         }
     }
 
-    private func fontChange(fonts: [String: String]?) {
-        guard let animationURL = Bundle.main.url(forResource: "animation", withExtension: "json"),
-              let animationRulesURL = Bundle.main.url(forResource: "animation-rules", withExtension: "json") else {
-            print("Error: Cannot find the JSON file.")
-            return
-        }
-
-        guard let animationData = try? Data(contentsOf: animationURL),
-              let animationRulesData = try? Data(contentsOf: animationRulesURL) else {
-            print("Error: Cannot data the JSON file.")
-            return
-        }
-        guard let animationJsonString = String(data: animationData, encoding: .utf8),
-              let animationRulesJsonString = String(data: animationRulesData, encoding: .utf8) else {
-            print("Error: Cannot string the JSON file.")
-            return
-        }
-
-        let animationTransformer = KPAnimationTransformer()
-        guard let result = animationTransformer.transform(
-            lottieJsonString: animationJsonString,
-            animationRulesJsonString: animationRulesJsonString,
-            fonts: fonts) else {
-            print("Error: Cannot animation transformer the JSON file.")
-            return
-        }
-
-        self.jsonString = result
-        debugPrint(result)
-    }
-}
-
-struct FontTransformerView_Previews: PreviewProvider {
-    static var previews: some View {
-        FontTransformerView()
-    }
-}
-
-struct CustomAnimationLottieView: UIViewRepresentable {
-    @Binding var jsonString: String?
-
-    init(jsonString: Binding<String?>) {
-        _jsonString = jsonString
-    }
-
-    private var lottieView: LottieAnimationView = {
-        let view = LottieAnimationView()
-        view.loopMode = .loop
-        view.backgroundColor = .orange
-        view.translatesAutoresizingMaskIntoConstraints = false
-        view.isUserInteractionEnabled = false
-        return view
-    }()
-
-
-    func lottieAnimation() -> LottieAnimation? {
+    func computeLottieAnimation() -> LottieAnimation? {
         guard let jsonString else {
             print("Error: Fallback default animation")
             return LottieAnimation.named("animation", bundle: Bundle.main)
@@ -194,7 +336,7 @@ struct CustomAnimationLottieView: UIViewRepresentable {
             let animation = try LottieAnimation(dictionary: dictionary)
             return animation
         } catch {
-            debugPrint("PHETS error = \(error.localizedDescription)")
+            debugPrint("error = \(error.localizedDescription)")
         }
 
         return nil
@@ -217,23 +359,5 @@ struct CustomAnimationLottieView: UIViewRepresentable {
             print("Error: Cannot deserialize JSON data. \(error.localizedDescription)")
             return nil
         }
-    }
-
-    func makeUIView(context: Context) -> UIView {
-        let containerView = UIView()
-        containerView.addSubview(lottieView)
-        let constraints = [
-            lottieView.leftAnchor.constraint(equalTo: containerView.leftAnchor),
-            lottieView.topAnchor.constraint(equalTo: containerView.topAnchor),
-            lottieView.rightAnchor.constraint(equalTo: containerView.rightAnchor),
-            lottieView.bottomAnchor.constraint(equalTo: containerView.bottomAnchor),
-        ]
-        NSLayoutConstraint.activate(constraints)
-        return containerView
-    }
-
-    func updateUIView(_ webView: UIView, context: Context) {
-        lottieView.animation = lottieAnimation()
-        lottieView.play()
     }
 }
