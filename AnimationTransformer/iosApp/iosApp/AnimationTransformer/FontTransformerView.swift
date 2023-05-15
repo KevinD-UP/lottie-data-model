@@ -249,7 +249,8 @@ class FontTransformerViewModel: ObservableObject {
         }
         let texts = [text1, text2, text3, text4]
         let fonts = getFonts(type: selectedFont)
-        let animationTransformer = KPAnimationTransformer()
+        let functionsDelegate = FunctionsDelegateNative()
+        let animationTransformer = KPAnimationTransformer(functionsDelegate: functionsDelegate)
         guard let result = animationTransformer.transform(
             lottieJsonString: animationJsonString,
             animationRulesJsonString: animationRulesJsonString,
@@ -270,15 +271,15 @@ class FontTransformerViewModel: ObservableObject {
         switch type {
         case .arial:
             let fonts = [
-                "textBoldItalic": "path-to-font/Arial-Black.ttf",
-                "titleBlackItalic": "path-to-font/Arial-Bold.ttf",
-                "textBlackItalic": "path-to-font/Arial-Black.ttf",
-                "textBold": "path-to-font/Arial-Black.ttf",
-                "titleBoldItalic": "path-to-font/Arial-Bold.ttf",
-                "titleBold": "path-to-font/Arial-Bold.ttf",
-                "textBlack": "path-to-font/Arial-Black.ttf",
-                "text": "path-to-font/Arial-Black.ttf",
-                "title": "path-to-font/Arial-Bold.ttf",
+                "textBoldItalic": "path-to-font/Arial-BoldMT.ttf",
+                "titleBlackItalic": "path-to-font/Arial-BoldMT.ttf",
+                "textBlackItalic": "path-to-font/Arial-BoldMT.ttf",
+                "textBold": "path-to-font/Arial-BoldMT.ttf",
+                "titleBoldItalic": "path-to-font/Arial-BoldMT.ttf",
+                "titleBold": "path-to-font/Arial-BoldMT.ttf",
+                "textBlack": "path-to-font/Arial-BoldMT.ttf",
+                "text": "path-to-font/ArialMT.ttf",
+                "title": "path-to-font/Arial-BoldMT.ttf",
             ]
             return fonts
         case .chalkduster:

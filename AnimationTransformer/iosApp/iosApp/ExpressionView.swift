@@ -73,17 +73,22 @@ struct ExpressionView_Previews: PreviewProvider {
 }
 
 class FunctionMultiplyBy33: KPFunctionInterface {
-    func execute(args: [KotlinDouble]) -> Double {
+    func execute(args: [Any]) -> Double {
+        guard let args = args as? [KotlinDouble] else {
+            return 0.0
+        }
         guard args.count == 1 else {
             return 0.0
         }
         return args[0].doubleValue * 33
     }
-
 }
 
 class FunctionAddAndDivideBy2: KPFunctionInterface {
-    func execute(args: [KotlinDouble]) -> Double {
+    func execute(args: [Any]) -> Double {
+        guard let args = args as? [KotlinDouble] else {
+            return 0.0
+        }
         guard args.count == 2 else {
             return 0.0
         }
@@ -92,7 +97,7 @@ class FunctionAddAndDivideBy2: KPFunctionInterface {
 }
 
 class FunctionReturn123: KPFunctionInterface {
-    func execute(args: [KotlinDouble]) -> Double {
+    func execute(args: [Any]) -> Double {
         return 123.0
     }
 }

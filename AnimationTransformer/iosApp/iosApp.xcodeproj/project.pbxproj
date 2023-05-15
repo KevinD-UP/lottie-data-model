@@ -11,6 +11,8 @@
 		058557D9273AAEEB004C7B11 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 058557D8273AAEEB004C7B11 /* Preview Assets.xcassets */; };
 		1414917129D5CB0300E05FAF /* AnimationTransformerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1414917029D5CB0300E05FAF /* AnimationTransformerView.swift */; };
 		1414917329D5CB0900E05FAF /* ExpressionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1414917229D5CB0900E05FAF /* ExpressionView.swift */; };
+		14E32E122A0D340B00241750 /* tmp.json in Resources */ = {isa = PBXBuildFile; fileRef = 14E32E112A0D340B00241750 /* tmp.json */; };
+		14E32E142A0E738800241750 /* FunctionsDelegateNative.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E32E132A0E738700241750 /* FunctionsDelegateNative.swift */; };
 		14E59B7F2A04F64F00B83531 /* FontTransformerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E59B7E2A04F64F00B83531 /* FontTransformerView.swift */; };
 		14E59B822A04F7DB00B83531 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 14E59B812A04F7DB00B83531 /* Lottie */; };
 		14E59B842A04FDAF00B83531 /* animation.json in Resources */ = {isa = PBXBuildFile; fileRef = 14E59B832A04FDAF00B83531 /* animation.json */; };
@@ -26,6 +28,8 @@
 		10CB31805C1B2A9A82067F13 /* Pods_iosApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iosApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1414917029D5CB0300E05FAF /* AnimationTransformerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationTransformerView.swift; sourceTree = "<group>"; };
 		1414917229D5CB0900E05FAF /* ExpressionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpressionView.swift; sourceTree = "<group>"; };
+		14E32E112A0D340B00241750 /* tmp.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = tmp.json; sourceTree = "<group>"; };
+		14E32E132A0E738700241750 /* FunctionsDelegateNative.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FunctionsDelegateNative.swift; sourceTree = "<group>"; };
 		14E59B7E2A04F64F00B83531 /* FontTransformerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontTransformerView.swift; sourceTree = "<group>"; };
 		14E59B832A04FDAF00B83531 /* animation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = animation.json; sourceTree = "<group>"; };
 		14E59B852A051FE700B83531 /* animation-rules.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "animation-rules.json"; sourceTree = "<group>"; };
@@ -66,6 +70,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		14E32E152A0E79C700241750 /* AnimationTransformer */ = {
+			isa = PBXGroup;
+			children = (
+				14E59B7E2A04F64F00B83531 /* FontTransformerView.swift */,
+				14E32E132A0E738700241750 /* FunctionsDelegateNative.swift */,
+			);
+			path = AnimationTransformer;
+			sourceTree = "<group>";
+		};
 		164675662A83DBE93460FAD3 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -100,10 +113,11 @@
 				7555FF82242A565900829871 /* ContentView.swift */,
 				1414917029D5CB0300E05FAF /* AnimationTransformerView.swift */,
 				1414917229D5CB0900E05FAF /* ExpressionView.swift */,
-				14E59B7E2A04F64F00B83531 /* FontTransformerView.swift */,
+				14E32E152A0E79C700241750 /* AnimationTransformer */,
 				7555FF8C242A565B00829871 /* Info.plist */,
 				2152FB032600AC8F00CF470E /* iOSApp.swift */,
 				14E59B852A051FE700B83531 /* animation-rules.json */,
+				14E32E112A0D340B00241750 /* tmp.json */,
 				14E59B832A04FDAF00B83531 /* animation.json */,
 				058557D7273AAEEB004C7B11 /* Preview Content */,
 			);
@@ -179,6 +193,7 @@
 				14E59B842A04FDAF00B83531 /* animation.json in Resources */,
 				058557D9273AAEEB004C7B11 /* Preview Assets.xcassets in Resources */,
 				14E59B862A051FE700B83531 /* animation-rules.json in Resources */,
+				14E32E122A0D340B00241750 /* tmp.json in Resources */,
 				058557BB273AAA24004C7B11 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -232,6 +247,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				14E32E142A0E738800241750 /* FunctionsDelegateNative.swift in Sources */,
 				2152FB042600AC8F00CF470E /* iOSApp.swift in Sources */,
 				14E59B7F2A04F64F00B83531 /* FontTransformerView.swift in Sources */,
 				7555FF83242A565900829871 /* ContentView.swift in Sources */,
