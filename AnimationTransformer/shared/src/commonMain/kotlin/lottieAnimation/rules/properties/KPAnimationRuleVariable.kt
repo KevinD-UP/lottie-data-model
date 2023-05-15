@@ -5,10 +5,15 @@ import kotlinx.serialization.Serializable
 
 @Serializable
 data class KPAnimationRuleVariable(
-    val key: String,
+    val key: String?,
     val value: String,
+    val ind: Int?,
+    val layerType: Int?,
+    val transformType: KPAnimationRuleTransformType?,
+    val transformIndexForList: Int?,
     val type: KPAnimationRuleVariableType,
-    var description: String?)
+    var description: String?,
+    )
 
 @Serializable
 enum class KPAnimationRuleVariableType {
@@ -22,6 +27,12 @@ enum class KPAnimationRuleVariableType {
     JSON_OBJECT,
     @SerialName("unit")
     UNIT
+}
+
+@Serializable
+enum class KPAnimationRuleTransformType {
+    @SerialName("position")
+    POSITION
 }
 
 

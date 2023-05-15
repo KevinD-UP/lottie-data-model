@@ -7,7 +7,7 @@ class KPGetBottomOfSafeAreaFunction(
     private val subtitleHeight: Double,
     private val watermarkHeight: Double
 ): KPFunctionInterface {
-    override fun execute(args: List<Double>): Double {
+    override fun execute(args: List<Any>): Double {
         return projectHeight - subtitleHeight - watermarkHeight
     }
 }

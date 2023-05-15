@@ -24,6 +24,7 @@ class KPAnimationRulesTest {
             val json = Json {
                 explicitNulls = false
                 encodeDefaults = true
+                ignoreUnknownKeys = true
             }
             val animationRules = json.decodeFromString<KPAnimationRules?>(rulesJson)
             requireNotNull(animationRules)

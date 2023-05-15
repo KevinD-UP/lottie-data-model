@@ -12,7 +12,7 @@ class KPDefaultExpressionParser(private val functions: Map<String, KPFunctionInt
 
     private fun tokenize(expression: String): List<String> {
         val tokens = mutableListOf<String>()
-        val regex = Regex("(\\d+|[(),+\\-*/]|[a-zA-Z_][a-zA-Z0-9_]*)")
+        val regex = Regex("(\\d+|[(),+\\-*/]|\"[^\"]*\"|[a-zA-Z_][a-zA-Z0-9_]*)")
 
         regex.findAll(expression).forEach { matchResult ->
             tokens.add(matchResult.value)
@@ -74,14 +74,14 @@ class KPDefaultExpressionParser(private val functions: Map<String, KPFunctionInt
         val function = functions[functionName]
             ?: throw IllegalArgumentException("Unexpected function: $functionName")
 
-        val args = mutableListOf<Double>()
+        val args = mutableListOf<Any>()
 
         if (tokens[position] != ")") {
-            args.add(parseExpression())
+            args.add(parseArgument())
 
             while (tokens[position] == ",") {
                 position++ // Consume the comma separator
-                args.add(parseExpression())
+                args.add(parseArgument())
             }
         }
 
@@ -90,5 +90,30 @@ class KPDefaultExpressionParser(private val functions: Map<String, KPFunctionInt
         }
 
         return function.execute(args)
+    }
+
+    private fun parseArgument(): Any {
+        return when {
+            tokens[position].matches(Regex("\\d+")) -> {
+                val number = tokens[position].toDouble()
+                position++
+                number
+            }
+            tokens[position].matches(Regex("\"[^\"]*\"")) -> {
+                val string = tokens[position].removeSurrounding("\"")
+                position++
+                string
+            }
+            tokens[position].matches(Regex("[a-zA-Z_][a-zA-Z0-9_]*")) -> {
+                if (functions.containsKey(tokens[position])) {
+                    parseExpression()
+                } else {
+                    val string = tokens[position]
+                    position++
+                    string
+                }
+            }
+            else -> parseExpression()
+        }
     }
 }

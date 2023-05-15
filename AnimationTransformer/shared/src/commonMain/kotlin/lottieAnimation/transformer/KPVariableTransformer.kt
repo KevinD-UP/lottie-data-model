@@ -18,7 +18,7 @@ class KPVariableTransformer(
         animationRules: KPAnimationRules
     )
             : KPLottieAnimation {
-        val expressionParser: KPExpressionParser = KPProjectExpressionParser(
+        val expressionParser = KPProjectExpressionParser(
             animation = animation,
             functionsDelegate = delegate,
             projectWidth = 1920.0,
@@ -52,7 +52,7 @@ class KPLottieAnimationWrapper(var animation: KPLottieAnimation) { }
 fun KPLottieAnimationWrapper.applyVariableOnTextLayer(
     layer: KPLayer,
     variable: KPAnimationRuleVariable,
-    expressionParser: KPExpressionParser
+    expressionParser: KPProjectExpressionParser
 ) {
     // Return if the layer is not a KPTextLayer
     if (layer !is KPTextLayer) return
@@ -62,7 +62,7 @@ fun KPLottieAnimationWrapper.applyVariableOnTextLayer(
 
     when (variable.transformType) {
         KPAnimationRuleTransformType.POSITION -> {
-            val expressionResult = expressionParser.parseAndEvaluate(variable.value)
+            val expressionResult = expressionParser.parseAndEvaluate(expression = variable.value, key = variable.key)
             println("Expression: ${variable.value}")
             println("Expression result: $expressionResult")
             val targetLayerIndex: Int = layers.indexOf(layer)
@@ -100,7 +100,7 @@ fun KPLottieAnimationWrapper.applyVariableOnTextLayer(
 fun KPLottieAnimationWrapper.applyVariableOnShapeLayer(
     layer: KPLayer,
     variable: KPAnimationRuleVariable,
-    expressionParser: KPExpressionParser
+    expressionParser: KPProjectExpressionParser
 ) {
     if (layer !is KPShapeLayer) {
         println("is not shape layer")

@@ -5,12 +5,16 @@ import kotlin.test.Test
 import kotlin.test.assertEquals
 
 class KPExpressionParserTest {
+    private val mapKeysFunctions = MapKeyFunction()
     private val functions = mapOf(
         "getTextMeasureHeight" to TextMeasureHeightFunction(),
         "getTestThirtyThree" to TestThirtyThreeFunction(),
         "getComputationFortyTwo" to ComputationFortyTwoFunction(),
         "getComputationBlabla" to ComputationBlablaFunction(),
         "getNoParam" to NoParamFunction(),
+        "getStoredResults" to StoredResultsFunction(),
+        "getAddString" to AddStringValueFunction(),
+        "getMapResults" to mapKeysFunctions,
     )
 
     private val sut = KPDefaultExpressionParser(functions)
@@ -356,6 +360,54 @@ class KPExpressionParserTest {
         val expression = "getNoParam() * 2 + (getTestThirtyThree(getNoParam()) + 321)"
         val result = sut.parseAndEvaluate(expression)
         val expected = 123.0 * 2 + ((123.0 + 33) + 321)
+        assertEquals(expected.toDouble(), result)
+    }
+
+    @Test
+    fun testExpressionStoredResults1() {
+        val expression = "getStoredResults(key0)"
+        val result = sut.parseAndEvaluate(expression)
+        val expected = 123
+        assertEquals(expected.toDouble(), result)
+    }
+
+    @Test
+    fun testExpressionStoredResults2() {
+        val expression = "getStoredResults(key1)"
+        val result = sut.parseAndEvaluate(expression)
+        val expected = 321
+        assertEquals(expected.toDouble(), result)
+    }
+
+    @Test
+    fun testExpressionStoredResults3() {
+        val expression = "getStoredResults(key3)"
+        val result = sut.parseAndEvaluate(expression)
+        val expected = 777
+        assertEquals(expected.toDouble(), result)
+    }
+
+    @Test
+    fun testExpressionStoredResults4() {
+        val expression = "getStoredResults(nonexisting)"
+        val result = sut.parseAndEvaluate(expression)
+        val expected = 0
+        assertEquals(expected.toDouble(), result)
+    }
+
+    @Test
+    fun testExpressionStoredResults5() {
+        val expression = "getStoredResults(key3)+333"
+        val result = sut.parseAndEvaluate(expression)
+        val expected = 777 + 333
+        assertEquals(expected.toDouble(), result)
+    }
+
+    @Test
+    fun testExpressionStringParams1() {
+        val expression = "getAddString(\"2\",\"5\")"
+        val result = sut.parseAndEvaluate(expression)
+        val expected = 7
         assertEquals(expected.toDouble(), result)
     }
 }

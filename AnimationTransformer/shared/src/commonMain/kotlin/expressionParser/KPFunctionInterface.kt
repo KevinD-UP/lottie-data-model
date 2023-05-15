@@ -11,9 +11,9 @@ interface KPFunctionInterface {
     /**
      * Executes the mathematical function using the provided arguments.
      *
-     * @param args A list of Double values representing the input arguments for the function.
+     * @param args A list of arg values representing the input arguments for the function.
      * @return A Double value representing the result of the function execution.
      * @throws IllegalArgumentException If the provided arguments are not valid for the function.
      */
-    fun execute(args: List<Double>): Double
+    fun execute(args: List<Any>): Double
 }

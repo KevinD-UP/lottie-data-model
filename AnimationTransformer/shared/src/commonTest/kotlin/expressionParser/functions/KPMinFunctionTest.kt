@@ -1,5 +1,6 @@
 package expressionParser.functions
 
+import expressionParser.functions.common.KPMinFunction
 import kotlin.test.Test
 import kotlin.test.assertEquals
 

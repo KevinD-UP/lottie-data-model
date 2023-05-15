@@ -1,9 +1,9 @@
 package expressionParser
 
-import expressionParser.functions.KPGetFirstLineTopFunction
-import expressionParser.functions.KPGetBottomOfSafeAreaFunction
-import expressionParser.functions.KPGetLastLineBottomFunction
-import expressionParser.functions.KPGetTextMeasureHeightFunction
+import expressionParser.functions.*
+import expressionParser.functions.common.KPMaxFunction
+import expressionParser.functions.common.KPMinFunction
+import expressionParser.functions.store.KPStoreResultsFunction
 import lottieAnimation.KPLottieAnimation
 import lottieAnimation.transformer.KPAnimationTransformerFunctionsDelegate
 
@@ -14,8 +14,9 @@ class KPProjectExpressionParser(
     projectHeight: Double,
     subtitleHeight: Double,
     watermarkHeight: Double,
-): KPExpressionParser {
-    private val functions = mapOf(
+) {
+    private val storeResults = KPStoreResultsFunction()
+    private val nativeFunctions = mapOf(
         "getAscent" to KPGetFirstLineTopFunction(
             lottieAnimation = animation,
             functionsDelegate = functionsDelegate
@@ -24,7 +25,7 @@ class KPProjectExpressionParser(
             lottieAnimation = animation,
             functionsDelegate = functionsDelegate
         ),
-        "getBottomSafeArea" to KPGetBottomOfSafeAreaFunction(
+        "getBottomOfSafeArea" to KPGetBottomOfSafeAreaFunction(
             projectHeight = projectHeight,
             subtitleHeight = subtitleHeight,
             watermarkHeight = watermarkHeight
@@ -34,10 +35,20 @@ class KPProjectExpressionParser(
             functionsDelegate = functionsDelegate
         ),
     )
+    private val commonFunctions = mapOf(
+        "min" to KPMinFunction(),
+        "max" to KPMaxFunction(),
+        "getResultForKey" to storeResults
+    )
+    private val functions =  nativeFunctions + commonFunctions
 
     val expressionParser: KPExpressionParser = KPDefaultExpressionParser(functions = functions)
 
-    override fun parseAndEvaluate(expression: String): Double {
-        return expressionParser.parseAndEvaluate(expression)
+    fun parseAndEvaluate(expression: String, key: String? = null): Double {
+        val result = expressionParser.parseAndEvaluate(expression)
+        key?.let {
+            storeResults.addResult(key, result)
+        }
+        return result
     }
 }
