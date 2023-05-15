@@ -7,30 +7,38 @@ import kotlinx.serialization.json.JsonPrimitive
 import lottieAnimation.layer.serializers.KPMultiDimensionalListOrPrimitiveSerializer
 
 @Serializable
-sealed class KPMultiDimensional
+sealed class KPMultiDimensional {
+    abstract val k: KPMultiDimensionalListOrPrimitive?
+    abstract val x: JsonElement?
+    abstract val a: JsonPrimitive?
+    abstract val ix: JsonPrimitive?
+    abstract val l: JsonPrimitive?
+    abstract val s: JsonElement?
+    abstract val y: JsonElement?
+}
 
 @Serializable
 data class KPMultiDimensionalSimple(
     @Serializable(with = KPMultiDimensionalListOrPrimitiveSerializer::class)
-    val k: KPMultiDimensionalListOrPrimitive? = null,
-    val x: JsonElement? = null,
-    val a: JsonPrimitive? = null,
-    val ix: JsonPrimitive? = null,
-    val l: JsonPrimitive? = null,
-    val s: JsonElement? = null,
-    val y: JsonElement? = null,
+    override val k: KPMultiDimensionalListOrPrimitive? = null,
+    override val x: JsonElement? = null,
+    override val a: JsonPrimitive? = null,
+    override val ix: JsonPrimitive? = null,
+    override val l: JsonPrimitive? = null,
+    override val s: JsonElement? = null,
+    override val y: JsonElement? = null,
 ) : KPMultiDimensional()
 
 @Serializable
 data class KPMultiDimensionalKeyframed(
     @Serializable(with = KPMultiDimensionalListOrPrimitiveSerializer::class)
-    val k: KPMultiDimensionalListOrPrimitive? = null,
-    val x: JsonElement? = null,
-    val a: JsonPrimitive? = null,
-    val ix: JsonPrimitive? = null,
+    override val k: KPMultiDimensionalListOrPrimitive? = null,
+    override val x: JsonElement? = null,
+    override val a: JsonPrimitive? = null,
+    override val ix: JsonPrimitive? = null,
+    override val l: JsonPrimitive? = null,
+    override val s: JsonElement? = null,
+    override val y: JsonElement? = null,
     val ti: JsonArray? = null,
     val to: JsonArray? = null,
-    val l: JsonPrimitive? = null,
-    val s: JsonElement? = null,
-    val y: JsonElement? = null,
 ) : KPMultiDimensional()

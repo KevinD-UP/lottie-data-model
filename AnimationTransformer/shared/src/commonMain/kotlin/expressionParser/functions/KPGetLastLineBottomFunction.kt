@@ -1,14 +1,13 @@
 package expressionParser.functions
 
 import expressionParser.KPFunctionInterface
-import expressionParser.functions.text.KPGetTextFunction
 import kotlinx.serialization.json.doubleOrNull
 import kotlinx.serialization.json.jsonPrimitive
 import lottieAnimation.KPLottieAnimation
 import lottieAnimation.layer.KPTextLayer
 import lottieAnimation.transformer.KPAnimationTransformerFunctionsDelegate
 
-class KPGetTextMeasureHeightFunction(
+class KPGetLastLineBottomFunction(
     private val lottieAnimation: KPLottieAnimation,
     private val functionsDelegate: KPAnimationTransformerFunctionsDelegate
 ): KPFunctionInterface {
@@ -22,15 +21,10 @@ class KPGetTextMeasureHeightFunction(
         val fontName = item.s.f
         val fontSize = item.s.s?.jsonPrimitive?.doubleOrNull ?: return 0.0
         val lineHeight = item.s.lh?.jsonPrimitive?.doubleOrNull ?: return 0.0
-        val size = item.s.sz?.mapNotNull { it.jsonPrimitive?.doubleOrNull }
-        val tracking = item.s.tr?.jsonPrimitive?.doubleOrNull ?: 0.0
-        return functionsDelegate.getTextMeasureHeight(
+        return functionsDelegate.getLastLineBottom(
             text = text,
             fontName = fontName,
             fontSize = fontSize,
-            layerSize = size,
-            layerLineHeight = lineHeight,
-            layerTracking = tracking
         )
     }
 }
