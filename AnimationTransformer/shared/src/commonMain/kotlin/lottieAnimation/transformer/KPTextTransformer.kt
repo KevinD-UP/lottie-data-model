@@ -1,8 +1,5 @@
 package lottieAnimation.transformer
 
-import kotlinx.serialization.json.JsonPrimitive
-import lottieAnimation.Font
-import lottieAnimation.FontList
 import lottieAnimation.KPLottieAnimation
 import lottieAnimation.layer.*
 import lottieAnimation.rules.properties.KPAnimationRules
@@ -15,13 +12,10 @@ class KPTextTransformer {
         var res = animation.copy()
         if(texts == null) return res
 
-        println("PHETS texts $texts")
-
         animationRules.layerRules.forEach { layerRule ->
             if (layerRule.fontKey != null) {
                 val text = parseTextKey(texts, layerRule.textInd)
                 val wantedLayer = animation.layers.find { it.ind == layerRule.ind && it.ty == KPLayerType.TEXT_LAYER }
-                println("PHETS wantedLayer ${wantedLayer?.ind} - text $text")
                 if (text != null && wantedLayer != null) {
                     when(wantedLayer) {
                         is KPTextLayer -> {
