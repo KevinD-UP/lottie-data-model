@@ -6,7 +6,9 @@ import kotlinx.serialization.json.Json
 import lottieAnimation.KPLottieAnimation
 import lottieAnimation.rules.properties.KPAnimationRules
 
-class KPAnimationTransformer {
+class KPAnimationTransformer(
+    private val functionsDelegate: KPAnimationTransformerFunctionsDelegate
+    ) {
     fun transform(
         lottieJsonString: String,
         animationRulesJsonString: String,
@@ -18,6 +20,7 @@ class KPAnimationTransformer {
         val json = Json {
             explicitNulls = false
             encodeDefaults = true
+            ignoreUnknownKeys = true
         }
         val lottieAnimation = json.decodeFromString<KPLottieAnimation?>(lottieJsonString) ?: return null
         val animationRules = json.decodeFromString<KPAnimationRules?>(animationRulesJsonString) ?: return null
@@ -33,8 +36,13 @@ class KPAnimationTransformer {
             animationRules = animationRules,
             texts = texts
         )
+        val variableTransformer = KPVariableTransformer(delegate = functionsDelegate)
+        val animationVariableTransformed = variableTransformer.transformVariables(
+            animation = animationTextTransformed,
+            animationRules = animationRules
+        )
 
         println("animationTextTransformed")
-        return json.encodeToString(animationTextTransformed)
+        return json.encodeToString(animationVariableTransformed)
     }
 }
