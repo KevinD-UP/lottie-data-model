@@ -14,84 +14,84 @@ import lottieAnimation.layer.serializers.KPLayerListSerializer
  * Base class for layer holders
  */
 @Serializable
-data class KPLottieAnimation (
+data class KPLottieAnimation(
     /**
      * Match name, used in expressions
      */
-    val mn: String? = null,
+    var mn: String? = null,
 
     /**
      * Name, as seen from editors and the like
      */
-    val nm: String? = null,
+    var nm: String? = null,
 
     /**
      * List of assets that can be referenced by layers
      */
-    val assets: List<Asset>? = null,
+    var assets: List<Asset>? = null,
 
     /**
      * Data defining text characters as lottie shapes. If present a player might only render
      * characters defined here and nothing else.
      */
-    val chars: List<CharacterData>? = null,
+    var chars: List<CharacterData>? = null,
 
     /**
      * List of Extra compositions not referenced by anything
      */
-    val comps: List<Precomposition>? = null,
+    var comps: List<Precomposition>? = null,
 
     /**
      * Whether the animation has 3D layers
      */
-    val ddd: Long? = null,
+    var ddd: Long? = null,
 
-    val fonts: FontList? = null,
+    var fonts: FontList? = null,
 
     /**
      * Framerate in frames per second
      */
-    val fr: JsonElement,
+    var fr: JsonElement,
 
     /**
      * Height of the animation
      */
-    val h: Long,
+    var h: Long,
 
     /**
      * "In Point", which frame the animation starts at (usually 0)
      */
-    val ip: JsonElement,
+    var ip: JsonElement,
 
     /**
      * Markers defining named sections of the composition.
      */
-    val markers: List<Marker>? = null,
+    var markers: List<Marker>? = null,
 
-    val mb: MotionBlur? = null,
+    var mb: MotionBlur? = null,
 
     /**
      * Document metadata
      */
-    val meta: Metadata? = null,
+    var meta: Metadata? = null,
 
-    val metadata: UserMetadata? = null,
+    var metadata: UserMetadata? = null,
 
     /**
      * "Out Point", which frame the animation stops/loops at, which makes this the duration in
      * frames when `ip` is 0
      */
-    val op: JsonElement,
+    var op: JsonElement,
 
-    val v: String? = null,
+    var v: String? = null,
 
     /**
      * Width of the animation
      */
-    val w: Long,
+    var w: Long,
 
     @Serializable(with = KPLayerListSerializer::class)
-    val layers: List<KPLayer>
+    var layers: List<KPLayer>
 )
 
 /**
@@ -110,59 +110,59 @@ data class KPLottieAnimation (
  * External data source, usually a JSON file
  */
 @Serializable
-data class Asset (
+data class Asset(
     /**
      * Unique identifier used by layers when referencing this asset
      */
-    val id: String,
+    var id: String,
 
     /**
      * Human readable name
      */
-    val nm: String? = null,
+    var nm: String? = null,
 
     /**
      * Whether the file is embedded
      */
-    val e: Long? = null,
+    var e: Long? = null,
 
     /**
      * Filename or data url
      */
-    val p: String? = null,
+    var p: String? = null,
 
     /**
      * Path to the directory containing a file
      */
-    val u: String? = null,
+    var u: String? = null,
 
     /**
      * Height of the image
      */
-    val h: Int? = null,
+    var h: Int? = null,
 
     /**
      * Marks as part of an image sequence if present
      */
-    val t: JsonElement? = null,
+    var t: JsonElement? = null,
 
     /**
      * Width of the image
      */
-    val w: Int? = null,
+    var w: Int? = null,
 
     @Serializable(with = KPLayerListSerializer::class)
-    val layers: List<KPLayer>,
+    var layers: List<KPLayer>,
 
     /**
      * Framerate in frames per second
      */
-    val fr: JsonElement? = null,
+    var fr: JsonElement? = null,
 
     /**
      * Extra composition
      */
-    val xt: Long? = null
+    var xt: Long? = null
 )
 
 /**
@@ -177,82 +177,82 @@ data class Asset (
  * An animatable property that holds an array of numbers
  */
 @Serializable
-data class MultiDimensional (
-    val k: JsonElement? = null,
+data class MultiDimensional(
+    var k: JsonElement? = null,
 
     /**
      * Whether the property is animated
      */
-    val a: Long? = null,
+    var a: Long? = null,
 
-    val ix: Long? = null,
-    val x: String? = null,
+    var ix: Long? = null,
+    var x: String? = null,
 
     /**
      * Number of components in the value arrays.
      * If present values will be truncated or expanded to match this length when accessed from
      * expressions.
      */
-    val l: Long? = null
+    var l: Long? = null
 )
 
 /**
  * Layer transform
  */
 @Serializable
-data class Transform (
+data class Transform(
     /**
      * Anchor point: a position (relative to its parent) around which transformations are
      * applied (ie: center for rotation / scale)
      */
-    val a: PositionProperty? = null,
+    var a: PositionProperty? = null,
 
-    val o: Value? = null,
+    var o: Value? = null,
 
     /**
      * Scale factor, `[100, 100]` for no scaling
      */
-    val s: MultiDimensional? = null,
+    var s: MultiDimensional? = null,
 
     /**
      * Direction along which skew is applied, in degrees (`0` skews along the X axis, `90` along
      * the Y axis)
      */
-    val sa: Value? = null,
+    var sa: Value? = null,
 
     /**
      * Skew amount as an angle in degrees
      */
-    val sk: Value? = null,
+    var sk: Value? = null,
 
     /**
      * Position / Translation
      *
      * Position / Translation with split components
      */
-    val p: TransformP? = null,
+    var p: TransformP? = null,
 
     /**
      * Rotation in degrees, clockwise
      */
-    val r: Value? = null,
+    var r: Value? = null,
 
-    val or: MultiDimensional? = null,
-
-    /**
-     * Split rotation component
-     */
-    val rx: Value? = null,
+    var or: MultiDimensional? = null,
 
     /**
      * Split rotation component
      */
-    val ry: Value? = null,
+    var rx: Value? = null,
+
+    /**
+     * Split rotation component
+     */
+    var ry: Value? = null,
 
     /**
      * Split rotation component, equivalent to `r` when not split
      */
-    val rz: Value? = null
+    var rz: Value? = null
 )
 
 /**
@@ -266,25 +266,25 @@ data class Transform (
  * An animatable property to represent a position in space
  */
 @Serializable
-data class PositionProperty (
+data class PositionProperty(
     //@Transient
-    val k: JsonElement? = null,
+    var k: JsonElement? = null,
 
     /**
      * Whether the property is animated
      */
-    val a: Long? = null,
+    var a: Long? = null,
 
-    val ix: Long? = null,
+    var ix: Long? = null,
 
     /**
      * Number of components in the value arrays.
      * If present values will be truncated or expanded to match this length when accessed from
      * expressions.
      */
-    val l: Long? = null,
+    var l: Long? = null,
 
-    val x: String? = null
+    var x: String? = null
 )
 
 /**
@@ -357,16 +357,16 @@ data class PositionProperty (
  * An animatable property that holds an array of numbers
  */
 @Serializable
-data class Value (
-    val k: JsonElement? = null,
+data class Value(
+    var k: JsonElement? = null,
 
     /**
      * Whether the property is animated
      */
-    val a: Long? = null,
+    var a: Long? = null,
 
-    val ix: Long? = null,
-    val x: String? = null
+    var ix: Long? = null,
+    var x: String? = null
 )
 
 /**
@@ -384,56 +384,56 @@ data class Value (
  * An animatable property that is split into individually anaimated components
  */
 @Serializable
-data class TransformP (
-    val k: JsonElement? = null,
+data class TransformP(
+    var k: JsonElement? = null,
 
     /**
      * Whether the property is animated
      */
-    val a: Long? = null,
+    var a: Long? = null,
 
-    val ix: Long? = null,
+    var ix: Long? = null,
 
     /**
      * Number of components in the value arrays.
      * If present values will be truncated or expanded to match this length when accessed from
      * expressions.
      */
-    val l: Long? = null,
+    var l: Long? = null,
 
     //@Transient
-    val x: JsonElement? = null,
-    val s: Boolean? = null,
-    val y: Value? = null,
-    val z: Value? = null
+    var x: JsonElement? = null,
+    var s: Boolean? = null,
+    var y: Value? = null,
+    var z: Value? = null
 )
 
 @Serializable
 sealed class X {
-    class StringValue(val value: String) : X()
-    class ValueValue(val value: Value)   : X()
+    class StringValue(var value: String) : X()
+    class ValueValue(var value: Value) : X()
 }
 
 /**
  * Bezier shape used to mask/clip a layer
  */
 @Serializable
-data class Mask (
+data class Mask(
     /**
      * Match name, used in expressions
      */
-    val mn: String? = null,
+    var mn: String? = null,
 
     /**
      * Name, as seen from editors and the like
      */
-    val nm: String? = null,
+    var nm: String? = null,
 
-    val inv: Boolean? = null,
-    val mode: String? = null,
-    val o: Value? = null,
-    val pt: ShapeProperty? = null,
-    val x: Value? = null
+    var inv: Boolean? = null,
+    var mode: String? = null,
+    var o: Value? = null,
+    var pt: ShapeProperty? = null,
+    var x: Value? = null
 )
 
 /**
@@ -442,17 +442,17 @@ data class Mask (
  * An animatable property that holds a Bezier
  */
 @Serializable
-data class ShapeProperty (
+data class ShapeProperty(
     //@Transient
-    val k: JsonElement? = null,
+    var k: JsonElement? = null,
 
     /**
      * Whether the property is animated
      */
-    val a: Long? = null,
+    var a: Long? = null,
 
-    val ix: Long? = null,
-    val x: String? = null
+    var ix: Long? = null,
+    var x: String? = null
 )
 
 /**
@@ -502,53 +502,53 @@ data class ShapeProperty (
  * Represents a style for shapes without fill or stroke
  */
 @Serializable
-data class ShapeList (
+data class ShapeList(
     /**
      * NOTE : added manually by @xaba after looking at animations on lottieFiles
      * index of something...
      */
-    val ind: Long? = null,
+    var ind: Long? = null,
 
     /**
      * Match name, used in expressions
      */
-    val mn: String? = null,
+    var mn: String? = null,
 
     /**
      * Name, as seen from editors and the like
      */
-    val nm: String? = null,
+    var nm: String? = null,
 
-    val bm: Long? = null,
+    var bm: Long? = null,
 
     /**
      * CSS class used by the SVG renderer
      */
-    val cl: String? = null,
+    var cl: String? = null,
 
     /**
      * Whether the shape is hidden
      */
-    val hd: Boolean? = null,
+    var hd: Boolean? = null,
 
     /**
      * Index used in expressions
      */
-    val ix: Long? = null,
+    var ix: Long? = null,
 
     /**
      * `id` attribute used by the SVG renderer
      */
-    val ln: String? = null,
+    var ln: String? = null,
 
-    val ty: String,
+    var ty: String,
 
     /**
      * Direction the shape is drawn as, mostly relevant when using trim path
      *
      * Dashed line definition
      */
-    val d: JsonElement? = null,
+    var d: JsonElement? = null,
 
     /**
      * Center of the rectangle
@@ -557,7 +557,7 @@ data class ShapeList (
      *
      * Position / Translation with split components
      */
-    val p: ShapeP? = null,
+    var p: ShapeP? = null,
 
     /**
      * Starting point for the gradient
@@ -568,19 +568,19 @@ data class ShapeList (
      *
      * Distance between peaks and troughs
      */
-    val s: EClass? = null,
+    var s: EClass? = null,
 
     /**
      * Number of copies
      *
      * Stroke color
      */
-    val c: CClass? = null,
+    var c: CClass? = null,
 
     /**
      * Opacity, 100 means fully opaque
      */
-    val o: Value? = null,
+    var o: Value? = null,
 
     /**
      * Rotation, clockwise in degrees
@@ -591,7 +591,7 @@ data class ShapeList (
      *
      * Number of ridges per segment
      */
-    val r: JsonElement? = null,
+    var r: JsonElement? = null,
 
     /**
      * Highlight Angle, relative to the direction from `s` to `e`
@@ -601,113 +601,113 @@ data class ShapeList (
      * Anchor point: a position (relative to its parent) around which transformations are
      * applied (ie: center for rotation / scale)
      */
-    val a: AClass? = null,
+    var a: AClass? = null,
 
     /**
      * End point for the gradient
      *
      * Segment end
      */
-    val e: EClass? = null,
+    var e: EClass? = null,
 
     /**
      * Gradient colors
      */
-    val g: GradientColors? = null,
+    var g: GradientColors? = null,
 
     /**
      * Highlight Length, as a percentage between `s` and `e`
      */
-    val h: Value? = null,
+    var h: Value? = null,
 
     /**
      * Type of the gradient
      */
-    val t: Long? = null,
+    var t: Long? = null,
 
-    val lc: Long? = null,
-    val lj: Long? = null,
-    val ml: JsonElement? = null,
+    var lc: Long? = null,
+    var lj: Long? = null,
+    var ml: JsonElement? = null,
 
     /**
      * Animatable alternative to ml
      */
-    val ml2: Value? = null,
+    var ml2: Value? = null,
 
     /**
      * Stroke width
      */
-    val w: Value? = null,
+    var w: Value? = null,
 
     /**
      * Index used in expressions
      */
-    val cix: Long? = null,
+    var cix: Long? = null,
 
-    val it: List<ShapeList>? = null,
-    val np: Int? = null,
+    var it: List<ShapeList>? = null,
+    var np: Int? = null,
 
     /**
      * Bezier path
      */
-    val ks: ShapeProperty? = null,
+    var ks: ShapeProperty? = null,
 
-    val or: EClass? = null,
+    var or: EClass? = null,
 
     /**
      * Outer Roundness as a percentage
      */
-    val os: Value? = null,
+    var os: Value? = null,
 
     /**
      * Point type (1 = corner, 2 = smooth)
      */
-    val pt: Value? = null,
+    var pt: Value? = null,
 
     /**
      * Star type, `1` for Star, `2` for Polygon
      */
-    val sy: Long? = null,
+    var sy: Long? = null,
 
     /**
      * Stacking order
      *
      * How to treat multiple copies
      */
-    val m: Long? = null,
+    var m: Long? = null,
 
     /**
      * Transform applied to each copy
      */
-    val tr: RepeaterTransformClass? = null,
+    var tr: RepeaterTransformClass? = null,
 
     /**
      * Direction along which skew is applied, in degrees (`0` skews along the X axis, `90` along
      * the Y axis)
      */
-    val sa: Value? = null,
+    var sa: Value? = null,
 
     /**
      * Skew amount as an angle in degrees
      */
-    val sk: Value? = null,
+    var sk: Value? = null,
 
     /**
      * Split rotation component
      */
-    val rx: Value? = null,
+    var rx: Value? = null,
 
     /**
      * Split rotation component
      */
-    val ry: Value? = null,
+    var ry: Value? = null,
 
     /**
      * Split rotation component, equivalent to `r` when not split
      */
-    val rz: Value? = null,
+    var rz: Value? = null,
 
-    val mm: Long? = null
+    var mm: Long? = null
 )
 
 /**
@@ -789,24 +789,24 @@ data class ShapeList (
  * An animatable property to represent a position in space
  */
 @Serializable
-data class AClass (
+data class AClass(
     //@Transient
-    val k: JsonElement? = null,
+    var k: JsonElement? = null,
 
     /**
      * Whether the property is animated
      */
-    val a: Long? = null,
+    var a: Long? = null,
 
-    val ix: Long? = null,
-    val x: String? = null,
+    var ix: Long? = null,
+    var x: String? = null,
 
     /**
      * Number of components in the value arrays.
      * If present values will be truncated or expanded to match this length when accessed from
      * expressions.
      */
-    val l: Long? = null
+    var l: Long? = null
 )
 
 /**
@@ -891,53 +891,53 @@ data class AClass (
  * Group alignment
  */
 @Serializable
-data class CClass (
+data class CClass(
     //@Transient
-    val k: JsonElement? = null,
+    var k: JsonElement? = null,
 
     /**
      * Whether the property is animated
      */
-    val a: Long? = null,
+    var a: Long? = null,
 
-    val ix: Long? = null,
-    val x: String? = null,
+    var ix: Long? = null,
+    var x: String? = null,
 
     /**
      * Number of components in the value arrays.
      * If present values will be truncated or expanded to match this length when accessed from
      * expressions.
      */
-    val l: Long? = null
+    var l: Long? = null
 )
 
 @Serializable
 sealed class D {
-    class IntegerValue(val value: Long)                     : D()
-    class StrokeDashArrayValue(val value: List<StrokeDash>) : D()
+    class IntegerValue(var value: Long) : D()
+    class StrokeDashArrayValue(var value: List<StrokeDash>) : D()
 }
 
 /**
  * An item used to described the dashe pattern in a stroked path
  */
 @Serializable
-data class StrokeDash (
+data class StrokeDash(
     /**
      * Match name, used in expressions
      */
-    val mn: String? = null,
+    var mn: String? = null,
 
     /**
      * Name, as seen from editors and the like
      */
-    val nm: String? = null,
+    var nm: String? = null,
 
-    val n: String? = null,
+    var n: String? = null,
 
     /**
      * Length of the dash
      */
-    val v: Value? = null
+    var v: Value? = null
 )
 
 /**
@@ -1018,24 +1018,24 @@ data class StrokeDash (
  * An animatable property that holds a float
  */
 @Serializable
-data class EClass (
+data class EClass(
     //@Transient
-    val k: JsonElement? = null,
+    var k: JsonElement? = null,
 
     /**
      * Whether the property is animated
      */
-    val a: Long? = null,
+    var a: Long? = null,
 
-    val ix: Long? = null,
-    val x: String? = null,
+    var ix: Long? = null,
+    var x: String? = null,
 
     /**
      * Number of components in the value arrays.
      * If present values will be truncated or expanded to match this length when accessed from
      * expressions.
      */
-    val l: Long? = null
+    var l: Long? = null
 )
 
 /**
@@ -1053,19 +1053,19 @@ data class EClass (
  * Gradient colors
  */
 @Serializable
-data class GradientColors (
-    val k: MultiDimensional,
+data class GradientColors(
+    var k: MultiDimensional,
 
     /**
      * Number of colors in `k`
      */
-    val p: Long
+    var p: Long
 )
 
 @Serializable
 sealed class Ml {
-    class IntValue(val value: Int) : Ml()
-    class ValueValue(val value: Value)   : Ml()
+    class IntValue(var value: Int) : Ml()
+    class ValueValue(var value: Value) : Ml()
 }
 
 /**
@@ -1083,35 +1083,35 @@ sealed class Ml {
  * An animatable property that is split into individually anaimated components
  */
 @Serializable
-data class ShapeP (
+data class ShapeP(
     //@Transient
-    val k: JsonElement? = null,
+    var k: JsonElement? = null,
 
     /**
      * Whether the property is animated
      */
-    val a: Long? = null,
+    var a: Long? = null,
 
-    val ix: Long? = null,
+    var ix: Long? = null,
 
     /**
      * Number of components in the value arrays.
      * If present values will be truncated or expanded to match this length when accessed from
      * expressions.
      */
-    val l: Long? = null,
+    var l: Long? = null,
 
     //@Transient
-    val x: X? = null,
-    val s: Boolean? = null,
-    val y: Value? = null,
-    val z: Value? = null
+    var x: X? = null,
+    var s: Boolean? = null,
+    var y: Value? = null,
+    var z: Value? = null
 )
 
 @Serializable
 sealed class R {
-    class IntegerValue(val value: Long) : R()
-    class ValueValue(val value: Value)  : R()
+    class IntegerValue(var value: Long) : R()
+    class ValueValue(var value: Value) : R()
 }
 
 /**
@@ -1123,69 +1123,69 @@ sealed class R {
  * Layer transform
  */
 @Serializable
-data class RepeaterTransformClass (
+data class RepeaterTransformClass(
     /**
      * Anchor point: a position (relative to its parent) around which transformations are
      * applied (ie: center for rotation / scale)
      */
-    val a: PositionProperty? = null,
+    var a: PositionProperty? = null,
 
-    val o: Value? = null,
+    var o: Value? = null,
 
     /**
      * Scale factor, `[100, 100]` for no scaling
      */
-    val s: MultiDimensional? = null,
+    var s: MultiDimensional? = null,
 
     /**
      * Direction along which skew is applied, in degrees (`0` skews along the X axis, `90` along
      * the Y axis)
      */
-    val sa: Value? = null,
+    var sa: Value? = null,
 
     /**
      * Skew amount as an angle in degrees
      */
-    val sk: Value? = null,
+    var sk: Value? = null,
 
     /**
      * Position / Translation
      *
      * Position / Translation with split components
      */
-    val p: TransformP? = null,
+    var p: TransformP? = null,
 
     /**
      * Rotation in degrees, clockwise
      */
-    val r: Value? = null,
+    var r: Value? = null,
 
-    val or: MultiDimensional? = null,
-
-    /**
-     * Split rotation component
-     */
-    val rx: Value? = null,
+    var or: MultiDimensional? = null,
 
     /**
      * Split rotation component
      */
-    val ry: Value? = null,
+    var rx: Value? = null,
+
+    /**
+     * Split rotation component
+     */
+    var ry: Value? = null,
 
     /**
      * Split rotation component, equivalent to `r` when not split
      */
-    val rz: Value? = null,
+    var rz: Value? = null,
 
     /**
      * Opacity of the last repeated object.
      */
-    val eo: Value? = null,
+    var eo: Value? = null,
 
     /**
      * Opacity of the first repeated object.
      */
-    val so: Value? = null
+    var so: Value? = null
 )
 
 /**
@@ -1196,36 +1196,36 @@ data class RepeaterTransformClass (
  * An animatable property that holds an array of numbers
  */
 @Serializable
-data class ColorValue (
+data class ColorValue(
     //@Transient
-    val k: JsonElement? = null,
+    var k: JsonElement? = null,
 
     /**
      * Whether the property is animated
      */
-    val a: Long? = null,
+    var a: Long? = null,
 
-    val ix: Long? = null,
-    val x: String? = null
+    var ix: Long? = null,
+    var x: String? = null
 )
 
 @Serializable
 sealed class T {
-    class IntegerValue(val value: Long)  : T()
-    class StringValue(val value: String) : T()
+    class IntegerValue(var value: Long) : T()
+    class StringValue(var value: String) : T()
 }
 
 /**
  * Defines character shapes
  */
 @Serializable
-data class CharacterData (
-    val ch: String,
-    val data: Data,
-    val fFamily: String,
-    val size: Int,
-    val style: String,
-    val w: Int
+data class CharacterData(
+    var ch: String,
+    var data: Data,
+    var fFamily: String,
+    var size: Int,
+    var style: String,
+    var w: Int
 )
 
 /**
@@ -1234,35 +1234,35 @@ data class CharacterData (
  * Defines a character as a precomp layer
  */
 @Serializable
-data class Data (
+data class Data(
     /**
      * Shapes forming the character
      */
-    val shapes: List<ShapeList>? = null,
+    var shapes: List<ShapeList>? = null,
 
     /**
      * Frame when the layer becomes visible
      */
-    val ip: JsonElement? = null,
+    var ip: JsonElement? = null,
 
     /**
      * Layer transform
      */
-    val ks: Transform? = null,
+    var ks: Transform? = null,
 
     /**
      * Frame when the layer becomes invisible
      */
-    val op: JsonElement? = null,
+    var op: JsonElement? = null,
 
     /**
      * ID of the precomp as specified in the assets
      */
     @SerialName("refId")
-    val refID: String? = null,
+    var refID: String? = null,
 
-    val sr: JsonElement? = null,
-    val st: JsonElement? = null
+    var sr: JsonElement? = null,
+    var st: JsonElement? = null
 )
 
 /**
@@ -1273,127 +1273,127 @@ data class Data (
  * Base class for layer holders
  */
 @Serializable
-data class Precomposition (
+data class Precomposition(
     /**
      * Unique identifier used by layers when referencing this asset
      */
-    val id: String,
+    var id: String,
 
     /**
      * Human readable name
      */
-    val nm: String? = null,
+    var nm: String? = null,
 
     @Serializable(with = KPLayerListSerializer::class)
-    val layers: List<KPLayer>,
+    var layers: List<KPLayer>,
 
     /**
      * Framerate in frames per second
      */
-    val fr: JsonElement? = null,
+    var fr: JsonElement? = null,
 
     /**
      * Extra composition
      */
-    val xt: Long? = null
+    var xt: Long? = null
 )
 
 /**
  * List of fonts
  */
 @Serializable
-data class FontList (
-    val list: List<Font>? = null
+data class FontList(
+    var list: List<Font>? = null
 )
 
 /**
  * Describes how a font with given settings should be loaded
  */
 @Serializable
-data class Font (
+data class Font(
     /**
      * Text will be moved down based on this value
      */
-    val ascent: JsonElement? = null,
+    var ascent: JsonElement? = null,
 
     /**
      * CSS Class applied to text objects using this font
      */
-    val fClass: String? = null,
+    var fClass: String? = null,
 
-    val fFamily: String,
+    var fFamily: String,
 
     /**
      * Name used by text documents to reference this font, usually it's `fFamily` followed by
      * `fStyle`
      */
-    val fName: String,
+    var fName: String,
 
-    val fPath: String? = null,
-    val fStyle: String,
-    val fWeight: String? = null,
-    val origin: Long? = null
+    var fPath: String? = null,
+    var fStyle: String,
+    var fWeight: String? = null,
+    var origin: Long? = null
 )
 
 /**
  * Defines named portions of the composition.
  */
 @Serializable
-data class Marker (
-    val cm: String? = null,
-    val dr: Int? = null,
-    val tm: Int? = null
+data class Marker(
+    var cm: String? = null,
+    var dr: Int? = null,
+    var tm: Int? = null
 )
 
 /**
  * Motion blur settings
  */
 @Serializable
-data class MotionBlur (
-    val asl: Int? = null,
+data class MotionBlur(
+    var asl: Int? = null,
 
     /**
      * Angle in degrees
      */
-    val sa: Int? = null,
+    var sa: Int? = null,
 
     /**
      * Angle in degrees
      */
-    val sp: Int? = null,
+    var sp: Int? = null,
 
-    val spf: Int? = null
+    var spf: Int? = null
 )
 
 /**
  * Document metadata
  */
 @Serializable
-data class Metadata (
-    val a: String? = null,
-    val d: String? = null,
+data class Metadata(
+    var a: String? = null,
+    var d: String? = null,
 
     /**
      * Software used to generate the file
      */
-    val g: String? = null,
+    var g: String? = null,
 
-    val tc: String? = null,
+    var tc: String? = null,
     //@Transient
-    val k: JsonElement? = null
+    var k: JsonElement? = null
 )
 
 @Serializable
 sealed class K {
-    class StringArrayValue(val value: List<String>) : K()
-    class StringValue(val value: String)            : K()
+    class StringArrayValue(var value: List<String>) : K()
+    class StringValue(var value: String) : K()
 }
 
 /**
  * User-defined metadata
  */
 @Serializable
-data class UserMetadata (
-    val customProps: JsonElement? = null,
-    val filename: String? = null
+data class UserMetadata(
+    var customProps: JsonElement? = null,
+    var filename: String? = null
 )

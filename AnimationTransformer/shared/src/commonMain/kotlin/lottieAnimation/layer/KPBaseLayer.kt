@@ -2,56 +2,56 @@ package lottieAnimation.layer
 
 import kotlinx.serialization.json.JsonElement
 
-interface KPBaseLayer: KPVisualObject {
+interface KPBaseLayer : KPVisualObject {
     /**
      * NOTE : added manually by @xaba after looking at animations on lottieFiles
      * index of something...
      */
-    val ct: Long?
+    var ct: Long?
 
     /**
      * Whether the layer is threedimensional
      * default: 0
      */
-    val ddd: KPBooleanInt
+    var ddd: KPBooleanInt
 
     /**
      * Whether the layer is hidden
      */
-    val hd: Boolean?
+    var hd: Boolean?
 
     /**
      * Layer type
      */
-    val ty: KPLayerType
+    var ty: KPLayerType
 
     /**
      * Index that can be used for parenting and referenced in expressions
      */
-    val ind: Int?
+    var ind: Int?
 
     /**
      * Parent index, Must be the ind property of another layer
      */
-    val parent: Int?
+    var parent: Int?
 
     /**
      * Time Stretch
      */
-    val sr: JsonElement?
+    var sr: JsonElement?
 
     /**
      * Frame when the layer becomes visible
      */
-    val ip: JsonElement
+    var ip: JsonElement
 
     /**
      * Frame when the layer becomes invisible
      */
-    val op: JsonElement
+    var op: JsonElement
 
     /**
      * Start Time
      */
-    val st: JsonElement
+    var st: JsonElement
 }

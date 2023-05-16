@@ -23,6 +23,7 @@ enum class KPLayerType {
     DATA_LAYER;
 
     companion object {
-        infix fun from(value: Int): KPLayerType? = KPLayerType.values().firstOrNull { v -> v.ordinal == value }
+        infix fun from(value: Int): KPLayerType? =
+            KPLayerType.values().firstOrNull { v -> v.ordinal == value }
     }
 }

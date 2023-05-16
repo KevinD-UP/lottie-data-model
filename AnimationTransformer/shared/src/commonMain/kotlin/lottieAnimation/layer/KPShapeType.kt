@@ -20,6 +20,7 @@ enum class KPShapeType(val value: String) {
     TRIM("tm");
 
     companion object {
-        infix fun from(value: String): KPShapeType? = KPShapeType.values().find { it.value == value }
+        infix fun from(value: String): KPShapeType? =
+            KPShapeType.values().find { it.value == value }
     }
 }

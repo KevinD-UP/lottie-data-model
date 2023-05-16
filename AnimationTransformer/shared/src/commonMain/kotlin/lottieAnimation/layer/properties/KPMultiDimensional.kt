@@ -12,25 +12,25 @@ sealed class KPMultiDimensional
 @Serializable
 data class KPMultiDimensionalSimple(
     @Serializable(with = KPMultiDimensionalListOrPrimitiveSerializer::class)
-    val k: KPMultiDimensionalListOrPrimitive? = null,
-    val x: JsonElement? = null,
-    val a: JsonPrimitive? = null,
-    val ix: JsonPrimitive? = null,
-    val l: JsonPrimitive? = null,
-    val s: JsonElement? = null,
-    val y: JsonElement? = null,
+    var k: KPMultiDimensionalListOrPrimitive? = null,
+    var x: JsonElement? = null,
+    var a: JsonPrimitive? = null,
+    var ix: JsonPrimitive? = null,
+    var l: JsonPrimitive? = null,
+    var s: JsonElement? = null,
+    var y: JsonElement? = null,
 ) : KPMultiDimensional()
 
 @Serializable
 data class KPMultiDimensionalKeyframed(
     @Serializable(with = KPMultiDimensionalListOrPrimitiveSerializer::class)
-    val k: KPMultiDimensionalListOrPrimitive? = null,
-    val x: JsonElement? = null,
-    val a: JsonPrimitive? = null,
-    val ix: JsonPrimitive? = null,
-    val ti: JsonArray? = null,
-    val to: JsonArray? = null,
-    val l: JsonPrimitive? = null,
-    val s: JsonElement? = null,
-    val y: JsonElement? = null,
+    var k: KPMultiDimensionalListOrPrimitive? = null,
+    var x: JsonElement? = null,
+    var a: JsonPrimitive? = null,
+    var ix: JsonPrimitive? = null,
+    var ti: JsonArray? = null,
+    var to: JsonArray? = null,
+    var l: JsonPrimitive? = null,
+    var s: JsonElement? = null,
+    var y: JsonElement? = null,
 ) : KPMultiDimensional()

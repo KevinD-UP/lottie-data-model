@@ -8,18 +8,23 @@ data class KPAnimationRuleVariable(
     val key: String,
     val value: String,
     val type: KPAnimationRuleVariableType,
-    var description: String?)
+    val description: String?
+)
 
 @Serializable
 enum class KPAnimationRuleVariableType {
     @SerialName("string")
     STRING,
+
     @SerialName("number")
     NUMBER,
+
     @SerialName("boolean")
     BOOLEAN,
+
     @SerialName("jsonObject")
     JSON_OBJECT,
+
     @SerialName("unit")
     UNIT
 }

@@ -1,4 +1,4 @@
-package lottieAnimation.transformer
+package transformer
 
 import kotlinx.serialization.decodeFromString
 import kotlinx.serialization.encodeToString

@@ -24,7 +24,8 @@ enum class KPTextJustify {
     JUSTIFY_WITH_LAST_LINE_FULL;
 
     companion object {
-        infix fun from(value: Int): KPTextJustify? = KPTextJustify.values().firstOrNull { v -> v.ordinal == value }
+        infix fun from(value: Int): KPTextJustify? =
+            KPTextJustify.values().firstOrNull { v -> v.ordinal == value }
     }
 }
 
@@ -35,7 +36,8 @@ enum class KPTextCaps {
     SMALL_CAPS;
 
     companion object {
-        infix fun from(value: Int): KPTextCaps? = KPTextCaps.values().firstOrNull { v -> v.ordinal == value }
+        infix fun from(value: Int): KPTextCaps? =
+            KPTextCaps.values().firstOrNull { v -> v.ordinal == value }
     }
 }
 
@@ -44,12 +46,12 @@ data class KPTextDocumentKeyframe(
     /**
      * Start
      */
-    val s: KPTextDocument,
+    var s: KPTextDocument,
 
     /**
      * Time
      */
-    val t: JsonElement
+    var t: JsonElement
 )
 
 @Serializable
@@ -57,12 +59,12 @@ data class KPAnimatedTextDocument(
     /**
      * Keyframes
      */
-    val k: List<KPTextDocumentKeyframe>,
+    var k: List<KPTextDocumentKeyframe>,
 
     /**
      * Expression
      */
-    val x: String? = null
+    var x: String? = null
 )
 
 @Serializable
@@ -70,83 +72,83 @@ data class KPTextDocument(
     /**
      * Font Family
      */
-    val f: String,
+    var f: String,
 
     /**
      * Fill Color
      * Color as a [r, g, b] array with values in [0, 1] range
      * array of size >=3 and <= 4
      */
-    val fc: List<JsonElement>,
+    var fc: List<JsonElement>,
 
     /**
      * Stroke Color
      * Color as a [r, g, b] array with values in [0, 1] range
      * array of size >=3 and <= 4
      */
-    val sc: List<JsonElement>? = null,
+    var sc: List<JsonElement>? = null,
 
     /**
      * Stroke Width
      */
-    val sw: JsonElement? = null,
+    var sw: JsonElement? = null,
 
     /**
      * Stroke Over Fill
      * Render stroke above the fill
      */
-    val of: Boolean? = null,
+    var of: Boolean? = null,
 
     /**
      * Font Size
      */
-    val s: JsonElement? = null,
+    var s: JsonElement? = null,
 
     /**
      * Line Height
      * Distance between lines on multiline or wrapped text
      */
-    val lh: JsonElement? = null,
+    var lh: JsonElement? = null,
 
     /**
      * Wrap Size
      * Size of the box containing the text
      * array of 2 items
      */
-    val sz: List<JsonElement>? = null,
+    var sz: List<JsonElement>? = null,
 
     /**
      * Wrap position
      * Position of the box containing the text
      * array of 2 items
      */
-    val ps: List<JsonElement>? = null,
+    var ps: List<JsonElement>? = null,
 
     /**
      * Text
      * Text, note that newlines are encoded with \r
      */
-    val t: String,
+    var t: String,
 
     /**
      * Text Justify
      */
-    val j: KPTextJustify? = null,
+    var j: KPTextJustify? = null,
 
     /**
      * Text Caps
      */
-    val ca: KPTextCaps? = null,
+    var ca: KPTextCaps? = null,
 
     /**
      * Text Tracking
      */
-    val tr: JsonElement? = null,
+    var tr: JsonElement? = null,
 
     /**
      * Baseline Shift
      */
-    val ls: JsonElement? = null
+    var ls: JsonElement? = null
 )
 
 @Serializable
@@ -154,22 +156,22 @@ data class KPTextData(
     /**
      * Ranges
      */
-    val a: JsonArray,
+    var a: JsonArray,
 
     /**
      * Document
      */
-    val d: KPAnimatedTextDocument,
+    var d: KPAnimatedTextDocument,
 
     /**
      * Alignment
      */
-    val m: JsonElement,
+    var m: JsonElement,
 
     /**
      * Follow Path
      */
-    val p: JsonElement
+    var p: JsonElement
 )
 
 @Serializable
@@ -233,14 +235,15 @@ data class KPTextSubEffectValue(
 )
 
 object KPTextCapsSerializer : KSerializer<KPTextCaps> {
-    override val descriptor: SerialDescriptor = PrimitiveSerialDescriptor("textCaps", PrimitiveKind.INT)
+    override var descriptor: SerialDescriptor =
+        PrimitiveSerialDescriptor("textCaps", PrimitiveKind.INT)
 
     override fun serialize(encoder: Encoder, value: KPTextCaps) {
         encoder.encodeInt(value.ordinal)
     }
 
     override fun deserialize(decoder: Decoder): KPTextCaps {
-        val textCap = KPTextCaps.from(decoder.decodeInt())
+        var textCap = KPTextCaps.from(decoder.decodeInt())
         if (textCap === null) {
             throw Exception("Error in textCaps deserialization")
         }
@@ -250,7 +253,8 @@ object KPTextCapsSerializer : KSerializer<KPTextCaps> {
 }
 
 object KPTextJustifySerializer : KSerializer<KPTextJustify> {
-    override val descriptor: SerialDescriptor = PrimitiveSerialDescriptor("textCaps", PrimitiveKind.INT)
+    override var descriptor: SerialDescriptor =
+        PrimitiveSerialDescriptor("textCaps", PrimitiveKind.INT)
 
     override fun serialize(encoder: Encoder, value: KPTextJustify) {
         encoder.encodeInt(value.ordinal)
@@ -263,5 +267,4 @@ object KPTextJustifySerializer : KSerializer<KPTextJustify> {
         }
         return textJustify
     }
-
 }
