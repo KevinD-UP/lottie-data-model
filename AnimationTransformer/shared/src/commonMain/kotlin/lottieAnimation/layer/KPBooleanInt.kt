@@ -8,6 +8,7 @@ enum class KPBooleanInt {
     FALSE, TRUE;
 
     companion object {
-        infix fun from(value: Int): KPBooleanInt? = KPBooleanInt.values().firstOrNull { v -> v.ordinal == value }
+        infix fun from(value: Int): KPBooleanInt? =
+            KPBooleanInt.values().firstOrNull { v -> v.ordinal == value }
     }
 }

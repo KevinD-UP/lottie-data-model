@@ -1,4 +1,4 @@
-package lottieAnimation.transformer
+package transformer
 
 interface KPAnimationTransformerFunctionsDelegate {
     fun getFirstLineTop(text: String, fontName: String, fontSize: Double): Double

@@ -6,7 +6,7 @@ import kotlinx.serialization.json.doubleOrNull
 import kotlinx.serialization.json.jsonPrimitive
 import lottieAnimation.KPLottieAnimation
 import lottieAnimation.layer.KPTextLayer
-import lottieAnimation.transformer.KPAnimationTransformerFunctionsDelegate
+import transformer.KPAnimationTransformerFunctionsDelegate
 
 class KPGetFirstLineTopFunction(
     private val lottieAnimation: KPLottieAnimation,

@@ -10,10 +10,10 @@ sealed class KPMultiDimensionalListOrPrimitive
 @Serializable
 data class KPMultiDimensionalList(
     @Serializable(with = KPMultiDimensionalNodeListSerializer::class)
-    val values: List<KPMultiDimensionalNodeObjectOrPrimitive>
-): KPMultiDimensionalListOrPrimitive()
+    var values: List<KPMultiDimensionalNodeObjectOrPrimitive>
+) : KPMultiDimensionalListOrPrimitive()
 
 @Serializable
 data class KPMultiDimensionalPrimitive(
-    val value: JsonPrimitive
-): KPMultiDimensionalListOrPrimitive()
+    var value: JsonPrimitive
+) : KPMultiDimensionalListOrPrimitive()

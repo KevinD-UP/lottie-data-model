@@ -1,6 +1,5 @@
-package lottieAnimation.transformer
+package transformer
 
-import expressionParser.KPExpressionParser
 import expressionParser.KPProjectExpressionParser
 import kotlinx.serialization.json.JsonPrimitive
 import lottieAnimation.KPLottieAnimation

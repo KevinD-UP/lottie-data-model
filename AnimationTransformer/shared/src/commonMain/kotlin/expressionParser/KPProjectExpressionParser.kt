@@ -5,7 +5,7 @@ import expressionParser.functions.common.KPMaxFunction
 import expressionParser.functions.common.KPMinFunction
 import expressionParser.functions.store.KPStoreResultsFunction
 import lottieAnimation.KPLottieAnimation
-import lottieAnimation.transformer.KPAnimationTransformerFunctionsDelegate
+import transformer.KPAnimationTransformerFunctionsDelegate
 
 class KPProjectExpressionParser(
     animation: KPLottieAnimation,

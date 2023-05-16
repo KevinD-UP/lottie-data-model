@@ -7,6 +7,7 @@ import lottieAnimation.KPLottieAnimation
 import lottieAnimation.rules.properties.KPAnimationRules
 import okio.FileSystem
 import okio.Path.Companion.toPath
+import transformer.KPFontTransformer
 import kotlin.test.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertNotEquals

@@ -8,70 +8,70 @@ interface KPVisualLayer: KPBaseLayer {
     /**
      * Collapse Transform
      */
-    val cp: Boolean?
+    var cp: Boolean?
 
     /**
      * Layer transform
      */
-    val ks: KPTransform
+    var ks: KPTransform
 
     /**
      * Auto Orient
      */
-    val ao: Int?
+    var ao: Int?
 
     /**
      * Matte Mode
      */
-    val tt: JsonElement?
+    var tt: JsonElement?
 
     /**
      * Matte Target
      */
-    val td: Int?
+    var td: Int?
 
     /**
      * Whether the layer has masks applied
      */
-    val hasMask: Boolean?
+    var hasMask: Boolean?
 
     /**
      * Mask properties
      */
-    val masksProperties: JsonElement?
+    var masksProperties: JsonElement?
 
     /**
      * List of layer effects
      */
-    val ef: JsonArray?
+    var ef: JsonArray?
 
     /**
      * Whether motion blur is enabled for the layer
      */
-    val mb: Boolean?
+    var mb: Boolean?
 
     /**
      * Styling effects for this layer
      */
-    val sy: JsonObject?
+    var sy: JsonObject?
 
     /**
      * Blend Mode
      */
-    val bm: JsonElement?
+    var bm: JsonElement?
 
     /**
      * CSS class used by the SVG renderer
      */
-    val cl: String?
+    var cl: String?
 
     /**
      * Layer XML ID
      */
-    val ln: String?
+    var ln: String?
 
     /**
      * Layer XML tag name
      */
-    val tg: String?
+    var tg: String?
 }
