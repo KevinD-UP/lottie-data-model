@@ -1,7 +1,6 @@
 package lottieAnimation.layer
 
 import kotlinx.serialization.Serializable
-import kotlinx.serialization.json.JsonArray
 import kotlinx.serialization.json.JsonElement
 import kotlinx.serialization.json.JsonObject
 import lottieAnimation.layer.serializers.KPShapeListSerializer
@@ -32,7 +31,7 @@ data class KPPrecompositionLayer(
     override val td: Int? = null,
     override val hasMask: Boolean? = null,
     override val masksProperties: JsonElement? = null,
-    override val ef: JsonArray? = null,
+    override val ef: List<KPTextEffect>? = null,
     override val mb: Boolean? = null,
     override val sy: JsonObject? = null,
     override val bm: JsonElement? = null,
@@ -84,7 +83,7 @@ data class KPSolidColorLayer(
     override val td: Int? = null,
     override val hasMask: Boolean? = null,
     override val masksProperties: JsonElement? = null,
-    override val ef: JsonArray? = null,
+    override val ef: List<KPTextEffect>? = null,
     override val mb: Boolean? = null,
     override val sy: JsonObject? = null,
     override val bm: JsonElement? = null,
@@ -130,7 +129,7 @@ data class KPImageLayer(
     override val td: Int? = null,
     override val hasMask: Boolean? = null,
     override val masksProperties: JsonElement? = null,
-    override val ef: JsonArray? = null,
+    override val ef: List<KPTextEffect>? = null,
     override val mb: Boolean? = null,
     override val sy: JsonObject? = null,
     override val bm: JsonElement? = null,
@@ -167,7 +166,7 @@ data class KPShapeLayer(
     override val td: Int? = null,
     override val hasMask: Boolean? = null,
     override val masksProperties: JsonElement? = null,
-    override val ef: JsonArray? = null,
+    override val ef: List<KPTextEffect>? = null,
     override val mb: Boolean? = null,
     override val sy: JsonObject? = null,
     override val bm: JsonElement? = null,
@@ -282,7 +281,7 @@ data class KPNullLayer(
     override val td: Int? = null,
     override val hasMask: Boolean? = null,
     override val masksProperties: JsonElement? = null,
-    override val ef: JsonArray? = null,
+    override val ef: List<KPTextEffect>? = null,
     override val mb: Boolean? = null,
     override val sy: JsonObject? = null,
     override val bm: JsonElement? = null,
@@ -313,7 +312,7 @@ data class KPTextLayer(
     override val td: Int? = null,
     override val hasMask: Boolean? = null,
     override val masksProperties: JsonElement? = null,
-    override val ef: JsonArray? = null,
+    override val ef: List<KPTextEffect>? = null,
     override val mb: Boolean? = null,
     override val sy: JsonObject? = null,
     override val bm: JsonElement? = null,

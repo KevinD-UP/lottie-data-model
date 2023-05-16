@@ -9,6 +9,9 @@ import kotlinx.serialization.encoding.Decoder
 import kotlinx.serialization.encoding.Encoder
 import kotlinx.serialization.json.JsonArray
 import kotlinx.serialization.json.JsonElement
+import kotlinx.serialization.json.JsonPrimitive
+import lottieAnimation.layer.properties.KPMultiDimensionalListOrPrimitive
+import lottieAnimation.layer.serializers.KPMultiDimensionalListOrPrimitiveSerializer
 
 @Serializable(with = KPTextJustifySerializer::class)
 enum class KPTextJustify {
@@ -167,6 +170,66 @@ data class KPTextData(
      * Follow Path
      */
     val p: JsonElement
+)
+
+@Serializable
+data class KPTextEffect(
+    /**
+     * Effect type
+     */
+    val ty: Int,
+
+    val nm: JsonPrimitive? = null,
+
+    val mn: JsonPrimitive? = null,
+
+    val ix: JsonPrimitive? = null,
+
+    val np: JsonPrimitive? = null,
+
+    val en: JsonPrimitive? = null,
+
+    /**
+     * SubEffect
+     */
+    val ef: List<KPTextSubEffect>
+
+)
+
+@Serializable
+data class KPTextSubEffect(
+    /**
+     * SubEffect Type
+     */
+    val ty: Int,
+    /**
+     * Effect Value
+     */
+
+    val nm: JsonPrimitive? = null,
+
+    val mn: JsonPrimitive? = null,
+
+    val ix: JsonPrimitive? = null,
+
+    val v: KPTextSubEffectValue
+)
+
+@Serializable
+data class KPTextSubEffectValue(
+    /**
+     * takes 0 or 1 weather is is animated or not
+     */
+    val a: JsonPrimitive? = null,
+    /**
+     * Color: Could be opacity(Primitive) or Color(List)
+     */
+    @Serializable(with = KPMultiDimensionalListOrPrimitiveSerializer::class)
+    val k: KPMultiDimensionalListOrPrimitive,
+    /**
+     * index position
+     */
+    val ix: JsonPrimitive? = null
 )
 
 object KPTextCapsSerializer : KSerializer<KPTextCaps> {
