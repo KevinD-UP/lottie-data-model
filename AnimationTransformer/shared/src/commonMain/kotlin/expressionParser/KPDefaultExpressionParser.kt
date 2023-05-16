@@ -52,6 +52,12 @@ class KPDefaultExpressionParser(private val functions: Map<String, KPFunctionInt
     }
 
     private fun parseFactor(): Double {
+        var sign = 1.0
+        if (tokens[position] == "-") {
+            sign = -1.0
+            position++
+        }
+
         val token = tokens[position++]
         return when {
             token == "(" -> {
@@ -59,13 +65,14 @@ class KPDefaultExpressionParser(private val functions: Map<String, KPFunctionInt
                 if (tokens[position] == ")") {
                     position++ // Consume the closing parenthesis
                 }
-                result
+                result * sign
             }
-            token.matches(Regex("\\d+")) -> token.toDouble()
-            token.matches(Regex("[a-zA-Z_][a-zA-Z0-9_]*")) -> parseFunctionCall()
+            token.matches(Regex("\\d+")) -> token.toDouble() * sign
+            token.matches(Regex("[a-zA-Z_][a-zA-Z0-9_]*")) -> parseFunctionCall() * sign
             else -> throw IllegalArgumentException("Unexpected token: $token")
         }
     }
+
 
     private fun parseFunctionCall(): Double {
         val functionName = tokens[position - 1]

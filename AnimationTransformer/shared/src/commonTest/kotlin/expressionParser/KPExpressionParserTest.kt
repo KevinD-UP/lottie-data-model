@@ -5,7 +5,7 @@ import kotlin.test.Test
 import kotlin.test.assertEquals
 
 class KPExpressionParserTest {
-    private val mapKeysFunctions = MapKeyFunction()
+    //private val mapKeysFunctions = MapKeyFunction()
     private val functions = mapOf(
         "getTextMeasureHeight" to TextMeasureHeightFunction(),
         "getTestThirtyThree" to TestThirtyThreeFunction(),
@@ -14,7 +14,7 @@ class KPExpressionParserTest {
         "getNoParam" to NoParamFunction(),
         "getStoredResults" to StoredResultsFunction(),
         "getAddString" to AddStringValueFunction(),
-        "getMapResults" to mapKeysFunctions,
+        //"getMapResults" to mapKeysFunctions,
     )
 
     private val sut = KPDefaultExpressionParser(functions)
@@ -24,6 +24,14 @@ class KPExpressionParserTest {
         val expression = "42"
         val result = sut.parseAndEvaluate(expression)
         val expected = 42
+        assertEquals(expected.toDouble(), result)
+    }
+
+    @Test
+    fun testExpressionRawValueNegative42() {
+        val expression = "-42"
+        val result = sut.parseAndEvaluate(expression)
+        val expected = -42
         assertEquals(expected.toDouble(), result)
     }
 
@@ -80,6 +88,14 @@ class KPExpressionParserTest {
         val expression = "123 * 77 * 555 * 98"
         val result = sut.parseAndEvaluate(expression)
         val expected = 123 * 77 * 555 * 98
+        assertEquals(expected.toDouble(), result)
+    }
+
+    @Test
+    fun testExpressionMultiplication3() {
+        val expression = "23 * -46"
+        val result = sut.parseAndEvaluate(expression)
+        val expected = 23 * -46
         assertEquals(expected.toDouble(), result)
     }
 
@@ -360,6 +376,22 @@ class KPExpressionParserTest {
         val expression = "getNoParam() * 2 + (getTestThirtyThree(getNoParam()) + 321)"
         val result = sut.parseAndEvaluate(expression)
         val expected = 123.0 * 2 + ((123.0 + 33) + 321)
+        assertEquals(expected.toDouble(), result)
+    }
+
+    @Test
+    fun testExpression18() {
+        val expression = "getComputationBlabla(1, getTestThirtyThree(676), 3)*-1"
+        val result = sut.parseAndEvaluate(expression)
+        val expected = (1 + (676 + 33) + 3) / 10.0 * -1
+        assertEquals(expected.toDouble(), result)
+    }
+
+    @Test
+    fun testExpression19() {
+        val expression = "getComputationFortyTwo(-2, -3)"
+        val result = sut.parseAndEvaluate(expression)
+        val expected = (-2 + (-3)) * 100
         assertEquals(expected.toDouble(), result)
     }
 
