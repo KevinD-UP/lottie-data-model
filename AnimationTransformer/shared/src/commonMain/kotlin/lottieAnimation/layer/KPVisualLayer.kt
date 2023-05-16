@@ -1,6 +1,5 @@
 package lottieAnimation.layer
 
-import kotlinx.serialization.json.JsonArray
 import kotlinx.serialization.json.JsonElement
 import kotlinx.serialization.json.JsonObject
 
@@ -43,7 +42,7 @@ interface KPVisualLayer: KPBaseLayer {
     /**
      * List of layer effects
      */
-    val ef: JsonArray?
+    val ef: List<KPTextEffect>?
 
     /**
      * Whether motion blur is enabled for the layer
