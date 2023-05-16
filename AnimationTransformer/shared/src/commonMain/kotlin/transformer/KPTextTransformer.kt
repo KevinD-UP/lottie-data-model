@@ -1,4 +1,4 @@
-package lottieAnimation.transformer
+package transformer
 
 import kotlinx.serialization.json.JsonPrimitive
 import lottieAnimation.Font
