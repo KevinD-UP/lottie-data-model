@@ -43,12 +43,11 @@ class KPFontTransformerTest {
             explicitNulls = false
             encodeDefaults = true
         }
+        val baseLottieAnimation = json.decodeFromString<KPLottieAnimation>(animationJson)
         val lottieAnimation = json.decodeFromString<KPLottieAnimation>(animationJson)
         val animationRules = json.decodeFromString<KPAnimationRules>(animationRulesJson)
         val res = fontTransformer.transformFonts(lottieAnimation, animationRules, fontFixture)
-        println(json.encodeToString(lottieAnimation))
-        println(json.encodeToString(res))
-        assertNotEquals(lottieAnimation, res)
+        assertNotEquals(baseLottieAnimation, res)
     }
 
     @Test
@@ -67,9 +66,10 @@ class KPFontTransformerTest {
             explicitNulls = false
             encodeDefaults = true
         }
+        val baseLottieAnimation = json.decodeFromString<KPLottieAnimation>(animationJson)
         val lottieAnimation = json.decodeFromString<KPLottieAnimation>(animationJson)
         val animationRules = json.decodeFromString<KPAnimationRules>(animationRulesJson)
         val res = fontTransformer.transformFonts(lottieAnimation, animationRules)
-        assertEquals(lottieAnimation, res)
+        assertEquals(baseLottieAnimation, res)
     }
 }
