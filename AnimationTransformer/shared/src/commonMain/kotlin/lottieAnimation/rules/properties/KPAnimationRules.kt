@@ -4,6 +4,7 @@ import kotlinx.serialization.Serializable
 
 @Serializable
 data class KPAnimationRules(
-    var layerRules: List<KPLayerRule>,
-    var assetRules: KPAssetRules?,
-    var variables: List<KPAnimationRuleVariable>?)
+    val layerRules: List<KPLayerRule>,
+    val assetRules: KPAssetRules?,
+    val variables: List<KPAnimationRuleVariable>?
+)

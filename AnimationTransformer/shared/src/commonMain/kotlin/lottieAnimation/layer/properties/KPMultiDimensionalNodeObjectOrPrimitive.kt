@@ -10,18 +10,18 @@ sealed class KPMultiDimensionalNodeObjectOrPrimitive
 
 @Serializable
 data class KPMultiDimensionNodeObject(
-    val t: JsonPrimitive? = null,
-    val s: JsonArray? = null,
-    val i: JsonObject? = null,
-    val o: JsonObject? = null,
-    val h: JsonPrimitive? = null,
-    val e: JsonArray? = null,
-    val to: JsonArray? = null,
-    val ti: JsonArray? = null
-): KPMultiDimensionalNodeObjectOrPrimitive()
+    var t: JsonPrimitive? = null,
+    var s: JsonArray? = null,
+    var i: JsonObject? = null,
+    var o: JsonObject? = null,
+    var h: JsonPrimitive? = null,
+    var e: JsonArray? = null,
+    var to: JsonArray? = null,
+    var ti: JsonArray? = null
+) : KPMultiDimensionalNodeObjectOrPrimitive()
 
 
 @Serializable
 data class KPMultiDimensionalNodePrimitive(
-    val value: JsonPrimitive
-): KPMultiDimensionalNodeObjectOrPrimitive()
+    var value: JsonPrimitive
+) : KPMultiDimensionalNodeObjectOrPrimitive()

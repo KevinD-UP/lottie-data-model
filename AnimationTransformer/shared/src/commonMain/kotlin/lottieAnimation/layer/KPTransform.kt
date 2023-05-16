@@ -12,54 +12,54 @@ data class KPTransform(
      * Transform Anchor Point
      */
     @Serializable(with = KPMultiDimensionalSerializer::class)
-    val a: KPMultiDimensional? = null,
+    var a: KPMultiDimensional? = null,
     /**
      * Position
      * Transform Position
      */
     @Serializable(with = KPMultiDimensionalSerializer::class)
-    val p: KPMultiDimensional? = null,
+    var p: KPMultiDimensional? = null,
     /**
      * Scale
      * Transform Scale
      */
     @Serializable(with = KPMultiDimensionalSerializer::class)
-    val s: KPMultiDimensional? = null,
+    var s: KPMultiDimensional? = null,
     /**
      * Rotation
      * Transform Rotation
      */
     @Serializable(with = KPMultiDimensionalSerializer::class)
-    val r: KPMultiDimensional? = null,
+    var r: KPMultiDimensional? = null,
     /**
      * Opacity
      * Transform Opacity
      */
     @Serializable(with = KPMultiDimensionalSerializer::class)
-    val o: KPMultiDimensional? = null,
+    var o: KPMultiDimensional? = null,
     /**
      * Position X
      * Transform Position X
      */
-    val px: JsonObject? = null,
+    var px: JsonObject? = null,
     /**
      * Position Y
      * Transform Position Y
      */
-    val py: JsonObject? = null,
+    var py: JsonObject? = null,
     /**
      * Position Z
      * Transform Position Z
      */
-    val pz: JsonObject? = null,
+    var pz: JsonObject? = null,
     /**
      * Skew
      * Transform Skew
      */
-    val sk: JsonObject? = null,
+    var sk: JsonObject? = null,
     /**
      * Skew axis
      * Transform Skew axis
      */
-    val sa: JsonObject? = null,
+    var sa: JsonObject? = null,
 )
