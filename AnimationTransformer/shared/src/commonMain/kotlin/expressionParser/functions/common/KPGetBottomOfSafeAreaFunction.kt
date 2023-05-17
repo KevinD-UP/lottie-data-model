@@ -1,4 +1,4 @@
-package expressionParser.functions
+package expressionParser.functions.common
 
 import expressionParser.KPFunctionInterface
 
@@ -8,6 +8,8 @@ class KPGetBottomOfSafeAreaFunction(
     private val watermarkHeight: Double
 ): KPFunctionInterface {
     override fun execute(args: List<Any>): Double {
-        return projectHeight - subtitleHeight - watermarkHeight
+        val result = projectHeight - subtitleHeight - watermarkHeight
+        println("KPGetBottomOfSafeAreaFunction = $result")
+        return result
     }
 }

@@ -1,4 +1,4 @@
-package expressionParser.functions
+package expressionParser.functions.platform
 
 import expressionParser.KPFunctionInterface
 import expressionParser.extensions.toDoubleList
@@ -8,7 +8,7 @@ import lottieAnimation.KPLottieAnimation
 import lottieAnimation.layer.KPTextLayer
 import transformer.KPAnimationTransformerFunctionsDelegate
 
-class KPGetFirstLineTopFunction(
+class KPGetLastLineBottomFunction(
     private val lottieAnimation: KPLottieAnimation,
     private val functionsDelegate: KPAnimationTransformerFunctionsDelegate
 ): KPFunctionInterface {
@@ -22,10 +22,11 @@ class KPGetFirstLineTopFunction(
         val text = item.s.t
         val fontName = item.s.f
         val fontSize = item.s.s?.jsonPrimitive?.doubleOrNull ?: return 0.0
-        return -1.0 * functionsDelegate.getFirstLineTop(
+        val lineHeight = item.s.lh?.jsonPrimitive?.doubleOrNull ?: return 0.0
+        return functionsDelegate.getLastLineBottom(
             text = text,
             fontName = fontName,
-            fontSize = fontSize
+            fontSize = fontSize,
         )
     }
 }

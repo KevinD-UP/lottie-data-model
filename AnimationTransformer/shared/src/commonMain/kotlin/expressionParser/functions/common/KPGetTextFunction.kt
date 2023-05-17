@@ -1,4 +1,4 @@
-package expressionParser.functions.text
+package expressionParser.functions.common
 
 import lottieAnimation.KPLottieAnimation
 import lottieAnimation.layer.KPTextLayer

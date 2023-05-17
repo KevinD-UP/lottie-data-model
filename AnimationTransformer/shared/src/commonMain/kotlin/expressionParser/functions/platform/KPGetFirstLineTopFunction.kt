@@ -1,4 +1,4 @@
-package expressionParser.functions
+package expressionParser.functions.platform
 
 import expressionParser.KPFunctionInterface
 import expressionParser.extensions.toDoubleList
@@ -8,7 +8,7 @@ import lottieAnimation.KPLottieAnimation
 import lottieAnimation.layer.KPTextLayer
 import transformer.KPAnimationTransformerFunctionsDelegate
 
-class KPGetTextMeasureHeightFunction(
+class KPGetFirstLineTopFunction(
     private val lottieAnimation: KPLottieAnimation,
     private val functionsDelegate: KPAnimationTransformerFunctionsDelegate
 ): KPFunctionInterface {
@@ -22,16 +22,12 @@ class KPGetTextMeasureHeightFunction(
         val text = item.s.t
         val fontName = item.s.f
         val fontSize = item.s.s?.jsonPrimitive?.doubleOrNull ?: return 0.0
-        val lineHeight = item.s.lh?.jsonPrimitive?.doubleOrNull ?: return 0.0
-        val size = item.s.sz?.mapNotNull { it.jsonPrimitive?.doubleOrNull }
-        val tracking = item.s.tr?.jsonPrimitive?.doubleOrNull ?: 0.0
-        return functionsDelegate.getTextMeasureHeight(
+        val result = -1.0 * functionsDelegate.getFirstLineTop(
             text = text,
             fontName = fontName,
-            fontSize = fontSize,
-            layerSize = size,
-            layerLineHeight = lineHeight,
-            layerTracking = tracking
+            fontSize = fontSize
         )
+        println("KPGetFirstLineTopFunction = $result")
+        return result
     }
 }
