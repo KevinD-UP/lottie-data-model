@@ -12,7 +12,7 @@ class KPDefaultExpressionParser(private val functions: Map<String, KPFunctionInt
 
     private fun tokenize(expression: String): List<String> {
         val tokens = mutableListOf<String>()
-        val regex = Regex("(\\d+|[(),+\\-*/]|\"[^\"]*\"|[a-zA-Z_][a-zA-Z0-9_]*)")
+        val regex = Regex("(\\d+(?:\\.\\d+)?|[(),+\\-*/]|\"[^\"]*\"|[a-zA-Z_][a-zA-Z0-9_]*)")
 
         regex.findAll(expression).forEach { matchResult ->
             tokens.add(matchResult.value)
@@ -67,12 +67,11 @@ class KPDefaultExpressionParser(private val functions: Map<String, KPFunctionInt
                 }
                 result * sign
             }
-            token.matches(Regex("\\d+")) -> token.toDouble() * sign
+            token.matches(Regex("\\d+(?:\\.\\d+)?")) -> token.toDouble() * sign
             token.matches(Regex("[a-zA-Z_][a-zA-Z0-9_]*")) -> parseFunctionCall() * sign
             else -> throw IllegalArgumentException("Unexpected token: $token")
         }
     }
-
 
     private fun parseFunctionCall(): Double {
         val functionName = tokens[position - 1]
@@ -101,7 +100,7 @@ class KPDefaultExpressionParser(private val functions: Map<String, KPFunctionInt
 
     private fun parseArgument(): Any {
         return when {
-            tokens[position].matches(Regex("\\d+")) -> {
+            tokens[position].matches(Regex("\\d+(?:\\.\\d+)?")) -> {
                 val number = tokens[position].toDouble()
                 position++
                 number
