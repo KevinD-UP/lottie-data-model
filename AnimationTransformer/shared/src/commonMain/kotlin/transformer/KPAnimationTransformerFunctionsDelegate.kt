@@ -8,4 +8,8 @@ interface KPAnimationTransformerFunctionsDelegate {
         text: String,
         fontName: String, fontSize: Double,
         layerSize: List<Double>?, layerLineHeight: Double, layerTracking: Double): Double
+
+    fun getTextLayerWidth(
+        text: String,
+        fontName: String, fontSize: Double): Double
 }

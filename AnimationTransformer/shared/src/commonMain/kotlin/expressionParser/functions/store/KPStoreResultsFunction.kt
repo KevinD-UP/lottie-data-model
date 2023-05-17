@@ -10,11 +10,13 @@ class KPStoreResultsFunction: KPFunctionInterface {
         val argsString = args.toStringList()
         val key = argsString.firstOrNull() ?: return 0.0
         if (args.count() != 1) return 0.0
-        return storeResultsMap[key] ?: 0.0
+        val result = storeResultsMap[key] ?: 0.0
+        println("KPStoreResultsFunction[$key] = $result")
+        return result
     }
 
     fun addResult(key: String, result: Double) {
-        println("add key[$key] = $result)")
+        println("add key[$key] = $result")
         storeResultsMap[key] = result
     }
 }

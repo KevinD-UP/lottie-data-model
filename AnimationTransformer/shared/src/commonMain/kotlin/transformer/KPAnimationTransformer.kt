@@ -42,7 +42,8 @@ class KPAnimationTransformer(
             animationRules = animationRules
         )
 
-        println("animationTextTransformed")
-        return json.encodeToString(animationVariableTransformed)
+        val result = json.encodeToString(animationVariableTransformed)
+        println("animationTextTransformed = $result")
+        return result
     }
 }

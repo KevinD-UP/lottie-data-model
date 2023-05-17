@@ -42,10 +42,11 @@ class FunctionsDelegateNative: KPAnimationTransformerFunctionsDelegate {
     func getTextMeasureHeight(
         text: String,
         fontName: String, fontSize: Double,
-        layerSize: [KotlinDouble]?, layerLineHeight: Double, layerTracking: Double) -> Double {
+        layerSize: [KotlinDouble]?, layerLineHeight: Double, layerTracking: Double
+    ) -> Double {
         let uppercasedText = text.uppercased()
         let applyTextBoxText = applyTextBox(
-            text: text,
+            text: uppercasedText,
             fontName: fontName, fontSize: fontSize,
             layerSize: layerSize, layerLineHeight: layerLineHeight, layerTracking: layerTracking)
         let textLines = applyTextBoxText.split(separator: "\n")
@@ -56,6 +57,21 @@ class FunctionsDelegateNative: KPAnimationTransformerFunctionsDelegate {
         let result = ascent + descent + lineHeight * Double(textLines.count - 1)
         debugPrint("DEMOAPP getTextMeasureHeight result=\(result) ascent=\(ascent) descent=\(descent) lineHeight=\(lineHeight) - Double(textLines.count - 1)=\(Double(textLines.count - 1))")
         return result
+    }
+
+    func getTextLayerWidth(
+        text: String,
+        fontName: String, fontSize: Double
+    ) -> Double {
+        let textLines = text.split(separator: "\n")
+        return textLines
+            .map { String($0) }
+            .map {
+                getTextSize(text: $0, fontName: fontName, fontSize: fontSize)
+            }
+            .map { $0.width }
+            .map { Double($0) }
+            .max() ?? 0.0
     }
 }
 
@@ -159,4 +175,11 @@ extension FunctionsDelegateNative {
         }
     }
 
+    func getTextSize(
+        text: String,
+        fontName: String, fontSize: Double
+    ) -> CGSize {
+        let bounds = getBounds(text: text, fontName: fontName, fontSize: fontSize)
+        return CGSize(width: bounds.width, height: bounds.height)
+    }
 }

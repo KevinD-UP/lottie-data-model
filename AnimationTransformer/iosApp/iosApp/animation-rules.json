@@ -79,6 +79,188 @@
             "value": "getResultForKey(\"$var0\")-getAscent(8)-getTextMeasureHeight(7)+getAscent(7)-40",
             "type": "number",
             "description": "textTop y position"
+        },
+        {
+            "key": "$var2",
+            "ind": 9,
+            "layerType": 4,
+            "transformKey": "groupSubTitleContainerShape",
+            "transformSubKey": "subTitleContainerShape",
+            "transformType": "frame_it",
+            "transformIndexForList": 0,
+            "value": "max(getTextLayerWidth(7),getTextLayerWidth(8))+40",
+            "type": "number",
+            "description": "subTitleContainer width"
+        },
+        {
+            "key": "$var3",
+            "ind": 9,
+            "layerType": 4,
+            "transformKey": "groupSubTitleContainerShape",
+            "transformSubKey": "subTitleContainerShape",
+            "transformType": "frame_it",
+            "transformIndexForList": 1,
+            "value": "getTextMeasureHeight(7)+40+getTextMeasureHeight(8)+100",
+            "type": "number",
+            "description": "subTitleContainer height"
+        },
+        {
+            "key": "$var4",
+            "ind": 9,
+            "layerType": 4,
+            "transformType": "frame",
+            "transformIndexForList": 1,
+            "value": "getResultForKey(\"$var0\")-getAscent(8)-20",
+            "type": "number",
+            "description": "subTitleContainer position y"
+        },
+        {
+            "key": "$var5",
+            "ind": 4,
+            "layerType": 4,
+            "transformType": "position",
+            "transformIndexForList": 1,
+            "value": "getResultForKey(\"$var4\")+getResultForKey(\"$var3\")/2+10",
+            "type": "number",
+            "description": "lineLeft position y"
+        },
+        {
+            "key": "$var6",
+            "ind": 3,
+            "layerType": 4,
+            "transformType": "position",
+            "transformIndexForList": 1,
+            "value": "getResultForKey(\"$var4\")-getResultForKey(\"$var3\")/2-10",
+            "type": "number",
+            "description": "lineRight position y"
+        },
+        {
+            "key": "$var7",
+            "ind": 3,
+            "layerType": 4,
+            "transformType": "position",
+            "transformIndexForList": 0,
+            "value": "960+getResultForKey(\"$var2\")/2+5",
+            "type": "number",
+            "description": "lineRight position x"
+        },
+        {
+            "key": "$var7_1",
+            "ind": 6,
+            "layerType": 4,
+            "transformType": "position",
+            "transformIndexForList": 0,
+            "value": "getResultForKey(\"$var7\")",
+            "type": "number",
+            "description": "lineBottom position x"
+        },
+        {
+            "key": "$var8",
+            "ind": 4,
+            "layerType": 4,
+            "transformKey": "lineLeftShape",
+            "transformSubKey": "lineLeftItShape",
+            "transformType": "position_it",
+            "transformIndexForList": 1,
+            "value": "(getResultForKey(\"$var3\")+20)*-1",
+            "type": "number",
+            "description": "lineLeft end position y"
+        },
+        {
+            "key": "$var9",
+            "ind": 3,
+            "layerType": 4,
+            "transformKey": "lineRightShape",
+            "transformSubKey": "lineRightItShape",
+            "transformType": "position_it",
+            "transformIndexForList": 1,
+            "value": "getResultForKey(\"$var3\")+20",
+            "type": "number",
+            "description": "lineRight end position y"
+        },
+        {
+            "key": "$var10",
+            "ind": 5,
+            "layerType": 4,
+            "transformType": "position",
+            "transformIndexForList": 0,
+            "value": "960-getResultForKey(\"$var2\")/2-5",
+            "type": "number",
+            "description": "lineTop position x"
+        },
+        {
+            "key": "$var10_1",
+            "ind": 4,
+            "layerType": 4,
+            "transformType": "position",
+            "transformIndexForList": 0,
+            "value": "getResultForKey(\"$var10\")",
+            "type": "number",
+            "description": "lineLeft position x"
+        },
+        {
+            "key": "$var11",
+            "ind": 5,
+            "layerType": 4,
+            "transformType": "position",
+            "transformIndexForList": 1,
+            "value": "getResultForKey(\"$var4\")-getResultForKey(\"$var3\")/2-5",
+            "type": "number",
+            "description": "lineTop position y"
+        },
+        {
+            "key": "$var12",
+            "ind": 5,
+            "layerType": 4,
+            "transformKey": "lineTopShape",
+            "transformSubKey": "lineTopItShape",
+            "transformType": "position_it",
+            "transformIndexForList": 0,
+            "value": "getResultForKey(\"$var2\")+10",
+            "type": "number",
+            "description": "lineBottom end position x"
+        },
+        {
+            "key": "$var13",
+            "ind": 6,
+            "layerType": 4,
+            "transformKey": "lineBottomShape",
+            "transformSubKey": "lineBottomItShape",
+            "transformType": "position_it",
+            "transformIndexForList": 0,
+            "value": "(getResultForKey(\"$var2\")+10)*-1",
+            "type": "number",
+            "description": "lineBottom end position x"
+        },
+        {
+            "key": "$var14",
+            "ind": 6,
+            "layerType": 4,
+            "transformType": "position",
+            "transformIndexForList": 1,
+            "value": "getResultForKey(\"$var4\")+getResultForKey(\"$var3\")/2+5",
+            "type": "number",
+            "description": "lineBottom position y"
+        },
+        {
+            "key": "$var15",
+            "ind": 1,
+            "layerType": 5,
+            "transformType": "position",
+            "transformIndexForList": 1,
+            "value": "540-getTextMeasureHeight(1)+getAscent(1)-getTextFontSize(1)*0.2",
+            "type": "number",
+            "description": "titleTop position y"
+        },
+        {
+            "key": "$var16",
+            "ind": 2,
+            "layerType": 5,
+            "transformType": "position",
+            "transformIndexForList": 1,
+            "value": "540+getAscent(2)+getTextFontSize(2)*0.2",
+            "type": "number",
+            "description": "titleBottom position y"
         }
     ]
 }

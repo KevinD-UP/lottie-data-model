@@ -11,6 +11,8 @@ data class KPAnimationRuleVariable(
     val layerType: Int?,
     val transformType: KPAnimationRuleTransformType?,
     val transformIndexForList: Int?,
+    val transformKey: String?,
+    val transformSubKey: String?,
     val type: KPAnimationRuleVariableType,
     val description: String?
 )
@@ -36,7 +38,13 @@ enum class KPAnimationRuleVariableType {
 @Serializable
 enum class KPAnimationRuleTransformType {
     @SerialName("position")
-    POSITION
+    POSITION,
+    @SerialName("position_it")
+    POSITION_IT,
+    @SerialName("frame")
+    FRAME,
+    @SerialName("frame_it")
+    FRAME_IT
 }
 
 

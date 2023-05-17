@@ -100,6 +100,14 @@ class KPExpressionParserTest {
     }
 
     @Test
+    fun testExpressionMultiplication4() {
+        val expression = "250 * 0.2"
+        val result = sut.parseAndEvaluate(expression)
+        val expected = 250 * 0.2
+        assertEquals(expected.toDouble(), result)
+    }
+
+    @Test
     fun testExpressionDivition1() {
         val expression = "23 / 46"
         val result = sut.parseAndEvaluate(expression)
@@ -152,6 +160,14 @@ class KPExpressionParserTest {
         val expression = "10+40+30"
         val result = sut.parseAndEvaluate(expression)
         val expected = 10 + 40 + 30
+        assertEquals(expected.toDouble(), result)
+    }
+
+    @Test
+    fun testExpressionOperatorPriority6() {
+        val expression = "940-323/2-10"
+        val result = sut.parseAndEvaluate(expression)
+        val expected = 940.0-323.0/2-10.0
         assertEquals(expected.toDouble(), result)
     }
 
@@ -392,6 +408,14 @@ class KPExpressionParserTest {
         val expression = "getComputationFortyTwo(-2, -3)"
         val result = sut.parseAndEvaluate(expression)
         val expected = (-2 + (-3)) * 100
+        assertEquals(expected.toDouble(), result)
+    }
+
+    @Test
+    fun testExpression20() {
+        val expression = "getTestThirtyThree(676)-getComputationFortyTwo(2, 3)/2-10"
+        val result = sut.parseAndEvaluate(expression)
+        val expected = (676 + 33)-((2 + 3) * 100)/2-10
         assertEquals(expected.toDouble(), result)
     }
 

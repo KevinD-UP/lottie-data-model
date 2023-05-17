@@ -224,10 +224,10 @@ class FontTransformerViewModel: ObservableObject {
     private var jsonString: String?
     @Published var lottieAnimation: LottieAnimation?
 
-    @Published var text1: String = "Text 1"
-    @Published var text2: String = "Text 2"
-    @Published var text3: String = "Text 3"
-    @Published var text4: String = "Text 4"
+    @Published var text1: String = "Titre en haut"
+    @Published var text2: String = "Titre en bas"
+    @Published var text3: String = "Sous-titre en haut"
+    @Published var text4: String = "Sous-titre en bas"
     @Published var selectedFont: FontTypeAnim = .arial
 
     func updateAnimation() {
