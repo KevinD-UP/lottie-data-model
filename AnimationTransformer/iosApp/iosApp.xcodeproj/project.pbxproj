@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		058557BB273AAA24004C7B11 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 058557BA273AAA24004C7B11 /* Assets.xcassets */; };
 		058557D9273AAEEB004C7B11 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 058557D8273AAEEB004C7B11 /* Preview Assets.xcassets */; };
+		140BE23C2A1B5F1B006DC643 /* Lato-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 140BE23A2A1B5F1B006DC643 /* Lato-Bold.ttf */; };
+		140BE23D2A1B5F1B006DC643 /* Lato-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 140BE23B2A1B5F1B006DC643 /* Lato-Regular.ttf */; };
 		1414917129D5CB0300E05FAF /* AnimationTransformerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1414917029D5CB0300E05FAF /* AnimationTransformerView.swift */; };
 		1414917329D5CB0900E05FAF /* ExpressionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1414917229D5CB0900E05FAF /* ExpressionView.swift */; };
 		14E32E122A0D340B00241750 /* tmp.json in Resources */ = {isa = PBXBuildFile; fileRef = 14E32E112A0D340B00241750 /* tmp.json */; };
@@ -26,6 +28,8 @@
 		058557BA273AAA24004C7B11 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		058557D8273AAEEB004C7B11 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		10CB31805C1B2A9A82067F13 /* Pods_iosApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iosApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		140BE23A2A1B5F1B006DC643 /* Lato-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Bold.ttf"; sourceTree = "<group>"; };
+		140BE23B2A1B5F1B006DC643 /* Lato-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Regular.ttf"; sourceTree = "<group>"; };
 		1414917029D5CB0300E05FAF /* AnimationTransformerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationTransformerView.swift; sourceTree = "<group>"; };
 		1414917229D5CB0900E05FAF /* ExpressionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpressionView.swift; sourceTree = "<group>"; };
 		14E32E112A0D340B00241750 /* tmp.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = tmp.json; sourceTree = "<group>"; };
@@ -68,6 +72,23 @@
 				10CB31805C1B2A9A82067F13 /* Pods_iosApp.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		140BE2382A1B5EFE006DC643 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				140BE2392A1B5F09006DC643 /* Fonts */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		140BE2392A1B5F09006DC643 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				140BE23A2A1B5F1B006DC643 /* Lato-Bold.ttf */,
+				140BE23B2A1B5F1B006DC643 /* Lato-Regular.ttf */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 		14E32E152A0E79C700241750 /* AnimationTransformer */ = {
@@ -119,6 +140,7 @@
 				14E59B852A051FE700B83531 /* animation-rules.json */,
 				14E32E112A0D340B00241750 /* tmp.json */,
 				14E59B832A04FDAF00B83531 /* animation.json */,
+				140BE2382A1B5EFE006DC643 /* Resources */,
 				058557D7273AAEEB004C7B11 /* Preview Content */,
 			);
 			path = iosApp;
@@ -191,8 +213,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				14E59B842A04FDAF00B83531 /* animation.json in Resources */,
+				140BE23C2A1B5F1B006DC643 /* Lato-Bold.ttf in Resources */,
 				058557D9273AAEEB004C7B11 /* Preview Assets.xcassets in Resources */,
 				14E59B862A051FE700B83531 /* animation-rules.json in Resources */,
+				140BE23D2A1B5F1B006DC643 /* Lato-Regular.ttf in Resources */,
 				14E32E122A0D340B00241750 /* tmp.json in Resources */,
 				058557BB273AAA24004C7B11 /* Assets.xcassets in Resources */,
 			);

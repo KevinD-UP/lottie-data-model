@@ -217,6 +217,7 @@ class FontTransformerViewModel: ObservableObject {
     enum FontTypeAnim: String {
         case arial = "Arial"
         case chalkduster = "Chalkduster"
+        case lato = "Lato"
         case papyrus = "Papyrus"
         case zapfino = "Zapfino"
     }
@@ -228,7 +229,7 @@ class FontTransformerViewModel: ObservableObject {
     @Published var text2: String = "Titre en bas"
     @Published var text3: String = "Sous-titre en haut"
     @Published var text4: String = "Sous-titre en bas"
-    @Published var selectedFont: FontTypeAnim = .arial
+    @Published var selectedFont: FontTypeAnim = .lato
 
     func updateAnimation() {
         guard let animationURL = Bundle.main.url(forResource: "animation", withExtension: "json"),
@@ -293,6 +294,19 @@ class FontTransformerViewModel: ObservableObject {
                 "textBlack": "path-to-font/Chalkduster.ttf",
                 "text": "path-to-font/Chalkduster.ttf",
                 "title": "path-to-font/Chalkduster.ttf",
+            ]
+            return fonts
+        case .lato:
+            let fonts = [
+                "textBoldItalic": "path-to-font/Lato-Bold.ttf",
+                "titleBlackItalic": "path-to-font/Lato-Bold.ttf",
+                "textBlackItalic": "path-to-font/Lato-Bold.ttf",
+                "textBold": "path-to-font/Lato-Bold.ttf",
+                "titleBoldItalic": "path-to-font/Lato-Bold.ttf",
+                "titleBold": "path-to-font/Lato-Bold.ttf",
+                "textBlack": "path-to-font/Lato-Bold.ttf",
+                "text": "path-to-font/Lato-Regular.ttf",
+                "title": "path-to-font/Lato-Regular.ttf",
             ]
             return fonts
         case .papyrus:
