@@ -1,0 +1,111 @@
+{
+  "layerRules": [
+    {
+      "ind": 1,
+      "fontKey": "title",
+      "textInd": [0],
+      "maxLines": 1,
+      "maxWidth": 1224,
+      "colorKey": "titleText"
+    },
+    {
+      "ind": 2,
+      "fontKey": "title",
+      "textInd": [1],
+      "maxLines": 1,
+      "maxWidth": 1224,
+      "colorKey": "titleText"
+    },
+    {
+      "ind": 4,
+      "fontKey": "textBold",
+      "textInd": [2],
+      "maxLines": 1,
+      "maxWidth": 1080,
+      "colorKey": "subtitleTopText"
+    },
+    {
+      "ind": 5,
+      "colorKey": "subtitleTopBackground"
+    },
+    {
+      "ind": 7,
+      "fontKey": "text",
+      "textInd": [3],
+      "maxLines": 1,
+      "maxWidth": 1080,
+      "colorKey": "subtitleBottomText"
+    },
+    {
+      "ind": 8,
+      "colorKey": "subtitleBottomBackground"
+    },
+    {
+      "ind": 9,
+      "colorKey": "titleBackground",
+      "opacityKey": "titleBackgroundOpacity"
+    }
+  ],
+  "variables": [
+    {
+      "key": "",
+      "value": "harmonizeFontSize(1,2)",
+      "type": "unit",
+      "description": "harmonize titleTop and titleBottom fontSize"
+    },
+    {
+      "key": "$var0",
+      "value": "min(getBottomOfSafeArea()+getAscent(7)-getTextMeasureHeight(7)+getLastLineDescent(7)-50,1305+getAscent(7)-getTextMeasureHeight(7)+getLastLineDescent(7))",
+      "type": "number",
+      "description": "textBottom y position"
+    },
+    {
+      "key": "$var1",
+      "value": "getTextMeasureHeight(7)+46",
+      "type": "number",
+      "description": "textBottomContainer height"
+    },
+    {
+      "key": "$var2",
+      "value": "max(getTextLayerWidth(4)+64,getTextLayerWidth(7)+46)",
+      "type": "number",
+      "description": "textTopContainer and textBottomContainer width"
+    },
+    {
+      "key": "$var3",
+      "value": "$var0-getAscent(7)+getTextMeasureHeight(7)/2",
+      "type": "number",
+      "description": "textBottomContainer position y"
+    },
+    {
+      "key": "$var4",
+      "value": "getTextMeasureHeight(4)+64",
+      "type": "number",
+      "description": "textTopContainer height"
+    },
+    {
+      "key": "$var5",
+      "value": "$var0-getAscent(7)-getTextMeasureHeight(4)+getAscent(4)-23-32",
+      "type": "number",
+      "description": "textTop position y"
+    },
+    {
+      "key": "$var6",
+      "value": "$var5-getAscent(4)+getTextMeasureHeight(4)/2",
+      "type": "number",
+      "description": "textTopContainer position y"
+    },
+    {
+      "key": "$var7",
+      "value": "720-getTextMeasureHeight(1)+getAscent(1)-getTextFontSize(1)*0.2",
+      "type": "number",
+      "description": "titleTop position y"
+    },
+    {
+      "key": "$var8",
+      "value": "720+getAscent(2)+getTextFontSize(2)*0.2",
+      "type": "number",
+      "description": "titleBottom position y"
+    }
+  ]
+}

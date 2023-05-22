@@ -1,0 +1,119 @@
+{
+  "layerRules": [
+    {
+      "ind": 1,
+      "fontKey": "title",
+      "textInd": [0],
+      "maxLines": 1,
+      "maxWidth": 1224,
+      "colorKey": "titleText"
+    },
+    {
+      "ind": 2,
+      "fontKey": "title",
+      "textInd": [1],
+      "maxLines": 1,
+      "maxWidth": 1224,
+      "colorKey": "titleText"
+    },
+    {
+      "ind": 3,
+      "fontKey": "text",
+      "textInd": [2],
+      "maxLines": 1,
+      "maxWidth": 1080,
+      "colorKey": "subtitleTopText"
+    },
+    {
+      "ind": 4,
+      "fontKey": "text",
+      "textInd": [3],
+      "maxLines": 1,
+      "maxWidth": 1080,
+      "colorKey": "subtitleBottomText"
+    },
+    {
+      "ind": 5,
+      "colorKey": "subtitleBackground"
+    },
+    {
+      "ind": 6,
+      "colorKey": "titleBackground",
+      "opacityKey": "titleBackgroundOpacity"
+    }
+  ],
+  "variables": [
+    {
+      "key": "",
+      "value": "harmonizeFontSize(1,2)",
+      "type": "unit",
+      "description": "harmonize titleTop and titleBottom fontSize"
+    },
+    {
+      "key": "$var0",
+      "value": "min(getBottomOfSafeArea()+getAscent(4)-getTextMeasureHeight(4)+getLastLineDescent(4)-20,1330+getAscent(4)-getTextMeasureHeight(4)+getLastLineDescent(4))",
+      "type": "number",
+      "description": "textBottom y position"
+    },
+    {
+      "key": "$var1",
+      "value": "getTextMeasureHeight(4)+40",
+      "type": "number",
+      "description": "textBottomContainer height"
+    },
+    {
+      "key": "$var2",
+      "value": "max(getTextLayerWidth(4),getTextLayerWidth(3))+20",
+      "type": "number",
+      "description": "textBottomContainer width"
+    },
+    {
+      "key": "$var3",
+      "value": "$var0-getAscent(4)-20",
+      "type": "number",
+      "description": "textBottomContainer position y"
+    },
+    {
+      "key": "$var4",
+      "value": "720+$var2/2",
+      "type": "number",
+      "description": "textBottom and textBottomContainer position x"
+    },
+    {
+      "key": "$var5",
+      "value": "$var2/2",
+      "type": "number",
+      "description": "textBottomContainer anchor point x"
+    },
+    {
+      "key": "$var6",
+      "value": "$var0-getAscent(4)-getTextMeasureHeight(3)+getAscent(3)-40",
+      "type": "number",
+      "description": "textTop position y"
+    },
+    {
+      "key": "$var8",
+      "value": "720+$var2/2+600",
+      "type": "number",
+      "description": "textBottom end position x"
+    },
+    {
+      "key": "$var9",
+      "value": "720+$var2/2+600",
+      "type": "number",
+      "description": "textBottomContainer end position x"
+    },
+    {
+      "key": "$var10",
+      "value": "720-getTextMeasureHeight(1)+getAscent(1)-getTextFontSize(1)*0.2",
+      "type": "number",
+      "description": "titleTop position y"
+    },
+    {
+      "key": "$var11",
+      "value": "720+getAscent(2)+getTextFontSize(2)*0.2",
+      "type": "number",
+      "description": "titleBottom position y"
+    }
+  ]
+}

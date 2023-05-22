@@ -1,0 +1,73 @@
+{
+  "layerRules": [
+    {
+      "ind": 3,
+      "fontKey": "title",
+      "textInd": [0],
+      "maxLines": 2,
+      "maxWidth": 1220,
+      "maxHeight": 400,
+      "colorKey": "title"
+    },
+    {
+      "ind": 4,
+      "fontKey": "text",
+      "textInd": [0],
+      "maxLines": 1,
+      "colorKey": "coverText",
+      "opacityKey": "coverTextOpacity"
+    },
+    {
+      "ind": 6,
+      "fontKey": "text",
+      "textInd": [1],
+      "maxLines": 2,
+      "maxWidth": 1220,
+      "colorKey": "title",
+      "fillColorKey": "ctaTitleBlinking"
+    },
+    {
+      "ind": 7,
+      "colorKey": "transparentBackground",
+      "opacityKey": "backgroundOpacity"
+    }
+  ],
+  "assetRules": {
+    "originalColors": {
+      "shapeMain": "#00FFC6",
+      "shapeSecondary": "#572DED",
+      "shapeNeutral": "#FFFFFF"
+    },
+    "shadowOpacityKey": "shapeShadowOpacity",
+    "shadowColorKey": "shapeShadow"
+  },
+  "variables": [
+    {
+      "key": "$var0",
+      "value": "720-30-(getLineCount(3)-1)*getTextLineHeight(3)-getLastLineDescent(3)",
+      "type": "number"
+    },
+    {
+      "key": "$var1",
+      "value": "720+30-getLineCount(6)*getTextLineHeight(6)",
+      "type": "number"
+    },
+    {
+      "key": "$var2",
+      "value": "720+30+getAscent(6)",
+      "type": "number"
+    },
+    {
+      "key": "$var3",
+      "value": "getAnimationFrameCount()",
+      "type": "number",
+      "description": "end of transition out"
+    },
+    {
+      "key": "$var4",
+      "value": "getAnimationFrameCount()-15",
+      "type": "number",
+      "description": "start of transition out"
+    }
+  ]
+}

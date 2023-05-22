@@ -1,0 +1,48 @@
+{
+  "layerRules": [
+    {
+      "ind": 1,
+      "fontKey": "textBold",
+      "textInd": [0],
+      "maxLines": 2,
+      "maxWidth": 918,
+      "colorKey": "text"
+    },
+    {
+      "ind": 2,
+      "fontKey": "textBold",
+      "textInd": [1],
+      "maxLines": 2,
+      "maxWidth": 918,
+      "colorKey": "text"
+    },
+    {
+      "ind": 3,
+      "colorKey": "shape"
+    },
+    {
+      "ind": 4,
+      "colorKey": "background"
+    }
+  ],
+  "variables": [
+    {
+      "key": "",
+      "value": "harmonizeFontSize(1,2)",
+      "type": "unit",
+      "description": "harmonize titleTop and titleBottom fontSize"
+    },
+    {
+      "key": "$var0",
+      "value": "1920/4-getTextMeasureHeight(1)/2+getAscent(1)",
+      "type": "number",
+      "description": "titleTop y position"
+    },
+    {
+      "key": "$var1",
+      "value": "1920*3/4-getTextMeasureHeight(2)/2+getAscent(2)",
+      "type": "number",
+      "description": "titleBottom y position"
+    }
+  ]
+}
