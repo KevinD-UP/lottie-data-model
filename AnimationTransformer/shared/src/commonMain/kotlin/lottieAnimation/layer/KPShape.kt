@@ -5,6 +5,9 @@ import kotlinx.serialization.json.JsonElement
 import kotlinx.serialization.json.JsonObject
 import kotlinx.serialization.json.JsonPrimitive
 import lottieAnimation.layer.properties.KPMultiDimensional
+import lottieAnimation.layer.properties.KPMultiDimensionalListOrPrimitive
+import lottieAnimation.layer.properties.KPMultiDimensionalSimple
+import lottieAnimation.layer.serializers.KPMultiDimensionalListOrPrimitiveSerializer
 import lottieAnimation.layer.serializers.KPMultiDimensionalSerializer
 import lottieAnimation.layer.serializers.KPShapeListSerializer
 
@@ -32,11 +35,19 @@ data class KPShapeFill(
     var nm: String,
     var ty: String,
     var o: JsonObject,
-    var c: JsonObject,
+    var c: KPShapeFillColor,
     var bm: Int? = null,
     var r: Int? = null,
     var hd: Boolean? = null,
 ) : KPShape()
+
+@Serializable
+data class KPShapeFillColor(
+    var a: JsonPrimitive? = null,
+    @Serializable(with = KPMultiDimensionalListOrPrimitiveSerializer::class)
+    var k: KPMultiDimensionalListOrPrimitive,
+    var ix: JsonPrimitive? = null
+)
 
 @Serializable
 data class KPShapeGFill(
@@ -50,11 +61,17 @@ data class KPShapeGFill(
     var t: JsonElement? = null,
     var h: JsonElement? = null,
     var a: JsonElement? = null,
-    var g: JsonElement? = null,
+    var g: KPShapeGFillColor,
     var r: JsonElement? = null,
     var hd: Boolean? = null,
     var bm: Int? = null,
 ) : KPShape()
+
+@Serializable
+data class KPShapeGFillColor(
+    var p: JsonPrimitive? = null,
+    var k: KPMultiDimensionalSimple
+)
 
 @Serializable
 data class KPShapeGStroke(
@@ -168,11 +185,18 @@ data class KPShapeStroke(
     var ml: JsonPrimitive? = null,
     var o: JsonElement? = null,
     var w: JsonObject? = null,
-    var c: JsonObject? = null,
+    var c: KPShapeStrokeColor? = null,
     var bm: Int,
     var d: JsonElement? = null,
     var hd: Boolean? = null,
 ) : KPShape()
+
+@Serializable
+data class KPShapeStrokeColor(
+    var a: JsonPrimitive? = null,
+    var k: List<JsonPrimitive>,
+    var ix: JsonPrimitive? = null
+)
 
 @Serializable
 data class KPShapeTransform(
