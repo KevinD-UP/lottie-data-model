@@ -11,12 +11,11 @@ import shared
 import UIKit
 
 class FunctionsDelegateNative: KPAnimationTransformerFunctionsDelegate {
-    func getFirstLineTop(text: String, fontName: String, fontSize: Double) -> Double {
+    func getAscent(text: String, fontName: String, fontSize: Double) -> Double {
         debugPrint("DEMOAPP text \(text) - fontName \(fontName) - fontSize \(fontSize)")
-        guard let firstLineText = text.split(separator: "\n").first else { return 0.0 }
-        let bounds = getBounds(text: String(firstLineText), fontName: fontName, fontSize: fontSize)
-        debugPrint("DEMOAPP getFirstLineTop = \(bounds) - \(bounds.minY)")
-        return Double(bounds.minY)
+        let font = getFont(fontName: fontName, fontSize: fontSize)
+        debugPrint("DEMOAPP getAscent = \(font.ascender)")
+        return -Double(font.ascender)
     }
 
     func getDescent(text: String, fontName: String, fontSize: Double) -> Double {
@@ -33,10 +32,9 @@ class FunctionsDelegateNative: KPAnimationTransformerFunctionsDelegate {
 
     func getLastLineBottom(text: String, fontName: String, fontSize: Double) -> Double {
         debugPrint("DEMOAPP text \(text) - fontName \(fontName) - fontSize \(fontSize)")
-        guard let lastLineText = text.split(separator: "\n").last else { return 0.0 }
-        let bounds = getBounds(text: String(lastLineText), fontName: fontName, fontSize: fontSize)
-        debugPrint("DEMOAPP getLastLineBottom = \(bounds) - \(bounds.maxY)")
-        return Double(bounds.maxY)
+        let font = getFont(fontName: fontName, fontSize: fontSize)
+        debugPrint("DEMOAPP getLastLineBottom = \(font.descender)")
+        return -Double(font.descender)
     }
 
     func getTextMeasureHeight(
@@ -51,7 +49,7 @@ class FunctionsDelegateNative: KPAnimationTransformerFunctionsDelegate {
             layerSize: layerSize, layerLineHeight: layerLineHeight, layerTracking: layerTracking)
         let textLines = applyTextBoxText.split(separator: "\n")
         let lineHeight = layerLineHeight
-        let ascent = -getFirstLineTop(text: text, fontName: fontName, fontSize: fontSize)
+        let ascent = -getAscent(text: text, fontName: fontName, fontSize: fontSize)
         let descent = getLastLineBottom(text: text, fontName: fontName, fontSize: fontSize)
 
         let result = ascent + descent + lineHeight * Double(textLines.count - 1)
