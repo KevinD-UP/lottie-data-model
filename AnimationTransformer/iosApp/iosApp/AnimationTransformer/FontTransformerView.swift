@@ -26,6 +26,11 @@ struct FontTransformerView: View {
                         Text("Arial")
                     }
                     Button {
+                        viewModel.selectedFont = .lato
+                    } label: {
+                        Text("Lato")
+                    }
+                    Button {
                         viewModel.selectedFont = .chalkduster
                     } label: {
                         Text("Chalkduster")
