@@ -4,7 +4,7 @@ import expressionParser.functions.common.KPGetBottomOfSafeAreaFunction
 import expressionParser.functions.common.KPGetTextFontSizeFunction
 import expressionParser.functions.common.KPMaxFunction
 import expressionParser.functions.common.KPMinFunction
-import expressionParser.functions.platform.KPGetFirstLineTopFunction
+import expressionParser.functions.platform.KPGetAscentFunction
 import expressionParser.functions.platform.KPGetLastLineBottomFunction
 import expressionParser.functions.platform.KPGetTextLayerWidthFunction
 import expressionParser.functions.platform.KPGetTextMeasureHeightFunction
@@ -22,7 +22,7 @@ class KPProjectExpressionParser(
 ) {
     private val storeResults = KPStoreResultsFunction()
     private val nativeFunctions = mapOf(
-        "getAscent" to KPGetFirstLineTopFunction(
+        "getAscent" to KPGetAscentFunction(
             lottieAnimation = animation,
             functionsDelegate = functionsDelegate
         ),

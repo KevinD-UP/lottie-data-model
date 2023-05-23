@@ -8,7 +8,7 @@ import lottieAnimation.KPLottieAnimation
 import lottieAnimation.layer.KPTextLayer
 import transformer.KPAnimationTransformerFunctionsDelegate
 
-class KPGetFirstLineTopFunction(
+class KPGetAscentFunction(
     private val lottieAnimation: KPLottieAnimation,
     private val functionsDelegate: KPAnimationTransformerFunctionsDelegate
 ): KPFunctionInterface {
@@ -22,7 +22,7 @@ class KPGetFirstLineTopFunction(
         val text = item.s.t
         val fontName = item.s.f
         val fontSize = item.s.s?.jsonPrimitive?.doubleOrNull ?: return 0.0
-        val result = -1.0 * functionsDelegate.getFirstLineTop(
+        val result = -1.0 * functionsDelegate.getAscent(
             text = text,
             fontName = fontName,
             fontSize = fontSize
