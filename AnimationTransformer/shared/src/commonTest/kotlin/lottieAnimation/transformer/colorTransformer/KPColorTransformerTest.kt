@@ -11,6 +11,7 @@ import okio.FileSystem
 import okio.Path.Companion.toPath
 import transformer.KPColorTransformer
 import kotlin.test.Test
+import kotlin.test.assertEquals
 
 class KPColorTransformerTest {
 
@@ -153,8 +154,14 @@ class KPColorTransformerTest {
     fun focusTest() {
         val animation: KPLottieAnimation = json.decodeFromString(readJson("src/commonTest/resources/animations/bali/a.json"))
         val rule: KPAnimationRules = json.decodeFromString(readJson("src/commonTest/resources/rules/bali/BALI-PLANE-rules.json"))
-        KPColorTransformer()
-            .transformColor(animation, rule, colorsFor("bali"))
+        val colors = colorsFor("bali")
+        val sut = KPColorTransformer()
+        val result = sut.transformColor(animation, rule, colors)
+        println("colors: $colors")
+        // ------ Opacity -----
+        val opacity = (((result.layers.firstOrNull { 9 == it.ind } as KPVisualLayer).ks.o as KPMultiDimensionalSimple).k as KPMultiDimensionalPrimitive).value.double
+        val expectedOpacity = colors["backgroundOpacity"]?.toDoubleOrNull()?.times(100f)
+        assertEquals(expectedOpacity, opacity)
     }
 
 

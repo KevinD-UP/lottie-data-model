@@ -40,6 +40,7 @@ class KPColorTransformer {
                 if (color != null && targetLayer != null) {
                     val colorArray = argbStringToFloatArray(color) ?: return@forEach
 
+
                     // Set layer fill effect color depending on its type
                     layerRule.fillColorKey?.let { fillColorKey ->
                         val fillColor = colors[fillColorKey] ?: return@let
@@ -60,10 +61,17 @@ class KPColorTransformer {
 
                     // Set layer color depending on its type
                     when (targetLayer) {
-                        is KPTextLayer -> setTextColor(colorArray, targetLayer)
-                        is KPSolidColorLayer -> setSolidColor(color, targetLayer)
-                        is KPShapeLayer -> setShapeColor(colorArray, targetLayer)
+                        is KPTextLayer -> {
+                            setTextColor(colorArray, targetLayer)
+                        }
+                        is KPSolidColorLayer -> {
+                            setSolidColor(color, targetLayer)
+                        }
+                        is KPShapeLayer -> {
+                            setShapeColor(colorArray, targetLayer)
+                        }
                         else -> {
+
                             /* Unsupported layers */
                         }
                     }
@@ -232,6 +240,38 @@ class KPColorTransformer {
                     val animatedKeyframe = keyframes.values[keyframeIndex] as KPMultiDimensionNodeObject
                     animatedKeyframe.s = JsonArray(newFillColor)
                 }
+            }
+
+            if (shape is KPShapeGroup) {
+                seekSetShapeFillColor(colorArray, shape, keyframeIndex)
+            }
+        }
+    }
+
+    private fun seekSetShapeFillColor(colorArray: FloatArray, shapeGroup: KPShapeGroup, keyframeIndex: Int) {
+        shapeGroup.it.forEach { shape ->
+            if (shape is KPShapeFill) {
+                val newFillColor = listOf(
+                    JsonPrimitive(colorArray[0]), // R
+                    JsonPrimitive(colorArray[1]), // G
+                    JsonPrimitive(colorArray[2]), // B
+                    JsonPrimitive(1) // A (not used for opacity, use "o" instead)
+                )
+
+                val animated = shape.c.a?.int == 1
+                if (!animated) {
+                    (shape.c.k as KPMultiDimensionalList).values.take(4).mapIndexed { index, keyframe ->
+                        keyframe as KPMultiDimensionalNodePrimitive
+                        keyframe.value = newFillColor[index]
+                    }
+                } else {
+                    val keyframes = shape.c.k as KPMultiDimensionalList
+                    val animatedKeyframe = keyframes.values[keyframeIndex] as KPMultiDimensionNodeObject
+                    animatedKeyframe.s = JsonArray(newFillColor)
+                }
+            }
+            if (shape is KPShapeGroup) {
+                seekSetShapeFillColor(colorArray, shape, keyframeIndex)
             }
         }
     }
