@@ -61,15 +61,9 @@ class KPColorTransformer {
 
                     // Set layer color depending on its type
                     when (targetLayer) {
-                        is KPTextLayer -> {
-                            setTextColor(colorArray, targetLayer)
-                        }
-                        is KPSolidColorLayer -> {
-                            setSolidColor(color, targetLayer)
-                        }
-                        is KPShapeLayer -> {
-                            setShapeColor(colorArray, targetLayer)
-                        }
+                        is KPTextLayer -> setTextColor(colorArray, targetLayer)
+                        is KPSolidColorLayer -> setSolidColor(color, targetLayer)
+                        is KPShapeLayer -> setShapeColor(colorArray, targetLayer)
                         else -> {
 
                             /* Unsupported layers */
@@ -514,7 +508,6 @@ class KPColorTransformer {
             // Create and return the float array
             floatArrayOf(floatRed, floatGreen, floatBlue)
         } catch (e: Exception) {
-            println("Orpheus: Error Converting ARGB to FloatArray $e")
             null
         }
 

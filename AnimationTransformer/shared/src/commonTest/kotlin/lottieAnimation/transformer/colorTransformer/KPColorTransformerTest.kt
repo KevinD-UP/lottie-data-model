@@ -162,8 +162,104 @@ class KPColorTransformerTest {
         val opacity = (((result.layers.firstOrNull { 9 == it.ind } as KPVisualLayer).ks.o as KPMultiDimensionalSimple).k as KPMultiDimensionalPrimitive).value.double
         val expectedOpacity = colors["backgroundOpacity"]?.toDoubleOrNull()?.times(100f)
         assertEquals(expectedOpacity, opacity)
+
+        val titleBackgroundOpacity = (((result.layers.firstOrNull { 10 == it.ind } as KPVisualLayer).ks.o as KPMultiDimensionalSimple).k as KPMultiDimensionalPrimitive).value.double
+        val expectedTitleBackgroundOpacity = colors["titleBackgroundOpacity"]?.toDoubleOrNull()?.times(100f)
+        assertEquals(expectedTitleBackgroundOpacity, titleBackgroundOpacity)
+        // ------- Title 1 --------
+        val title1Color = (result.layers.firstOrNull { 1 == it.ind } as KPTextLayer).t.d.k.first().s.fc.map { it.jsonPrimitive.float }
+        val expectedTitle1Color = argbStringToFloatArray(colors["titleText"] ?: "")?.toList()
+        assertEquals(expectedTitle1Color, title1Color)
+        // ------- Title 2 --------
+        val title2Color = (result.layers.firstOrNull { 2 == it.ind } as KPTextLayer).t.d.k.first().s.fc.map { it.jsonPrimitive.float }
+        val expectedTitle2Color = argbStringToFloatArray(colors["titleText"] ?: "")?.toList()
+        assertEquals(expectedTitle2Color, title2Color)
+        // -------- Shape 1 -------
+        val shape1Color = (((result.layers.firstOrNull { 3 == it.ind } as KPShapeLayer).shapes?.firstOrNull { it is KPShapeGroup } as KPShapeGroup).it.firstOrNull { it is KPShapeStroke } as KPShapeStroke).c?.k?.map { it.float }
+        val expectedShape1Color = argbStringToFloatArray(colors["shape"] ?: "")?.toMutableList()
+        expectedShape1Color?.add(1.0f)
+        assertEquals(expectedShape1Color, shape1Color)
+        // -------- Shape 2 -------
+        val shape2Color = (((result.layers.firstOrNull { 4 == it.ind } as KPShapeLayer).shapes?.firstOrNull { it is KPShapeGroup } as KPShapeGroup).it.firstOrNull { it is KPShapeStroke } as KPShapeStroke).c?.k?.map { it.float }
+        val expectedShape2Color = argbStringToFloatArray(colors["shape"] ?: "")?.toMutableList()
+        expectedShape2Color?.add(1.0f)
+        assertEquals(expectedShape2Color, shape2Color)
+        // -------- Shape 3 -------
+        val shape3Color = (((result.layers.firstOrNull { 5 == it.ind } as KPShapeLayer).shapes?.firstOrNull { it is KPShapeGroup } as KPShapeGroup).it.firstOrNull { it is KPShapeStroke } as KPShapeStroke).c?.k?.map { it.float }
+        val expectedShape3Color = argbStringToFloatArray(colors["shape"] ?: "")?.toMutableList()
+        expectedShape3Color?.add(1.0f)
+        assertEquals(expectedShape3Color, shape3Color)
+        // -------- Shape 4 -------
+        val shape4Color = (((result.layers.firstOrNull { 6 == it.ind } as KPShapeLayer).shapes?.firstOrNull { it is KPShapeGroup } as KPShapeGroup).it.firstOrNull { it is KPShapeStroke } as KPShapeStroke).c?.k?.map { it.float }
+        val expectedShape4Color = argbStringToFloatArray(colors["shape"] ?: "")?.toMutableList()
+        expectedShape4Color?.add(1.0f)
+        assertEquals(expectedShape4Color, shape4Color)
+        // ------- Text 1 --------
+        val text1Color = (result.layers.firstOrNull { 7 == it.ind } as KPTextLayer).t.d.k.first().s.fc.map { it.jsonPrimitive.float }
+        val expectedText1Color = argbStringToFloatArray(colors["text"] ?: "")?.toList()
+        assertEquals(expectedText1Color, text1Color)
+        // ------- Text 2 --------
+        val text2Color = (result.layers.firstOrNull { 8 == it.ind } as KPTextLayer).t.d.k.first().s.fc.map { it.jsonPrimitive.float }
+        val expectedText2Color = argbStringToFloatArray(colors["text"] ?: "")?.toList()
+        assertEquals(text2Color, expectedText2Color)
+        // -------- background 1 -------
+        val background1Color = ((((result.layers.firstOrNull { 9 == it.ind } as KPShapeLayer).shapes?.firstOrNull { it is KPShapeGroup } as KPShapeGroup).it.firstOrNull { it is KPShapeFill } as KPShapeFill).c.k as KPMultiDimensionalList).values.map {
+            it as KPMultiDimensionalNodePrimitive
+            it.value.float
+        }
+        val expectedBackground1Color = argbStringToFloatArray(colors["background"] ?: "")?.toMutableList() ?: mutableListOf()
+        expectedBackground1Color.add(1.0f)
+        assertEquals(expectedBackground1Color, background1Color)
+        // -------- titleBackground 2 -------
+        val titleBackground2Color = (result.layers.firstOrNull { 10 == it.ind } as KPSolidColorLayer).sc
+        val expectedTitleBackground2Color = colors["titleBackground"] ?: ""
+        assertEquals(expectedTitleBackground2Color, titleBackground2Color)
     }
 
+    private fun argbStringToFloatArray(argbString: String): FloatArray? {
+        return try {
+            val argb = argbString.trim().removePrefix("#")
+
+            // Extract the individual RGB components
+            val red: Int
+            val green: Int
+            val blue: Int
+            val alpha: Int
+
+            when (argb.length) {
+                6 -> {
+                    // 6-digit ARGB string (add default alpha FF)
+                    red = argb.substring(0, 2).toInt(16)
+                    green = argb.substring(2, 4).toInt(16)
+                    blue = argb.substring(4, 6).toInt(16)
+                    alpha = 255 // Default alpha value FF (fully opaque)
+                }
+                8 -> {
+                    // 8-digit ARGB string
+                    alpha = argb.substring(0, 2).toInt(16)
+                    red = argb.substring(2, 4).toInt(16)
+                    green = argb.substring(4, 6).toInt(16)
+                    blue = argb.substring(6, 8).toInt(16)
+                }
+                else -> {
+                    throw IllegalArgumentException("Invalid ARGB string: $argbString")
+                }
+            }
+
+            // Normalize the component values to the range of 0.0 to 1.0
+            val floatAlpha = alpha.toFloat() / 255
+            val floatRed = red.toFloat() / 255
+            val floatGreen = green.toFloat() / 255
+            val floatBlue = blue.toFloat() / 255
+
+            // Create and return the float array
+            floatArrayOf(floatRed, floatGreen, floatBlue)
+        } catch (e: Exception) {
+            println("Orpheus: Error Converting ARGB to FloatArray $e")
+            null
+        }
+
+    }
 
     @Test
     fun testAlgiers() {
