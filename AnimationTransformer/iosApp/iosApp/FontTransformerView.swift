@@ -19,30 +19,8 @@ struct FontTransformerView: View {
         ScrollView {
             VStack {
                 textView()
-                Menu {
-                    Button {
-                        viewModel.selectedFont = .arial
-                    } label: {
-                        Text("Arial")
-                    }
-                    Button {
-                        viewModel.selectedFont = .chalkduster
-                    } label: {
-                        Text("Chalkduster")
-                    }
-                    Button {
-                        viewModel.selectedFont = .papyrus
-                    } label: {
-                        Text("Papyrus")
-                    }
-                    Button {
-                        viewModel.selectedFont = .zapfino
-                    } label: {
-                        Text("Zapfino")
-                    }
-                } label: {
-                    Text("Font: \(viewModel.selectedFont.rawValue)")
-                }
+                fontView()
+                colorView()
                 CustomAnimationLottieView(holder: viewModel.holder)
                     .frame(width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.width * 9 / 16.0)
                 Button {
@@ -144,6 +122,38 @@ struct FontTransformerView: View {
             }
         }
     }
+
+    @ViewBuilder
+    private func fontView() -> some View {
+        Menu {
+            ForEach(FontTransformerViewModel.FontTypeAnim.allCases, id: \.self) { font in
+                Button {
+                    viewModel.selectedFont = font
+                } label: {
+                    Text(font.rawValue)
+                }
+            }
+        } label: {
+            Text("Font: \(viewModel.selectedFont.rawValue)")
+        }
+    }
+
+    @ViewBuilder
+    private func colorView() -> some View {
+        VStack {
+            Menu {
+                ForEach(FontTransformerViewModel.ColorThemeType.allCases, id: \.self) { theme in
+                    Button {
+                        viewModel.selectedThemeColor = theme
+                    } label: {
+                        Text(theme.rawValue)
+                    }
+                }
+            } label: {
+                Text("Theme: \(viewModel.selectedThemeColor.rawValue)")
+            }
+        }
+    }
 }
 
 struct FontTransformerView_Previews: PreviewProvider {
@@ -214,11 +224,21 @@ class FontTransformerViewModel: ObservableObject {
 
     let holder = AnimatorHolder()
 
-    enum FontTypeAnim: String {
+    enum FontTypeAnim: String, CaseIterable {
         case arial = "Arial"
         case chalkduster = "Chalkduster"
         case papyrus = "Papyrus"
         case zapfino = "Zapfino"
+    }
+
+    enum ColorThemeType: String, CaseIterable {
+        case bali
+        case algiers
+        case seattle
+        case berlin
+        case losAngeles
+        case bogota
+        case geneva
     }
 
     private var jsonString: String?
@@ -229,6 +249,7 @@ class FontTransformerViewModel: ObservableObject {
     @Published var text3: String = "Text 3"
     @Published var text4: String = "Text 4"
     @Published var selectedFont: FontTypeAnim = .arial
+    @Published var selectedThemeColor: ColorThemeType = .bali
 
     func updateAnimation() {
         guard let animationURL = Bundle.main.url(forResource: "animation", withExtension: "json"),
@@ -249,12 +270,14 @@ class FontTransformerViewModel: ObservableObject {
         }
         let texts = [text1, text2, text3, text4]
         let fonts = getFonts(type: selectedFont)
+        let colors = getColors(theme: selectedThemeColor)
         let animationTransformer = KPAnimationTransformer()
         guard let result = animationTransformer.transform(
             lottieJsonString: animationJsonString,
             animationRulesJsonString: animationRulesJsonString,
             texts: texts,
-            fonts: fonts
+            fonts: fonts,
+            colors: colors
         ) else {
             print("Error: Cannot animation transformer the JSON file.")
             return
@@ -263,6 +286,149 @@ class FontTransformerViewModel: ObservableObject {
         jsonString = result
         if let lottieAnimation = computeLottieAnimation() {
             holder.functionCaller.send(lottieAnimation)
+        }
+    }
+
+    private func getColors(theme: ColorThemeType) -> [String: String] {
+        let bogotaColors = [
+            "shapeNeutral": "#342EEA",
+            "figure": "#908080",
+            "shapeShadow": "#716B6B",
+            "background": "#D55656",
+            "shapeSecondary": "#CBE60A",
+            "backgroundOpacity": "0.3",
+            "text": "#FFFFFF",
+            "shapeMain": "#FB6B00",
+            "shapeShadowOpacity": "0.80"
+        ]
+        let berlinColors = [
+            "gradientTop": "#FFD280",
+            "neutralGradientTop": "#ffffff",
+            "titleGradientTop": "#80FFE6",
+            "textBackgroundOpacity": "0.7",
+            "neutralGradientBottom": "#000000",
+            "shapeSecond": "#050033",
+            "shapeNeutral": "#ffffff",
+            "background": "#D3A86A",
+            "titleGradientBottom": "#D3A86A",
+            "slideBackground": "#ffffff",
+            "titleBackgroundOpacity": "0.7",
+            "textBackground": "#050033",
+            "maskGradientBottom": "#D3A86A",
+            "maskGradientTop": "#FFD280",
+            "text": "#ffffff",
+            "gradientBottom": "#D3A86A",
+            "shapeMain": "#D3A86A",
+            "titleBackground": "#000000"
+        ]
+        let genevaColors = [
+            "container": "#002b41",
+            "shadow": "#000000",
+            "shape": "#ffffff",
+            "background": "#050033",
+            "line": "#e6a500",
+            "titleText": "#ffffff",
+            "maskGradientBottom": "#D3A86A",
+            "maskGradientTop": "#FFD280",
+            "text": "#ffffff",
+            "shadowOpacity": "0.7",
+            "titleBackground": "#000000"
+        ]
+        let losAngelesColors = [
+            "shadow": "#FFFF05",
+            "slideTextStrong": "#D3A86A",
+            "textStrong": "#e6a500",
+            "subtitleBottomText": "#ffffff",
+            "shadowOpacity": "1",
+            "subtitleTopText": "#ffffff",
+            "containerStrong": "#e6a500",
+            "background": "#D3A86A",
+            "titleText": "#ffffff",
+            "slideBackground": "#ffffff",
+            "slideText": "#050033",
+            "floatingBackground": "#EEECF2",
+            "maskGradientBottom": "#D3A86A",
+            "maskGradientTop": "#FFD280",
+            "floatingText": "#ffffff",
+            "text": "#002b41",
+            "subtitleBackground": "#050033",
+            "titleBackground": "#000000"
+        ]
+        let seattleColors = [
+            "subtitleBottomBackground": "#050033",
+            "shape": "#050033",
+            "slideFullBackground": "#D3A86A",
+            "slideSplitBottomText": "#D3A86A",
+            "subtitleBottomText": "#ffffff",
+            "main": "#e6a500",
+            "slideSplitBottomBackground": "#ffffff",
+            "subtitleTopText": "#050033",
+            "second": "#002b41",
+            "background": "#D3A86A",
+            "slideSplitTopText": "#ffffff",
+            "slideFullText": "#ffffff",
+            "titleText": "#ffffff",
+            "floatingBackground": "#ffffff",
+            "maskGradientTop": "#FFD280",
+            "maskGradientBottom": "#D3A86A",
+            "text": "#FFFFFF",
+            "slideSplitTopBackground": "#D3A86A",
+            "floatingText": "#050033",
+            "titleBackground": "#000000",
+            "subtitleTopBackground": "#ffffff"
+        ]
+        let baliColors = [
+            "container": "#002b41",
+            "shape": "#D3A86A",
+            "line": "#e6a500",
+            "backgroundOpacity": "0.5",
+            "background": "#050033",
+            "titleText": "#ffffff",
+            "titleBackgroundOpacity": "0.85",
+            "maskGradientBottom": "#D3A86A",
+            "maskGradientTop": "#FFD280",
+            "text": "#ffffff",
+            "subtitleOpacity": "0.85",
+            "titleBackground": "#000000"
+        ]
+        let algiersColors = [
+            "subtitleBottomBackground": "#D3A86A",
+            "containerBottom": "#e6a500",
+            "slideSplitBottomText": "#ffffff",
+            "subtitleBottomText": "#ffffff",
+            "slideSplitBottomBackground": "#050033",
+            "gradientRight": "#050033",
+            "subtitleTopText": "#ffffff",
+            "gradientText": "#ffffff",
+            "containerTop": "#002b41",
+            "slideSplitTopText": "#ffffff",
+            "background": "#D3A86A",
+            "titleText": "#ffffff",
+            "titleBackgroundOpacity": "0.8",
+            "maskGradientTop": "#FFD280",
+            "maskGradientBottom": "#D3A86A",
+            "text": "#FFFFFF",
+            "gradientLeft": "#050033",
+            "slideSplitTopBackground": "#D3A86A",
+            "subtitleOpacity": "0.8",
+            "titleBackground": "#d3a86a",
+            "subtitleTopBackground": "#4030ca"
+        ]
+        switch theme {
+        case .bali:
+            return baliColors
+        case .algiers:
+            return algiersColors
+        case .seattle:
+            return seattleColors
+        case .berlin:
+            return berlinColors
+        case .losAngeles:
+            return losAngelesColors
+        case .bogota:
+            return bogotaColors
+        case .geneva:
+            return genevaColors
         }
     }
 
