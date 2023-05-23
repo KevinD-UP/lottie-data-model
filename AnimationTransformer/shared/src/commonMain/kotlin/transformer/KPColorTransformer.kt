@@ -60,9 +60,7 @@ class KPColorTransformer {
 
                     // Set layer color depending on its type
                     when (targetLayer) {
-                        is KPTextLayer -> {
-                            setTextColor(colorArray, targetLayer)
-                        }
+                        is KPTextLayer -> setTextColor(colorArray, targetLayer)
                         is KPSolidColorLayer -> setSolidColor(color, targetLayer)
                         is KPShapeLayer -> setShapeColor(colorArray, targetLayer)
                         else -> {
@@ -88,9 +86,7 @@ class KPColorTransformer {
                         is KPSolidColorLayer -> {
                             // TODO: To implement
                         }
-                        is KPShapeLayer -> {
-                            setShapeColor(colorArray, targetLayer, index)
-                        }
+                        is KPShapeLayer -> setShapeColor(colorArray, targetLayer, index)
                         else -> {
                             /* Unhandled Layers Fall Through */
                         }
@@ -285,6 +281,27 @@ class KPColorTransformer {
                     )
                     shape.c?.k = newStrokeColor
                 }
+
+                if (shape is KPShapeGroup) {
+                    seekSetShapeStrokeColor(colorArray, shape)
+                }
+            }
+        }
+    }
+
+    private fun seekSetShapeStrokeColor(colorArray: FloatArray, shapeGroup: KPShapeGroup) {
+        shapeGroup.it.forEach { shape ->
+            if (shape is KPShapeStroke) {
+                val newStrokeColor = listOf(
+                    JsonPrimitive(colorArray[0]), // R
+                    JsonPrimitive(colorArray[1]), // G
+                    JsonPrimitive(colorArray[2]), // B
+                    JsonPrimitive(1) // A (not used for opacity, use "o" instead)
+                )
+                shape.c?.k = newStrokeColor
+            }
+            if (shape is KPShapeGroup) {
+                seekSetShapeStrokeColor(colorArray, shape)
             }
         }
     }

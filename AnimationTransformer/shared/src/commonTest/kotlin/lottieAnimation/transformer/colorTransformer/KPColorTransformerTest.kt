@@ -152,9 +152,9 @@ class KPColorTransformerTest {
     @Test
     fun focusTest() {
         val animation: KPLottieAnimation = json.decodeFromString(readJson("src/commonTest/resources/animations/bali/a.json"))
-        val rule: KPAnimationRules = json.decodeFromString(readJson("src/commonTest/resources/rules/paris/PARIS-FOX-1_1-rules.json"))
+        val rule: KPAnimationRules = json.decodeFromString(readJson("src/commonTest/resources/rules/bali/BALI-PLANE-rules.json"))
         KPColorTransformer()
-            .transformColor(animation, rule, colorsFor("algiers"))
+            .transformColor(animation, rule, colorsFor("bali"))
     }
 
 
