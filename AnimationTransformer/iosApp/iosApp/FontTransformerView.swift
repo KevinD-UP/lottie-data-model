@@ -20,6 +20,7 @@ struct FontTransformerView: View {
             VStack {
                 textView()
                 fontView()
+                animView()
                 colorView()
                 CustomAnimationLottieView(holder: viewModel.holder)
                     .frame(width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.width * 9 / 16.0)
@@ -139,6 +140,23 @@ struct FontTransformerView: View {
     }
 
     @ViewBuilder
+    private func animView() -> some View {
+        VStack {
+            Menu {
+                ForEach(FontTransformerViewModel.AnimationType.allCases, id: \.self) { anim in
+                    Button {
+                        viewModel.selectedAnim = anim
+                    } label: {
+                        Text(anim.rawValue)
+                    }
+                }
+            } label: {
+                Text("Animation: \(viewModel.selectedAnim.rawValue)")
+            }
+        }
+    }
+
+    @ViewBuilder
     private func colorView() -> some View {
         VStack {
             Menu {
@@ -224,6 +242,42 @@ class FontTransformerViewModel: ObservableObject {
 
     let holder = AnimatorHolder()
 
+    enum AnimationType: String, CaseIterable {
+        case algiersFord = "ALGIERS-FORD"
+        case algiersPeugeot = "ALGIERS-PEUGEOT"
+        case algiersPlane = "ALGIERS-PLANE"
+        case algiersSimca = "ALIGERS-SIMCA"
+        case baliFord = "BALI-FORD"
+        case baliPeugeot = "BALI-PEUGEOT"
+        case baliPlane = "BALI-PLANE"
+        case berlinFord = "BERLIN-FORD"
+        case berlinPeugeot = "BERLIN-PEUGEOT"
+        case berlinPlane = "BERLIN-PLANE"
+        case bogotaAustin = "BOGOTA-AUSTIN"
+        case bogotaAventi = "BOGOTA-AVENTI"
+        case bogotaDelorean = "BOGOTA-DELOREAN"
+        case bogotaDodge = "BOGOTA-DODGE"
+        case bogotaLincoln = "BOGOTA-LINCOLN"
+        case bogotaMcLaren = "BOGOTA-MCLAREN"
+        case bogotaRam = "BOGOTA-RAM"
+        case bogotaRoush = "BOGOTA-ROUSH"
+        case bogotaToyota = "BOGOTA-TOYOTA"
+        case bogotaVector = "BOGOTA-VECTOR"
+        case genevaFord = "GENEVA-FORD"
+        case genevaPeugeot = "GENEVA-PEUGEOT"
+        case genevaPlane = "GENEVA-PLANE"
+        case losAngelesFord = "LOS_ANGELES-FORD"
+        case losAngelesPeugeot = "LOS_ANGELES-PEUGEOT"
+        case losAngelesPlane = "LOS_ANGELES-PLANE"
+        case losAngelesSimca = "LOS_ANGELES-SIMCA"
+        case parisButterfly = "PARIS-BUTTERFLY"
+        case parisFox = "PARIS-FOX"
+        case parisOwl = "PARIS-OWL"
+        case seattleFord = "SEATTLE-FORD"
+        case seattlePeugeot = "SEATTLE-PEUGEOT"
+        case seattlePlane = "SEATTLE-PLANE"
+    }
+
     enum FontTypeAnim: String, CaseIterable {
         case arial = "Arial"
         case chalkduster = "Chalkduster"
@@ -248,12 +302,13 @@ class FontTransformerViewModel: ObservableObject {
     @Published var text2: String = "Text 2"
     @Published var text3: String = "Text 3"
     @Published var text4: String = "Text 4"
+    @Published var selectedAnim: AnimationType = .baliPlane
     @Published var selectedFont: FontTypeAnim = .arial
     @Published var selectedThemeColor: ColorThemeType = .bali
 
     func updateAnimation() {
-        guard let animationURL = Bundle.main.url(forResource: "animation", withExtension: "json"),
-              let animationRulesURL = Bundle.main.url(forResource: "animation-rules", withExtension: "json") else {
+        guard let animationURL = Bundle.main.url(forResource: selectedAnim.rawValue, withExtension: "json"),
+              let animationRulesURL = Bundle.main.url(forResource: "\(selectedAnim.rawValue)-rules", withExtension: "json") else {
             print("Error: Cannot find the JSON file.")
             return
         }
