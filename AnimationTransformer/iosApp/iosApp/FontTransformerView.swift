@@ -246,7 +246,7 @@ class FontTransformerViewModel: ObservableObject {
         case algiersFord = "ALGIERS-FORD"
         case algiersPeugeot = "ALGIERS-PEUGEOT"
         case algiersPlane = "ALGIERS-PLANE"
-        case algiersSimca = "ALIGERS-SIMCA"
+        case algiersSimca = "ALGIERS-SIMCA"
         case baliFord = "BALI-FORD"
         case baliPeugeot = "BALI-PEUGEOT"
         case baliPlane = "BALI-PLANE"
