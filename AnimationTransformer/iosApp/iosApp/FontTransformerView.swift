@@ -286,13 +286,9 @@ class FontTransformerViewModel: ObservableObject {
     }
 
     enum ColorThemeType: String, CaseIterable {
-        case bali
-        case algiers
-        case seattle
-        case berlin
-        case losAngeles
-        case bogota
-        case geneva
+        case accor = "Accor"
+        case bts = "BTS"
+        case blockchain = "Blockchain"
     }
 
     private var jsonString: String?
@@ -304,7 +300,7 @@ class FontTransformerViewModel: ObservableObject {
     @Published var text4: String = "Text 4"
     @Published var selectedAnim: AnimationType = .baliPlane
     @Published var selectedFont: FontTypeAnim = .arial
-    @Published var selectedThemeColor: ColorThemeType = .bali
+    @Published var selectedThemeColor: ColorThemeType = .accor
 
     func updateAnimation() {
         guard let animationURL = Bundle.main.url(forResource: selectedAnim.rawValue, withExtension: "json"),
@@ -325,7 +321,7 @@ class FontTransformerViewModel: ObservableObject {
         }
         let texts = [text1, text2, text3, text4]
         let fonts = getFonts(type: selectedFont)
-        let colors = getColors(theme: selectedThemeColor)
+        let colors = getColors(animation: selectedAnim, theme: selectedThemeColor)
         let animationTransformer = KPAnimationTransformer()
         guard let result = animationTransformer.transform(
             lottieJsonString: animationJsonString,
@@ -344,7 +340,118 @@ class FontTransformerViewModel: ObservableObject {
         }
     }
 
-    private func getColors(theme: ColorThemeType) -> [String: String] {
+    private func getColors(animation: AnimationType, theme: ColorThemeType) -> [String: String] {
+        guard let themeName = animation.rawValue.split(separator: "-").first?.lowercased() else {
+            return [:]
+        }
+        switch theme {
+        case .accor:
+            return colorSetAccor()[themeName] ?? [:]
+        case .bts:
+            return colorSetBTS()[themeName] ?? [:]
+        case .blockchain:
+            return colorSetBlockchain()[themeName] ?? [:]
+        }
+    }
+
+    private func getFonts(type: FontTypeAnim) -> [String: String] {
+        switch type {
+        case .arial:
+            let fonts = [
+                "textBoldItalic": "path-to-font/Arial-Black.ttf",
+                "titleBlackItalic": "path-to-font/Arial-Bold.ttf",
+                "textBlackItalic": "path-to-font/Arial-Black.ttf",
+                "textBold": "path-to-font/Arial-Black.ttf",
+                "titleBoldItalic": "path-to-font/Arial-Bold.ttf",
+                "titleBold": "path-to-font/Arial-Bold.ttf",
+                "textBlack": "path-to-font/Arial-Black.ttf",
+                "text": "path-to-font/Arial-Black.ttf",
+                "title": "path-to-font/Arial-Bold.ttf",
+            ]
+            return fonts
+        case .chalkduster:
+            let fonts = [
+                "textBoldItalic": "path-to-font/Chalkduster.ttf",
+                "titleBlackItalic": "path-to-font/Chalkduster.ttf",
+                "textBlackItalic": "path-to-font/Chalkduster.ttf",
+                "textBold": "path-to-font/Chalkduster.ttf",
+                "titleBoldItalic": "path-to-font/Chalkduster.ttf",
+                "titleBold": "path-to-font/Chalkduster.ttf",
+                "textBlack": "path-to-font/Chalkduster.ttf",
+                "text": "path-to-font/Chalkduster.ttf",
+                "title": "path-to-font/Chalkduster.ttf",
+            ]
+            return fonts
+        case .papyrus:
+            let fonts = [
+                "textBoldItalic": "path-to-font/Papyrus-Condensed.ttf",
+                "titleBlackItalic": "path-to-font/Papyrus-Condensed.ttf",
+                "textBlackItalic": "path-to-font/Papyrus-Condensed.ttf",
+                "textBold": "path-to-font/Papyrus-Condensed.ttf",
+                "titleBoldItalic": "path-to-font/Papyrus-Condensed.ttf",
+                "titleBold": "path-to-font/Papyrus-Condensed.ttf",
+                "textBlack": "path-to-font/Papyrus-Condensed.ttf",
+                "text": "path-to-font/Papyrus.ttf",
+                "title": "path-to-font/Papyrus-Condensed.ttf",
+            ]
+            return fonts
+        case .zapfino:
+            let fonts = [
+                "textBoldItalic": "path-to-font/Zapfino.ttf",
+                "titleBlackItalic": "path-to-font/Zapfino.ttf",
+                "textBlackItalic": "path-to-font/Zapfino.ttf",
+                "textBold": "path-to-font/Zapfino.ttf",
+                "titleBoldItalic": "path-to-font/Zapfino.ttf",
+                "titleBold": "path-to-font/Zapfino.ttf",
+                "textBlack": "path-to-font/Zapfino.ttf",
+                "text": "path-to-font/Zapfino.ttf",
+                "title": "path-to-font/Zapfino.ttf",
+            ]
+            return fonts
+        }
+    }
+
+    func computeLottieAnimation() -> LottieAnimation? {
+        guard let jsonString else {
+            print("Error: Fallback default animation")
+            return LottieAnimation.named("animation", bundle: Bundle.main)
+        }
+        guard let dictionary = jsonStringToDictionary(jsonString) else {
+            print("Error: Cannot convert JSON string to Dictionary.")
+            return nil
+        }
+        do {
+            let animation = try LottieAnimation(dictionary: dictionary)
+            return animation
+        } catch {
+            debugPrint("error = \(error.localizedDescription)")
+        }
+
+        return nil
+    }
+
+    func jsonStringToDictionary(_ jsonString: String) -> [String: Any]? {
+        guard let jsonData = jsonString.data(using: .utf8) else {
+            print("Error: Cannot convert JSON string to Data.")
+            return nil
+        }
+
+        do {
+            if let jsonObject = try JSONSerialization.jsonObject(with: jsonData, options: []) as? [String: Any] {
+                return jsonObject
+            } else {
+                print("Error: Cannot convert JSON data to [String: Any] dictionary.")
+                return nil
+            }
+        } catch {
+            print("Error: Cannot deserialize JSON data. \(error.localizedDescription)")
+            return nil
+        }
+    }
+}
+
+extension FontTransformerViewModel {
+    private func colorSetAccor() -> [String: [String: String]] {
         let bogotaColors = [
             "shapeNeutral": "#342EEA",
             "figure": "#908080",
@@ -469,116 +576,313 @@ class FontTransformerViewModel: ObservableObject {
             "titleBackground": "#d3a86a",
             "subtitleTopBackground": "#4030ca"
         ]
-        switch theme {
-        case .bali:
-            return baliColors
-        case .algiers:
-            return algiersColors
-        case .seattle:
-            return seattleColors
-        case .berlin:
-            return berlinColors
-        case .losAngeles:
-            return losAngelesColors
-        case .bogota:
-            return bogotaColors
-        case .geneva:
-            return genevaColors
-        }
+        return [
+            "bogota": bogotaColors,
+            "algiers": algiersColors,
+            "bali": baliColors,
+            "geneva": genevaColors,
+            "los_angeles": losAngelesColors,
+            "seattle": seattleColors,
+            "berlin": berlinColors
+        ]
     }
 
-    private func getFonts(type: FontTypeAnim) -> [String: String] {
-        switch type {
-        case .arial:
-            let fonts = [
-                "textBoldItalic": "path-to-font/Arial-Black.ttf",
-                "titleBlackItalic": "path-to-font/Arial-Bold.ttf",
-                "textBlackItalic": "path-to-font/Arial-Black.ttf",
-                "textBold": "path-to-font/Arial-Black.ttf",
-                "titleBoldItalic": "path-to-font/Arial-Bold.ttf",
-                "titleBold": "path-to-font/Arial-Bold.ttf",
-                "textBlack": "path-to-font/Arial-Black.ttf",
-                "text": "path-to-font/Arial-Black.ttf",
-                "title": "path-to-font/Arial-Bold.ttf",
-            ]
-            return fonts
-        case .chalkduster:
-            let fonts = [
-                "textBoldItalic": "path-to-font/Chalkduster.ttf",
-                "titleBlackItalic": "path-to-font/Chalkduster.ttf",
-                "textBlackItalic": "path-to-font/Chalkduster.ttf",
-                "textBold": "path-to-font/Chalkduster.ttf",
-                "titleBoldItalic": "path-to-font/Chalkduster.ttf",
-                "titleBold": "path-to-font/Chalkduster.ttf",
-                "textBlack": "path-to-font/Chalkduster.ttf",
-                "text": "path-to-font/Chalkduster.ttf",
-                "title": "path-to-font/Chalkduster.ttf",
-            ]
-            return fonts
-        case .papyrus:
-            let fonts = [
-                "textBoldItalic": "path-to-font/Papyrus-Condensed.ttf",
-                "titleBlackItalic": "path-to-font/Papyrus-Condensed.ttf",
-                "textBlackItalic": "path-to-font/Papyrus-Condensed.ttf",
-                "textBold": "path-to-font/Papyrus-Condensed.ttf",
-                "titleBoldItalic": "path-to-font/Papyrus-Condensed.ttf",
-                "titleBold": "path-to-font/Papyrus-Condensed.ttf",
-                "textBlack": "path-to-font/Papyrus-Condensed.ttf",
-                "text": "path-to-font/Papyrus.ttf",
-                "title": "path-to-font/Papyrus-Condensed.ttf",
-            ]
-            return fonts
-        case .zapfino:
-            let fonts = [
-                "textBoldItalic": "path-to-font/Zapfino.ttf",
-                "titleBlackItalic": "path-to-font/Zapfino.ttf",
-                "textBlackItalic": "path-to-font/Zapfino.ttf",
-                "textBold": "path-to-font/Zapfino.ttf",
-                "titleBoldItalic": "path-to-font/Zapfino.ttf",
-                "titleBold": "path-to-font/Zapfino.ttf",
-                "textBlack": "path-to-font/Zapfino.ttf",
-                "text": "path-to-font/Zapfino.ttf",
-                "title": "path-to-font/Zapfino.ttf",
-            ]
-            return fonts
-        }
+    private func colorSetBTS() -> [String: [String: String]] {
+        let bogotaColors = [
+            "coverTextOpacity": "0.50",
+            "shapeShadow": "#000000",
+            "negativeBarBottom": "#FFFFFF",
+            "coverText": "#FFFFFF",
+            "backgroundOpacity": "1.00",
+            "titleBlinking": "#00e183",
+            "source": "#00e183",
+            "title": "#FFFFFF",
+            "positiveBarTop": "#00e183",
+            "positiveBarBottom": "#00e183",
+            "shapeNeutral": "#FFFFFF",
+            "cta": "#FFFFFF",
+            "negativeBarTop": "#FFFFFF",
+            "ctaTitle": "#FFFFFF",
+            "transparentBackground": "#000000",
+            "maskGradientBottom": "#00e183",
+            "maskGradientTop": "#00e183",
+            "text": "#FFFFFF",
+            "backgroundBarOpacity": "0.20",
+            "textShadow": "#000000",
+            "figure": "#FFFFFF",
+            "shapeCosmeticOpacity": "0.70",
+            "titleBottom": "#FFFFFF",
+            "shapeCosmetic": "#FFFFFF",
+            "chartEmpty": "#FFFFFF",
+            "background": "#F5D809",
+            "shapeSecondary": "#F5D809",
+            "textShadowOpacity": "0.70",
+            "chartFill": "#00e183",
+            "shapeMain": "#00e183",
+            "sourceNeutral": "#FFFFFF",
+            "figureBlink": "#00e183",
+            "shapeShadowOpacity": "0.70",
+            "ctaTitleBlinking": "#00e183"
+        ]
+        let berlinColors = [
+            "gradientTop": "#00e183",
+            "neutralGradientTop": "#FFFFFF",
+            "titleGradientTop": "#00e183",
+            "textBackgroundOpacity": "1.00",
+            "shapeSecond": "#F5D809",
+            "neutralGradientBottom": "#000000",
+            "shapeNeutral": "#FFFFFF",
+            "background": "#F5D809",
+            "titleGradientBottom": "#F5D809",
+            "titleBackgroundOpacity": "0.80",
+            "slideBackground": "#FFFFFF",
+            "maskGradientBottom": "#F5D809",
+            "maskGradientTop": "#00e183",
+            "textBackground": "#F5D809",
+            "gradientBottom": "#F5D809",
+            "text": "#FFFFFF",
+            "shapeMain": "#00e183",
+            "titleBackground": "#000000"
+        ]
+        let genevaColors = [
+            "shape": "#FFFFFF",
+            "shadow": "#000000",
+            "background": "#F5D809",
+            "titleText": "#FFFFFF",
+            "titleBackgroundOpacity": "0.50",
+            "maskGradientBottom": "#00e183",
+            "maskGradientTop": "#00e183",
+            "text": "#FFFFFF",
+            "shadowOpacity": "0.70",
+            "titleBackground": "#000000"
+        ]
+        let losAngelesColors = [
+            "shadow": "#000000",
+            "slideTextStrong": "#00e183",
+            "subtitleBottomText": "#FFFFFF",
+            "subtitleTopText": "#FFFFFF",
+            "shadowOpacity": "0.50",
+            "background": "#F5D809",
+            "titleText": "#FFFFFF",
+            "titleBackgroundOpacity": "0.70",
+            "slideBackground": "#FFFFFF",
+            "floatingBackground": "#F5D809",
+            "slideText": "#F5D809",
+            "maskGradientTop": "#00e183",
+            "maskGradientBottom": "#F5D809",
+            "text": "#FFFFFF",
+            "floatingText": "#FFFFFF",
+            "subtitleBackground": "#F5D809",
+            "titleBackground": "#000000"
+        ]
+        let seattleColors = [
+            "subtitleBottomBackground": "#F5D809",
+            "shape": "#F5D809",
+            "slideFullBackground": "#00e183",
+            "slideSplitBottomText": "#00e183",
+            "subtitleBottomText": "#FFFFFF",
+            "slideSplitBottomBackground": "#FFFFFF",
+            "subtitleTopText": "#F5D809",
+            "background": "#F5D809",
+            "slideSplitTopText": "#FFFFFF",
+            "slideFullText": "#FFFFFF",
+            "titleText": "#FFFFFF",
+            "titleBackgroundOpacity": "0.80",
+            "floatingBackground": "#FFFFFF",
+            "maskGradientBottom": "#F5D809",
+            "maskGradientTop": "#F5D809",
+            "text": "#FFFFFF",
+            "slideSplitTopBackground": "#00e183",
+            "floatingText": "#F5D809",
+            "subtitleTopBackground": "#FFFFFF",
+            "titleBackground": "#000000"
+        ]
+        let baliColors = [
+            "shape": "#00e183",
+            "background": "#F5D809",
+            "titleText": "#FFFFFF",
+            "titleBackgroundOpacity": "0.70",
+            "backgroundOpacity": "0.50",
+            "maskGradientBottom": "#F5D809",
+            "maskGradientTop": "#F5D809",
+            "text": "#FFFFFF",
+            "titleBackground": "#000000"
+        ]
+        let algiersColors = [
+            "subtitleBottomBackground": "#00e183",
+            "slideSplitBottomText": "#FFFFFF",
+            "subtitleBottomText": "#FFFFFF",
+            "gradientRight": "#F5D809",
+            "slideSplitBottomBackground": "#F5D809",
+            "subtitleTopText": "#FFFFFF",
+            "gradientText": "#FFFFFF",
+            "background": "#F5D809",
+            "slideSplitTopText": "#FFFFFF",
+            "titleText": "#FFFFFF",
+            "titleBackgroundOpacity": "0.70",
+            "maskGradientBottom": "#00e183",
+            "maskGradientTop": "#00e183",
+            "text": "#FFFFFF",
+            "gradientLeft": "#F5D809",
+            "slideSplitTopBackground": "#00e183",
+            "subtitleOpacity": "0.80",
+            "subtitleTopBackground": "#F5D809",
+            "titleBackground": "#000000"
+        ]
+        return [
+            "bogota": bogotaColors,
+            "algiers": algiersColors,
+            "bali": baliColors,
+            "geneva": genevaColors,
+            "los_angeles": losAngelesColors,
+            "seattle": seattleColors,
+            "berlin": berlinColors
+        ]
     }
 
-    func computeLottieAnimation() -> LottieAnimation? {
-        guard let jsonString else {
-            print("Error: Fallback default animation")
-            return LottieAnimation.named("animation", bundle: Bundle.main)
-        }
-        guard let dictionary = jsonStringToDictionary(jsonString) else {
-            print("Error: Cannot convert JSON string to Dictionary.")
-            return nil
-        }
-        do {
-            let animation = try LottieAnimation(dictionary: dictionary)
-            return animation
-        } catch {
-            debugPrint("error = \(error.localizedDescription)")
-        }
-
-        return nil
-    }
-
-    func jsonStringToDictionary(_ jsonString: String) -> [String: Any]? {
-        guard let jsonData = jsonString.data(using: .utf8) else {
-            print("Error: Cannot convert JSON string to Data.")
-            return nil
-        }
-
-        do {
-            if let jsonObject = try JSONSerialization.jsonObject(with: jsonData, options: []) as? [String: Any] {
-                return jsonObject
-            } else {
-                print("Error: Cannot convert JSON data to [String: Any] dictionary.")
-                return nil
-            }
-        } catch {
-            print("Error: Cannot deserialize JSON data. \(error.localizedDescription)")
-            return nil
-        }
+    private func colorSetBlockchain() -> [String: [String: String]] {
+        let bogotaColors = [
+            "coverTextOpacity": "0.50",
+            "shapeShadow": "#000000",
+            "negativeBarBottom": "#FFFFFF",
+            "coverText": "#FFFFFF",
+            "backgroundOpacity": "1.00",
+            "titleBlinking": "#00AEE6",
+            "source": "#00AEE6",
+            "title": "#FFFFFF",
+            "positiveBarTop": "#00AEE6",
+            "positiveBarBottom": "#00AEE6",
+            "shapeNeutral": "#FFFFFF",
+            "cta": "#FFFFFF",
+            "negativeBarTop": "#FFFFFF",
+            "ctaTitle": "#FFFFFF",
+            "transparentBackground": "#000000",
+            "maskGradientBottom": "#00AEE6",
+            "maskGradientTop": "#00AEE6",
+            "text": "#FFFFFF",
+            "backgroundBarOpacity": "0.20",
+            "textShadow": "#000000",
+            "figure": "#FFFFFF",
+            "shapeCosmeticOpacity": "0.70",
+            "titleBottom": "#FFFFFF",
+            "shapeCosmetic": "#FFFFFF",
+            "chartEmpty": "#FFFFFF",
+            "background": "#123962",
+            "shapeSecondary": "#123962",
+            "textShadowOpacity": "0.70",
+            "chartFill": "#00AEE6",
+            "shapeMain": "#00AEE6",
+            "sourceNeutral": "#FFFFFF",
+            "figureBlink": "#00AEE6",
+            "shapeShadowOpacity": "0.70",
+            "ctaTitleBlinking": "#00AEE6"
+        ]
+        let berlinColors = [
+            "gradientTop": "#00AEE6",
+            "neutralGradientTop": "#FFFFFF",
+            "titleGradientTop": "#00AEE6",
+            "textBackgroundOpacity": "1.00",
+            "shapeSecond": "#799EB2",
+            "neutralGradientBottom": "#000000",
+            "shapeNeutral": "#FFFFFF",
+            "titleGradientBottom": "#799EB2",
+            "titleBackgroundOpacity": "0.80",
+            "slideBackground": "#FFFFFF",
+            "maskGradientBottom": "#799EB2",
+            "maskGradientTop": "#00AEE6",
+            "textBackground": "#123962",
+            "gradientBottom": "#799EB2",
+            "text": "#FFFFFF",
+            "shapeMain": "#00AEE6",
+            "titleBackground": "#000000"
+        ]
+        let genevaColors = [
+            "shape": "#FFFFFF",
+            "shadow": "#000000",
+            "background": "#123962",
+            "titleText": "#FFFFFF",
+            "titleBackgroundOpacity": "0.50",
+            "maskGradientBottom": "#00AEE6",
+            "maskGradientTop": "#00AEE6",
+            "text": "#FFFFFF",
+            "shadowOpacity": "0.70",
+            "titleBackground": "#000000"
+        ]
+        let losAngelesColors = [
+            "shadow": "#000000",
+            "slideTextStrong": "#00AEE6",
+            "subtitleBottomText": "#FFFFFF",
+            "subtitleTopText": "#FFFFFF",
+            "shadowOpacity": "0.50",
+            "titleText": "#FFFFFF",
+            "titleBackgroundOpacity": "0.70",
+            "slideBackground": "#FFFFFF",
+            "floatingBackground": "#123962",
+            "slideText": "#123962",
+            "maskGradientTop": "#00AEE6",
+            "maskGradientBottom": "#799EB2",
+            "floatingText": "#FFFFFF",
+            "subtitleBackground": "#123962",
+            "titleBackground": "#000000"
+        ]
+        let seattleColors = [
+            "subtitleBottomBackground": "#123962",
+            "shape": "#123962",
+            "slideFullBackground": "#00AEE6",
+            "slideSplitBottomText": "#00AEE6",
+            "subtitleBottomText": "#FFFFFF",
+            "slideSplitBottomBackground": "#FFFFFF",
+            "subtitleTopText": "#123962",
+            "slideSplitTopText": "#FFFFFF",
+            "slideFullText": "#FFFFFF",
+            "titleText": "#FFFFFF",
+            "titleBackgroundOpacity": "0.80",
+            "floatingBackground": "#FFFFFF",
+            "maskGradientBottom": "#799EB2",
+            "maskGradientTop": "#799EB2",
+            "slideSplitTopBackground": "#00AEE6",
+            "floatingText": "#123962",
+            "subtitleTopBackground": "#FFFFFF",
+            "titleBackground": "#000000"
+        ]
+        let baliColors = [
+            "shape": "#00AEE6",
+            "background": "#123962",
+            "titleText": "#FFFFFF",
+            "titleBackgroundOpacity": "0.70",
+            "backgroundOpacity": "0.50",
+            "maskGradientBottom": "#123962",
+            "maskGradientTop": "#123962",
+            "text": "#FFFFFF",
+            "titleBackground": "#000000"
+        ]
+        let algiersColors = [
+            "subtitleBottomBackground": "#00AEE6",
+            "slideSplitBottomText": "#FFFFFF",
+            "subtitleBottomText": "#FFFFFF",
+            "gradientRight": "#123962",
+            "slideSplitBottomBackground": "#123962",
+            "subtitleTopText": "#FFFFFF",
+            "gradientText": "#FFFFFF",
+            "slideSplitTopText": "#FFFFFF",
+            "titleText": "#FFFFFF",
+            "titleBackgroundOpacity": "0.70",
+            "maskGradientBottom": "#00AEE6",
+            "maskGradientTop": "#00AEE6",
+            "gradientLeft": "#123962",
+            "slideSplitTopBackground": "#00AEE6",
+            "subtitleOpacity": "0.80",
+            "subtitleTopBackground": "#123962",
+            "titleBackground": "#000000"
+        ]
+        return [
+            "bogota": bogotaColors,
+            "algiers": algiersColors,
+            "bali": baliColors,
+            "geneva": genevaColors,
+            "los_angeles": losAngelesColors,
+            "seattle": seattleColors,
+            "berlin": berlinColors
+        ]
     }
 }
