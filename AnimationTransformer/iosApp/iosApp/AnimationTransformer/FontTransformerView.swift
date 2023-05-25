@@ -19,35 +19,9 @@ struct FontTransformerView: View {
         ScrollView {
             VStack {
                 textView()
-                Menu {
-                    Button {
-                        viewModel.selectedFont = .arial
-                    } label: {
-                        Text("Arial")
-                    }
-                    Button {
-                        viewModel.selectedFont = .lato
-                    } label: {
-                        Text("Lato")
-                    }
-                    Button {
-                        viewModel.selectedFont = .chalkduster
-                    } label: {
-                        Text("Chalkduster")
-                    }
-                    Button {
-                        viewModel.selectedFont = .papyrus
-                    } label: {
-                        Text("Papyrus")
-                    }
-                    Button {
-                        viewModel.selectedFont = .zapfino
-                    } label: {
-                        Text("Zapfino")
-                    }
-                } label: {
-                    Text("Font: \(viewModel.selectedFont.rawValue)")
-                }
+                fontView()
+                animView()
+                colorView()
                 CustomAnimationLottieView(holder: viewModel.holder)
                     .frame(width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.width * 9 / 16.0)
                 Button {
@@ -149,6 +123,55 @@ struct FontTransformerView: View {
             }
         }
     }
+
+    @ViewBuilder
+    private func fontView() -> some View {
+        Menu {
+            ForEach(FontTransformerViewModel.FontTypeAnim.allCases, id: \.self) { font in
+                Button {
+                    viewModel.selectedFont = font
+                } label: {
+                    Text(font.rawValue)
+                }
+            }
+        } label: {
+            Text("Font: \(viewModel.selectedFont.rawValue)")
+        }
+    }
+
+    @ViewBuilder
+    private func animView() -> some View {
+        VStack {
+            Menu {
+                ForEach(FontTransformerViewModel.AnimationType.allCases, id: \.self) { anim in
+                    Button {
+                        viewModel.selectedAnim = anim
+                    } label: {
+                        Text(anim.rawValue)
+                    }
+                }
+            } label: {
+                Text("Animation: \(viewModel.selectedAnim.rawValue)")
+            }
+        }
+    }
+
+    @ViewBuilder
+    private func colorView() -> some View {
+        VStack {
+            Menu {
+                ForEach(FontTransformerViewModel.ColorThemeType.allCases, id: \.self) { theme in
+                    Button {
+                        viewModel.selectedThemeColor = theme
+                    } label: {
+                        Text(theme.rawValue)
+                    }
+                }
+            } label: {
+                Text("Theme: \(viewModel.selectedThemeColor.rawValue)")
+            }
+        }
+    }
 }
 
 struct FontTransformerView_Previews: PreviewProvider {
@@ -219,12 +242,54 @@ class FontTransformerViewModel: ObservableObject {
 
     let holder = AnimatorHolder()
 
-    enum FontTypeAnim: String {
+    enum AnimationType: String, CaseIterable {
+        case algiersFord = "ALGIERS-FORD"
+        case algiersPeugeot = "ALGIERS-PEUGEOT"
+        case algiersPlane = "ALGIERS-PLANE"
+        case algiersSimca = "ALGIERS-SIMCA"
+        case baliFord = "BALI-FORD"
+        case baliPeugeot = "BALI-PEUGEOT"
+        case baliPlane = "BALI-PLANE"
+        case berlinFord = "BERLIN-FORD"
+        case berlinPeugeot = "BERLIN-PEUGEOT"
+        case berlinPlane = "BERLIN-PLANE"
+        case bogotaAustin = "BOGOTA-AUSTIN"
+        case bogotaAventi = "BOGOTA-AVENTI"
+        case bogotaDelorean = "BOGOTA-DELOREAN"
+        case bogotaDodge = "BOGOTA-DODGE"
+        case bogotaLincoln = "BOGOTA-LINCOLN"
+        case bogotaMcLaren = "BOGOTA-MCLAREN"
+        case bogotaRam = "BOGOTA-RAM"
+        case bogotaRoush = "BOGOTA-ROUSH"
+        case bogotaToyota = "BOGOTA-TOYOTA"
+        case bogotaVector = "BOGOTA-VECTOR"
+        case genevaFord = "GENEVA-FORD"
+        case genevaPeugeot = "GENEVA-PEUGEOT"
+        case genevaPlane = "GENEVA-PLANE"
+        case losAngelesFord = "LOS_ANGELES-FORD"
+        case losAngelesPeugeot = "LOS_ANGELES-PEUGEOT"
+        case losAngelesPlane = "LOS_ANGELES-PLANE"
+        case losAngelesSimca = "LOS_ANGELES-SIMCA"
+        case parisButterfly = "PARIS-BUTTERFLY"
+        case parisFox = "PARIS-FOX"
+        case parisOwl = "PARIS-OWL"
+        case seattleFord = "SEATTLE-FORD"
+        case seattlePeugeot = "SEATTLE-PEUGEOT"
+        case seattlePlane = "SEATTLE-PLANE"
+    }
+
+    enum FontTypeAnim: String, CaseIterable {
         case arial = "Arial"
         case chalkduster = "Chalkduster"
         case lato = "Lato"
         case papyrus = "Papyrus"
         case zapfino = "Zapfino"
+    }
+
+    enum ColorThemeType: String, CaseIterable {
+        case accor = "Accor"
+        case bts = "BTS"
+        case blockchain = "Blockchain"
     }
 
     private var jsonString: String?
@@ -234,11 +299,13 @@ class FontTransformerViewModel: ObservableObject {
     @Published var text2: String = "Titre en bas"
     @Published var text3: String = "Sous-titre en haut"
     @Published var text4: String = "Sous-titre en bas"
+    @Published var selectedAnim: AnimationType = .baliPlane
     @Published var selectedFont: FontTypeAnim = .lato
+    @Published var selectedThemeColor: ColorThemeType = .accor
 
     func updateAnimation() {
-        guard let animationURL = Bundle.main.url(forResource: "animation", withExtension: "json"),
-              let animationRulesURL = Bundle.main.url(forResource: "animation-rules", withExtension: "json") else {
+        guard let animationURL = Bundle.main.url(forResource: selectedAnim.rawValue, withExtension: "json"),
+              let animationRulesURL = Bundle.main.url(forResource: "\(selectedAnim.rawValue)-rules", withExtension: "json") else {
             print("Error: Cannot find the JSON file.")
             return
         }
@@ -257,11 +324,14 @@ class FontTransformerViewModel: ObservableObject {
         let fonts = getFonts(type: selectedFont)
         let functionsDelegate = FunctionsDelegateNative()
         let animationTransformer = KPAnimationTransformer(functionsDelegate: functionsDelegate)
+        let colors = getColors(animation: selectedAnim, theme: selectedThemeColor)
+        let animationTransformer = KPAnimationTransformer()
         guard let result = animationTransformer.transform(
             lottieJsonString: animationJsonString,
             animationRulesJsonString: animationRulesJsonString,
             texts: texts,
-            fonts: fonts
+            fonts: fonts,
+            colors: colors
         ) else {
             print("Error: Cannot animation transformer the JSON file.")
             return
@@ -270,6 +340,20 @@ class FontTransformerViewModel: ObservableObject {
         jsonString = result
         if let lottieAnimation = computeLottieAnimation() {
             holder.functionCaller.send(lottieAnimation)
+        }
+    }
+
+    private func getColors(animation: AnimationType, theme: ColorThemeType) -> [String: String] {
+        guard let themeName = animation.rawValue.split(separator: "-").first?.lowercased() else {
+            return [:]
+        }
+        switch theme {
+        case .accor:
+            return colorSetAccor()[themeName] ?? [:]
+        case .bts:
+            return colorSetBTS()[themeName] ?? [:]
+        case .blockchain:
+            return colorSetBlockchain()[themeName] ?? [:]
         }
     }
 
@@ -379,5 +463,445 @@ class FontTransformerViewModel: ObservableObject {
             print("Error: Cannot deserialize JSON data. \(error.localizedDescription)")
             return nil
         }
+    }
+}
+
+extension FontTransformerViewModel {
+    private func colorSetAccor() -> [String: [String: String]] {
+        let bogotaColors = [
+            "shapeNeutral": "#342EEA",
+            "figure": "#908080",
+            "shapeShadow": "#716B6B",
+            "background": "#D55656",
+            "shapeSecondary": "#CBE60A",
+            "backgroundOpacity": "0.3",
+            "text": "#FFFFFF",
+            "shapeMain": "#FB6B00",
+            "shapeShadowOpacity": "0.80"
+        ]
+        let berlinColors = [
+            "gradientTop": "#FFD280",
+            "neutralGradientTop": "#ffffff",
+            "titleGradientTop": "#80FFE6",
+            "textBackgroundOpacity": "0.7",
+            "neutralGradientBottom": "#000000",
+            "shapeSecond": "#050033",
+            "shapeNeutral": "#ffffff",
+            "background": "#D3A86A",
+            "titleGradientBottom": "#D3A86A",
+            "slideBackground": "#ffffff",
+            "titleBackgroundOpacity": "0.7",
+            "textBackground": "#050033",
+            "maskGradientBottom": "#D3A86A",
+            "maskGradientTop": "#FFD280",
+            "text": "#ffffff",
+            "gradientBottom": "#D3A86A",
+            "shapeMain": "#D3A86A",
+            "titleBackground": "#000000"
+        ]
+        let genevaColors = [
+            "container": "#002b41",
+            "shadow": "#000000",
+            "shape": "#ffffff",
+            "background": "#050033",
+            "line": "#e6a500",
+            "titleText": "#ffffff",
+            "maskGradientBottom": "#D3A86A",
+            "maskGradientTop": "#FFD280",
+            "text": "#ffffff",
+            "shadowOpacity": "0.7",
+            "titleBackground": "#000000"
+        ]
+        let losAngelesColors = [
+            "shadow": "#FFFF05",
+            "slideTextStrong": "#D3A86A",
+            "textStrong": "#e6a500",
+            "subtitleBottomText": "#ffffff",
+            "shadowOpacity": "1",
+            "subtitleTopText": "#ffffff",
+            "containerStrong": "#e6a500",
+            "background": "#D3A86A",
+            "titleText": "#ffffff",
+            "slideBackground": "#ffffff",
+            "slideText": "#050033",
+            "floatingBackground": "#EEECF2",
+            "maskGradientBottom": "#D3A86A",
+            "maskGradientTop": "#FFD280",
+            "floatingText": "#ffffff",
+            "text": "#002b41",
+            "subtitleBackground": "#050033",
+            "titleBackground": "#000000"
+        ]
+        let seattleColors = [
+            "subtitleBottomBackground": "#050033",
+            "shape": "#050033",
+            "slideFullBackground": "#D3A86A",
+            "slideSplitBottomText": "#D3A86A",
+            "subtitleBottomText": "#ffffff",
+            "main": "#e6a500",
+            "slideSplitBottomBackground": "#ffffff",
+            "subtitleTopText": "#050033",
+            "second": "#002b41",
+            "background": "#D3A86A",
+            "slideSplitTopText": "#ffffff",
+            "slideFullText": "#ffffff",
+            "titleText": "#ffffff",
+            "floatingBackground": "#ffffff",
+            "maskGradientTop": "#FFD280",
+            "maskGradientBottom": "#D3A86A",
+            "text": "#FFFFFF",
+            "slideSplitTopBackground": "#D3A86A",
+            "floatingText": "#050033",
+            "titleBackground": "#000000",
+            "subtitleTopBackground": "#ffffff"
+        ]
+        let baliColors = [
+            "container": "#002b41",
+            "shape": "#D3A86A",
+            "line": "#e6a500",
+            "backgroundOpacity": "0.5",
+            "background": "#050033",
+            "titleText": "#ffffff",
+            "titleBackgroundOpacity": "0.85",
+            "maskGradientBottom": "#D3A86A",
+            "maskGradientTop": "#FFD280",
+            "text": "#ffffff",
+            "subtitleOpacity": "0.85",
+            "titleBackground": "#000000"
+        ]
+        let algiersColors = [
+            "subtitleBottomBackground": "#D3A86A",
+            "containerBottom": "#e6a500",
+            "slideSplitBottomText": "#ffffff",
+            "subtitleBottomText": "#ffffff",
+            "slideSplitBottomBackground": "#050033",
+            "gradientRight": "#050033",
+            "subtitleTopText": "#ffffff",
+            "gradientText": "#ffffff",
+            "containerTop": "#002b41",
+            "slideSplitTopText": "#ffffff",
+            "background": "#D3A86A",
+            "titleText": "#ffffff",
+            "titleBackgroundOpacity": "0.8",
+            "maskGradientTop": "#FFD280",
+            "maskGradientBottom": "#D3A86A",
+            "text": "#FFFFFF",
+            "gradientLeft": "#050033",
+            "slideSplitTopBackground": "#D3A86A",
+            "subtitleOpacity": "0.8",
+            "titleBackground": "#d3a86a",
+            "subtitleTopBackground": "#4030ca"
+        ]
+        return [
+            "bogota": bogotaColors,
+            "algiers": algiersColors,
+            "bali": baliColors,
+            "paris": baliColors,
+            "geneva": genevaColors,
+            "los_angeles": losAngelesColors,
+            "seattle": seattleColors,
+            "berlin": berlinColors
+        ]
+    }
+
+    private func colorSetBTS() -> [String: [String: String]] {
+        let bogotaColors = [
+            "coverTextOpacity": "0.50",
+            "shapeShadow": "#000000",
+            "negativeBarBottom": "#FFFFFF",
+            "coverText": "#FFFFFF",
+            "backgroundOpacity": "1.00",
+            "titleBlinking": "#00e183",
+            "source": "#00e183",
+            "title": "#FFFFFF",
+            "positiveBarTop": "#00e183",
+            "positiveBarBottom": "#00e183",
+            "shapeNeutral": "#FFFFFF",
+            "cta": "#FFFFFF",
+            "negativeBarTop": "#FFFFFF",
+            "ctaTitle": "#FFFFFF",
+            "transparentBackground": "#000000",
+            "maskGradientBottom": "#00e183",
+            "maskGradientTop": "#00e183",
+            "text": "#FFFFFF",
+            "backgroundBarOpacity": "0.20",
+            "textShadow": "#000000",
+            "figure": "#FFFFFF",
+            "shapeCosmeticOpacity": "0.70",
+            "titleBottom": "#FFFFFF",
+            "shapeCosmetic": "#FFFFFF",
+            "chartEmpty": "#FFFFFF",
+            "background": "#F5D809",
+            "shapeSecondary": "#F5D809",
+            "textShadowOpacity": "0.70",
+            "chartFill": "#00e183",
+            "shapeMain": "#00e183",
+            "sourceNeutral": "#FFFFFF",
+            "figureBlink": "#00e183",
+            "shapeShadowOpacity": "0.70",
+            "ctaTitleBlinking": "#00e183"
+        ]
+        let berlinColors = [
+            "gradientTop": "#00e183",
+            "neutralGradientTop": "#FFFFFF",
+            "titleGradientTop": "#00e183",
+            "textBackgroundOpacity": "1.00",
+            "shapeSecond": "#F5D809",
+            "neutralGradientBottom": "#000000",
+            "shapeNeutral": "#FFFFFF",
+            "background": "#F5D809",
+            "titleGradientBottom": "#F5D809",
+            "titleBackgroundOpacity": "0.80",
+            "slideBackground": "#FFFFFF",
+            "maskGradientBottom": "#F5D809",
+            "maskGradientTop": "#00e183",
+            "textBackground": "#F5D809",
+            "gradientBottom": "#F5D809",
+            "text": "#FFFFFF",
+            "shapeMain": "#00e183",
+            "titleBackground": "#000000"
+        ]
+        let genevaColors = [
+            "shape": "#FFFFFF",
+            "shadow": "#000000",
+            "background": "#F5D809",
+            "titleText": "#FFFFFF",
+            "titleBackgroundOpacity": "0.50",
+            "maskGradientBottom": "#00e183",
+            "maskGradientTop": "#00e183",
+            "text": "#FFFFFF",
+            "shadowOpacity": "0.70",
+            "titleBackground": "#000000"
+        ]
+        let losAngelesColors = [
+            "shadow": "#000000",
+            "slideTextStrong": "#00e183",
+            "subtitleBottomText": "#FFFFFF",
+            "subtitleTopText": "#FFFFFF",
+            "shadowOpacity": "0.50",
+            "background": "#F5D809",
+            "titleText": "#FFFFFF",
+            "titleBackgroundOpacity": "0.70",
+            "slideBackground": "#FFFFFF",
+            "floatingBackground": "#F5D809",
+            "slideText": "#F5D809",
+            "maskGradientTop": "#00e183",
+            "maskGradientBottom": "#F5D809",
+            "text": "#FFFFFF",
+            "floatingText": "#FFFFFF",
+            "subtitleBackground": "#F5D809",
+            "titleBackground": "#000000"
+        ]
+        let seattleColors = [
+            "subtitleBottomBackground": "#F5D809",
+            "shape": "#F5D809",
+            "slideFullBackground": "#00e183",
+            "slideSplitBottomText": "#00e183",
+            "subtitleBottomText": "#FFFFFF",
+            "slideSplitBottomBackground": "#FFFFFF",
+            "subtitleTopText": "#F5D809",
+            "background": "#F5D809",
+            "slideSplitTopText": "#FFFFFF",
+            "slideFullText": "#FFFFFF",
+            "titleText": "#FFFFFF",
+            "titleBackgroundOpacity": "0.80",
+            "floatingBackground": "#FFFFFF",
+            "maskGradientBottom": "#F5D809",
+            "maskGradientTop": "#F5D809",
+            "text": "#FFFFFF",
+            "slideSplitTopBackground": "#00e183",
+            "floatingText": "#F5D809",
+            "subtitleTopBackground": "#FFFFFF",
+            "titleBackground": "#000000"
+        ]
+        let baliColors = [
+            "shape": "#00e183",
+            "background": "#F5D809",
+            "titleText": "#FFFFFF",
+            "titleBackgroundOpacity": "0.70",
+            "backgroundOpacity": "0.50",
+            "maskGradientBottom": "#F5D809",
+            "maskGradientTop": "#F5D809",
+            "text": "#FFFFFF",
+            "titleBackground": "#000000"
+        ]
+        let algiersColors = [
+            "subtitleBottomBackground": "#00e183",
+            "slideSplitBottomText": "#FFFFFF",
+            "subtitleBottomText": "#FFFFFF",
+            "gradientRight": "#F5D809",
+            "slideSplitBottomBackground": "#F5D809",
+            "subtitleTopText": "#FFFFFF",
+            "gradientText": "#FFFFFF",
+            "background": "#F5D809",
+            "slideSplitTopText": "#FFFFFF",
+            "titleText": "#FFFFFF",
+            "titleBackgroundOpacity": "0.70",
+            "maskGradientBottom": "#00e183",
+            "maskGradientTop": "#00e183",
+            "text": "#FFFFFF",
+            "gradientLeft": "#F5D809",
+            "slideSplitTopBackground": "#00e183",
+            "subtitleOpacity": "0.80",
+            "subtitleTopBackground": "#F5D809",
+            "titleBackground": "#000000"
+        ]
+        return [
+            "bogota": bogotaColors,
+            "algiers": algiersColors,
+            "bali": baliColors,
+            "paris": baliColors,
+            "geneva": genevaColors,
+            "los_angeles": losAngelesColors,
+            "seattle": seattleColors,
+            "berlin": berlinColors
+        ]
+    }
+
+    private func colorSetBlockchain() -> [String: [String: String]] {
+        let bogotaColors = [
+            "coverTextOpacity": "0.50",
+            "shapeShadow": "#000000",
+            "negativeBarBottom": "#FFFFFF",
+            "coverText": "#FFFFFF",
+            "backgroundOpacity": "1.00",
+            "titleBlinking": "#00AEE6",
+            "source": "#00AEE6",
+            "title": "#FFFFFF",
+            "positiveBarTop": "#00AEE6",
+            "positiveBarBottom": "#00AEE6",
+            "shapeNeutral": "#FFFFFF",
+            "cta": "#FFFFFF",
+            "negativeBarTop": "#FFFFFF",
+            "ctaTitle": "#FFFFFF",
+            "transparentBackground": "#000000",
+            "maskGradientBottom": "#00AEE6",
+            "maskGradientTop": "#00AEE6",
+            "text": "#FFFFFF",
+            "backgroundBarOpacity": "0.20",
+            "textShadow": "#000000",
+            "figure": "#FFFFFF",
+            "shapeCosmeticOpacity": "0.70",
+            "titleBottom": "#FFFFFF",
+            "shapeCosmetic": "#FFFFFF",
+            "chartEmpty": "#FFFFFF",
+            "background": "#123962",
+            "shapeSecondary": "#123962",
+            "textShadowOpacity": "0.70",
+            "chartFill": "#00AEE6",
+            "shapeMain": "#00AEE6",
+            "sourceNeutral": "#FFFFFF",
+            "figureBlink": "#00AEE6",
+            "shapeShadowOpacity": "0.70",
+            "ctaTitleBlinking": "#00AEE6"
+        ]
+        let berlinColors = [
+            "gradientTop": "#00AEE6",
+            "neutralGradientTop": "#FFFFFF",
+            "titleGradientTop": "#00AEE6",
+            "textBackgroundOpacity": "1.00",
+            "shapeSecond": "#799EB2",
+            "neutralGradientBottom": "#000000",
+            "shapeNeutral": "#FFFFFF",
+            "titleGradientBottom": "#799EB2",
+            "titleBackgroundOpacity": "0.80",
+            "slideBackground": "#FFFFFF",
+            "maskGradientBottom": "#799EB2",
+            "maskGradientTop": "#00AEE6",
+            "textBackground": "#123962",
+            "gradientBottom": "#799EB2",
+            "text": "#FFFFFF",
+            "shapeMain": "#00AEE6",
+            "titleBackground": "#000000"
+        ]
+        let genevaColors = [
+            "shape": "#FFFFFF",
+            "shadow": "#000000",
+            "background": "#123962",
+            "titleText": "#FFFFFF",
+            "titleBackgroundOpacity": "0.50",
+            "maskGradientBottom": "#00AEE6",
+            "maskGradientTop": "#00AEE6",
+            "text": "#FFFFFF",
+            "shadowOpacity": "0.70",
+            "titleBackground": "#000000"
+        ]
+        let losAngelesColors = [
+            "shadow": "#000000",
+            "slideTextStrong": "#00AEE6",
+            "subtitleBottomText": "#FFFFFF",
+            "subtitleTopText": "#FFFFFF",
+            "shadowOpacity": "0.50",
+            "titleText": "#FFFFFF",
+            "titleBackgroundOpacity": "0.70",
+            "slideBackground": "#FFFFFF",
+            "floatingBackground": "#123962",
+            "slideText": "#123962",
+            "maskGradientTop": "#00AEE6",
+            "maskGradientBottom": "#799EB2",
+            "floatingText": "#FFFFFF",
+            "subtitleBackground": "#123962",
+            "titleBackground": "#000000"
+        ]
+        let seattleColors = [
+            "subtitleBottomBackground": "#123962",
+            "shape": "#123962",
+            "slideFullBackground": "#00AEE6",
+            "slideSplitBottomText": "#00AEE6",
+            "subtitleBottomText": "#FFFFFF",
+            "slideSplitBottomBackground": "#FFFFFF",
+            "subtitleTopText": "#123962",
+            "slideSplitTopText": "#FFFFFF",
+            "slideFullText": "#FFFFFF",
+            "titleText": "#FFFFFF",
+            "titleBackgroundOpacity": "0.80",
+            "floatingBackground": "#FFFFFF",
+            "maskGradientBottom": "#799EB2",
+            "maskGradientTop": "#799EB2",
+            "slideSplitTopBackground": "#00AEE6",
+            "floatingText": "#123962",
+            "subtitleTopBackground": "#FFFFFF",
+            "titleBackground": "#000000"
+        ]
+        let baliColors = [
+            "shape": "#00AEE6",
+            "background": "#123962",
+            "titleText": "#FFFFFF",
+            "titleBackgroundOpacity": "0.70",
+            "backgroundOpacity": "0.50",
+            "maskGradientBottom": "#123962",
+            "maskGradientTop": "#123962",
+            "text": "#FFFFFF",
+            "titleBackground": "#000000"
+        ]
+        let algiersColors = [
+            "subtitleBottomBackground": "#00AEE6",
+            "slideSplitBottomText": "#FFFFFF",
+            "subtitleBottomText": "#FFFFFF",
+            "gradientRight": "#123962",
+            "slideSplitBottomBackground": "#123962",
+            "subtitleTopText": "#FFFFFF",
+            "gradientText": "#FFFFFF",
+            "slideSplitTopText": "#FFFFFF",
+            "titleText": "#FFFFFF",
+            "titleBackgroundOpacity": "0.70",
+            "maskGradientBottom": "#00AEE6",
+            "maskGradientTop": "#00AEE6",
+            "gradientLeft": "#123962",
+            "slideSplitTopBackground": "#00AEE6",
+            "subtitleOpacity": "0.80",
+            "subtitleTopBackground": "#123962",
+            "titleBackground": "#000000"
+        ]
+        return [
+            "bogota": bogotaColors,
+            "algiers": algiersColors,
+            "bali": baliColors,
+            "paris": baliColors,
+            "geneva": genevaColors,
+            "los_angeles": losAngelesColors,
+            "seattle": seattleColors,
+            "berlin": berlinColors
+        ]
     }
 }

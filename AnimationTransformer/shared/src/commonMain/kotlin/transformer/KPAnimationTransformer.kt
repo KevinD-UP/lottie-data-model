@@ -13,7 +13,8 @@ class KPAnimationTransformer(
         lottieJsonString: String,
         animationRulesJsonString: String,
         texts: List<String>? = null,
-        fonts: Map<String, String>? = null
+        fonts: Map<String, String>? = null,
+        colors: Map<String, String>? = null
     )
             : String?
     {
@@ -36,9 +37,17 @@ class KPAnimationTransformer(
             animationRules = animationRules,
             texts = texts
         )
+
+        val colorTransformer = KPColorTransformer()
+        val animationColorTransformed = colorTransformer.transformColor(
+            animation = animationTextTransformed,
+            animationRules = animationRules,
+            colors = colors
+        )
+
         val variableTransformer = KPVariableTransformer(delegate = functionsDelegate)
         val animationVariableTransformed = variableTransformer.transformVariables(
-            animation = animationTextTransformed,
+            animation = animationColorTransformed,
             animationRules = animationRules
         )
 

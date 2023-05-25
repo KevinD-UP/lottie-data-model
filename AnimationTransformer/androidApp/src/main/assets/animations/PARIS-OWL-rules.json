@@ -1,0 +1,47 @@
+{
+  "layerRules": [
+    {
+      "ind": 1,
+      "fontKey": "textBold",
+      "textInd": [0],
+      "colorKey": "text"
+    },
+    {
+      "ind": 2,
+      "fontKey": "text",
+      "textInd": [1],
+      "colorKey": "text"
+    },
+    {
+      "ind": 3,
+      "fontKey": "textBold",
+      "textInd": [0],
+      "colorKey": "text",
+      "minWidth": 1500
+    },
+    {
+      "ind": 4,
+      "colorKey": "background"
+    }
+  ],
+  "variables": [
+    {
+      "key": "$var0",
+      "value": "540+105-getTextMeasureHeight(1)+getLastLineDescent(1)-35",
+      "type": "number",
+      "description": "top text position y"
+    },
+    {
+      "key": "$var1",
+      "value": "max(150,getAnimationFrameCount())",
+      "type": "number",
+      "description": "last key frame of size texts"
+    },
+    {
+      "key": "$var2",
+      "value": "getAnimationFrameCount()",
+      "type": "number",
+      "description": "last key frame of background text"
+    }
+  ]
+}
