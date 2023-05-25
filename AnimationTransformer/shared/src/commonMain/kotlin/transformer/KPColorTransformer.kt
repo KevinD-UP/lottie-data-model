@@ -1,6 +1,5 @@
 package transformer
 
-import kotlinx.serialization.encodeToString
 import kotlinx.serialization.json.*
 import lottieAnimation.KPLottieAnimation
 import lottieAnimation.layer.*
@@ -31,7 +30,6 @@ class KPColorTransformer {
                 val colorDouble = color?.toDoubleOrNull()
                 val targetLayer = layers.find { it.ind == layerRule.ind }
                 if (colorDouble != null && targetLayer != null) {
-                    println("Found OpacityKey: ${layerRule.colorKey}")
                     setLayerStaticOpacity(targetLayer as KPVisualLayer, colorDouble * 100f)
                 }
             }
@@ -41,13 +39,11 @@ class KPColorTransformer {
                 val targetLayer = layers.find { it.ind == layerRule.ind }
 
                 if (color != null && targetLayer != null) {
-                    println("Found ColorKey: ${layerRule.colorKey}")
                     val colorArray = argbStringToFloatArray(color) ?: return@forEach
 
 
                     // Set layer fill effect color depending on its type
                     layerRule.fillColorKey?.let { fillColorKey ->
-                        println("Found fillColorKey: $fillColorKey")
                         val fillColor = colors[fillColorKey] ?: return@let
                         val fillColorArray = argbStringToFloatArray(fillColor) ?: return@let
 
@@ -66,16 +62,8 @@ class KPColorTransformer {
 
                     // Set layer color depending on its type
                     when (targetLayer) {
-                        is KPTextLayer -> {
-                            println("OG TextColor: ${json.encodeToString(targetLayer.t.d.k.first().s.fc)}")
-                            setTextColor(colorArray, targetLayer)
-                            println("Changed TextColor: ${json.encodeToString(targetLayer.t.d.k.first().s.fc)}")
-                        }
-                        is KPSolidColorLayer -> {
-                            println("OG Solid Color: ${json.encodeToString(targetLayer.sc)}")
-                            setSolidColor(color, targetLayer)
-                            println("Changed Solid Color: ${json.encodeToString(targetLayer.sc)}")
-                        }
+                        is KPTextLayer -> setTextColor(colorArray, targetLayer)
+                        is KPSolidColorLayer -> setSolidColor(color, targetLayer)
                         is KPShapeLayer -> {
                             setShapeColor(colorArray, targetLayer)
                         }
@@ -94,7 +82,6 @@ class KPColorTransformer {
 
                 if (color != null && targetLayer != null) {
                     val colorArray = argbStringToFloatArray(color) ?: return@forEachIndexed
-                    println("Found ColorKeys: ${layerRule.colorKeys}")
                     // Set layer color depending on its type
                     when (targetLayer) {
                         is KPTextLayer -> {
@@ -113,7 +100,6 @@ class KPColorTransformer {
 
             if (layerRule.gradientColorKey != null) {
                 layerRule.gradientColorKey.forEachIndexed { index, gradientColorKey ->
-                    println("Found GradientColorKey: ${layerRule.gradientColorKey}")
                     val color = colors[gradientColorKey]
                     val targetLayer = animation.layers.find { it.ind == layerRule.ind }
                     if (color != null && targetLayer != null) {
@@ -125,7 +111,6 @@ class KPColorTransformer {
             if (layerRule.shadowKey != null) {
                 val shadowColor = colors[layerRule.shadowKey]
                 shadowColor?.let {
-                    println("Found shadowKey: ${layerRule.shadowKey}")
                     val colorArray = argbStringToFloatArray(shadowColor) ?: return@let
                     val targetLayer = animation.layers.find { it.ind == layerRule.ind } ?: return@let
                     setShadowLayer(targetLayer as KPVisualLayer, colorArray)
@@ -135,7 +120,6 @@ class KPColorTransformer {
             if (layerRule.shadowOpacityKey != null) {
                 val shadowOpacity = colors[layerRule.shadowOpacityKey]
                 shadowOpacity?.let {
-                    println("Found shadowOpacityKey: ${layerRule.shadowOpacityKey}")
                     val colorDouble = shadowOpacity.toDoubleOrNull() ?: return@let
                     val targetLayer = animation.layers.find { it.ind == layerRule.ind } ?: return@let
                     setTextShadowOpacity(targetLayer as KPVisualLayer, colorDouble * 100f)
@@ -162,7 +146,6 @@ class KPColorTransformer {
 
     private fun setTextShadowOpacity(layer: KPVisualLayer, colorDouble: Double) {
         layer.ef?.firstOrNull { it.ty == 25 }?.ef?.firstOrNull { it.ty == 0 }?.v?.k = KPMultiDimensionalPrimitive(JsonPrimitive(colorDouble))
-        println("Shadow Result?= ${layer.ef?.firstOrNull { it.ty == 25 }?.ef?.firstOrNull { it.ty == 0 }?.v?.k}")
     }
 
     private fun setShadowLayer(layer: KPVisualLayer, colorArray: FloatArray) {
@@ -184,7 +167,6 @@ class KPColorTransformer {
             val gradientStroke = shapeGroup.it.firstOrNull { it is KPShapeGStroke } as KPShapeGStroke?
 
             gradientFill?.let {
-                println("OG Gradient Fill: ${json.encodeToString(it.g.k.k)}")
                 val currentGradientColor = it.g.k.k
                 if (currentGradientColor is KPMultiDimensionalList) {
                     val newGradientColor = currentGradientColor.values.toMutableList()
@@ -193,13 +175,11 @@ class KPColorTransformer {
                     newGradientColor.add(index = index * 4 + 3, element = KPMultiDimensionalNodePrimitive(JsonPrimitive(colorArray[2]))) //B
                     it.g.k.k = KPMultiDimensionalList(newGradientColor)
                 }
-                println("Changed Gradient Fill: ${json.encodeToString(it.g.k.k)}")
             }
 
             if (gradientFill == null) {
                 gradientStroke?.let {
                     // We haven't encountered any example with GStroke Gradient. Using Json Directly
-                    println("OG Gradient Stroke: ${json.encodeToString(it.g)}")
                     val currentGradientColor = it.g?.jsonObject?.mutate {
                         val k = get("k")?.jsonObject
                         val subK = k?.get("k")?.jsonArray?.toMutableList()
@@ -213,7 +193,6 @@ class KPColorTransformer {
                         newK?.toJsonElement()?.let { it1 -> put("k", it1) }
                     }
                     it.g = currentGradientColor
-                    println("Changed Gradient Stroke: ${json.encodeToString(it.g)}")
                 }
             }
         }
@@ -237,7 +216,6 @@ class KPColorTransformer {
         val shapes = layer.shapes ?: return
         shapes.forEach { shape ->
             if (shape is KPShapeFill) {
-                println("OG ShapeFill: ${json.encodeToString(shape.c.k)}")
                 val newFillColor = listOf(
                     JsonPrimitive(colorArray[0]), // R
                     JsonPrimitive(colorArray[1]), // G
@@ -256,7 +234,6 @@ class KPColorTransformer {
                     val animatedKeyframe = keyframes.values[keyframeIndex] as KPMultiDimensionNodeObject
                     animatedKeyframe.s = JsonArray(newFillColor)
                 }
-                println("Changed ShapeFill: ${json.encodeToString(shape.c.k)}")
             }
 
             if (shape is KPShapeGroup) {
@@ -268,7 +245,6 @@ class KPColorTransformer {
     private fun seekSetShapeFillColor(colorArray: FloatArray, shapeGroup: KPShapeGroup, keyframeIndex: Int) {
         shapeGroup.it.forEach { shape ->
             if (shape is KPShapeFill) {
-                println("OG ShapeFill: ${json.encodeToString(shape.c.k)}")
                 val newFillColor = listOf(
                     JsonPrimitive(colorArray[0]), // R
                     JsonPrimitive(colorArray[1]), // G
@@ -287,7 +263,6 @@ class KPColorTransformer {
                     val animatedKeyframe = keyframes.values[keyframeIndex] as KPMultiDimensionNodeObject
                     animatedKeyframe.s = JsonArray(newFillColor)
                 }
-                println("Changed ShapeFill: ${json.encodeToString(shape.c.k)}")
             }
             if (shape is KPShapeGroup) {
                 seekSetShapeFillColor(colorArray, shape, keyframeIndex)
@@ -332,7 +307,6 @@ class KPColorTransformer {
         layer.shapes?.let { shapes ->
             shapes.forEach { shape ->
                 if (shape is KPShapeStroke) {
-                    println("OG ShapeStroke: ${json.encodeToString(shape.c?.k)}")
                     val newStrokeColor = listOf(
                         JsonPrimitive(colorArray[0]), // R
                         JsonPrimitive(colorArray[1]), // G
@@ -340,7 +314,6 @@ class KPColorTransformer {
                         JsonPrimitive(1) // A (not used for opacity, use "o" instead)
                     )
                     shape.c?.k = newStrokeColor
-                    println("Changed ShapeStroke: ${json.encodeToString(shape.c?.k)}")
                 }
 
                 if (shape is KPShapeGroup) {
@@ -353,7 +326,6 @@ class KPColorTransformer {
     private fun seekSetShapeStrokeColor(colorArray: FloatArray, shapeGroup: KPShapeGroup) {
         shapeGroup.it.forEach { shape ->
             if (shape is KPShapeStroke) {
-                println("OG ShapeStroke: ${json.encodeToString(shape.c?.k)}")
                 val newStrokeColor = listOf(
                     JsonPrimitive(colorArray[0]), // R
                     JsonPrimitive(colorArray[1]), // G
@@ -361,7 +333,6 @@ class KPColorTransformer {
                     JsonPrimitive(1) // A (not used for opacity, use "o" instead)
                 )
                 shape.c?.k = newStrokeColor
-                println("Changed ShapeStroke: ${json.encodeToString(shape.c?.k)}")
             }
             if (shape is KPShapeGroup) {
                 seekSetShapeStrokeColor(colorArray, shape)
