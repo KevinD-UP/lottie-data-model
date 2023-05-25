@@ -40,7 +40,7 @@ class FontTransformer(
         Roboto("Roboto"),
     }
 
-    private val jsonString: MutableState<String> = mutableStateOf(context.assets.readAssetsFile("animations/animation.json"))
+    private val jsonString: MutableState<String> = mutableStateOf(context.assets.readAssetsFile("animations/BALI-PLANE.json"))
     private val dropDownMenuExpanded: MutableState<Boolean> = mutableStateOf(false)
     private val selectedFontName: MutableState<String> = mutableStateOf("Default")
 
@@ -62,15 +62,41 @@ class FontTransformer(
                 iterations = LottieConstants.IterateForever,
                 modifier = Modifier.height(300.dp),
                 fontMap = mapOf(
-                    "Roboto-Regular" to Typeface.createFromAsset(context.assets,"fonts/Roboto/Roboto-Regular.ttf"),
-                    "Lato-Bold" to Typeface.createFromAsset(context.assets,"fonts/Lato/Lato-Bold.ttf"),
-                    "Lato-Regular" to Typeface.createFromAsset(context.assets,"fonts/Lato/Lato-Regular.ttf"),
-                    "Roboto" to Typeface.createFromAsset(context.assets,"fonts/Roboto/Roboto-Regular.ttf"),
-                    "Roboto-Black" to Typeface.createFromAsset(context.assets,"fonts/Roboto/Roboto-Regular.ttf"),
-                    "AbhayaLibre-ExtraBold" to Typeface.createFromAsset(context.assets,"fonts/AbhayaLibre/AbhayaLibre-ExtraBold.ttf"),
-                    "Arial" to Typeface.createFromAsset(context.assets,"fonts/Arial/Arial.ttf"),
-                    "BebasNeue-Bold" to Typeface.createFromAsset(context.assets,"fonts/BebasNeue/BebasNeue-Bold.otf"),
-                    "Roboto-Regular" to Typeface.createFromAsset(context.assets,"fonts/Roboto/Roboto-Regular.ttf"),
+                    "AbhayaLibre-ExtraBold.ttf" to Typeface.createFromAsset(context.assets, "fonts/AbhayaLibre/AbhayaLibre-ExtraBold.ttf"),
+
+                    "Arial" to Typeface.createFromAsset(context.assets, "fonts/Arial/Arial.ttf"),
+
+                    "BebasNeue-Bold" to Typeface.createFromAsset(context.assets, "fonts/BebasNeue/BebasNeue-Bold.otf"),
+                    "BebasNeue-Regular" to Typeface.createFromAsset(context.assets, "fonts/BebasNeue/BebasNeue-Regular.otf"),
+
+                    "Helvetica" to Typeface.createFromAsset(context.assets, "fonts/Helvetica/Helvetica.ttc"),
+                    "Helvetica-Bold" to Typeface.createFromAsset(context.assets, "fonts/Helvetica/Helvetica-Bold.ttf"),
+
+                    "HelveticaNeue-Bold" to Typeface.createFromAsset(context.assets, "fonts/HelveticaNeue/HelveticaNeue-Bold.ttf"),
+                    "HelveticaNeue-Light" to Typeface.createFromAsset(context.assets, "fonts/HelveticaNeue/HelveticaNeue-Light.ttf"),
+
+                    "Lato-Black" to Typeface.createFromAsset(context.assets, "fonts/Lato/Lato-Black.ttf"),
+                    "Lato-BlackItalic" to Typeface.createFromAsset(context.assets, "fonts/Lato/Lato-BlackItalic.ttf"),
+                    "Lato-Bold" to Typeface.createFromAsset(context.assets, "fonts/Lato/Lato-Bold.ttf"),
+                    "Lato-Regular" to Typeface.createFromAsset(context.assets, "fonts/Lato/Lato-Regular.ttf"),
+
+                    "Roboto-Black" to Typeface.createFromAsset(context.assets, "fonts/Roboto/Roboto-Black.ttf"),
+                    "Roboto-Medium" to Typeface.createFromAsset(context.assets, "fonts/Roboto/Roboto-Medium.ttf"),
+                    "Roboto-Regular" to Typeface.createFromAsset(context.assets, "fonts/Roboto/Roboto-Regular.ttf"),
+
+                    "RobotoCondensed-Bold" to Typeface.createFromAsset(context.assets, "fonts/RobotoCondensed/RobotoCondensed-Bold.ttf"),
+
+                    "SFProDisplay-Bold" to Typeface.createFromAsset(context.assets, "fonts/SFProDisplay/SFProDisplay-Bold.otf"),
+                    "SFProDisplay-Heavy" to Typeface.createFromAsset(context.assets, "fonts/SFProDisplay/SFProDisplay-Heavy.otf"),
+                    "SFProDisplay-Medium" to Typeface.createFromAsset(context.assets, "fonts/SFProDisplay/SFProDisplay-Medium.otf"),
+                    "SFProDisplay-Thin" to Typeface.createFromAsset(context.assets, "fonts/SFProDisplay/SFProDisplay-Thin.otf"),
+
+                    "Signika-Bold" to Typeface.createFromAsset(context.assets, "fonts/Signika/Signika-Bold.otf"),
+                    "Signika-Regular" to Typeface.createFromAsset(context.assets, "fonts/Signika/Signika-Regular.otf"),
+
+                    "Ubuntu-Bold" to Typeface.createFromAsset(context.assets, "fonts/Ubuntu/Ubuntu-Bold.ttf"),
+                    "Ubuntu-BoldItalic" to Typeface.createFromAsset(context.assets, "fonts/Ubuntu/Ubuntu-BoldItalic.ttf"),
+                    "Ubuntu-Regular" to Typeface.createFromAsset(context.assets, "fonts/Ubuntu/Ubuntu-Regular.ttf"),
                 )
             )
             Button(onClick = {
@@ -96,18 +122,18 @@ class FontTransformer(
     }
 
     private fun fontChange(fonts: Map<String, String>?) {
-        val animationJson = context.assets.readAssetsFile("animations/animation.json")
-        val animationRulesJson = context.assets.readAssetsFile("animations/animation-rules.json")
+        val animationJson = context.assets.readAssetsFile("animations/BALI-PLANE.json")
+        val animationRulesJson = context.assets.readAssetsFile("animations/BALI-PLANE-rules.json")
 
         val animationTransformer = KPAnimationTransformer()
         val result = animationTransformer.transform(
             animationJson,
             animationRulesJson,
-            listOf("Text1", "Text2","Text3","Text4"),
+            listOf("Text1", "Text2", "Text3", "Text4"),
             fonts
         )
 
-        jsonString.value = result ?: throw(Exception("Error: Cannot transform the json file."))
+        jsonString.value = result ?: throw (Exception("Error: Cannot transform the json file."))
         Log.i("Orpheus","Result: $result")
     }
 

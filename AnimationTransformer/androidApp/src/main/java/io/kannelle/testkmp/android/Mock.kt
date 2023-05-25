@@ -1,388 +1,498 @@
 package io.kannelle.testkmp.android
 
-data class Animation(
-    val animationFamily: String,
-    val animationFiles: List<String>,
-    val animationRulesFiles: List<String>
+import androidx.compose.ui.graphics.Color
+
+val colors = listOf(
+    Color.White,
+    Color.Black,
+    Color.Blue,
+    Color.Yellow,
+    Color.Green,
+    Color.Cyan,
+    Color.Magenta,
+    Color.Red,
+    Color.DarkGray,
 )
 
-fun mockAnimations() : List<Animation> {
-    val animationsList : MutableList<Animation> = mutableListOf()
+enum class ColorThemeType(val value: String) {
+    ACCOR("Accor"),
+    BTS("BTS"),
+    BLOCKCHAIN("Blockchain");
 
+    companion object {
+        fun fromValue(value: String): ColorThemeType? {
+            return values().find { it.value == value }
+        }
+    }
+}
 
-    var theme = "algiers"
-    val pathToAlgiersRules = "rules/algiers"
-    val algierList = listOf(
-        "$pathToAlgiersRules/ALGIERS-FORD-1_1-rules.json",
-        "$pathToAlgiersRules/ALGIERS-FORD-9_16-rules.json",
-        "$pathToAlgiersRules/ALGIERS-FORD-rules.json",
-        "$pathToAlgiersRules/ALGIERS-MINI-rules.json",
-        "$pathToAlgiersRules/ALGIERS-PEUGEOT-1_1-rules.json",
-        "$pathToAlgiersRules/ALGIERS-PEUGEOT-9_16-rules.json",
-        "$pathToAlgiersRules/ALGIERS-PEUGEOT-rules.json",
-        "$pathToAlgiersRules/ALGIERS-PLANE-1_1-rules.json",
-        "$pathToAlgiersRules/ALGIERS-PLANE-9_16-rules.json",
-        "$pathToAlgiersRules/ALGIERS-PLANE-rules.json",
-        "$pathToAlgiersRules/ALGIERS-SIMCA-1_1-rules.json",
-        "$pathToAlgiersRules/ALGIERS-SIMCA-9_16-rules.json",
-        "$pathToAlgiersRules/ALGIERS-SIMCA-rules.json"
-    )
-    val algierFiles = listOf(
-        "animations/$theme/a.json",
-        "animations/$theme/b.json",
-        "animations/$theme/c.json",
-        "animations/$theme/c2.json",
-        "animations/$theme/d.json",
-        "animations/$theme/e.json",
-        "animations/$theme/f.json",
-        "animations/$theme/h.json",
-        "animations/$theme/i.json",
-        "animations/$theme/j.json",
-        "animations/$theme/k.json",
-        "animations/$theme/l.json",
-        "animations/$theme/m.json",
-        "animations/$theme/n.json",
-        "animations/$theme/o.json",
-        "animations/$theme/p.json",
-        "animations/$theme/q.json",
-        "animations/$theme/r.json",
-        "animations/$theme/s.json",
-        "animations/$theme/t.json",
-    )
-    animationsList.add(
-        Animation(
-            theme,
-            algierFiles,
-            algierList
-        )
-    )
+enum class AnimationType(val value: String) {
+    ALGIERS_FORD("ALGIERS-FORD"),
+    ALGIERS_PEUGEOT("ALGIERS-PEUGEOT"),
+    ALGIERS_PLANE("ALGIERS-PLANE"),
+    ALGIERS_SIMCA("ALGIERS-SIMCA"),
+    BALI_FORD("BALI-FORD"),
+    BALI_PEUGEOT("BALI-PEUGEOT"),
+    BALI_PLANE("BALI-PLANE"),
+    BERLIN_FORD("BERLIN-FORD"),
+    BERLIN_PEUGEOT("BERLIN-PEUGEOT"),
+    BERLIN_PLANE("BERLIN-PLANE"),
+    BOGOTA_AUSTIN("BOGOTA-AUSTIN"),
+    BOGOTA_AVENTI("BOGOTA-AVENTI"),
+    BOGOTA_DELOREAN("BOGOTA-DELOREAN"),
+    BOGOTA_DODGE("BOGOTA-DODGE"),
+    BOGOTA_LINCOLN("BOGOTA-LINCOLN"),
+    BOGOTA_MCLAREN("BOGOTA-MCLAREN"),
+    BOGOTA_RAM("BOGOTA-RAM"),
+    BOGOTA_ROUSH("BOGOTA-ROUSH"),
+    BOGOTA_TOYOTA("BOGOTA-TOYOTA"),
+    BOGOTA_VECTOR("BOGOTA-VECTOR"),
+    GENEVA_FORD("GENEVA-FORD"),
+    GENEVA_PEUGEOT("GENEVA-PEUGEOT"),
+    GENEVA_PLANE("GENEVA-PLANE"),
+    LOS_ANGELES_FORD("LOS_ANGELES-FORD"),
+    LOS_ANGELES_PEUGEOT("LOS_ANGELES-PEUGEOT"),
+    LOS_ANGELES_PLANE("LOS_ANGELES-PLANE"),
+    LOS_ANGELES_SIMCA("LOS_ANGELES-SIMCA"),
+    PARIS_BUTTERFLY("PARIS-BUTTERFLY"),
+    PARIS_FOX("PARIS-FOX"),
+    PARIS_OWL("PARIS-OWL"),
+    SEATTLE_FORD("SEATTLE-FORD"),
+    SEATTLE_PEUGEOT("SEATTLE-PEUGEOT"),
+    SEATTLE_PLANE("SEATTLE-PLANE")
+}
 
-    theme = "bali"
-    val pathToBaliRules = "rules/bali"
-    val baliList = listOf(
-        "$pathToBaliRules/BALI-FORD-1_1-rules.json",
-        "$pathToBaliRules/BALI-FORD-9_16-rules.json",
-        "$pathToBaliRules/BALI-FORD-rules.json",
-        "$pathToBaliRules/BALI-MINI-rules.json",
-        "$pathToBaliRules/BALI-PEUGEOT-1_1-rules.json",
-        "$pathToBaliRules/BALI-PEUGEOT-9_16-rules.json",
-        "$pathToBaliRules/BALI-PEUGEOT-rules.json",
-        "$pathToBaliRules/BALI-PLANE-1_1-rules.json",
-        "$pathToBaliRules/BALI-PLANE-9_16-rules.json",
-        "$pathToBaliRules/BALI-PLANE-rules.json"
+fun colorSetAccor(): Map<String, Map<String, String>> {
+    val bogotaColors = mapOf(
+        "shapeNeutral" to "#342EEA",
+        "figure" to "#908080",
+        "shapeShadow" to "#716B6B",
+        "background" to "#D55656",
+        "shapeSecondary" to "#CBE60A",
+        "backgroundOpacity" to "0.3",
+        "text" to "#FFFFFF",
+        "shapeMain" to "#FB6B00",
+        "shapeShadowOpacity" to "0.80"
     )
-    val valiFiles = listOf(
-        "animations/$theme/a.json",
-        "animations/$theme/b.json",
-        "animations/$theme/c.json",
-        "animations/$theme/c2.json",
-        "animations/$theme/d.json",
-        "animations/$theme/e.json",
-        "animations/$theme/f.json",
-        "animations/$theme/h.json",
-        "animations/$theme/i.json",
-        "animations/$theme/j.json",
-        "animations/$theme/k.json",
-        "animations/$theme/l.json",
-        "animations/$theme/m.json",
-        "animations/$theme/n.json",
-        "animations/$theme/o.json",
-        "animations/$theme/p.json",
-        "animations/$theme/q.json",
-        "animations/$theme/r.json",
-        "animations/$theme/s.json",
-        "animations/$theme/t.json",
+    val berlinColors = mapOf(
+        "gradientTop" to "#FFD280",
+        "neutralGradientTop" to "#ffffff",
+        "titleGradientTop" to "#80FFE6",
+        "textBackgroundOpacity" to "0.7",
+        "neutralGradientBottom" to "#000000",
+        "shapeSecond" to "#050033",
+        "shapeNeutral" to "#ffffff",
+        "background" to "#D3A86A",
+        "titleGradientBottom" to "#D3A86A",
+        "slideBackground" to "#ffffff",
+        "titleBackgroundOpacity" to "0.7",
+        "textBackground" to "#050033",
+        "maskGradientBottom" to "#D3A86A",
+        "maskGradientTop" to "#FFD280",
+        "text" to "#ffffff",
+        "gradientBottom" to "#D3A86A",
+        "shapeMain" to "#D3A86A",
+        "titleBackground" to "#000000"
     )
-    animationsList.add(
-        Animation(
-            theme,
-            valiFiles,
-            baliList
-        )
+    val genevaColors = mapOf(
+        "container" to "#002b41",
+        "shadow" to "#000000",
+        "shape" to "#ffffff",
+        "background" to "#050033",
+        "line" to "#e6a500",
+        "titleText" to "#ffffff",
+        "maskGradientBottom" to "#D3A86A",
+        "maskGradientTop" to "#FFD280",
+        "text" to "#ffffff",
+        "shadowOpacity" to "0.7",
+        "titleBackground" to "#000000"
     )
+    val losAngelesColors = mapOf(
+        "shadow" to "#FFFF05",
+        "slideTextStrong" to "#D3A86A",
+        "textStrong" to "#e6a500",
+        "subtitleBottomText" to "#ffffff",
+        "shadowOpacity" to "1",
+        "subtitleTopText" to "#ffffff",
+        "containerStrong" to "#e6a500",
+        "background" to "#D3A86A",
+        "titleText" to "#ffffff",
+        "slideBackground" to "#ffffff",
+        "slideText" to "#050033",
+        "floatingBackground" to "#EEECF2",
+        "maskGradientBottom" to "#D3A86A",
+        "maskGradientTop" to "#FFD280",
+        "floatingText" to "#ffffff",
+        "text" to "#002b41",
+        "subtitleBackground" to "#050033",
+        "titleBackground" to "#000000"
+    )
+    val seattleColors = mapOf(
+        "subtitleBottomBackground" to "#050033",
+        "shape" to "#050033",
+        "slideFullBackground" to "#D3A86A",
+        "slideSplitBottomText" to "#D3A86A",
+        "subtitleBottomText" to "#ffffff",
+        "main" to "#e6a500",
+        "slideSplitBottomBackground" to "#ffffff",
+        "subtitleTopText" to "#050033",
+        "second" to "#002b41",
+        "background" to "#D3A86A",
+        "slideSplitTopText" to "#ffffff",
+        "slideFullText" to "#ffffff",
+        "titleText" to "#ffffff",
+        "floatingBackground" to "#ffffff",
+        "maskGradientTop" to "#FFD280",
+        "maskGradientBottom" to "#D3A86A",
+        "text" to "#FFFFFF",
+        "slideSplitTopBackground" to "#D3A86A",
+        "floatingText" to "#050033",
+        "titleBackground" to "#000000",
+        "subtitleTopBackground" to "#ffffff"
+    )
+    val baliColors = mapOf(
+        "container" to "#002b41",
+        "shape" to "#D3A86A",
+        "line" to "#e6a500",
+        "backgroundOpacity" to "0.5",
+        "background" to "#050033",
+        "titleText" to "#ffffff",
+        "titleBackgroundOpacity" to "0.85",
+        "maskGradientBottom" to "#D3A86A",
+        "maskGradientTop" to "#FFD280",
+        "text" to "#ffffff",
+        "subtitleOpacity" to "0.85",
+        "titleBackground" to "#000000"
+    )
+    val algiersColors = mapOf(
+        "subtitleBottomBackground" to "#D3A86A",
+        "containerBottom" to "#e6a500",
+        "slideSplitBottomText" to "#ffffff",
+        "subtitleBottomText" to "#ffffff",
+        "slideSplitBottomBackground" to "#050033",
+        "gradientRight" to "#050033",
+        "subtitleTopText" to "#ffffff",
+        "gradientText" to "#ffffff",
+        "containerTop" to "#002b41",
+        "slideSplitTopText" to "#ffffff",
+        "background" to "#D3A86A",
+        "titleText" to "#ffffff",
+        "titleBackgroundOpacity" to "0.8",
+        "maskGradientTop" to "#FFD280",
+        "maskGradientBottom" to "#D3A86A",
+        "text" to "#FFFFFF",
+        "gradientLeft" to "#050033",
+        "slideSplitTopBackground" to "#D3A86A",
+        "subtitleOpacity" to "0.8",
+        "titleBackground" to "#d3a86a",
+        "subtitleTopBackground" to "#4030ca"
+    )
+    return mapOf(
+        "bogota" to bogotaColors,
+        "algiers" to algiersColors,
+        "bali" to baliColors,
+        "geneva" to genevaColors,
+        "los_angeles" to losAngelesColors,
+        "seattle" to seattleColors,
+        "berlin" to berlinColors
+    )
+}
 
-    theme = "berlin"
-    val pathToBerlinRules = "rules/berlin"
-    val berlinList = listOf(
-        "$pathToBerlinRules/BERLIN-FORD-1_1-rules.json",
-        "$pathToBerlinRules/BERLIN-FORD-9_16-rules.json",
-        "$pathToBerlinRules/BERLIN-FORD-rules.json",
-        "$pathToBerlinRules/BERLIN-MINI-rules.json",
-        "$pathToBerlinRules/BERLIN-PEUGEOT-1_1-rules.json",
-        "$pathToBerlinRules/BERLIN-PEUGEOT-9_16-rules.json",
-        "$pathToBerlinRules/BERLIN-PEUGEOT-rules.json",
-        "$pathToBerlinRules/BERLIN-PLANE-1_1-rules.json",
-        "$pathToBerlinRules/BERLIN-PLANE-9_16-rules.json",
-        "$pathToBerlinRules/BERLIN-PLANE-rules.json"
+fun colorSetBTS(): Map<String, Map<String, String>> {
+    val bogotaColors = mapOf(
+        "coverTextOpacity" to "0.50",
+        "shapeShadow" to "#000000",
+        "negativeBarBottom" to "#FFFFFF",
+        "coverText" to "#FFFFFF",
+        "backgroundOpacity" to "1.00",
+        "titleBlinking" to "#00e183",
+        "source" to "#00e183",
+        "title" to "#FFFFFF",
+        "positiveBarTop" to "#00e183",
+        "positiveBarBottom" to "#00e183",
+        "shapeNeutral" to "#FFFFFF",
+        "cta" to "#FFFFFF",
+        "negativeBarTop" to "#FFFFFF",
+        "ctaTitle" to "#FFFFFF",
+        "transparentBackground" to "#000000",
+        "maskGradientBottom" to "#00e183",
+        "maskGradientTop" to "#00e183",
+        "text" to "#FFFFFF",
+        "backgroundBarOpacity" to "0.20",
+        "textShadow" to "#000000",
+        "figure" to "#FFFFFF",
+        "shapeCosmeticOpacity" to "0.70",
+        "titleBottom" to "#FFFFFF",
+        "shapeCosmetic" to "#FFFFFF",
+        "chartEmpty" to "#FFFFFF",
+        "background" to "#F5D809",
+        "shapeSecondary" to "#F5D809",
+        "textShadowOpacity" to "0.70",
+        "chartFill" to "#00e183",
+        "shapeMain" to "#00e183",
+        "sourceNeutral" to "#FFFFFF",
+        "figureBlink" to "#00e183",
+        "shapeShadowOpacity" to "0.70",
+        "ctaTitleBlinking" to "#00e183"
     )
-    val berlinFiles = listOf(
-        "animations/$theme/a.json",
-        "animations/$theme/b.json",
-        "animations/$theme/c.json",
-        "animations/$theme/c2.json",
-        "animations/$theme/d.json",
-        "animations/$theme/e.json",
-        "animations/$theme/f.json",
-        "animations/$theme/h.json",
-        "animations/$theme/i.json",
-        "animations/$theme/j.json",
-        "animations/$theme/k.json",
-        "animations/$theme/l.json",
-        "animations/$theme/m.json",
-        "animations/$theme/n.json",
-        "animations/$theme/o.json",
-        "animations/$theme/p.json",
-        "animations/$theme/q.json",
-        "animations/$theme/r.json",
-        "animations/$theme/s.json",
-        "animations/$theme/t.json",
+    val berlinColors = mapOf(
+        "gradientTop" to "#00e183",
+        "neutralGradientTop" to "#FFFFFF",
+        "titleGradientTop" to "#00e183",
+        "textBackgroundOpacity" to "1.00",
+        "shapeSecond" to "#F5D809",
+        "neutralGradientBottom" to "#000000",
+        "shapeNeutral" to "#FFFFFF",
+        "background" to "#F5D809",
+        "titleGradientBottom" to "#F5D809",
+        "titleBackgroundOpacity" to "0.80",
+        "slideBackground" to "#FFFFFF",
+        "maskGradientBottom" to "#F5D809",
+        "maskGradientTop" to "#00e183",
+        "textBackground" to "#F5D809",
+        "gradientBottom" to "#F5D809",
+        "text" to "#FFFFFF",
+        "shapeMain" to "#00e183",
+        "titleBackground" to "#000000"
     )
-    animationsList.add(
-        Animation(
-            theme,
-            berlinFiles,
-            berlinList
-        )
+    val genevaColors = mapOf(
+        "shape" to "#FFFFFF",
+        "shadow" to "#000000",
+        "background" to "#F5D809",
+        "titleText" to "#FFFFFF",
+        "titleBackgroundOpacity" to "0.50",
+        "maskGradientBottom" to "#00e183",
+        "maskGradientTop" to "#00e183",
+        "text" to "#FFFFFF",
+        "shadowOpacity" to "0.70",
+        "titleBackground" to "#000000"
     )
-    theme = "bogota"
-    val pathToBogotaRules = "rules/bogota"
-    val bogotaList = listOf(
-        "$pathToBogotaRules/BOGOTA-AUSTIN-1_1-rules.json",
-        "$pathToBogotaRules/BOGOTA-AUSTIN-9_16-rules.json",
-        "$pathToBogotaRules/BOGOTA-AUSTIN-rules.json",
-        "$pathToBogotaRules/BOGOTA-AVENTI-1_1-rules.json",
-        "$pathToBogotaRules/BOGOTA-AVENTI-9_16-rules.json",
-        "$pathToBogotaRules/BOGOTA-AVENTI-rules.json",
-        "$pathToBogotaRules/BOGOTA-DELOREAN-1_1-rules.json",
-        "$pathToBogotaRules/BOGOTA-DELOREAN-9_16-rules.json",
-        "$pathToBogotaRules/BOGOTA-DELOREAN-rules.json",
-        "$pathToBogotaRules/BOGOTA-DODGE-1_1-rules.json",
-        "$pathToBogotaRules/BOGOTA-DODGE-9_16-rules.json",
-        "$pathToBogotaRules/BOGOTA-DODGE-rules.json",
-        "$pathToBogotaRules/BOGOTA-LINCOLN-1_1-rules.json",
-        "$pathToBogotaRules/BOGOTA-LINCOLN-9_16-rules.json",
-        "$pathToBogotaRules/BOGOTA-LINCOLN-rules.json",
-        "$pathToBogotaRules/BOGOTA-MCLAREN-1_1-rules.json",
-        "$pathToBogotaRules/BOGOTA-MCLAREN-9_16-rules.json",
-        "$pathToBogotaRules/BOGOTA-MCLAREN-rules.json",
-        "$pathToBogotaRules/BOGOTA-MINI-rules.json",
-        "$pathToBogotaRules/BOGOTA-RAM-1_1-rules.json",
-        "$pathToBogotaRules/BOGOTA-RAM-9_16-rules.json",
-        "$pathToBogotaRules/BOGOTA-RAM-rules.json",
-        "$pathToBogotaRules/BOGOTA-ROUSH-1_1-rules.json",
-        "$pathToBogotaRules/BOGOTA-ROUSH-9_16-rules.json",
-        "$pathToBogotaRules/BOGOTA-ROUSH-rules.json",
-        "$pathToBogotaRules/BOGOTA-TOYOTA-1_1-rules.json",
-        "$pathToBogotaRules/BOGOTA-TOYOTA-9_16-rules.json",
-        "$pathToBogotaRules/BOGOTA-TOYOTA-rules.json",
-        "$pathToBogotaRules/BOGOTA-VECTOR-1_1-rules.json",
-        "$pathToBogotaRules/BOGOTA-VECTOR-9_16-rules.json",
-        "$pathToBogotaRules/BOGOTA-VECTOR-rules.json"
+    val losAngelesColors = mapOf(
+        "shadow" to "#000000",
+        "slideTextStrong" to "#00e183",
+        "subtitleBottomText" to "#FFFFFF",
+        "subtitleTopText" to "#FFFFFF",
+        "shadowOpacity" to "0.50",
+        "background" to "#F5D809",
+        "titleText" to "#FFFFFF",
+        "titleBackgroundOpacity" to "0.70",
+        "slideBackground" to "#FFFFFF",
+        "floatingBackground" to "#F5D809",
+        "slideText" to "#F5D809",
+        "maskGradientTop" to "#00e183",
+        "maskGradientBottom" to "#F5D809",
+        "text" to "#FFFFFF",
+        "floatingText" to "#FFFFFF",
+        "subtitleBackground" to "#F5D809",
+        "titleBackground" to "#000000"
     )
-    val bogotaFiles = listOf(
-        "animations/$theme/a.json",
-        "animations/$theme/b.json",
-        "animations/$theme/c.json",
-        "animations/$theme/c2.json",
-        "animations/$theme/d.json",
-        "animations/$theme/e.json",
-        "animations/$theme/f.json",
-        "animations/$theme/h.json",
-        "animations/$theme/i.json",
-        "animations/$theme/j.json",
-        "animations/$theme/k.json",
-        "animations/$theme/l.json",
-        "animations/$theme/m.json",
-        "animations/$theme/n.json",
-        "animations/$theme/o.json",
-        "animations/$theme/p.json",
-        "animations/$theme/q.json",
-        "animations/$theme/r.json",
-        "animations/$theme/s.json",
-        "animations/$theme/t.json",
+    val seattleColors = mapOf(
+        "subtitleBottomBackground" to "#F5D809",
+        "shape" to "#F5D809",
+        "slideFullBackground" to "#00e183",
+        "slideSplitBottomText" to "#00e183",
+        "subtitleBottomText" to "#FFFFFF",
+        "slideSplitBottomBackground" to "#FFFFFF",
+        "subtitleTopText" to "#F5D809",
+        "background" to "#F5D809",
+        "slideSplitTopText" to "#FFFFFF",
+        "slideFullText" to "#FFFFFF",
+        "titleText" to "#FFFFFF",
+        "titleBackgroundOpacity" to "0.80",
+        "floatingBackground" to "#FFFFFF",
+        "maskGradientBottom" to "#F5D809",
+        "maskGradientTop" to "#F5D809",
+        "text" to "#FFFFFF",
+        "slideSplitTopBackground" to "#00e183",
+        "floatingText" to "#F5D809",
+        "subtitleTopBackground" to "#FFFFFF",
+        "titleBackground" to "#000000"
     )
-    animationsList.add(
-        Animation(
-            theme,
-            bogotaFiles,
-            bogotaList
-        )
+    val baliColors = mapOf(
+        "shape" to "#00e183",
+        "background" to "#F5D809",
+        "titleText" to "#FFFFFF",
+        "titleBackgroundOpacity" to "0.70",
+        "backgroundOpacity" to "0.50",
+        "maskGradientBottom" to "#F5D809",
+        "maskGradientTop" to "#F5D809",
+        "text" to "#FFFFFF",
+        "titleBackground" to "#000000"
     )
-    theme = "geneva"
-    val pathToGenevaRules = "rules/geneva"
-    val genevaList = listOf(
-        "$pathToGenevaRules/GENEVA-FORD-1_1-rules.json",
-        "$pathToGenevaRules/GENEVA-FORD-9_16-rules.json",
-        "$pathToGenevaRules/GENEVA-FORD-rules.json",
-        "$pathToGenevaRules/GENEVA-MINI-rules.json",
-        "$pathToGenevaRules/GENEVA-PEUGEOT-1_1-rules.json",
-        "$pathToGenevaRules/GENEVA-PEUGEOT-9_16-rules.json",
-        "$pathToGenevaRules/GENEVA-PEUGEOT-rules.json",
-        "$pathToGenevaRules/GENEVA-PLANE-1_1-rules.json",
-        "$pathToGenevaRules/GENEVA-PLANE-9_16-rules.json",
-        "$pathToGenevaRules/GENEVA-PLANE-rules.json"
+    val algiersColors = mapOf(
+        "subtitleBottomBackground" to "#00e183",
+        "slideSplitBottomText" to "#FFFFFF",
+        "subtitleBottomText" to "#FFFFFF",
+        "gradientRight" to "#F5D809",
+        "slideSplitBottomBackground" to "#F5D809",
+        "subtitleTopText" to "#FFFFFF",
+        "gradientText" to "#FFFFFF",
+        "background" to "#F5D809",
+        "slideSplitTopText" to "#FFFFFF",
+        "titleText" to "#FFFFFF",
+        "titleBackgroundOpacity" to "0.70",
+        "maskGradientBottom" to "#00e183",
+        "maskGradientTop" to "#00e183",
+        "text" to "#FFFFFF",
+        "gradientLeft" to "#F5D809",
+        "slideSplitTopBackground" to "#00e183",
+        "subtitleOpacity" to "0.80",
+        "subtitleTopBackground" to "#F5D809",
+        "titleBackground" to "#000000"
     )
-    val genevaFiles = listOf(
-        "animations/$theme/a.json",
-        "animations/$theme/b.json",
-        "animations/$theme/c.json",
-        "animations/$theme/c2.json",
-        "animations/$theme/d.json",
-        "animations/$theme/e.json",
-        "animations/$theme/f.json",
-        "animations/$theme/h.json",
-        "animations/$theme/i.json",
-        "animations/$theme/j.json",
-        "animations/$theme/k.json",
-        "animations/$theme/l.json",
-        "animations/$theme/m.json",
-        "animations/$theme/n.json",
-        "animations/$theme/o.json",
-        "animations/$theme/p.json",
-        "animations/$theme/q.json",
-        "animations/$theme/r.json",
-        "animations/$theme/s.json",
-        "animations/$theme/t.json",
+    return mapOf(
+        "bogota" to bogotaColors,
+        "algiers" to algiersColors,
+        "bali" to baliColors,
+        "geneva" to genevaColors,
+        "los_angeles" to losAngelesColors,
+        "seattle" to seattleColors,
+        "berlin" to berlinColors
     )
-    animationsList.add(
-        Animation(
-            theme,
-            genevaFiles,
-            genevaList
-        )
-    )
-    theme = "losAngeles"
-    val pathToLosAngelesRules = "rules/losAngeles"
-    val losAngelesList = listOf(
-        "$pathToLosAngelesRules/LOS_ANGELES-FORD-1_1-rules.json",
-        "$pathToLosAngelesRules/LOS_ANGELES-FORD-9_16-rules.json",
-        "$pathToLosAngelesRules/LOS_ANGELES-FORD-rules.json",
-        "$pathToLosAngelesRules/LOS_ANGELES-MINI-rules.json",
-        "$pathToLosAngelesRules/LOS_ANGELES-PEUGEOT-1_1-rules.json",
-        "$pathToLosAngelesRules/LOS_ANGELES-PEUGEOT-9_16-rules.json",
-        "$pathToLosAngelesRules/LOS_ANGELES-PEUGEOT-rules.json",
-        "$pathToLosAngelesRules/LOS_ANGELES-PLANE-1_1-rules.json",
-        "$pathToLosAngelesRules/LOS_ANGELES-PLANE-9_16-rules.json",
-        "$pathToLosAngelesRules/LOS_ANGELES-PLANE-9_16-rules.json",
-        "$pathToLosAngelesRules/LOS_ANGELES-SIMCA-1_1-rules.json",
-        "$pathToLosAngelesRules/LOS_ANGELES-SIMCA-9_16-rules.json",
-        "$pathToLosAngelesRules/LOS_ANGELES-SIMCA-rules.json"
-    )
-    val losAngelesFiles = listOf(
-        "animations/$theme/a.json",
-        "animations/$theme/b.json",
-        "animations/$theme/c.json",
-        "animations/$theme/c2.json",
-        "animations/$theme/d.json",
-        "animations/$theme/e.json",
-        "animations/$theme/f.json",
-        "animations/$theme/h.json",
-        "animations/$theme/i.json",
-        "animations/$theme/j.json",
-        "animations/$theme/k.json",
-        "animations/$theme/l.json",
-        "animations/$theme/m.json",
-        "animations/$theme/n.json",
-        "animations/$theme/o.json",
-        "animations/$theme/p.json",
-        "animations/$theme/q.json",
-        "animations/$theme/r.json",
-        "animations/$theme/s.json",
-        "animations/$theme/t.json",
-    )
-    animationsList.add(
-        Animation(
-            theme,
-            losAngelesFiles,
-            losAngelesList
-        )
-    )
-    theme = "paris"
-    val pathToParisRules = "rules/paris"
-    val parisList = listOf(
-        "$pathToParisRules/PARIS-BUTTERFLY-1_1-rules.json",
-        "$pathToParisRules/PARIS-BUTTERFLY-9_16-rules.json",
-        "$pathToParisRules/PARIS-BUTTERFLY-rules.json",
-        "$pathToParisRules/PARIS-FOX-1_1-rules.json",
-        "$pathToParisRules/PARIS-FOX-9_16-rules.json",
-        "$pathToParisRules/PARIS-FOX-rules.json",
-        "$pathToParisRules/PARIS-MINI-rules.json",
-        "$pathToParisRules/PARIS-OWL-1_1-rules.json",
-        "$pathToParisRules/PARIS-OWL-9_16-rules.json",
-        "$pathToParisRules/PARIS-OWL-9_16-rules.json"
-    )
-    val parisFiles = listOf(
-        "animations/$theme/a.json",
-        "animations/$theme/b.json",
-        "animations/$theme/c.json",
-        "animations/$theme/c2.json",
-        "animations/$theme/d.json",
-        "animations/$theme/e.json",
-        "animations/$theme/f.json",
-        "animations/$theme/h.json",
-        "animations/$theme/i.json",
-        "animations/$theme/j.json",
-        "animations/$theme/k.json",
-        "animations/$theme/l.json",
-        "animations/$theme/m.json",
-        "animations/$theme/n.json",
-        "animations/$theme/o.json",
-        "animations/$theme/p.json",
-        "animations/$theme/q.json",
-        "animations/$theme/r.json",
-        "animations/$theme/s.json",
-        "animations/$theme/t.json",
-    )
-    animationsList.add(
-        Animation(
-            theme,
-            parisFiles,
-            parisList
-        )
-    )
-    theme = "seattle"
-    val pathToSeattleRules = "rules/seattle"
-    val seattleList = listOf(
-        "$pathToSeattleRules/SEATTLE-FORD-1_1-rules.json",
-        "$pathToSeattleRules/SEATTLE-FORD-9_16-rules.json",
-        "$pathToSeattleRules/SEATTLE-FORD-rules.json",
-        "$pathToSeattleRules/SEATTLE-MINI-rules.json",
-        "$pathToSeattleRules/SEATTLE-PEUGEOT-1_1-rules.json",
-        "$pathToSeattleRules/SEATTLE-PEUGEOT-9_16-rules.json",
-        "$pathToSeattleRules/SEATTLE-PEUGEOT-rules.json",
-        "$pathToSeattleRules/SEATTLE-PLANE-1_1-rules.json",
-        "$pathToSeattleRules/SEATTLE-PLANE-9_16-rules.json",
-        "$pathToSeattleRules/SEATTLE-PLANE-rules.json"
-    )
-    val seattleFiles = listOf(
-        "animations/$theme/a.json",
-        "animations/$theme/b.json",
-        "animations/$theme/c.json",
-        "animations/$theme/c2.json",
-        "animations/$theme/d.json",
-        "animations/$theme/e.json",
-        "animations/$theme/f.json",
-        "animations/$theme/h.json",
-        "animations/$theme/i.json",
-        "animations/$theme/j.json",
-        "animations/$theme/k.json",
-        "animations/$theme/l.json",
-        "animations/$theme/m.json",
-        "animations/$theme/n.json",
-        "animations/$theme/o.json",
-        "animations/$theme/p.json",
-        "animations/$theme/q.json",
-        "animations/$theme/r.json",
-        "animations/$theme/s.json",
-        "animations/$theme/t.json",
-    )
-    animationsList.add(
-        Animation(
-            theme,
-            seattleFiles,
-            seattleList
-        )
-    )
+}
 
-    return animationsList
+fun colorSetBlockchain(): Map<String, Map<String, String>> {
+    val bogotaColors = mapOf(
+        "coverTextOpacity" to "0.50",
+        "shapeShadow" to "#000000",
+        "negativeBarBottom" to "#FFFFFF",
+        "coverText" to "#FFFFFF",
+        "backgroundOpacity" to "1.00",
+        "titleBlinking" to "#00AEE6",
+        "source" to "#00AEE6",
+        "title" to "#FFFFFF",
+        "positiveBarTop" to "#00AEE6",
+        "positiveBarBottom" to "#00AEE6",
+        "shapeNeutral" to "#FFFFFF",
+        "cta" to "#FFFFFF",
+        "negativeBarTop" to "#FFFFFF",
+        "ctaTitle" to "#FFFFFF",
+        "transparentBackground" to "#000000",
+        "maskGradientBottom" to "#00AEE6",
+        "maskGradientTop" to "#00AEE6",
+        "text" to "#FFFFFF",
+        "backgroundBarOpacity" to "0.20",
+        "textShadow" to "#000000",
+        "figure" to "#FFFFFF",
+        "shapeCosmeticOpacity" to "0.70",
+        "titleBottom" to "#FFFFFF",
+        "shapeCosmetic" to "#FFFFFF",
+        "chartEmpty" to "#FFFFFF",
+        "background" to "#123962",
+        "shapeSecondary" to "#123962",
+        "textShadowOpacity" to "0.70",
+        "chartFill" to "#00AEE6",
+        "shapeMain" to "#00AEE6",
+        "sourceNeutral" to "#FFFFFF",
+        "figureBlink" to "#00AEE6",
+        "shapeShadowOpacity" to "0.70",
+        "ctaTitleBlinking" to "#00AEE6"
+    )
+    val berlinColors = mapOf(
+        "gradientTop" to "#00AEE6",
+        "neutralGradientTop" to "#FFFFFF",
+        "titleGradientTop" to "#00AEE6",
+        "textBackgroundOpacity" to "1.00",
+        "shapeSecond" to "#799EB2",
+        "neutralGradientBottom" to "#000000",
+        "shapeNeutral" to "#FFFFFF",
+        "titleGradientBottom" to "#799EB2",
+        "titleBackgroundOpacity" to "0.80",
+        "slideBackground" to "#FFFFFF",
+        "maskGradientBottom" to "#799EB2",
+        "maskGradientTop" to "#00AEE6",
+        "textBackground" to "#123962",
+        "gradientBottom" to "#799EB2",
+        "text" to "#FFFFFF",
+        "shapeMain" to "#00AEE6",
+        "titleBackground" to "#000000"
+    )
+    val genevaColors = mapOf(
+        "shape" to "#FFFFFF",
+        "shadow" to "#000000",
+        "background" to "#123962",
+        "titleText" to "#FFFFFF",
+        "titleBackgroundOpacity" to "0.50",
+        "maskGradientBottom" to "#00AEE6",
+        "maskGradientTop" to "#00AEE6",
+        "text" to "#FFFFFF",
+        "shadowOpacity" to "0.70",
+        "titleBackground" to "#000000"
+    )
+    val losAngelesColors = mapOf(
+        "shadow" to "#000000",
+        "slideTextStrong" to "#00AEE6",
+        "subtitleBottomText" to "#FFFFFF",
+        "subtitleTopText" to "#FFFFFF",
+        "shadowOpacity" to "0.50",
+        "titleText" to "#FFFFFF",
+        "titleBackgroundOpacity" to "0.70",
+        "slideBackground" to "#FFFFFF",
+        "floatingBackground" to "#123962",
+        "slideText" to "#123962",
+        "maskGradientTop" to "#00AEE6",
+        "maskGradientBottom" to "#799EB2",
+        "floatingText" to "#FFFFFF",
+        "subtitleBackground" to "#123962",
+        "titleBackground" to "#000000"
+    )
+    val seattleColors = mapOf(
+        "subtitleBottomBackground" to "#123962",
+        "shape" to "#123962",
+        "slideFullBackground" to "#00AEE6",
+        "slideSplitBottomText" to "#00AEE6",
+        "subtitleBottomText" to "#FFFFFF",
+        "slideSplitBottomBackground" to "#FFFFFF",
+        "subtitleTopText" to "#123962",
+        "slideSplitTopText" to "#FFFFFF",
+        "slideFullText" to "#FFFFFF",
+        "titleText" to "#FFFFFF",
+        "titleBackgroundOpacity" to "0.80",
+        "floatingBackground" to "#FFFFFF",
+        "maskGradientBottom" to "#799EB2",
+        "maskGradientTop" to "#799EB2",
+        "slideSplitTopBackground" to "#00AEE6",
+        "floatingText" to "#123962",
+        "subtitleTopBackground" to "#FFFFFF",
+        "titleBackground" to "#000000"
+    )
+    val baliColors = mapOf(
+        "shape" to "#00AEE6",
+        "background" to "#123962",
+        "titleText" to "#FFFFFF",
+        "titleBackgroundOpacity" to "0.70",
+        "backgroundOpacity" to "0.50",
+        "maskGradientBottom" to "#123962",
+        "maskGradientTop" to "#123962",
+        "text" to "#FFFFFF",
+        "titleBackground" to "#000000"
+    )
+    val algiersColors = mapOf(
+        "subtitleBottomBackground" to "#00AEE6",
+        "slideSplitBottomText" to "#FFFFFF",
+        "subtitleBottomText" to "#FFFFFF",
+        "gradientRight" to "#123962",
+        "slideSplitBottomBackground" to "#123962",
+        "subtitleTopText" to "#FFFFFF",
+        "gradientText" to "#FFFFFF",
+        "slideSplitTopText" to "#FFFFFF",
+        "titleText" to "#FFFFFF",
+        "titleBackgroundOpacity" to "0.70",
+        "maskGradientBottom" to "#00AEE6",
+        "maskGradientTop" to "#00AEE6",
+        "gradientLeft" to "#123962",
+        "slideSplitTopBackground" to "#00AEE6",
+        "subtitleOpacity" to "0.80",
+        "subtitleTopBackground" to "#123962",
+        "titleBackground" to "#000000"
+    )
+    return mapOf(
+        "bogota" to bogotaColors,
+        "algiers" to algiersColors,
+        "bali" to baliColors,
+        "geneva" to genevaColors,
+        "los_angeles" to losAngelesColors,
+        "seattle" to seattleColors,
+        "berlin" to berlinColors
+    )
 }
