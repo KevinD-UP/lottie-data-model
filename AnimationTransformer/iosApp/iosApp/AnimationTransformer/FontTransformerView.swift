@@ -324,8 +324,7 @@ class FontTransformerViewModel: ObservableObject {
         let fonts = getFonts(type: selectedFont)
         let functionsDelegate = FunctionsDelegateNative()
         let animationTransformer = KPAnimationTransformer(functionsDelegate: functionsDelegate)
-        let colors = getColors(animation: selectedAnim, theme: selectedThemeColor)
-        let animationTransformer = KPAnimationTransformer()
+        let colors = getColors(animation: selectedAnim, theme: selectedThemeColor)  
         guard let result = animationTransformer.transform(
             lottieJsonString: animationJsonString,
             animationRulesJsonString: animationRulesJsonString,
