@@ -1,0 +1,169 @@
+{
+  "layerRules": [
+    {
+      "ind": 4,
+      "colorKey": "chartFill"
+    },
+    {
+      "ind": 5,
+      "colorKey": "chartEmpty"
+    },
+    {
+      "ind": 6,
+      "fontKey": "text",
+      "textInd": [0],
+      "maxLines": 1,
+      "maxWidth": 280,
+      "colorKey": "figure",
+      "fillColorKey": "figureBlink"
+    },
+    {
+      "ind": 8,
+      "fontKey": "text",
+      "textInd": [1],
+      "maxLines": 3,
+      "maxWidth": 1150,
+      "colorKey": "text",
+      "fillColorKey": "ctaTitleBlinking",
+      "shadowOpacityKey": "textShadowOpacity",
+      "shadowColorKey": "textShadow"
+    },
+    {
+      "ind": 10,
+      "fontKey": "caption",
+      "textInd": [2],
+      "maxLines": 2,
+      "maxWidth": 1150,
+      "colorKey": "source",
+      "shadowOpacityKey": "textShadowOpacity",
+      "shadowColorKey": "textShadow"
+    },
+    {
+      "ind": 11,
+      "colorKey": "shapeCosmetic",
+      "opacityKey": "shapeCosmeticOpacity"
+    },
+    {
+      "ind": 12,
+      "colorKey": "background"
+    }
+  ],
+  "assetRules": {
+    "originalColors": {
+      "shapeMain": "#00FFC6",
+      "shapeSecondary": "#572DED",
+      "shapeNeutral": "#FFFFFF"
+    },
+    "shadowOpacityKey": "shapeShadowOpacity",
+    "shadowColorKey": "shapeShadow"
+  },
+  "variables": [
+    {
+      "key": "$var0",
+      "value": "createCounterKeyFrames(6,0,30,24)",
+      "type": "jsonObject"
+    },
+    {
+      "key": "$var1",
+      "value": "toNumber(getText(0))",
+      "type": "number"
+    },
+    {
+      "key": "$var2",
+      "value": "540-getTextLineHeight(8)/2*getLineCount(8)+getFirstLineTop(8)",
+      "type": "number"
+    },
+    {
+      "key": "$var3",
+      "value": "540+getTextMeasureHeight(8)/2+getFirstLineTop(8)+20",
+      "type": "number"
+    },
+    {
+      "key": "$var4",
+      "value": "540-getTextMeasureHeight(8)/2-20",
+      "type": "number"
+    },
+    {
+      "key": "$var5",
+      "value": "540+getTextMeasureHeight(8)/2+getFirstLineTop(10)+70",
+      "type": "number"
+    },
+    {
+      "key": "$var6",
+      "value": "getTextMeasureHeight(8)/2+getTextMeasureHeight(10)+90",
+      "type": "number"
+    },
+    {
+      "key": "$var7",
+      "value": "getAnimationFrameCount()",
+      "type": "number",
+      "description": "end of animation"
+    },
+    {
+      "key": "$var8",
+      "value": "getAnimationFrameCount()-15",
+      "type": "number",
+      "description": "start of transition out"
+    },
+    {
+      "key": "$var9",
+      "value": "getAnimationFrameCount()-7",
+      "type": "number",
+      "description": "end of many layers animations"
+    },
+    {
+      "key": "$var10",
+      "value": "getAnimationFrameCount()-10",
+      "type": "number",
+      "description": "end of percentage fade out"
+    },
+    {
+      "key": "$var11",
+      "value": "getAnimationFrameCount()-24",
+      "type": "number",
+      "description": "start of percentage fade out"
+    },
+    {
+      "key": "$var12",
+      "value": "getAnimationFrameCount()-30",
+      "type": "number",
+      "description": "1st key frame of last blink"
+    },
+    {
+      "key": "$var13",
+      "value": "getAnimationFrameCount()-28",
+      "type": "number",
+      "description": "2nd key frame of last blink"
+    },
+    {
+      "key": "$var14",
+      "value": "getAnimationFrameCount()-26",
+      "type": "number",
+      "description": "3rd key frame of last blink"
+    },
+    {
+      "key": "$var15",
+      "value": "getAnimationFrameCount()-24",
+      "type": "number",
+      "description": "4th key frame of last blink"
+    },
+    {
+      "key": "$var16",
+      "value": "getAnimationFrameCount()-22",
+      "type": "number",
+      "description": "5th key frame of last blink"
+    },
+    {
+      "key": "$var17",
+      "value": "getAnimationFrameCount()-19",
+      "type": "number",
+      "description": "start of text down translation"
+    },
+    {
+      "key": "$var18",
+      "value": "getAnimationFrameCount()-17",
+      "type": "number",
+      "description": "start of end chart animation"
+    }
+  ]
+}

@@ -7,8 +7,8 @@ import kotlinx.serialization.descriptors.PrimitiveSerialDescriptor
 import kotlinx.serialization.descriptors.SerialDescriptor
 import kotlinx.serialization.encoding.Decoder
 import kotlinx.serialization.encoding.Encoder
-import kotlinx.serialization.json.JsonArray
 import kotlinx.serialization.json.JsonElement
+import kotlinx.serialization.json.JsonObject
 import kotlinx.serialization.json.JsonPrimitive
 import lottieAnimation.layer.properties.KPMultiDimensionalListOrPrimitive
 import lottieAnimation.layer.serializers.KPMultiDimensionalListOrPrimitiveSerializer
@@ -156,7 +156,7 @@ data class KPTextData(
     /**
      * Ranges
      */
-    var a: JsonArray,
+    var a: List<KPTextRange>,
 
     /**
      * Document
@@ -172,6 +172,49 @@ data class KPTextData(
      * Follow Path
      */
     var p: JsonElement
+)
+
+@Serializable
+data class KPTextRange(
+    /**
+     * name of the animation
+     */
+    var nm: JsonPrimitive? = null,
+    /**
+     * scale
+     */
+    var s: JsonObject? = null,
+    /**
+     * Addition animation properties
+     */
+    var a: KPTextAdditionalAnimationProperties
+)
+
+@Serializable
+data class KPTextAdditionalAnimationProperties(
+    var s: JsonObject? = null,
+    /**
+     * Fill Color
+     */
+    var fc: KPTextFillColor? = null
+)
+
+@Serializable
+data class KPTextFillColor(
+    /**
+     * Animated
+     */
+    var a: JsonPrimitive,
+
+    /**
+     * KeyFrames: Could be opacity(Primitive) or Color(List)
+     */
+    @Serializable(with = KPMultiDimensionalListOrPrimitiveSerializer::class)
+    var k: KPMultiDimensionalListOrPrimitive,
+    /**
+     * Property index
+     */
+    var ix: JsonPrimitive
 )
 
 @Serializable
@@ -194,7 +237,7 @@ data class KPTextEffect(
     /**
      * SubEffect
      */
-    val ef: List<KPTextSubEffect>
+    var ef: List<KPTextSubEffect>
 
 )
 
@@ -214,7 +257,7 @@ data class KPTextSubEffect(
 
     val ix: JsonPrimitive? = null,
 
-    val v: KPTextSubEffectValue
+    var v: KPTextSubEffectValue
 )
 
 @Serializable
@@ -227,7 +270,7 @@ data class KPTextSubEffectValue(
      * Color: Could be opacity(Primitive) or Color(List)
      */
     @Serializable(with = KPMultiDimensionalListOrPrimitiveSerializer::class)
-    val k: KPMultiDimensionalListOrPrimitive,
+    var k: KPMultiDimensionalListOrPrimitive,
     /**
      * index position
      */
