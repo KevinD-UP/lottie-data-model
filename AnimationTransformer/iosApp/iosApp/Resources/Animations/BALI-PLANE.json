@@ -659,10 +659,12 @@
             "shapes": [
                 {
                     "ty": "gr",
+                    "key": "lineRightShape",
                     "it": [
                         {
                             "ind": 0,
                             "ty": "sh",
+                            "key": "lineRightItShape",
                             "ix": 1,
                             "ks": {
                                 "a": 0,
@@ -958,9 +960,11 @@
             "shapes": [
                 {
                     "ty": "gr",
+                    "key": "lineLeftShape",
                     "it": [
                         {
                             "ind": 0,
+                            "key": "lineLeftItShape",
                             "ty": "sh",
                             "ix": 1,
                             "ks": {
@@ -1257,10 +1261,12 @@
             "shapes": [
                 {
                     "ty": "gr",
+                    "key": "lineTopShape",
                     "it": [
                         {
                             "ind": 0,
                             "ty": "sh",
+                            "key": "lineTopItShape",
                             "ix": 1,
                             "ks": {
                                 "a": 0,
@@ -1556,10 +1562,12 @@
             "shapes": [
                 {
                     "ty": "gr",
+                    "key": "lineBottomShape",
                     "it": [
                         {
                             "ind": 0,
                             "ty": "sh",
+                            "key": "lineBottomItShape",
                             "ix": 1,
                             "ks": {
                                 "a": 0,
@@ -2315,10 +2323,12 @@
                 },
                 {
                     "ty": "gr",
+                    "key": "groupSubTitleContainerShape",
                     "it": [
                         {
                             "ty": "rc",
                             "d": 1,
+                            "key": "subTitleContainerShape",
                             "s": {
                                 "a": 0,
                                 "k": [
