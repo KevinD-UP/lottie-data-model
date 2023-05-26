@@ -13,73 +13,73 @@
 		140BE23D2A1B5F1B006DC643 /* Lato-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 140BE23B2A1B5F1B006DC643 /* Lato-Regular.ttf */; };
 		1414917129D5CB0300E05FAF /* AnimationTransformerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1414917029D5CB0300E05FAF /* AnimationTransformerView.swift */; };
 		1414917329D5CB0900E05FAF /* ExpressionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1414917229D5CB0900E05FAF /* ExpressionView.swift */; };
-		1468DA312A1F97D3002E3809 /* BOGOTA-VECTOR-rules.json in Resources */ = {isa = PBXBuildFile; fileRef = 1468D9EE2A1F97D3002E3809 /* BOGOTA-VECTOR-rules.json */; };
-		1468DA322A1F97D3002E3809 /* ALGIERS-SIMCA.json in Resources */ = {isa = PBXBuildFile; fileRef = 1468D9EF2A1F97D3002E3809 /* ALGIERS-SIMCA.json */; };
-		1468DA332A1F97D3002E3809 /* SEATTLE-PEUGEOT.json in Resources */ = {isa = PBXBuildFile; fileRef = 1468D9F02A1F97D3002E3809 /* SEATTLE-PEUGEOT.json */; };
-		1468DA342A1F97D3002E3809 /* BERLIN-PEUGEOT.json in Resources */ = {isa = PBXBuildFile; fileRef = 1468D9F12A1F97D3002E3809 /* BERLIN-PEUGEOT.json */; };
-		1468DA352A1F97D3002E3809 /* LOS_ANGELES-PEUGEOT.json in Resources */ = {isa = PBXBuildFile; fileRef = 1468D9F22A1F97D3002E3809 /* LOS_ANGELES-PEUGEOT.json */; };
-		1468DA362A1F97D3002E3809 /* PARIS-FOX.json in Resources */ = {isa = PBXBuildFile; fileRef = 1468D9F32A1F97D3002E3809 /* PARIS-FOX.json */; };
-		1468DA372A1F97D3002E3809 /* GENEVA-FORD.json in Resources */ = {isa = PBXBuildFile; fileRef = 1468D9F42A1F97D3002E3809 /* GENEVA-FORD.json */; };
-		1468DA382A1F97D3002E3809 /* SEATTLE-FORD-rules.json in Resources */ = {isa = PBXBuildFile; fileRef = 1468D9F52A1F97D3002E3809 /* SEATTLE-FORD-rules.json */; };
-		1468DA392A1F97D3002E3809 /* GENEVA-PLANE.json in Resources */ = {isa = PBXBuildFile; fileRef = 1468D9F62A1F97D3002E3809 /* GENEVA-PLANE.json */; };
-		1468DA3A2A1F97D3002E3809 /* BALI-FORD-rules.json in Resources */ = {isa = PBXBuildFile; fileRef = 1468D9F72A1F97D3002E3809 /* BALI-FORD-rules.json */; };
-		1468DA3B2A1F97D3002E3809 /* BERLIN-FORD-rules.json in Resources */ = {isa = PBXBuildFile; fileRef = 1468D9F82A1F97D3002E3809 /* BERLIN-FORD-rules.json */; };
-		1468DA3C2A1F97D3002E3809 /* LOS_ANGELES-FORD.json in Resources */ = {isa = PBXBuildFile; fileRef = 1468D9F92A1F97D3002E3809 /* LOS_ANGELES-FORD.json */; };
-		1468DA3D2A1F97D3002E3809 /* GENEVA-PEUGEOT-rules.json in Resources */ = {isa = PBXBuildFile; fileRef = 1468D9FA2A1F97D3002E3809 /* GENEVA-PEUGEOT-rules.json */; };
-		1468DA3E2A1F97D3002E3809 /* BOGOTA-AVENTI.json in Resources */ = {isa = PBXBuildFile; fileRef = 1468D9FB2A1F97D3002E3809 /* BOGOTA-AVENTI.json */; };
-		1468DA3F2A1F97D3002E3809 /* LOS_ANGELES-PLANE.json in Resources */ = {isa = PBXBuildFile; fileRef = 1468D9FC2A1F97D3002E3809 /* LOS_ANGELES-PLANE.json */; };
-		1468DA402A1F97D3002E3809 /* BALI-PLANE-rules.json in Resources */ = {isa = PBXBuildFile; fileRef = 1468D9FD2A1F97D3002E3809 /* BALI-PLANE-rules.json */; };
-		1468DA412A1F97D3002E3809 /* BERLIN-PEUGEOT-rules.json in Resources */ = {isa = PBXBuildFile; fileRef = 1468D9FE2A1F97D3002E3809 /* BERLIN-PEUGEOT-rules.json */; };
-		1468DA422A1F97D3002E3809 /* SEATTLE-PLANE.json in Resources */ = {isa = PBXBuildFile; fileRef = 1468D9FF2A1F97D3002E3809 /* SEATTLE-PLANE.json */; };
-		1468DA432A1F97D3002E3809 /* BALI-PLANE.json in Resources */ = {isa = PBXBuildFile; fileRef = 1468DA002A1F97D3002E3809 /* BALI-PLANE.json */; };
-		1468DA442A1F97D3002E3809 /* BOGOTA-LINCOLN-rules.json in Resources */ = {isa = PBXBuildFile; fileRef = 1468DA012A1F97D3002E3809 /* BOGOTA-LINCOLN-rules.json */; };
-		1468DA452A1F97D3002E3809 /* BOGOTA-DODGE.json in Resources */ = {isa = PBXBuildFile; fileRef = 1468DA022A1F97D3002E3809 /* BOGOTA-DODGE.json */; };
-		1468DA462A1F97D3002E3809 /* BOGOTA-ROUSH-rules.json in Resources */ = {isa = PBXBuildFile; fileRef = 1468DA032A1F97D3002E3809 /* BOGOTA-ROUSH-rules.json */; };
-		1468DA472A1F97D3002E3809 /* LOS_ANGELES-SIMCA.json in Resources */ = {isa = PBXBuildFile; fileRef = 1468DA042A1F97D3002E3809 /* LOS_ANGELES-SIMCA.json */; };
-		1468DA482A1F97D3002E3809 /* BOGOTA-DELOREAN-rules.json in Resources */ = {isa = PBXBuildFile; fileRef = 1468DA052A1F97D3002E3809 /* BOGOTA-DELOREAN-rules.json */; };
-		1468DA492A1F97D3002E3809 /* ALGIERS-PEUGEOT-rules.json in Resources */ = {isa = PBXBuildFile; fileRef = 1468DA062A1F97D3002E3809 /* ALGIERS-PEUGEOT-rules.json */; };
-		1468DA4A2A1F97D3002E3809 /* PARIS-FOX-rules.json in Resources */ = {isa = PBXBuildFile; fileRef = 1468DA072A1F97D3002E3809 /* PARIS-FOX-rules.json */; };
-		1468DA4B2A1F97D3002E3809 /* BALI-PLANE-rules-OLD.json in Resources */ = {isa = PBXBuildFile; fileRef = 1468DA082A1F97D3002E3809 /* BALI-PLANE-rules-OLD.json */; };
-		1468DA4C2A1F97D3002E3809 /* BOGOTA-DELOREAN.json in Resources */ = {isa = PBXBuildFile; fileRef = 1468DA092A1F97D3002E3809 /* BOGOTA-DELOREAN.json */; };
-		1468DA4D2A1F97D3002E3809 /* BERLIN-PLANE.json in Resources */ = {isa = PBXBuildFile; fileRef = 1468DA0A2A1F97D3002E3809 /* BERLIN-PLANE.json */; };
-		1468DA4E2A1F97D3002E3809 /* BALI-PEUGEOT.json in Resources */ = {isa = PBXBuildFile; fileRef = 1468DA0B2A1F97D3002E3809 /* BALI-PEUGEOT.json */; };
-		1468DA4F2A1F97D3002E3809 /* ALGIERS-PLANE.json in Resources */ = {isa = PBXBuildFile; fileRef = 1468DA0C2A1F97D3002E3809 /* ALGIERS-PLANE.json */; };
-		1468DA502A1F97D3002E3809 /* ALGIERS-FORD.json in Resources */ = {isa = PBXBuildFile; fileRef = 1468DA0D2A1F97D3002E3809 /* ALGIERS-FORD.json */; };
-		1468DA512A1F97D3002E3809 /* ALGIERS-SIMCA-rules.json in Resources */ = {isa = PBXBuildFile; fileRef = 1468DA0E2A1F97D3002E3809 /* ALGIERS-SIMCA-rules.json */; };
-		1468DA522A1F97D3002E3809 /* PARIS-OWL-rules.json in Resources */ = {isa = PBXBuildFile; fileRef = 1468DA0F2A1F97D3002E3809 /* PARIS-OWL-rules.json */; };
-		1468DA532A1F97D3002E3809 /* SEATTLE-FORD.json in Resources */ = {isa = PBXBuildFile; fileRef = 1468DA102A1F97D3002E3809 /* SEATTLE-FORD.json */; };
-		1468DA542A1F97D3002E3809 /* BOGOTA-TOYOTA-rules.json in Resources */ = {isa = PBXBuildFile; fileRef = 1468DA112A1F97D3002E3809 /* BOGOTA-TOYOTA-rules.json */; };
-		1468DA552A1F97D3002E3809 /* BALI-PEUGEOT-rules.json in Resources */ = {isa = PBXBuildFile; fileRef = 1468DA122A1F97D3002E3809 /* BALI-PEUGEOT-rules.json */; };
-		1468DA562A1F97D3002E3809 /* PARIS-BUTTERFLY.json in Resources */ = {isa = PBXBuildFile; fileRef = 1468DA132A1F97D3002E3809 /* PARIS-BUTTERFLY.json */; };
-		1468DA572A1F97D3002E3809 /* LOS_ANGELES-PLANE-rules.json in Resources */ = {isa = PBXBuildFile; fileRef = 1468DA142A1F97D3002E3809 /* LOS_ANGELES-PLANE-rules.json */; };
-		1468DA582A1F97D3002E3809 /* BOGOTA-TOYOTA.json in Resources */ = {isa = PBXBuildFile; fileRef = 1468DA152A1F97D3002E3809 /* BOGOTA-TOYOTA.json */; };
-		1468DA592A1F97D3002E3809 /* ALGIERS-PLANE-rules.json in Resources */ = {isa = PBXBuildFile; fileRef = 1468DA162A1F97D3002E3809 /* ALGIERS-PLANE-rules.json */; };
-		1468DA5A2A1F97D3002E3809 /* ALGIERS-PEUGEOT.json in Resources */ = {isa = PBXBuildFile; fileRef = 1468DA172A1F97D3002E3809 /* ALGIERS-PEUGEOT.json */; };
-		1468DA5B2A1F97D3002E3809 /* BERLIN-FORD.json in Resources */ = {isa = PBXBuildFile; fileRef = 1468DA182A1F97D3002E3809 /* BERLIN-FORD.json */; };
-		1468DA5C2A1F97D3002E3809 /* LOS_ANGELES-SIMCA-rules.json in Resources */ = {isa = PBXBuildFile; fileRef = 1468DA192A1F97D3002E3809 /* LOS_ANGELES-SIMCA-rules.json */; };
-		1468DA5D2A1F97D3002E3809 /* BALI-FORD.json in Resources */ = {isa = PBXBuildFile; fileRef = 1468DA1A2A1F97D3002E3809 /* BALI-FORD.json */; };
-		1468DA5E2A1F97D3002E3809 /* PARIS-OWL.json in Resources */ = {isa = PBXBuildFile; fileRef = 1468DA1B2A1F97D3002E3809 /* PARIS-OWL.json */; };
-		1468DA5F2A1F97D3002E3809 /* BOGOTA-RAM-rules.json in Resources */ = {isa = PBXBuildFile; fileRef = 1468DA1C2A1F97D3002E3809 /* BOGOTA-RAM-rules.json */; };
-		1468DA602A1F97D3002E3809 /* GENEVA-PEUGEOT.json in Resources */ = {isa = PBXBuildFile; fileRef = 1468DA1D2A1F97D3002E3809 /* GENEVA-PEUGEOT.json */; };
-		1468DA612A1F97D3002E3809 /* BOGOTA-AUSTIN-rules.json in Resources */ = {isa = PBXBuildFile; fileRef = 1468DA1E2A1F97D3002E3809 /* BOGOTA-AUSTIN-rules.json */; };
-		1468DA622A1F97D3002E3809 /* BOGOTA-MCLAREN.json in Resources */ = {isa = PBXBuildFile; fileRef = 1468DA1F2A1F97D3002E3809 /* BOGOTA-MCLAREN.json */; };
-		1468DA632A1F97D3002E3809 /* GENEVA-FORD-rules.json in Resources */ = {isa = PBXBuildFile; fileRef = 1468DA202A1F97D3002E3809 /* GENEVA-FORD-rules.json */; };
-		1468DA642A1F97D3002E3809 /* BOGOTA-VECTOR.json in Resources */ = {isa = PBXBuildFile; fileRef = 1468DA212A1F97D3002E3809 /* BOGOTA-VECTOR.json */; };
-		1468DA652A1F97D3002E3809 /* BOGOTA-RAM.json in Resources */ = {isa = PBXBuildFile; fileRef = 1468DA222A1F97D3002E3809 /* BOGOTA-RAM.json */; };
-		1468DA662A1F97D3002E3809 /* BOGOTA-DODGE-rules.json in Resources */ = {isa = PBXBuildFile; fileRef = 1468DA232A1F97D3002E3809 /* BOGOTA-DODGE-rules.json */; };
-		1468DA672A1F97D3002E3809 /* ALGIERS-FORD-rules.json in Resources */ = {isa = PBXBuildFile; fileRef = 1468DA242A1F97D3002E3809 /* ALGIERS-FORD-rules.json */; };
-		1468DA682A1F97D3002E3809 /* BOGOTA-AUSTIN.json in Resources */ = {isa = PBXBuildFile; fileRef = 1468DA252A1F97D3002E3809 /* BOGOTA-AUSTIN.json */; };
-		1468DA692A1F97D3002E3809 /* BOGOTA-AVENTI-rules.json in Resources */ = {isa = PBXBuildFile; fileRef = 1468DA262A1F97D3002E3809 /* BOGOTA-AVENTI-rules.json */; };
-		1468DA6A2A1F97D3002E3809 /* BOGOTA-ROUSH.json in Resources */ = {isa = PBXBuildFile; fileRef = 1468DA272A1F97D3002E3809 /* BOGOTA-ROUSH.json */; };
-		1468DA6B2A1F97D3002E3809 /* LOS_ANGELES-FORD-rules.json in Resources */ = {isa = PBXBuildFile; fileRef = 1468DA282A1F97D3002E3809 /* LOS_ANGELES-FORD-rules.json */; };
-		1468DA6C2A1F97D3002E3809 /* SEATTLE-PLANE-rules.json in Resources */ = {isa = PBXBuildFile; fileRef = 1468DA292A1F97D3002E3809 /* SEATTLE-PLANE-rules.json */; };
-		1468DA6D2A1F97D3002E3809 /* GENEVA-PLANE-rules.json in Resources */ = {isa = PBXBuildFile; fileRef = 1468DA2A2A1F97D3002E3809 /* GENEVA-PLANE-rules.json */; };
-		1468DA6E2A1F97D3002E3809 /* SEATTLE-PEUGEOT-rules.json in Resources */ = {isa = PBXBuildFile; fileRef = 1468DA2B2A1F97D3002E3809 /* SEATTLE-PEUGEOT-rules.json */; };
-		1468DA6F2A1F97D3002E3809 /* BERLIN-PLANE-rules.json in Resources */ = {isa = PBXBuildFile; fileRef = 1468DA2C2A1F97D3002E3809 /* BERLIN-PLANE-rules.json */; };
-		1468DA702A1F97D3002E3809 /* BOGOTA-MCLAREN-rules.json in Resources */ = {isa = PBXBuildFile; fileRef = 1468DA2D2A1F97D3002E3809 /* BOGOTA-MCLAREN-rules.json */; };
-		1468DA712A1F97D3002E3809 /* LOS_ANGELES-PEUGEOT-rules.json in Resources */ = {isa = PBXBuildFile; fileRef = 1468DA2E2A1F97D3002E3809 /* LOS_ANGELES-PEUGEOT-rules.json */; };
-		1468DA722A1F97D3002E3809 /* BOGOTA-LINCOLN.json in Resources */ = {isa = PBXBuildFile; fileRef = 1468DA2F2A1F97D3002E3809 /* BOGOTA-LINCOLN.json */; };
-		1468DA732A1F97D3002E3809 /* PARIS-BUTTERFLY-rules.json in Resources */ = {isa = PBXBuildFile; fileRef = 1468DA302A1F97D3002E3809 /* PARIS-BUTTERFLY-rules.json */; };
+		14A87AD82A20DBA200B91A0B /* BOGOTA-AUSTIN.json in Resources */ = {isa = PBXBuildFile; fileRef = 14A87A952A20DBA100B91A0B /* BOGOTA-AUSTIN.json */; };
+		14A87AD92A20DBA200B91A0B /* PARIS-FOX-rules.json in Resources */ = {isa = PBXBuildFile; fileRef = 14A87A962A20DBA100B91A0B /* PARIS-FOX-rules.json */; };
+		14A87ADA2A20DBA200B91A0B /* GENEVA-PEUGEOT.json in Resources */ = {isa = PBXBuildFile; fileRef = 14A87A972A20DBA100B91A0B /* GENEVA-PEUGEOT.json */; };
+		14A87ADB2A20DBA200B91A0B /* BOGOTA-ROUSH.json in Resources */ = {isa = PBXBuildFile; fileRef = 14A87A982A20DBA100B91A0B /* BOGOTA-ROUSH.json */; };
+		14A87ADC2A20DBA200B91A0B /* BOGOTA-MCLAREN-rules.json in Resources */ = {isa = PBXBuildFile; fileRef = 14A87A992A20DBA100B91A0B /* BOGOTA-MCLAREN-rules.json */; };
+		14A87ADD2A20DBA200B91A0B /* PARIS-BUTTERFLY.json in Resources */ = {isa = PBXBuildFile; fileRef = 14A87A9A2A20DBA100B91A0B /* PARIS-BUTTERFLY.json */; };
+		14A87ADE2A20DBA200B91A0B /* SEATTLE-PLANE-rules.json in Resources */ = {isa = PBXBuildFile; fileRef = 14A87A9B2A20DBA100B91A0B /* SEATTLE-PLANE-rules.json */; };
+		14A87ADF2A20DBA200B91A0B /* BERLIN-PLANE.json in Resources */ = {isa = PBXBuildFile; fileRef = 14A87A9C2A20DBA100B91A0B /* BERLIN-PLANE.json */; };
+		14A87AE02A20DBA200B91A0B /* SEATTLE-FORD.json in Resources */ = {isa = PBXBuildFile; fileRef = 14A87A9D2A20DBA100B91A0B /* SEATTLE-FORD.json */; };
+		14A87AE12A20DBA200B91A0B /* ALGIERS-SIMCA.json in Resources */ = {isa = PBXBuildFile; fileRef = 14A87A9E2A20DBA100B91A0B /* ALGIERS-SIMCA.json */; };
+		14A87AE22A20DBA200B91A0B /* BOGOTA-VECTOR.json in Resources */ = {isa = PBXBuildFile; fileRef = 14A87A9F2A20DBA100B91A0B /* BOGOTA-VECTOR.json */; };
+		14A87AE32A20DBA200B91A0B /* LOS_ANGELES-PEUGEOT.json in Resources */ = {isa = PBXBuildFile; fileRef = 14A87AA02A20DBA100B91A0B /* LOS_ANGELES-PEUGEOT.json */; };
+		14A87AE42A20DBA200B91A0B /* ALGIERS-FORD.json in Resources */ = {isa = PBXBuildFile; fileRef = 14A87AA12A20DBA100B91A0B /* ALGIERS-FORD.json */; };
+		14A87AE52A20DBA200B91A0B /* BERLIN-FORD-rules.json in Resources */ = {isa = PBXBuildFile; fileRef = 14A87AA22A20DBA100B91A0B /* BERLIN-FORD-rules.json */; };
+		14A87AE62A20DBA200B91A0B /* ALGIERS-FORD-rules.json in Resources */ = {isa = PBXBuildFile; fileRef = 14A87AA32A20DBA100B91A0B /* ALGIERS-FORD-rules.json */; };
+		14A87AE72A20DBA200B91A0B /* LOS_ANGELES-PLANE.json in Resources */ = {isa = PBXBuildFile; fileRef = 14A87AA42A20DBA100B91A0B /* LOS_ANGELES-PLANE.json */; };
+		14A87AE82A20DBA200B91A0B /* LOS_ANGELES-SIMCA-rules.json in Resources */ = {isa = PBXBuildFile; fileRef = 14A87AA52A20DBA100B91A0B /* LOS_ANGELES-SIMCA-rules.json */; };
+		14A87AE92A20DBA200B91A0B /* PARIS-FOX.json in Resources */ = {isa = PBXBuildFile; fileRef = 14A87AA62A20DBA100B91A0B /* PARIS-FOX.json */; };
+		14A87AEA2A20DBA200B91A0B /* BALI-PLANE-rules.json in Resources */ = {isa = PBXBuildFile; fileRef = 14A87AA72A20DBA100B91A0B /* BALI-PLANE-rules.json */; };
+		14A87AEB2A20DBA200B91A0B /* BERLIN-PLANE-rules.json in Resources */ = {isa = PBXBuildFile; fileRef = 14A87AA82A20DBA100B91A0B /* BERLIN-PLANE-rules.json */; };
+		14A87AEC2A20DBA200B91A0B /* ALGIERS-SIMCA-rules.json in Resources */ = {isa = PBXBuildFile; fileRef = 14A87AA92A20DBA100B91A0B /* ALGIERS-SIMCA-rules.json */; };
+		14A87AED2A20DBA200B91A0B /* SEATTLE-PLANE.json in Resources */ = {isa = PBXBuildFile; fileRef = 14A87AAA2A20DBA100B91A0B /* SEATTLE-PLANE.json */; };
+		14A87AEE2A20DBA200B91A0B /* BALI-PLANE-rules-OLD.json in Resources */ = {isa = PBXBuildFile; fileRef = 14A87AAB2A20DBA100B91A0B /* BALI-PLANE-rules-OLD.json */; };
+		14A87AEF2A20DBA200B91A0B /* BOGOTA-MCLAREN.json in Resources */ = {isa = PBXBuildFile; fileRef = 14A87AAC2A20DBA100B91A0B /* BOGOTA-MCLAREN.json */; };
+		14A87AF02A20DBA200B91A0B /* BOGOTA-DODGE-rules.json in Resources */ = {isa = PBXBuildFile; fileRef = 14A87AAD2A20DBA100B91A0B /* BOGOTA-DODGE-rules.json */; };
+		14A87AF12A20DBA200B91A0B /* BOGOTA-RAM-rules.json in Resources */ = {isa = PBXBuildFile; fileRef = 14A87AAE2A20DBA100B91A0B /* BOGOTA-RAM-rules.json */; };
+		14A87AF22A20DBA200B91A0B /* BOGOTA-LINCOLN.json in Resources */ = {isa = PBXBuildFile; fileRef = 14A87AAF2A20DBA100B91A0B /* BOGOTA-LINCOLN.json */; };
+		14A87AF32A20DBA200B91A0B /* BOGOTA-DELOREAN-rules.json in Resources */ = {isa = PBXBuildFile; fileRef = 14A87AB02A20DBA100B91A0B /* BOGOTA-DELOREAN-rules.json */; };
+		14A87AF42A20DBA200B91A0B /* LOS_ANGELES-PEUGEOT-rules.json in Resources */ = {isa = PBXBuildFile; fileRef = 14A87AB12A20DBA100B91A0B /* LOS_ANGELES-PEUGEOT-rules.json */; };
+		14A87AF52A20DBA200B91A0B /* BOGOTA-TOYOTA.json in Resources */ = {isa = PBXBuildFile; fileRef = 14A87AB22A20DBA100B91A0B /* BOGOTA-TOYOTA.json */; };
+		14A87AF62A20DBA200B91A0B /* BOGOTA-RAM.json in Resources */ = {isa = PBXBuildFile; fileRef = 14A87AB32A20DBA100B91A0B /* BOGOTA-RAM.json */; };
+		14A87AF72A20DBA200B91A0B /* GENEVA-PEUGEOT-rules.json in Resources */ = {isa = PBXBuildFile; fileRef = 14A87AB42A20DBA100B91A0B /* GENEVA-PEUGEOT-rules.json */; };
+		14A87AF82A20DBA200B91A0B /* BOGOTA-VECTOR-rules.json in Resources */ = {isa = PBXBuildFile; fileRef = 14A87AB52A20DBA100B91A0B /* BOGOTA-VECTOR-rules.json */; };
+		14A87AF92A20DBA200B91A0B /* GENEVA-PLANE.json in Resources */ = {isa = PBXBuildFile; fileRef = 14A87AB62A20DBA200B91A0B /* GENEVA-PLANE.json */; };
+		14A87AFA2A20DBA200B91A0B /* BERLIN-PEUGEOT.json in Resources */ = {isa = PBXBuildFile; fileRef = 14A87AB72A20DBA200B91A0B /* BERLIN-PEUGEOT.json */; };
+		14A87AFB2A20DBA200B91A0B /* LOS_ANGELES-FORD-rules.json in Resources */ = {isa = PBXBuildFile; fileRef = 14A87AB82A20DBA200B91A0B /* LOS_ANGELES-FORD-rules.json */; };
+		14A87AFC2A20DBA200B91A0B /* LOS_ANGELES-PLANE-rules.json in Resources */ = {isa = PBXBuildFile; fileRef = 14A87AB92A20DBA200B91A0B /* LOS_ANGELES-PLANE-rules.json */; };
+		14A87AFD2A20DBA200B91A0B /* BOGOTA-LINCOLN-rules.json in Resources */ = {isa = PBXBuildFile; fileRef = 14A87ABA2A20DBA200B91A0B /* BOGOTA-LINCOLN-rules.json */; };
+		14A87AFE2A20DBA200B91A0B /* ALGIERS-PEUGEOT.json in Resources */ = {isa = PBXBuildFile; fileRef = 14A87ABB2A20DBA200B91A0B /* ALGIERS-PEUGEOT.json */; };
+		14A87AFF2A20DBA200B91A0B /* BERLIN-PEUGEOT-rules.json in Resources */ = {isa = PBXBuildFile; fileRef = 14A87ABC2A20DBA200B91A0B /* BERLIN-PEUGEOT-rules.json */; };
+		14A87B002A20DBA200B91A0B /* GENEVA-FORD.json in Resources */ = {isa = PBXBuildFile; fileRef = 14A87ABD2A20DBA200B91A0B /* GENEVA-FORD.json */; };
+		14A87B012A20DBA200B91A0B /* PARIS-BUTTERFLY-rules.json in Resources */ = {isa = PBXBuildFile; fileRef = 14A87ABE2A20DBA200B91A0B /* PARIS-BUTTERFLY-rules.json */; };
+		14A87B022A20DBA200B91A0B /* SEATTLE-PEUGEOT-rules.json in Resources */ = {isa = PBXBuildFile; fileRef = 14A87ABF2A20DBA200B91A0B /* SEATTLE-PEUGEOT-rules.json */; };
+		14A87B032A20DBA200B91A0B /* BERLIN-FORD.json in Resources */ = {isa = PBXBuildFile; fileRef = 14A87AC02A20DBA200B91A0B /* BERLIN-FORD.json */; };
+		14A87B042A20DBA200B91A0B /* BALI-PEUGEOT.json in Resources */ = {isa = PBXBuildFile; fileRef = 14A87AC12A20DBA200B91A0B /* BALI-PEUGEOT.json */; };
+		14A87B052A20DBA200B91A0B /* BALI-FORD-rules.json in Resources */ = {isa = PBXBuildFile; fileRef = 14A87AC22A20DBA200B91A0B /* BALI-FORD-rules.json */; };
+		14A87B062A20DBA200B91A0B /* ALGIERS-PLANE-rules.json in Resources */ = {isa = PBXBuildFile; fileRef = 14A87AC32A20DBA200B91A0B /* ALGIERS-PLANE-rules.json */; };
+		14A87B072A20DBA200B91A0B /* BOGOTA-DELOREAN.json in Resources */ = {isa = PBXBuildFile; fileRef = 14A87AC42A20DBA200B91A0B /* BOGOTA-DELOREAN.json */; };
+		14A87B082A20DBA200B91A0B /* ALGIERS-PLANE.json in Resources */ = {isa = PBXBuildFile; fileRef = 14A87AC52A20DBA200B91A0B /* ALGIERS-PLANE.json */; };
+		14A87B092A20DBA200B91A0B /* BOGOTA-AVENTI-rules.json in Resources */ = {isa = PBXBuildFile; fileRef = 14A87AC62A20DBA200B91A0B /* BOGOTA-AVENTI-rules.json */; };
+		14A87B0A2A20DBA200B91A0B /* BALI-PLANE.json in Resources */ = {isa = PBXBuildFile; fileRef = 14A87AC72A20DBA200B91A0B /* BALI-PLANE.json */; };
+		14A87B0B2A20DBA200B91A0B /* BALI-FORD.json in Resources */ = {isa = PBXBuildFile; fileRef = 14A87AC82A20DBA200B91A0B /* BALI-FORD.json */; };
+		14A87B0C2A20DBA200B91A0B /* BALI-PEUGEOT-rules.json in Resources */ = {isa = PBXBuildFile; fileRef = 14A87AC92A20DBA200B91A0B /* BALI-PEUGEOT-rules.json */; };
+		14A87B0D2A20DBA200B91A0B /* LOS_ANGELES-SIMCA.json in Resources */ = {isa = PBXBuildFile; fileRef = 14A87ACA2A20DBA200B91A0B /* LOS_ANGELES-SIMCA.json */; };
+		14A87B0E2A20DBA200B91A0B /* ALGIERS-PEUGEOT-rules.json in Resources */ = {isa = PBXBuildFile; fileRef = 14A87ACB2A20DBA200B91A0B /* ALGIERS-PEUGEOT-rules.json */; };
+		14A87B0F2A20DBA200B91A0B /* SEATTLE-FORD-rules.json in Resources */ = {isa = PBXBuildFile; fileRef = 14A87ACC2A20DBA200B91A0B /* SEATTLE-FORD-rules.json */; };
+		14A87B102A20DBA200B91A0B /* SEATTLE-PEUGEOT.json in Resources */ = {isa = PBXBuildFile; fileRef = 14A87ACD2A20DBA200B91A0B /* SEATTLE-PEUGEOT.json */; };
+		14A87B112A20DBA200B91A0B /* BOGOTA-ROUSH-rules.json in Resources */ = {isa = PBXBuildFile; fileRef = 14A87ACE2A20DBA200B91A0B /* BOGOTA-ROUSH-rules.json */; };
+		14A87B122A20DBA200B91A0B /* BOGOTA-AVENTI.json in Resources */ = {isa = PBXBuildFile; fileRef = 14A87ACF2A20DBA200B91A0B /* BOGOTA-AVENTI.json */; };
+		14A87B132A20DBA200B91A0B /* BOGOTA-DODGE.json in Resources */ = {isa = PBXBuildFile; fileRef = 14A87AD02A20DBA200B91A0B /* BOGOTA-DODGE.json */; };
+		14A87B142A20DBA200B91A0B /* GENEVA-FORD-rules.json in Resources */ = {isa = PBXBuildFile; fileRef = 14A87AD12A20DBA200B91A0B /* GENEVA-FORD-rules.json */; };
+		14A87B152A20DBA200B91A0B /* PARIS-OWL.json in Resources */ = {isa = PBXBuildFile; fileRef = 14A87AD22A20DBA200B91A0B /* PARIS-OWL.json */; };
+		14A87B162A20DBA200B91A0B /* BOGOTA-AUSTIN-rules.json in Resources */ = {isa = PBXBuildFile; fileRef = 14A87AD32A20DBA200B91A0B /* BOGOTA-AUSTIN-rules.json */; };
+		14A87B172A20DBA200B91A0B /* LOS_ANGELES-FORD.json in Resources */ = {isa = PBXBuildFile; fileRef = 14A87AD42A20DBA200B91A0B /* LOS_ANGELES-FORD.json */; };
+		14A87B182A20DBA200B91A0B /* GENEVA-PLANE-rules.json in Resources */ = {isa = PBXBuildFile; fileRef = 14A87AD52A20DBA200B91A0B /* GENEVA-PLANE-rules.json */; };
+		14A87B192A20DBA200B91A0B /* BOGOTA-TOYOTA-rules.json in Resources */ = {isa = PBXBuildFile; fileRef = 14A87AD62A20DBA200B91A0B /* BOGOTA-TOYOTA-rules.json */; };
+		14A87B1A2A20DBA200B91A0B /* PARIS-OWL-rules.json in Resources */ = {isa = PBXBuildFile; fileRef = 14A87AD72A20DBA200B91A0B /* PARIS-OWL-rules.json */; };
 		14E32E142A0E738800241750 /* FunctionsDelegateNative.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E32E132A0E738700241750 /* FunctionsDelegateNative.swift */; };
 		14E59B7F2A04F64F00B83531 /* FontTransformerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E59B7E2A04F64F00B83531 /* FontTransformerView.swift */; };
 		14E59B822A04F7DB00B83531 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 14E59B812A04F7DB00B83531 /* Lottie */; };
@@ -96,73 +96,73 @@
 		140BE23B2A1B5F1B006DC643 /* Lato-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Regular.ttf"; sourceTree = "<group>"; };
 		1414917029D5CB0300E05FAF /* AnimationTransformerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationTransformerView.swift; sourceTree = "<group>"; };
 		1414917229D5CB0900E05FAF /* ExpressionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpressionView.swift; sourceTree = "<group>"; };
-		1468D9EE2A1F97D3002E3809 /* BOGOTA-VECTOR-rules.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "BOGOTA-VECTOR-rules.json"; sourceTree = "<group>"; };
-		1468D9EF2A1F97D3002E3809 /* ALGIERS-SIMCA.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "ALGIERS-SIMCA.json"; sourceTree = "<group>"; };
-		1468D9F02A1F97D3002E3809 /* SEATTLE-PEUGEOT.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "SEATTLE-PEUGEOT.json"; sourceTree = "<group>"; };
-		1468D9F12A1F97D3002E3809 /* BERLIN-PEUGEOT.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "BERLIN-PEUGEOT.json"; sourceTree = "<group>"; };
-		1468D9F22A1F97D3002E3809 /* LOS_ANGELES-PEUGEOT.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "LOS_ANGELES-PEUGEOT.json"; sourceTree = "<group>"; };
-		1468D9F32A1F97D3002E3809 /* PARIS-FOX.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "PARIS-FOX.json"; sourceTree = "<group>"; };
-		1468D9F42A1F97D3002E3809 /* GENEVA-FORD.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "GENEVA-FORD.json"; sourceTree = "<group>"; };
-		1468D9F52A1F97D3002E3809 /* SEATTLE-FORD-rules.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "SEATTLE-FORD-rules.json"; sourceTree = "<group>"; };
-		1468D9F62A1F97D3002E3809 /* GENEVA-PLANE.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "GENEVA-PLANE.json"; sourceTree = "<group>"; };
-		1468D9F72A1F97D3002E3809 /* BALI-FORD-rules.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "BALI-FORD-rules.json"; sourceTree = "<group>"; };
-		1468D9F82A1F97D3002E3809 /* BERLIN-FORD-rules.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "BERLIN-FORD-rules.json"; sourceTree = "<group>"; };
-		1468D9F92A1F97D3002E3809 /* LOS_ANGELES-FORD.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "LOS_ANGELES-FORD.json"; sourceTree = "<group>"; };
-		1468D9FA2A1F97D3002E3809 /* GENEVA-PEUGEOT-rules.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "GENEVA-PEUGEOT-rules.json"; sourceTree = "<group>"; };
-		1468D9FB2A1F97D3002E3809 /* BOGOTA-AVENTI.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "BOGOTA-AVENTI.json"; sourceTree = "<group>"; };
-		1468D9FC2A1F97D3002E3809 /* LOS_ANGELES-PLANE.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "LOS_ANGELES-PLANE.json"; sourceTree = "<group>"; };
-		1468D9FD2A1F97D3002E3809 /* BALI-PLANE-rules.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "BALI-PLANE-rules.json"; sourceTree = "<group>"; };
-		1468D9FE2A1F97D3002E3809 /* BERLIN-PEUGEOT-rules.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "BERLIN-PEUGEOT-rules.json"; sourceTree = "<group>"; };
-		1468D9FF2A1F97D3002E3809 /* SEATTLE-PLANE.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "SEATTLE-PLANE.json"; sourceTree = "<group>"; };
-		1468DA002A1F97D3002E3809 /* BALI-PLANE.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "BALI-PLANE.json"; sourceTree = "<group>"; };
-		1468DA012A1F97D3002E3809 /* BOGOTA-LINCOLN-rules.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "BOGOTA-LINCOLN-rules.json"; sourceTree = "<group>"; };
-		1468DA022A1F97D3002E3809 /* BOGOTA-DODGE.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "BOGOTA-DODGE.json"; sourceTree = "<group>"; };
-		1468DA032A1F97D3002E3809 /* BOGOTA-ROUSH-rules.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "BOGOTA-ROUSH-rules.json"; sourceTree = "<group>"; };
-		1468DA042A1F97D3002E3809 /* LOS_ANGELES-SIMCA.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "LOS_ANGELES-SIMCA.json"; sourceTree = "<group>"; };
-		1468DA052A1F97D3002E3809 /* BOGOTA-DELOREAN-rules.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "BOGOTA-DELOREAN-rules.json"; sourceTree = "<group>"; };
-		1468DA062A1F97D3002E3809 /* ALGIERS-PEUGEOT-rules.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "ALGIERS-PEUGEOT-rules.json"; sourceTree = "<group>"; };
-		1468DA072A1F97D3002E3809 /* PARIS-FOX-rules.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "PARIS-FOX-rules.json"; sourceTree = "<group>"; };
-		1468DA082A1F97D3002E3809 /* BALI-PLANE-rules-OLD.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "BALI-PLANE-rules-OLD.json"; sourceTree = "<group>"; };
-		1468DA092A1F97D3002E3809 /* BOGOTA-DELOREAN.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "BOGOTA-DELOREAN.json"; sourceTree = "<group>"; };
-		1468DA0A2A1F97D3002E3809 /* BERLIN-PLANE.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "BERLIN-PLANE.json"; sourceTree = "<group>"; };
-		1468DA0B2A1F97D3002E3809 /* BALI-PEUGEOT.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "BALI-PEUGEOT.json"; sourceTree = "<group>"; };
-		1468DA0C2A1F97D3002E3809 /* ALGIERS-PLANE.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "ALGIERS-PLANE.json"; sourceTree = "<group>"; };
-		1468DA0D2A1F97D3002E3809 /* ALGIERS-FORD.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "ALGIERS-FORD.json"; sourceTree = "<group>"; };
-		1468DA0E2A1F97D3002E3809 /* ALGIERS-SIMCA-rules.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "ALGIERS-SIMCA-rules.json"; sourceTree = "<group>"; };
-		1468DA0F2A1F97D3002E3809 /* PARIS-OWL-rules.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "PARIS-OWL-rules.json"; sourceTree = "<group>"; };
-		1468DA102A1F97D3002E3809 /* SEATTLE-FORD.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "SEATTLE-FORD.json"; sourceTree = "<group>"; };
-		1468DA112A1F97D3002E3809 /* BOGOTA-TOYOTA-rules.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "BOGOTA-TOYOTA-rules.json"; sourceTree = "<group>"; };
-		1468DA122A1F97D3002E3809 /* BALI-PEUGEOT-rules.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "BALI-PEUGEOT-rules.json"; sourceTree = "<group>"; };
-		1468DA132A1F97D3002E3809 /* PARIS-BUTTERFLY.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "PARIS-BUTTERFLY.json"; sourceTree = "<group>"; };
-		1468DA142A1F97D3002E3809 /* LOS_ANGELES-PLANE-rules.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "LOS_ANGELES-PLANE-rules.json"; sourceTree = "<group>"; };
-		1468DA152A1F97D3002E3809 /* BOGOTA-TOYOTA.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "BOGOTA-TOYOTA.json"; sourceTree = "<group>"; };
-		1468DA162A1F97D3002E3809 /* ALGIERS-PLANE-rules.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "ALGIERS-PLANE-rules.json"; sourceTree = "<group>"; };
-		1468DA172A1F97D3002E3809 /* ALGIERS-PEUGEOT.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "ALGIERS-PEUGEOT.json"; sourceTree = "<group>"; };
-		1468DA182A1F97D3002E3809 /* BERLIN-FORD.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "BERLIN-FORD.json"; sourceTree = "<group>"; };
-		1468DA192A1F97D3002E3809 /* LOS_ANGELES-SIMCA-rules.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "LOS_ANGELES-SIMCA-rules.json"; sourceTree = "<group>"; };
-		1468DA1A2A1F97D3002E3809 /* BALI-FORD.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "BALI-FORD.json"; sourceTree = "<group>"; };
-		1468DA1B2A1F97D3002E3809 /* PARIS-OWL.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "PARIS-OWL.json"; sourceTree = "<group>"; };
-		1468DA1C2A1F97D3002E3809 /* BOGOTA-RAM-rules.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "BOGOTA-RAM-rules.json"; sourceTree = "<group>"; };
-		1468DA1D2A1F97D3002E3809 /* GENEVA-PEUGEOT.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "GENEVA-PEUGEOT.json"; sourceTree = "<group>"; };
-		1468DA1E2A1F97D3002E3809 /* BOGOTA-AUSTIN-rules.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "BOGOTA-AUSTIN-rules.json"; sourceTree = "<group>"; };
-		1468DA1F2A1F97D3002E3809 /* BOGOTA-MCLAREN.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "BOGOTA-MCLAREN.json"; sourceTree = "<group>"; };
-		1468DA202A1F97D3002E3809 /* GENEVA-FORD-rules.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "GENEVA-FORD-rules.json"; sourceTree = "<group>"; };
-		1468DA212A1F97D3002E3809 /* BOGOTA-VECTOR.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "BOGOTA-VECTOR.json"; sourceTree = "<group>"; };
-		1468DA222A1F97D3002E3809 /* BOGOTA-RAM.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "BOGOTA-RAM.json"; sourceTree = "<group>"; };
-		1468DA232A1F97D3002E3809 /* BOGOTA-DODGE-rules.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "BOGOTA-DODGE-rules.json"; sourceTree = "<group>"; };
-		1468DA242A1F97D3002E3809 /* ALGIERS-FORD-rules.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "ALGIERS-FORD-rules.json"; sourceTree = "<group>"; };
-		1468DA252A1F97D3002E3809 /* BOGOTA-AUSTIN.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "BOGOTA-AUSTIN.json"; sourceTree = "<group>"; };
-		1468DA262A1F97D3002E3809 /* BOGOTA-AVENTI-rules.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "BOGOTA-AVENTI-rules.json"; sourceTree = "<group>"; };
-		1468DA272A1F97D3002E3809 /* BOGOTA-ROUSH.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "BOGOTA-ROUSH.json"; sourceTree = "<group>"; };
-		1468DA282A1F97D3002E3809 /* LOS_ANGELES-FORD-rules.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "LOS_ANGELES-FORD-rules.json"; sourceTree = "<group>"; };
-		1468DA292A1F97D3002E3809 /* SEATTLE-PLANE-rules.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "SEATTLE-PLANE-rules.json"; sourceTree = "<group>"; };
-		1468DA2A2A1F97D3002E3809 /* GENEVA-PLANE-rules.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "GENEVA-PLANE-rules.json"; sourceTree = "<group>"; };
-		1468DA2B2A1F97D3002E3809 /* SEATTLE-PEUGEOT-rules.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "SEATTLE-PEUGEOT-rules.json"; sourceTree = "<group>"; };
-		1468DA2C2A1F97D3002E3809 /* BERLIN-PLANE-rules.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "BERLIN-PLANE-rules.json"; sourceTree = "<group>"; };
-		1468DA2D2A1F97D3002E3809 /* BOGOTA-MCLAREN-rules.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "BOGOTA-MCLAREN-rules.json"; sourceTree = "<group>"; };
-		1468DA2E2A1F97D3002E3809 /* LOS_ANGELES-PEUGEOT-rules.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "LOS_ANGELES-PEUGEOT-rules.json"; sourceTree = "<group>"; };
-		1468DA2F2A1F97D3002E3809 /* BOGOTA-LINCOLN.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "BOGOTA-LINCOLN.json"; sourceTree = "<group>"; };
-		1468DA302A1F97D3002E3809 /* PARIS-BUTTERFLY-rules.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "PARIS-BUTTERFLY-rules.json"; sourceTree = "<group>"; };
+		14A87A952A20DBA100B91A0B /* BOGOTA-AUSTIN.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "BOGOTA-AUSTIN.json"; sourceTree = "<group>"; };
+		14A87A962A20DBA100B91A0B /* PARIS-FOX-rules.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "PARIS-FOX-rules.json"; sourceTree = "<group>"; };
+		14A87A972A20DBA100B91A0B /* GENEVA-PEUGEOT.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "GENEVA-PEUGEOT.json"; sourceTree = "<group>"; };
+		14A87A982A20DBA100B91A0B /* BOGOTA-ROUSH.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "BOGOTA-ROUSH.json"; sourceTree = "<group>"; };
+		14A87A992A20DBA100B91A0B /* BOGOTA-MCLAREN-rules.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "BOGOTA-MCLAREN-rules.json"; sourceTree = "<group>"; };
+		14A87A9A2A20DBA100B91A0B /* PARIS-BUTTERFLY.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "PARIS-BUTTERFLY.json"; sourceTree = "<group>"; };
+		14A87A9B2A20DBA100B91A0B /* SEATTLE-PLANE-rules.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "SEATTLE-PLANE-rules.json"; sourceTree = "<group>"; };
+		14A87A9C2A20DBA100B91A0B /* BERLIN-PLANE.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "BERLIN-PLANE.json"; sourceTree = "<group>"; };
+		14A87A9D2A20DBA100B91A0B /* SEATTLE-FORD.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "SEATTLE-FORD.json"; sourceTree = "<group>"; };
+		14A87A9E2A20DBA100B91A0B /* ALGIERS-SIMCA.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "ALGIERS-SIMCA.json"; sourceTree = "<group>"; };
+		14A87A9F2A20DBA100B91A0B /* BOGOTA-VECTOR.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "BOGOTA-VECTOR.json"; sourceTree = "<group>"; };
+		14A87AA02A20DBA100B91A0B /* LOS_ANGELES-PEUGEOT.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "LOS_ANGELES-PEUGEOT.json"; sourceTree = "<group>"; };
+		14A87AA12A20DBA100B91A0B /* ALGIERS-FORD.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "ALGIERS-FORD.json"; sourceTree = "<group>"; };
+		14A87AA22A20DBA100B91A0B /* BERLIN-FORD-rules.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "BERLIN-FORD-rules.json"; sourceTree = "<group>"; };
+		14A87AA32A20DBA100B91A0B /* ALGIERS-FORD-rules.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "ALGIERS-FORD-rules.json"; sourceTree = "<group>"; };
+		14A87AA42A20DBA100B91A0B /* LOS_ANGELES-PLANE.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "LOS_ANGELES-PLANE.json"; sourceTree = "<group>"; };
+		14A87AA52A20DBA100B91A0B /* LOS_ANGELES-SIMCA-rules.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "LOS_ANGELES-SIMCA-rules.json"; sourceTree = "<group>"; };
+		14A87AA62A20DBA100B91A0B /* PARIS-FOX.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "PARIS-FOX.json"; sourceTree = "<group>"; };
+		14A87AA72A20DBA100B91A0B /* BALI-PLANE-rules.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "BALI-PLANE-rules.json"; sourceTree = "<group>"; };
+		14A87AA82A20DBA100B91A0B /* BERLIN-PLANE-rules.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "BERLIN-PLANE-rules.json"; sourceTree = "<group>"; };
+		14A87AA92A20DBA100B91A0B /* ALGIERS-SIMCA-rules.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "ALGIERS-SIMCA-rules.json"; sourceTree = "<group>"; };
+		14A87AAA2A20DBA100B91A0B /* SEATTLE-PLANE.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "SEATTLE-PLANE.json"; sourceTree = "<group>"; };
+		14A87AAB2A20DBA100B91A0B /* BALI-PLANE-rules-OLD.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "BALI-PLANE-rules-OLD.json"; sourceTree = "<group>"; };
+		14A87AAC2A20DBA100B91A0B /* BOGOTA-MCLAREN.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "BOGOTA-MCLAREN.json"; sourceTree = "<group>"; };
+		14A87AAD2A20DBA100B91A0B /* BOGOTA-DODGE-rules.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "BOGOTA-DODGE-rules.json"; sourceTree = "<group>"; };
+		14A87AAE2A20DBA100B91A0B /* BOGOTA-RAM-rules.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "BOGOTA-RAM-rules.json"; sourceTree = "<group>"; };
+		14A87AAF2A20DBA100B91A0B /* BOGOTA-LINCOLN.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "BOGOTA-LINCOLN.json"; sourceTree = "<group>"; };
+		14A87AB02A20DBA100B91A0B /* BOGOTA-DELOREAN-rules.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "BOGOTA-DELOREAN-rules.json"; sourceTree = "<group>"; };
+		14A87AB12A20DBA100B91A0B /* LOS_ANGELES-PEUGEOT-rules.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "LOS_ANGELES-PEUGEOT-rules.json"; sourceTree = "<group>"; };
+		14A87AB22A20DBA100B91A0B /* BOGOTA-TOYOTA.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "BOGOTA-TOYOTA.json"; sourceTree = "<group>"; };
+		14A87AB32A20DBA100B91A0B /* BOGOTA-RAM.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "BOGOTA-RAM.json"; sourceTree = "<group>"; };
+		14A87AB42A20DBA100B91A0B /* GENEVA-PEUGEOT-rules.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "GENEVA-PEUGEOT-rules.json"; sourceTree = "<group>"; };
+		14A87AB52A20DBA100B91A0B /* BOGOTA-VECTOR-rules.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "BOGOTA-VECTOR-rules.json"; sourceTree = "<group>"; };
+		14A87AB62A20DBA200B91A0B /* GENEVA-PLANE.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "GENEVA-PLANE.json"; sourceTree = "<group>"; };
+		14A87AB72A20DBA200B91A0B /* BERLIN-PEUGEOT.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "BERLIN-PEUGEOT.json"; sourceTree = "<group>"; };
+		14A87AB82A20DBA200B91A0B /* LOS_ANGELES-FORD-rules.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "LOS_ANGELES-FORD-rules.json"; sourceTree = "<group>"; };
+		14A87AB92A20DBA200B91A0B /* LOS_ANGELES-PLANE-rules.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "LOS_ANGELES-PLANE-rules.json"; sourceTree = "<group>"; };
+		14A87ABA2A20DBA200B91A0B /* BOGOTA-LINCOLN-rules.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "BOGOTA-LINCOLN-rules.json"; sourceTree = "<group>"; };
+		14A87ABB2A20DBA200B91A0B /* ALGIERS-PEUGEOT.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "ALGIERS-PEUGEOT.json"; sourceTree = "<group>"; };
+		14A87ABC2A20DBA200B91A0B /* BERLIN-PEUGEOT-rules.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "BERLIN-PEUGEOT-rules.json"; sourceTree = "<group>"; };
+		14A87ABD2A20DBA200B91A0B /* GENEVA-FORD.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "GENEVA-FORD.json"; sourceTree = "<group>"; };
+		14A87ABE2A20DBA200B91A0B /* PARIS-BUTTERFLY-rules.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "PARIS-BUTTERFLY-rules.json"; sourceTree = "<group>"; };
+		14A87ABF2A20DBA200B91A0B /* SEATTLE-PEUGEOT-rules.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "SEATTLE-PEUGEOT-rules.json"; sourceTree = "<group>"; };
+		14A87AC02A20DBA200B91A0B /* BERLIN-FORD.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "BERLIN-FORD.json"; sourceTree = "<group>"; };
+		14A87AC12A20DBA200B91A0B /* BALI-PEUGEOT.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "BALI-PEUGEOT.json"; sourceTree = "<group>"; };
+		14A87AC22A20DBA200B91A0B /* BALI-FORD-rules.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "BALI-FORD-rules.json"; sourceTree = "<group>"; };
+		14A87AC32A20DBA200B91A0B /* ALGIERS-PLANE-rules.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "ALGIERS-PLANE-rules.json"; sourceTree = "<group>"; };
+		14A87AC42A20DBA200B91A0B /* BOGOTA-DELOREAN.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "BOGOTA-DELOREAN.json"; sourceTree = "<group>"; };
+		14A87AC52A20DBA200B91A0B /* ALGIERS-PLANE.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "ALGIERS-PLANE.json"; sourceTree = "<group>"; };
+		14A87AC62A20DBA200B91A0B /* BOGOTA-AVENTI-rules.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "BOGOTA-AVENTI-rules.json"; sourceTree = "<group>"; };
+		14A87AC72A20DBA200B91A0B /* BALI-PLANE.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "BALI-PLANE.json"; sourceTree = "<group>"; };
+		14A87AC82A20DBA200B91A0B /* BALI-FORD.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "BALI-FORD.json"; sourceTree = "<group>"; };
+		14A87AC92A20DBA200B91A0B /* BALI-PEUGEOT-rules.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "BALI-PEUGEOT-rules.json"; sourceTree = "<group>"; };
+		14A87ACA2A20DBA200B91A0B /* LOS_ANGELES-SIMCA.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "LOS_ANGELES-SIMCA.json"; sourceTree = "<group>"; };
+		14A87ACB2A20DBA200B91A0B /* ALGIERS-PEUGEOT-rules.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "ALGIERS-PEUGEOT-rules.json"; sourceTree = "<group>"; };
+		14A87ACC2A20DBA200B91A0B /* SEATTLE-FORD-rules.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "SEATTLE-FORD-rules.json"; sourceTree = "<group>"; };
+		14A87ACD2A20DBA200B91A0B /* SEATTLE-PEUGEOT.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "SEATTLE-PEUGEOT.json"; sourceTree = "<group>"; };
+		14A87ACE2A20DBA200B91A0B /* BOGOTA-ROUSH-rules.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "BOGOTA-ROUSH-rules.json"; sourceTree = "<group>"; };
+		14A87ACF2A20DBA200B91A0B /* BOGOTA-AVENTI.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "BOGOTA-AVENTI.json"; sourceTree = "<group>"; };
+		14A87AD02A20DBA200B91A0B /* BOGOTA-DODGE.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "BOGOTA-DODGE.json"; sourceTree = "<group>"; };
+		14A87AD12A20DBA200B91A0B /* GENEVA-FORD-rules.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "GENEVA-FORD-rules.json"; sourceTree = "<group>"; };
+		14A87AD22A20DBA200B91A0B /* PARIS-OWL.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "PARIS-OWL.json"; sourceTree = "<group>"; };
+		14A87AD32A20DBA200B91A0B /* BOGOTA-AUSTIN-rules.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "BOGOTA-AUSTIN-rules.json"; sourceTree = "<group>"; };
+		14A87AD42A20DBA200B91A0B /* LOS_ANGELES-FORD.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "LOS_ANGELES-FORD.json"; sourceTree = "<group>"; };
+		14A87AD52A20DBA200B91A0B /* GENEVA-PLANE-rules.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "GENEVA-PLANE-rules.json"; sourceTree = "<group>"; };
+		14A87AD62A20DBA200B91A0B /* BOGOTA-TOYOTA-rules.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "BOGOTA-TOYOTA-rules.json"; sourceTree = "<group>"; };
+		14A87AD72A20DBA200B91A0B /* PARIS-OWL-rules.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "PARIS-OWL-rules.json"; sourceTree = "<group>"; };
 		14E32E132A0E738700241750 /* FunctionsDelegateNative.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FunctionsDelegateNative.swift; sourceTree = "<group>"; };
 		14E59B7E2A04F64F00B83531 /* FontTransformerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontTransformerView.swift; sourceTree = "<group>"; };
 		2152FB032600AC8F00CF470E /* iOSApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOSApp.swift; sourceTree = "<group>"; };
@@ -223,73 +223,73 @@
 		1468D9ED2A1F97D3002E3809 /* Animations */ = {
 			isa = PBXGroup;
 			children = (
-				1468D9EE2A1F97D3002E3809 /* BOGOTA-VECTOR-rules.json */,
-				1468D9EF2A1F97D3002E3809 /* ALGIERS-SIMCA.json */,
-				1468D9F02A1F97D3002E3809 /* SEATTLE-PEUGEOT.json */,
-				1468D9F12A1F97D3002E3809 /* BERLIN-PEUGEOT.json */,
-				1468D9F22A1F97D3002E3809 /* LOS_ANGELES-PEUGEOT.json */,
-				1468D9F32A1F97D3002E3809 /* PARIS-FOX.json */,
-				1468D9F42A1F97D3002E3809 /* GENEVA-FORD.json */,
-				1468D9F52A1F97D3002E3809 /* SEATTLE-FORD-rules.json */,
-				1468D9F62A1F97D3002E3809 /* GENEVA-PLANE.json */,
-				1468D9F72A1F97D3002E3809 /* BALI-FORD-rules.json */,
-				1468D9F82A1F97D3002E3809 /* BERLIN-FORD-rules.json */,
-				1468D9F92A1F97D3002E3809 /* LOS_ANGELES-FORD.json */,
-				1468D9FA2A1F97D3002E3809 /* GENEVA-PEUGEOT-rules.json */,
-				1468D9FB2A1F97D3002E3809 /* BOGOTA-AVENTI.json */,
-				1468D9FC2A1F97D3002E3809 /* LOS_ANGELES-PLANE.json */,
-				1468D9FD2A1F97D3002E3809 /* BALI-PLANE-rules.json */,
-				1468D9FE2A1F97D3002E3809 /* BERLIN-PEUGEOT-rules.json */,
-				1468D9FF2A1F97D3002E3809 /* SEATTLE-PLANE.json */,
-				1468DA002A1F97D3002E3809 /* BALI-PLANE.json */,
-				1468DA012A1F97D3002E3809 /* BOGOTA-LINCOLN-rules.json */,
-				1468DA022A1F97D3002E3809 /* BOGOTA-DODGE.json */,
-				1468DA032A1F97D3002E3809 /* BOGOTA-ROUSH-rules.json */,
-				1468DA042A1F97D3002E3809 /* LOS_ANGELES-SIMCA.json */,
-				1468DA052A1F97D3002E3809 /* BOGOTA-DELOREAN-rules.json */,
-				1468DA062A1F97D3002E3809 /* ALGIERS-PEUGEOT-rules.json */,
-				1468DA072A1F97D3002E3809 /* PARIS-FOX-rules.json */,
-				1468DA082A1F97D3002E3809 /* BALI-PLANE-rules-OLD.json */,
-				1468DA092A1F97D3002E3809 /* BOGOTA-DELOREAN.json */,
-				1468DA0A2A1F97D3002E3809 /* BERLIN-PLANE.json */,
-				1468DA0B2A1F97D3002E3809 /* BALI-PEUGEOT.json */,
-				1468DA0C2A1F97D3002E3809 /* ALGIERS-PLANE.json */,
-				1468DA0D2A1F97D3002E3809 /* ALGIERS-FORD.json */,
-				1468DA0E2A1F97D3002E3809 /* ALGIERS-SIMCA-rules.json */,
-				1468DA0F2A1F97D3002E3809 /* PARIS-OWL-rules.json */,
-				1468DA102A1F97D3002E3809 /* SEATTLE-FORD.json */,
-				1468DA112A1F97D3002E3809 /* BOGOTA-TOYOTA-rules.json */,
-				1468DA122A1F97D3002E3809 /* BALI-PEUGEOT-rules.json */,
-				1468DA132A1F97D3002E3809 /* PARIS-BUTTERFLY.json */,
-				1468DA142A1F97D3002E3809 /* LOS_ANGELES-PLANE-rules.json */,
-				1468DA152A1F97D3002E3809 /* BOGOTA-TOYOTA.json */,
-				1468DA162A1F97D3002E3809 /* ALGIERS-PLANE-rules.json */,
-				1468DA172A1F97D3002E3809 /* ALGIERS-PEUGEOT.json */,
-				1468DA182A1F97D3002E3809 /* BERLIN-FORD.json */,
-				1468DA192A1F97D3002E3809 /* LOS_ANGELES-SIMCA-rules.json */,
-				1468DA1A2A1F97D3002E3809 /* BALI-FORD.json */,
-				1468DA1B2A1F97D3002E3809 /* PARIS-OWL.json */,
-				1468DA1C2A1F97D3002E3809 /* BOGOTA-RAM-rules.json */,
-				1468DA1D2A1F97D3002E3809 /* GENEVA-PEUGEOT.json */,
-				1468DA1E2A1F97D3002E3809 /* BOGOTA-AUSTIN-rules.json */,
-				1468DA1F2A1F97D3002E3809 /* BOGOTA-MCLAREN.json */,
-				1468DA202A1F97D3002E3809 /* GENEVA-FORD-rules.json */,
-				1468DA212A1F97D3002E3809 /* BOGOTA-VECTOR.json */,
-				1468DA222A1F97D3002E3809 /* BOGOTA-RAM.json */,
-				1468DA232A1F97D3002E3809 /* BOGOTA-DODGE-rules.json */,
-				1468DA242A1F97D3002E3809 /* ALGIERS-FORD-rules.json */,
-				1468DA252A1F97D3002E3809 /* BOGOTA-AUSTIN.json */,
-				1468DA262A1F97D3002E3809 /* BOGOTA-AVENTI-rules.json */,
-				1468DA272A1F97D3002E3809 /* BOGOTA-ROUSH.json */,
-				1468DA282A1F97D3002E3809 /* LOS_ANGELES-FORD-rules.json */,
-				1468DA292A1F97D3002E3809 /* SEATTLE-PLANE-rules.json */,
-				1468DA2A2A1F97D3002E3809 /* GENEVA-PLANE-rules.json */,
-				1468DA2B2A1F97D3002E3809 /* SEATTLE-PEUGEOT-rules.json */,
-				1468DA2C2A1F97D3002E3809 /* BERLIN-PLANE-rules.json */,
-				1468DA2D2A1F97D3002E3809 /* BOGOTA-MCLAREN-rules.json */,
-				1468DA2E2A1F97D3002E3809 /* LOS_ANGELES-PEUGEOT-rules.json */,
-				1468DA2F2A1F97D3002E3809 /* BOGOTA-LINCOLN.json */,
-				1468DA302A1F97D3002E3809 /* PARIS-BUTTERFLY-rules.json */,
+				14A87AA32A20DBA100B91A0B /* ALGIERS-FORD-rules.json */,
+				14A87AA12A20DBA100B91A0B /* ALGIERS-FORD.json */,
+				14A87ACB2A20DBA200B91A0B /* ALGIERS-PEUGEOT-rules.json */,
+				14A87ABB2A20DBA200B91A0B /* ALGIERS-PEUGEOT.json */,
+				14A87AC32A20DBA200B91A0B /* ALGIERS-PLANE-rules.json */,
+				14A87AC52A20DBA200B91A0B /* ALGIERS-PLANE.json */,
+				14A87AA92A20DBA100B91A0B /* ALGIERS-SIMCA-rules.json */,
+				14A87A9E2A20DBA100B91A0B /* ALGIERS-SIMCA.json */,
+				14A87AC22A20DBA200B91A0B /* BALI-FORD-rules.json */,
+				14A87AC82A20DBA200B91A0B /* BALI-FORD.json */,
+				14A87AC92A20DBA200B91A0B /* BALI-PEUGEOT-rules.json */,
+				14A87AC12A20DBA200B91A0B /* BALI-PEUGEOT.json */,
+				14A87AAB2A20DBA100B91A0B /* BALI-PLANE-rules-OLD.json */,
+				14A87AA72A20DBA100B91A0B /* BALI-PLANE-rules.json */,
+				14A87AC72A20DBA200B91A0B /* BALI-PLANE.json */,
+				14A87AA22A20DBA100B91A0B /* BERLIN-FORD-rules.json */,
+				14A87AC02A20DBA200B91A0B /* BERLIN-FORD.json */,
+				14A87ABC2A20DBA200B91A0B /* BERLIN-PEUGEOT-rules.json */,
+				14A87AB72A20DBA200B91A0B /* BERLIN-PEUGEOT.json */,
+				14A87AA82A20DBA100B91A0B /* BERLIN-PLANE-rules.json */,
+				14A87A9C2A20DBA100B91A0B /* BERLIN-PLANE.json */,
+				14A87AD32A20DBA200B91A0B /* BOGOTA-AUSTIN-rules.json */,
+				14A87A952A20DBA100B91A0B /* BOGOTA-AUSTIN.json */,
+				14A87AC62A20DBA200B91A0B /* BOGOTA-AVENTI-rules.json */,
+				14A87ACF2A20DBA200B91A0B /* BOGOTA-AVENTI.json */,
+				14A87AB02A20DBA100B91A0B /* BOGOTA-DELOREAN-rules.json */,
+				14A87AC42A20DBA200B91A0B /* BOGOTA-DELOREAN.json */,
+				14A87AAD2A20DBA100B91A0B /* BOGOTA-DODGE-rules.json */,
+				14A87AD02A20DBA200B91A0B /* BOGOTA-DODGE.json */,
+				14A87ABA2A20DBA200B91A0B /* BOGOTA-LINCOLN-rules.json */,
+				14A87AAF2A20DBA100B91A0B /* BOGOTA-LINCOLN.json */,
+				14A87A992A20DBA100B91A0B /* BOGOTA-MCLAREN-rules.json */,
+				14A87AAC2A20DBA100B91A0B /* BOGOTA-MCLAREN.json */,
+				14A87AAE2A20DBA100B91A0B /* BOGOTA-RAM-rules.json */,
+				14A87AB32A20DBA100B91A0B /* BOGOTA-RAM.json */,
+				14A87ACE2A20DBA200B91A0B /* BOGOTA-ROUSH-rules.json */,
+				14A87A982A20DBA100B91A0B /* BOGOTA-ROUSH.json */,
+				14A87AD62A20DBA200B91A0B /* BOGOTA-TOYOTA-rules.json */,
+				14A87AB22A20DBA100B91A0B /* BOGOTA-TOYOTA.json */,
+				14A87AB52A20DBA100B91A0B /* BOGOTA-VECTOR-rules.json */,
+				14A87A9F2A20DBA100B91A0B /* BOGOTA-VECTOR.json */,
+				14A87AD12A20DBA200B91A0B /* GENEVA-FORD-rules.json */,
+				14A87ABD2A20DBA200B91A0B /* GENEVA-FORD.json */,
+				14A87AB42A20DBA100B91A0B /* GENEVA-PEUGEOT-rules.json */,
+				14A87A972A20DBA100B91A0B /* GENEVA-PEUGEOT.json */,
+				14A87AD52A20DBA200B91A0B /* GENEVA-PLANE-rules.json */,
+				14A87AB62A20DBA200B91A0B /* GENEVA-PLANE.json */,
+				14A87AB82A20DBA200B91A0B /* LOS_ANGELES-FORD-rules.json */,
+				14A87AD42A20DBA200B91A0B /* LOS_ANGELES-FORD.json */,
+				14A87AB12A20DBA100B91A0B /* LOS_ANGELES-PEUGEOT-rules.json */,
+				14A87AA02A20DBA100B91A0B /* LOS_ANGELES-PEUGEOT.json */,
+				14A87AB92A20DBA200B91A0B /* LOS_ANGELES-PLANE-rules.json */,
+				14A87AA42A20DBA100B91A0B /* LOS_ANGELES-PLANE.json */,
+				14A87AA52A20DBA100B91A0B /* LOS_ANGELES-SIMCA-rules.json */,
+				14A87ACA2A20DBA200B91A0B /* LOS_ANGELES-SIMCA.json */,
+				14A87ABE2A20DBA200B91A0B /* PARIS-BUTTERFLY-rules.json */,
+				14A87A9A2A20DBA100B91A0B /* PARIS-BUTTERFLY.json */,
+				14A87A962A20DBA100B91A0B /* PARIS-FOX-rules.json */,
+				14A87AA62A20DBA100B91A0B /* PARIS-FOX.json */,
+				14A87AD72A20DBA200B91A0B /* PARIS-OWL-rules.json */,
+				14A87AD22A20DBA200B91A0B /* PARIS-OWL.json */,
+				14A87ACC2A20DBA200B91A0B /* SEATTLE-FORD-rules.json */,
+				14A87A9D2A20DBA100B91A0B /* SEATTLE-FORD.json */,
+				14A87ABF2A20DBA200B91A0B /* SEATTLE-PEUGEOT-rules.json */,
+				14A87ACD2A20DBA200B91A0B /* SEATTLE-PEUGEOT.json */,
+				14A87A9B2A20DBA100B91A0B /* SEATTLE-PLANE-rules.json */,
+				14A87AAA2A20DBA100B91A0B /* SEATTLE-PLANE.json */,
 			);
 			path = Animations;
 			sourceTree = "<group>";
@@ -412,77 +412,77 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1468DA702A1F97D3002E3809 /* BOGOTA-MCLAREN-rules.json in Resources */,
+				14A87AEE2A20DBA200B91A0B /* BALI-PLANE-rules-OLD.json in Resources */,
+				14A87AEB2A20DBA200B91A0B /* BERLIN-PLANE-rules.json in Resources */,
+				14A87AEF2A20DBA200B91A0B /* BOGOTA-MCLAREN.json in Resources */,
+				14A87AFD2A20DBA200B91A0B /* BOGOTA-LINCOLN-rules.json in Resources */,
+				14A87AEA2A20DBA200B91A0B /* BALI-PLANE-rules.json in Resources */,
+				14A87B132A20DBA200B91A0B /* BOGOTA-DODGE.json in Resources */,
+				14A87B062A20DBA200B91A0B /* ALGIERS-PLANE-rules.json in Resources */,
+				14A87AF22A20DBA200B91A0B /* BOGOTA-LINCOLN.json in Resources */,
+				14A87AD82A20DBA200B91A0B /* BOGOTA-AUSTIN.json in Resources */,
+				14A87AED2A20DBA200B91A0B /* SEATTLE-PLANE.json in Resources */,
+				14A87B082A20DBA200B91A0B /* ALGIERS-PLANE.json in Resources */,
+				14A87AE02A20DBA200B91A0B /* SEATTLE-FORD.json in Resources */,
+				14A87B012A20DBA200B91A0B /* PARIS-BUTTERFLY-rules.json in Resources */,
+				14A87B092A20DBA200B91A0B /* BOGOTA-AVENTI-rules.json in Resources */,
+				14A87B052A20DBA200B91A0B /* BALI-FORD-rules.json in Resources */,
+				14A87AFA2A20DBA200B91A0B /* BERLIN-PEUGEOT.json in Resources */,
+				14A87B112A20DBA200B91A0B /* BOGOTA-ROUSH-rules.json in Resources */,
+				14A87AE32A20DBA200B91A0B /* LOS_ANGELES-PEUGEOT.json in Resources */,
+				14A87ADA2A20DBA200B91A0B /* GENEVA-PEUGEOT.json in Resources */,
+				14A87AF92A20DBA200B91A0B /* GENEVA-PLANE.json in Resources */,
+				14A87AF42A20DBA200B91A0B /* LOS_ANGELES-PEUGEOT-rules.json in Resources */,
 				140BE23C2A1B5F1B006DC643 /* Lato-Bold.ttf in Resources */,
-				1468DA532A1F97D3002E3809 /* SEATTLE-FORD.json in Resources */,
-				1468DA3C2A1F97D3002E3809 /* LOS_ANGELES-FORD.json in Resources */,
-				1468DA3F2A1F97D3002E3809 /* LOS_ANGELES-PLANE.json in Resources */,
-				1468DA5F2A1F97D3002E3809 /* BOGOTA-RAM-rules.json in Resources */,
-				1468DA492A1F97D3002E3809 /* ALGIERS-PEUGEOT-rules.json in Resources */,
-				1468DA722A1F97D3002E3809 /* BOGOTA-LINCOLN.json in Resources */,
-				1468DA622A1F97D3002E3809 /* BOGOTA-MCLAREN.json in Resources */,
-				1468DA6C2A1F97D3002E3809 /* SEATTLE-PLANE-rules.json in Resources */,
+				14A87B162A20DBA200B91A0B /* BOGOTA-AUSTIN-rules.json in Resources */,
+				14A87AFF2A20DBA200B91A0B /* BERLIN-PEUGEOT-rules.json in Resources */,
+				14A87ADD2A20DBA200B91A0B /* PARIS-BUTTERFLY.json in Resources */,
+				14A87B152A20DBA200B91A0B /* PARIS-OWL.json in Resources */,
+				14A87B0B2A20DBA200B91A0B /* BALI-FORD.json in Resources */,
+				14A87B192A20DBA200B91A0B /* BOGOTA-TOYOTA-rules.json in Resources */,
+				14A87AFB2A20DBA200B91A0B /* LOS_ANGELES-FORD-rules.json in Resources */,
+				14A87B002A20DBA200B91A0B /* GENEVA-FORD.json in Resources */,
+				14A87B172A20DBA200B91A0B /* LOS_ANGELES-FORD.json in Resources */,
+				14A87AF52A20DBA200B91A0B /* BOGOTA-TOYOTA.json in Resources */,
+				14A87ADB2A20DBA200B91A0B /* BOGOTA-ROUSH.json in Resources */,
+				14A87AF32A20DBA200B91A0B /* BOGOTA-DELOREAN-rules.json in Resources */,
+				14A87B0D2A20DBA200B91A0B /* LOS_ANGELES-SIMCA.json in Resources */,
+				14A87ADE2A20DBA200B91A0B /* SEATTLE-PLANE-rules.json in Resources */,
+				14A87AEC2A20DBA200B91A0B /* ALGIERS-SIMCA-rules.json in Resources */,
+				14A87B142A20DBA200B91A0B /* GENEVA-FORD-rules.json in Resources */,
 				058557D9273AAEEB004C7B11 /* Preview Assets.xcassets in Resources */,
-				1468DA3A2A1F97D3002E3809 /* BALI-FORD-rules.json in Resources */,
-				1468DA522A1F97D3002E3809 /* PARIS-OWL-rules.json in Resources */,
-				1468DA482A1F97D3002E3809 /* BOGOTA-DELOREAN-rules.json in Resources */,
-				1468DA5B2A1F97D3002E3809 /* BERLIN-FORD.json in Resources */,
-				1468DA3D2A1F97D3002E3809 /* GENEVA-PEUGEOT-rules.json in Resources */,
-				1468DA432A1F97D3002E3809 /* BALI-PLANE.json in Resources */,
-				1468DA562A1F97D3002E3809 /* PARIS-BUTTERFLY.json in Resources */,
-				1468DA612A1F97D3002E3809 /* BOGOTA-AUSTIN-rules.json in Resources */,
-				1468DA512A1F97D3002E3809 /* ALGIERS-SIMCA-rules.json in Resources */,
-				1468DA4E2A1F97D3002E3809 /* BALI-PEUGEOT.json in Resources */,
-				1468DA402A1F97D3002E3809 /* BALI-PLANE-rules.json in Resources */,
-				1468DA692A1F97D3002E3809 /* BOGOTA-AVENTI-rules.json in Resources */,
-				1468DA312A1F97D3002E3809 /* BOGOTA-VECTOR-rules.json in Resources */,
-				1468DA6A2A1F97D3002E3809 /* BOGOTA-ROUSH.json in Resources */,
-				1468DA442A1F97D3002E3809 /* BOGOTA-LINCOLN-rules.json in Resources */,
-				1468DA602A1F97D3002E3809 /* GENEVA-PEUGEOT.json in Resources */,
-				1468DA322A1F97D3002E3809 /* ALGIERS-SIMCA.json in Resources */,
-				1468DA632A1F97D3002E3809 /* GENEVA-FORD-rules.json in Resources */,
-				1468DA542A1F97D3002E3809 /* BOGOTA-TOYOTA-rules.json in Resources */,
-				1468DA332A1F97D3002E3809 /* SEATTLE-PEUGEOT.json in Resources */,
-				1468DA412A1F97D3002E3809 /* BERLIN-PEUGEOT-rules.json in Resources */,
-				1468DA572A1F97D3002E3809 /* LOS_ANGELES-PLANE-rules.json in Resources */,
-				1468DA4C2A1F97D3002E3809 /* BOGOTA-DELOREAN.json in Resources */,
-				1468DA462A1F97D3002E3809 /* BOGOTA-ROUSH-rules.json in Resources */,
-				1468DA732A1F97D3002E3809 /* PARIS-BUTTERFLY-rules.json in Resources */,
-				1468DA422A1F97D3002E3809 /* SEATTLE-PLANE.json in Resources */,
-				1468DA382A1F97D3002E3809 /* SEATTLE-FORD-rules.json in Resources */,
-				1468DA6F2A1F97D3002E3809 /* BERLIN-PLANE-rules.json in Resources */,
-				1468DA672A1F97D3002E3809 /* ALGIERS-FORD-rules.json in Resources */,
-				1468DA592A1F97D3002E3809 /* ALGIERS-PLANE-rules.json in Resources */,
-				1468DA502A1F97D3002E3809 /* ALGIERS-FORD.json in Resources */,
-				1468DA712A1F97D3002E3809 /* LOS_ANGELES-PEUGEOT-rules.json in Resources */,
-				1468DA5D2A1F97D3002E3809 /* BALI-FORD.json in Resources */,
-				1468DA5E2A1F97D3002E3809 /* PARIS-OWL.json in Resources */,
-				1468DA452A1F97D3002E3809 /* BOGOTA-DODGE.json in Resources */,
-				1468DA3B2A1F97D3002E3809 /* BERLIN-FORD-rules.json in Resources */,
-				1468DA6E2A1F97D3002E3809 /* SEATTLE-PEUGEOT-rules.json in Resources */,
-				1468DA642A1F97D3002E3809 /* BOGOTA-VECTOR.json in Resources */,
-				1468DA4F2A1F97D3002E3809 /* ALGIERS-PLANE.json in Resources */,
-				1468DA342A1F97D3002E3809 /* BERLIN-PEUGEOT.json in Resources */,
-				1468DA652A1F97D3002E3809 /* BOGOTA-RAM.json in Resources */,
-				1468DA4A2A1F97D3002E3809 /* PARIS-FOX-rules.json in Resources */,
-				1468DA5C2A1F97D3002E3809 /* LOS_ANGELES-SIMCA-rules.json in Resources */,
-				1468DA372A1F97D3002E3809 /* GENEVA-FORD.json in Resources */,
-				1468DA6B2A1F97D3002E3809 /* LOS_ANGELES-FORD-rules.json in Resources */,
-				1468DA6D2A1F97D3002E3809 /* GENEVA-PLANE-rules.json in Resources */,
-				1468DA4B2A1F97D3002E3809 /* BALI-PLANE-rules-OLD.json in Resources */,
-				1468DA4D2A1F97D3002E3809 /* BERLIN-PLANE.json in Resources */,
-				1468DA392A1F97D3002E3809 /* GENEVA-PLANE.json in Resources */,
-				1468DA552A1F97D3002E3809 /* BALI-PEUGEOT-rules.json in Resources */,
+				14A87AE92A20DBA200B91A0B /* PARIS-FOX.json in Resources */,
+				14A87B042A20DBA200B91A0B /* BALI-PEUGEOT.json in Resources */,
+				14A87AE62A20DBA200B91A0B /* ALGIERS-FORD-rules.json in Resources */,
+				14A87B032A20DBA200B91A0B /* BERLIN-FORD.json in Resources */,
+				14A87AFE2A20DBA200B91A0B /* ALGIERS-PEUGEOT.json in Resources */,
+				14A87AD92A20DBA200B91A0B /* PARIS-FOX-rules.json in Resources */,
+				14A87AE52A20DBA200B91A0B /* BERLIN-FORD-rules.json in Resources */,
+				14A87AE22A20DBA200B91A0B /* BOGOTA-VECTOR.json in Resources */,
 				140BE23D2A1B5F1B006DC643 /* Lato-Regular.ttf in Resources */,
-				1468DA472A1F97D3002E3809 /* LOS_ANGELES-SIMCA.json in Resources */,
-				1468DA3E2A1F97D3002E3809 /* BOGOTA-AVENTI.json in Resources */,
-				1468DA352A1F97D3002E3809 /* LOS_ANGELES-PEUGEOT.json in Resources */,
-				1468DA662A1F97D3002E3809 /* BOGOTA-DODGE-rules.json in Resources */,
-				1468DA682A1F97D3002E3809 /* BOGOTA-AUSTIN.json in Resources */,
+				14A87B0F2A20DBA200B91A0B /* SEATTLE-FORD-rules.json in Resources */,
 				058557BB273AAA24004C7B11 /* Assets.xcassets in Resources */,
-				1468DA5A2A1F97D3002E3809 /* ALGIERS-PEUGEOT.json in Resources */,
-				1468DA362A1F97D3002E3809 /* PARIS-FOX.json in Resources */,
-				1468DA582A1F97D3002E3809 /* BOGOTA-TOYOTA.json in Resources */,
+				14A87AE72A20DBA200B91A0B /* LOS_ANGELES-PLANE.json in Resources */,
+				14A87AE82A20DBA200B91A0B /* LOS_ANGELES-SIMCA-rules.json in Resources */,
+				14A87AF02A20DBA200B91A0B /* BOGOTA-DODGE-rules.json in Resources */,
+				14A87AF62A20DBA200B91A0B /* BOGOTA-RAM.json in Resources */,
+				14A87AFC2A20DBA200B91A0B /* LOS_ANGELES-PLANE-rules.json in Resources */,
+				14A87B0C2A20DBA200B91A0B /* BALI-PEUGEOT-rules.json in Resources */,
+				14A87B102A20DBA200B91A0B /* SEATTLE-PEUGEOT.json in Resources */,
+				14A87B1A2A20DBA200B91A0B /* PARIS-OWL-rules.json in Resources */,
+				14A87B182A20DBA200B91A0B /* GENEVA-PLANE-rules.json in Resources */,
+				14A87B072A20DBA200B91A0B /* BOGOTA-DELOREAN.json in Resources */,
+				14A87AE12A20DBA200B91A0B /* ALGIERS-SIMCA.json in Resources */,
+				14A87AE42A20DBA200B91A0B /* ALGIERS-FORD.json in Resources */,
+				14A87B0E2A20DBA200B91A0B /* ALGIERS-PEUGEOT-rules.json in Resources */,
+				14A87ADF2A20DBA200B91A0B /* BERLIN-PLANE.json in Resources */,
+				14A87AF72A20DBA200B91A0B /* GENEVA-PEUGEOT-rules.json in Resources */,
+				14A87B0A2A20DBA200B91A0B /* BALI-PLANE.json in Resources */,
+				14A87B022A20DBA200B91A0B /* SEATTLE-PEUGEOT-rules.json in Resources */,
+				14A87B122A20DBA200B91A0B /* BOGOTA-AVENTI.json in Resources */,
+				14A87AF12A20DBA200B91A0B /* BOGOTA-RAM-rules.json in Resources */,
+				14A87ADC2A20DBA200B91A0B /* BOGOTA-MCLAREN-rules.json in Resources */,
+				14A87AF82A20DBA200B91A0B /* BOGOTA-VECTOR-rules.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

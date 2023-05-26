@@ -218,7 +218,7 @@
             "transformIndexForList": 0,
             "value": "getResultForKey(\"$var2\")+10",
             "type": "number",
-            "description": "lineBottom end position x"
+            "description": "lineTop end position x"
         },
         {
             "key": "$var13",
