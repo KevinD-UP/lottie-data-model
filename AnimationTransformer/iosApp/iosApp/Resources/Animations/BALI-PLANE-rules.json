@@ -62,205 +62,261 @@
     "variables": [
         {
             "key": "$var0",
-            "ind": 8,
-            "layerType": 5,
-            "transformType": "position",
-            "transformIndexForList": 1,
+            "transformNodes" : [
+                {
+                    "ind": 8,
+                    "layerType": 5,
+                    "transformType": "position",
+                    "transformIndexForList": 1,
+                    "description": "textBottom y position"
+                }
+            ],
             "value": "min(getBottomOfSafeArea()+getAscent(8)-getTextMeasureHeight(8)+getLastLineDescent(8)-120,975+getAscent(8)-getTextMeasureHeight(8)+getLastLineDescent(8))",
-            "type": "number",
-            "description": "textBottom y position"
+            "type": "number"
         },
         {
             "key": "$var1",
-            "ind": 7,
-            "layerType": 5,
-            "transformType": "position",
-            "transformIndexForList": 1,
+            "transformNodes" : [
+                {
+                    "ind": 7,
+                    "layerType": 5,
+                    "transformType": "position",
+                    "transformIndexForList": 1,
+                    "description": "textTop y position"
+                }
+            ],
             "value": "getResultForKey(\"$var0\")-getAscent(8)-getTextMeasureHeight(7)+getAscent(7)-40",
-            "type": "number",
-            "description": "textTop y position"
+            "type": "number"
         },
         {
             "key": "$var2",
-            "ind": 9,
-            "layerType": 4,
-            "transformKey": "groupSubTitleContainerShape",
-            "transformSubKey": "subTitleContainerShape",
-            "transformType": "frame_it",
-            "transformIndexForList": 0,
+            "transformNodes" : [
+                {
+                    "ind": 9,
+                    "layerType": 4,
+                    "transformKey": "subTitleContainerTransformKey",
+                    "transformType": "frame_it",
+                    "transformIndexForList": 0,
+                    "description": "subTitleContainer width"
+                }
+            ],
             "value": "max(getTextLayerWidth(7),getTextLayerWidth(8))+40",
-            "type": "number",
-            "description": "subTitleContainer width"
+            "type": "number"
         },
         {
             "key": "$var3",
-            "ind": 9,
-            "layerType": 4,
-            "transformKey": "groupSubTitleContainerShape",
-            "transformSubKey": "subTitleContainerShape",
-            "transformType": "frame_it",
-            "transformIndexForList": 1,
+            "transformNodes" : [
+                {
+                    "ind": 9,
+                    "layerType": 4,
+                    "transformKey": "subTitleContainerTransformKey",
+                    "transformType": "frame_it",
+                    "transformIndexForList": 1,
+                    "description": "subTitleContainer height"
+                }
+            ],
             "value": "getTextMeasureHeight(7)+40+getTextMeasureHeight(8)+100",
-            "type": "number",
-            "description": "subTitleContainer height"
+            "type": "number"
         },
         {
             "key": "$var4",
-            "ind": 9,
-            "layerType": 4,
-            "transformType": "frame",
-            "transformIndexForList": 1,
+            "transformNodes" : [
+                {
+                    "ind": 9,
+                    "layerType": 4,
+                    "transformType": "frame",
+                    "transformIndexForList": 1,
+                    "description": "subTitleContainer position y"
+                }
+            ],
             "value": "getResultForKey(\"$var0\")-getAscent(8)-20",
-            "type": "number",
-            "description": "subTitleContainer position y"
+            "type": "number"
         },
         {
             "key": "$var5",
-            "ind": 4,
-            "layerType": 4,
-            "transformType": "position",
-            "transformIndexForList": 1,
+            "transformNodes" : [
+                {
+                    "ind": 4,
+                    "layerType": 4,
+                    "transformType": "position",
+                    "transformIndexForList": 1,
+                    "description": "lineLeft position y"
+                }
+            ],
             "value": "getResultForKey(\"$var4\")+getResultForKey(\"$var3\")/2+10",
-            "type": "number",
-            "description": "lineLeft position y"
+            "type": "number"
         },
         {
             "key": "$var6",
-            "ind": 3,
-            "layerType": 4,
-            "transformType": "position",
-            "transformIndexForList": 1,
+            "transformNodes" : [
+                {
+                    "ind": 3,
+                    "layerType": 4,
+                    "transformType": "position",
+                    "transformIndexForList": 1,
+                    "description": "lineRight position y"
+                }
+            ],
             "value": "getResultForKey(\"$var4\")-getResultForKey(\"$var3\")/2-10",
-            "type": "number",
-            "description": "lineRight position y"
+            "type": "number"
         },
         {
             "key": "$var7",
-            "ind": 3,
-            "layerType": 4,
-            "transformType": "position",
-            "transformIndexForList": 0,
+            "transformNodes" : [
+                {
+                    "ind": 3,
+                    "layerType": 4,
+                    "transformType": "position",
+                    "transformIndexForList": 0,
+                    "description": "lineRight position x"
+                },
+                {
+                    "ind": 6,
+                    "layerType": 4,
+                    "transformType": "position",
+                    "transformIndexForList": 0,
+                    "description": "lineBottom position x"
+                }
+            ],
             "value": "960+getResultForKey(\"$var2\")/2+5",
-            "type": "number",
-            "description": "lineRight position x"
-        },
-        {
-            "key": "$var7_1",
-            "ind": 6,
-            "layerType": 4,
-            "transformType": "position",
-            "transformIndexForList": 0,
-            "value": "getResultForKey(\"$var7\")",
-            "type": "number",
-            "description": "lineBottom position x"
+            "type": "number"
         },
         {
             "key": "$var8",
-            "ind": 4,
-            "layerType": 4,
-            "transformKey": "lineLeftShape",
-            "transformSubKey": "lineLeftItShape",
-            "transformType": "position_it",
-            "transformIndexForList": 1,
+            "transformNodes" : [
+                {
+                    "ind": 4,
+                    "layerType": 4,
+                    "transformKey": "lineLeftTransformKey",
+                    "transformType": "position_it",
+                    "transformIndexForList": 1,
+                    "description": "lineLeft end position y"
+                }
+            ],
             "value": "(getResultForKey(\"$var3\")+20)*-1",
-            "type": "number",
-            "description": "lineLeft end position y"
+            "type": "number"
         },
         {
             "key": "$var9",
-            "ind": 3,
-            "layerType": 4,
-            "transformKey": "lineRightShape",
-            "transformSubKey": "lineRightItShape",
-            "transformType": "position_it",
-            "transformIndexForList": 1,
+            "transformNodes" : [
+                {
+                    "ind": 3,
+                    "layerType": 4,
+                    "transformKey": "lineRightTransformKey",
+                    "transformType": "position_it",
+                    "transformIndexForList": 1,
+                    "description": "lineRight end position y"
+                }
+            ],
             "value": "getResultForKey(\"$var3\")+20",
-            "type": "number",
-            "description": "lineRight end position y"
+            "type": "number"
         },
         {
             "key": "$var10",
-            "ind": 5,
-            "layerType": 4,
-            "transformType": "position",
-            "transformIndexForList": 0,
+            "transformNodes" : [
+                {
+                    "ind": 5,
+                    "layerType": 4,
+                    "transformType": "position",
+                    "transformIndexForList": 0,
+                    "description": "lineTop position x"
+                },
+                {
+                    "ind": 4,
+                    "layerType": 4,
+                    "transformType": "position",
+                    "transformIndexForList": 0,
+                    "description": "lineLeft position x"
+                }
+            ],
             "value": "960-getResultForKey(\"$var2\")/2-5",
-            "type": "number",
-            "description": "lineTop position x"
-        },
-        {
-            "key": "$var10_1",
-            "ind": 4,
-            "layerType": 4,
-            "transformType": "position",
-            "transformIndexForList": 0,
-            "value": "getResultForKey(\"$var10\")",
-            "type": "number",
-            "description": "lineLeft position x"
+            "type": "number"
         },
         {
             "key": "$var11",
-            "ind": 5,
-            "layerType": 4,
-            "transformType": "position",
-            "transformIndexForList": 1,
+            "transformNodes" : [
+                {
+                    "ind": 5,
+                    "layerType": 4,
+                    "transformType": "position",
+                    "transformIndexForList": 1,
+                    "description": "lineTop position y"
+                }
+            ],
             "value": "getResultForKey(\"$var4\")-getResultForKey(\"$var3\")/2-5",
-            "type": "number",
-            "description": "lineTop position y"
+            "type": "number"
         },
         {
             "key": "$var12",
-            "ind": 5,
-            "layerType": 4,
-            "transformKey": "lineTopShape",
-            "transformSubKey": "lineTopItShape",
-            "transformType": "position_it",
-            "transformIndexForList": 0,
+            "transformNodes" : [
+                {
+                    "ind": 5,
+                    "layerType": 4,
+                    "transformKey": "lineTopTransformKey",
+                    "transformType": "position_it",
+                    "transformIndexForList": 0,
+                    "description": "lineTop end position x"
+                }
+            ],
             "value": "getResultForKey(\"$var2\")+10",
-            "type": "number",
-            "description": "lineTop end position x"
+            "type": "number"
         },
         {
             "key": "$var13",
-            "ind": 6,
-            "layerType": 4,
-            "transformKey": "lineBottomShape",
-            "transformSubKey": "lineBottomItShape",
-            "transformType": "position_it",
-            "transformIndexForList": 0,
+            "transformNodes" : [
+                {
+                    "ind": 6,
+                    "layerType": 4,
+                    "transformKey": "lineBottomTransformKey",
+                    "transformType": "position_it",
+                    "transformIndexForList": 0,
+                    "description": "lineBottom end position x"
+                }
+            ],
             "value": "(getResultForKey(\"$var2\")+10)*-1",
-            "type": "number",
-            "description": "lineBottom end position x"
+            "type": "number"
         },
         {
             "key": "$var14",
-            "ind": 6,
-            "layerType": 4,
-            "transformType": "position",
-            "transformIndexForList": 1,
+            "transformNodes" : [
+                {
+                    "ind": 6,
+                    "layerType": 4,
+                    "transformType": "position",
+                    "transformIndexForList": 1,
+                    "description": "lineBottom position y"
+                }
+            ],
             "value": "getResultForKey(\"$var4\")+getResultForKey(\"$var3\")/2+5",
-            "type": "number",
-            "description": "lineBottom position y"
+            "type": "number"
         },
         {
             "key": "$var15",
-            "ind": 1,
-            "layerType": 5,
-            "transformType": "position",
-            "transformIndexForList": 1,
+            "transformNodes" : [
+                {
+                    "ind": 1,
+                    "layerType": 5,
+                    "transformType": "position",
+                    "transformIndexForList": 1,
+                    "description": "titleTop position y"
+                }
+            ],
             "value": "540-getTextMeasureHeight(1)+getAscent(1)-getTextFontSize(1)*0.2",
-            "type": "number",
-            "description": "titleTop position y"
+            "type": "number"
         },
         {
             "key": "$var16",
-            "ind": 2,
-            "layerType": 5,
-            "transformType": "position",
-            "transformIndexForList": 1,
+            "transformNodes" : [
+                {
+                    "ind": 2,
+                    "layerType": 5,
+                    "transformType": "position",
+                    "transformIndexForList": 1,
+                    "description": "titleBottom position y"
+                }
+            ],
             "value": "540+getAscent(2)+getTextFontSize(2)*0.2",
-            "type": "number",
-            "description": "titleBottom position y"
+            "type": "number"
         }
     ]
 }

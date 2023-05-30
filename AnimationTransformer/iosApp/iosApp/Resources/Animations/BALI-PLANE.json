@@ -659,12 +659,12 @@
             "shapes": [
                 {
                     "ty": "gr",
-                    "key": "lineRightShape",
+                    "key": "lineRightTransformKey",
                     "it": [
                         {
                             "ind": 0,
                             "ty": "sh",
-                            "key": "lineRightItShape",
+                            "key": "lineRightTransformKey",
                             "ix": 1,
                             "ks": {
                                 "a": 0,
@@ -960,11 +960,11 @@
             "shapes": [
                 {
                     "ty": "gr",
-                    "key": "lineLeftShape",
+                    "key": "lineLeftTransformKey",
                     "it": [
                         {
                             "ind": 0,
-                            "key": "lineLeftItShape",
+                            "key": "lineLeftTransformKey",
                             "ty": "sh",
                             "ix": 1,
                             "ks": {
@@ -1261,12 +1261,12 @@
             "shapes": [
                 {
                     "ty": "gr",
-                    "key": "lineTopShape",
+                    "key": "lineTopTransformKey",
                     "it": [
                         {
                             "ind": 0,
                             "ty": "sh",
-                            "key": "lineTopItShape",
+                            "key": "lineTopTransformKey",
                             "ix": 1,
                             "ks": {
                                 "a": 0,
@@ -1562,12 +1562,12 @@
             "shapes": [
                 {
                     "ty": "gr",
-                    "key": "lineBottomShape",
+                    "key": "lineBottomTransformKey",
                     "it": [
                         {
                             "ind": 0,
                             "ty": "sh",
-                            "key": "lineBottomItShape",
+                            "key": "lineBottomTransformKey",
                             "ix": 1,
                             "ks": {
                                 "a": 0,
@@ -2323,12 +2323,12 @@
                 },
                 {
                     "ty": "gr",
-                    "key": "groupSubTitleContainerShape",
+                    "key": "subTitleContainerTransformKey",
                     "it": [
                         {
                             "ty": "rc",
                             "d": 1,
-                            "key": "subTitleContainerShape",
+                            "key": "subTitleContainerTransformKey",
                             "s": {
                                 "a": 0,
                                 "k": [
