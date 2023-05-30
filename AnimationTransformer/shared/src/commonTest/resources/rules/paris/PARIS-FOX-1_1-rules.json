@@ -1,0 +1,137 @@
+{
+  "layerRules": [
+    {
+      "ind": 1,
+      "fontKey": "textBold",
+      "textInd": [0,1],
+      "separator": "\r",
+      "maxLines": 4,
+      "colorKey": "background"
+    },
+    {
+      "ind": 2,
+      "fontKey": "textBold",
+      "minWidth": 2600,
+      "textInd": [0,0,0,0],
+      "colorKey": "background"
+    },
+    {
+      "ind": 3,
+      "fontKey": "textBold",
+      "minWidth": 2600,
+      "textInd": [0,0,0,0],
+      "colorKey": "background"
+    },
+    {
+      "ind": 4,
+      "fontKey": "textBold",
+      "minWidth": 1600,
+      "textInd": [0,0,0,0],
+      "colorKey": "background"
+    },
+    {
+      "ind": 5,
+      "fontKey": "textBold",
+      "minWidth": 1600,
+      "textInd": [0,0,0,0],
+      "colorKey": "background"
+    },
+    {
+      "ind": 6,
+      "fontKey": "textBold",
+      "minWidth": 1600,
+      "textInd": [0,0,0,0],
+      "colorKey": "background"
+    },
+    {
+      "ind": 7,
+      "fontKey": "textBold",
+      "textInd": [0,0,0,0],
+      "colorKey": "text"
+    },
+    {
+      "ind": 8,
+      "colorKeys": ["background","text"]
+    }
+  ],
+  "variables": [
+    {
+      "key": "$var0",
+      "value": "720-getMeasureCharWidth(7,0)*1.33/2",
+      "type": "number",
+      "description": "Big title start position x => Center on first character"
+    },
+    {
+      "key": "$var1",
+      "value": "$var0-getCharacterPositionX(7,(getInputTextLength(0)+1))*1.33",
+      "type": "number",
+      "description": "Big title end position x => Center on first character of 2nd occurrence"
+    },
+    {
+      "key": "$var2",
+      "value": "720-getMeasureTextWidth(2)*1.33/2-getMeasureCharWidth(2,getInputTextLength(0))*1.33/2-getMeasureCharWidth(2,0)*1.33/2-300",
+      "type": "number",
+      "description": "Bg text top start position x => Center on first character of 3rd occurrence - 300 padding"
+    },
+    {
+      "key": "$var3",
+      "value": "$var2+1750",
+      "type": "number",
+      "description": "Bg text top end position x => scroll of 1750px"
+    },
+    {
+      "key": "$var4",
+      "value": "720-getMeasureTextWidth(3)*1.33/2-getMeasureCharWidth(3,getInputTextLength(0))*1.33/2-getMeasureCharWidth(3,0)*1.33/2+300",
+      "type": "number",
+      "description": "Bg text bottom start position x => Center on first character of 3rd occurrence + 300 padding"
+    },
+    {
+      "key": "$var5",
+      "value": "$var4-1750",
+      "type": "number",
+      "description": "Bg text bottom end position x => scroll of 1750px"
+    },
+    {
+      "key": "$nbOccurrence",
+      "value": "(getTextLength(4)+1)/(getInputTextLength(0)+1)",
+      "type": "number",
+      "description": "input text occurrence on layer index 4"
+    },
+    {
+      "key": "$var6",
+      "value": "720-getCharacterPositionX(4,(getInputTextLength(0)+1)*$nbOccurrence/2)*1.33-getMeasureCharWidth(4,0)*1.33/2",
+      "type": "number",
+      "description": "Tittle top/bottom start position x => Center on first character of $nbOccurrence / 2"
+    },
+    {
+      "key": "$var7",
+      "value": "$var6+getCharacterPositionX(4,(getInputTextLength(0)+1))*1.33+getCharacterPositionX(4,(getInputTextLength(0)))*1.33/2-getMeasureCharWidth(4,0)*1.33/2",
+      "type": "number",
+      "description": "Tittle top/bottom end position x => Center on text of previous occurrence"
+    },
+    {
+      "key": "$var8",
+      "value": "720-getCharacterPositionX(5,(getInputTextLength(0)+1)*$nbOccurrence/2)*1.33-getMeasureCharWidth(5,0)*1.33/2",
+      "type": "number",
+      "description": "Tittle start position x => Center on first character of $nbOccurrence / 2"
+    },
+    {
+      "key": "$var9",
+      "value": "$var8-getCharacterPositionX(5,(getInputTextLength(0)+1))*1.33-getCharacterPositionX(5,(getInputTextLength(0)))*1.33/2+getMeasureCharWidth(5,0)*1.33/2",
+      "type": "number",
+      "description": "Tittle end position x => Center on text of next occurrence"
+    },
+    {
+      "key": "$var10",
+      "value": "869+1244*1.33-getAscent(1)*1.33",
+      "type": "number",
+      "description": "main text 1st key frame of position y"
+    },
+    {
+      "key": "$var11",
+      "value": "720+1244*43/100-getTextMeasureHeight(1)/2*43/100",
+      "type": "number",
+      "description": "main text 2nd key frame of position y => Center in the middle"
+    }
+  ]
+}

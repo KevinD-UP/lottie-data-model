@@ -1,0 +1,95 @@
+{
+  "layerRules": [
+    {
+      "ind": 1,
+      "fontKey": "title",
+      "textInd": [0],
+      "maxLines": 2,
+      "maxWidth": 918,
+      "colorKey": "titleText"
+    },
+    {
+      "ind": 2,
+      "fontKey": "title",
+      "textInd": [1],
+      "maxLines": 2,
+      "maxWidth": 918,
+      "colorKey": "titleText"
+    },
+    {
+      "ind": 3,
+      "fontKey": "textBlack",
+      "textInd": [2],
+      "maxLines": 2,
+      "maxWidth": 810,
+      "colorKey": "text"
+    },
+    {
+      "ind": 4,
+      "colorKey": "shape"
+    },
+    {
+      "ind": 5,
+      "fontKey": "text",
+      "textInd": [3],
+      "maxLines": 2,
+      "maxWidth": 810,
+      "colorKey": "text"
+    },
+    {
+      "ind": 6,
+      "colorKey": "titleBackground",
+      "opacityKey": "titleBackgroundOpacity"
+    }
+  ],
+  "variables": [
+    {
+      "key": "",
+      "value": "harmonizeFontSize(1,2)",
+      "type": "unit",
+      "description": "harmonize titleTop and titleBottom fontSize"
+    },
+    {
+      "key": "$var0",
+      "value": "min(getBottomOfSafeArea()+getAscent(5)-getTextMeasureHeight(5)+getLastLineDescent(5),1700+getAscent(5)-getTextMeasureHeight(5)+getLastLineDescent(5))",
+      "type": "number",
+      "description": "textBottom y position"
+    },
+    {
+      "key": "$var1",
+      "value": "$var0-getAscent(5)-15",
+      "type": "number",
+      "description": "line y position"
+    },
+    {
+      "key": "$var2",
+      "value": "$var1-getTextMeasureHeight(3)+getLastLineDescent(3)+getAscent(3)-30",
+      "type": "number",
+      "description": "textTop y position"
+    },
+    {
+      "key": "$var3",
+      "value": "max(getTextLayerWidth(3),getTextLayerWidth(5))/2*-1",
+      "type": "number",
+      "description": "line start position X"
+    },
+    {
+      "key": "$var4",
+      "value": "max(getTextLayerWidth(3),getTextLayerWidth(5))/2",
+      "type": "number",
+      "description": "line end position X"
+    },
+    {
+      "key": "$var5",
+      "value": "960-getTextMeasureHeight(1)+getAscent(1)-getTextFontSize(1)*0.2",
+      "type": "number",
+      "description": "titleTop y position"
+    },
+    {
+      "key": "$var6",
+      "value": "960+getAscent(2)+getTextFontSize(2)*0.2",
+      "type": "number",
+      "description": "titleBottom y position"
+    }
+  ]
+}

@@ -1,0 +1,78 @@
+{
+  "layerRules": [
+    {
+      "ind": 1,
+      "gradientColorKey": ["gradientTop", "gradientBottom"]
+    },
+    {
+      "ind": 2,
+      "fontKey": "textBold",
+      "textInd": [1],
+      "maxLines": 5,
+      "maxWidth": 490
+    },
+    {
+      "ind": 3,
+      "gradientColorKey": ["gradientTop", "gradientBottom"]
+    },
+    {
+      "ind": 4,
+      "fontKey": "textBold",
+      "textInd": [0],
+      "maxLines": 5,
+      "maxWidth": 490
+    },
+    {
+      "ind": 5,
+      "gradientColorKey": ["gradientTop", "gradientBottom"]
+    },
+    {
+      "ind": 6,
+      "colorKey": "slideBackground"
+    }
+  ],
+  "variables": [
+    {
+      "key": "",
+      "value": "harmonizeFontSize(2,4)",
+      "type": "unit",
+      "description": "harmonize titleLeft and titleRight fontSize"
+    },
+    {
+      "key": "$var0",
+      "value": "960-getTextMeasureHeight(2)/2+getAscent(2)",
+      "type": "number",
+      "description": "titleRight y position"
+    },
+    {
+      "key": "$var1",
+      "value": "960-getTextMeasureHeight(4)/2+getAscent(4)",
+      "type": "number",
+      "description": "titleLeft y position"
+    },
+    {
+      "key": "$var2",
+      "value": "960+getTextMeasureHeight(2)+getAscent(2)",
+      "type": "number",
+      "description": "titleRight hidden y position"
+    },
+    {
+      "key": "$var3",
+      "value": "960+getTextMeasureHeight(4)+getAscent(4)",
+      "type": "number",
+      "description": "titleLeft hidden y position"
+    },
+    {
+      "key": "$var4",
+      "value": "getTextMeasureHeight(2)+10",
+      "type": "number",
+      "description": "titleRight mask"
+    },
+    {
+      "key": "$var5",
+      "value": "getTextMeasureHeight(4)+10",
+      "type": "number",
+      "description": "titleLeft mask"
+    }
+  ]
+}
