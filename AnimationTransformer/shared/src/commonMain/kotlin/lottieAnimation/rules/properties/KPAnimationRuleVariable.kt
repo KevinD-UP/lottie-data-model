@@ -7,14 +7,19 @@ import kotlinx.serialization.Serializable
 data class KPAnimationRuleVariable(
     val key: String?,
     val value: String,
+    val transformNodes: List<KPAnimationRuleVariableTransformNode>?,
+    val type: KPAnimationRuleVariableType,
+    val description: String?
+)
+
+@Serializable
+data class KPAnimationRuleVariableTransformNode(
     val ind: Int?,
     val layerType: Int?,
     val transformType: KPAnimationRuleTransformType?,
     val transformIndexForList: Int?,
     val transformKey: String?,
-    val transformSubKey: String?,
-    val type: KPAnimationRuleVariableType,
-    val description: String?
+    val description: String?,
 )
 
 @Serializable

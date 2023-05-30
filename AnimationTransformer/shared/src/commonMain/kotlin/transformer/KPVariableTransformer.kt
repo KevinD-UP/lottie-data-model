@@ -7,6 +7,7 @@ import lottieAnimation.layer.*
 import lottieAnimation.layer.properties.*
 import lottieAnimation.rules.properties.KPAnimationRuleTransformType
 import lottieAnimation.rules.properties.KPAnimationRuleVariable
+import lottieAnimation.rules.properties.KPAnimationRuleVariableTransformNode
 import lottieAnimation.rules.properties.KPAnimationRules
 
 class KPVariableTransformer(
@@ -28,19 +29,23 @@ class KPVariableTransformer(
         var animationResultWrapper = KPLottieAnimationWrapper(animation = animation.copy())
         val variables = animationRules.variables ?: return animationResultWrapper.animation
         variables.forEach { variable ->
-            println("variable ind = ${variable.ind} - transformation = ${variable.transformType}")
-            animation.layers.find { it.ind == variable.ind }?.let { layer ->
-                animationResultWrapper.applyVariableOnTextLayer(
-                    layer = layer,
-                    variable = variable,
-                    expressionParser = expressionParser
-                )
-                animationResultWrapper.applyVariableOnShapeLayer(
-                    layer = layer,
-                    variable = variable,
-                    expressionParser = expressionParser
-                )
+            variable.transformNodes?.forEach { transformNode ->
+                animation.layers.find { it.ind == transformNode.ind }?.let { layer ->
+                    animationResultWrapper.applyVariableOnTextLayer(
+                        layer = layer,
+                        variable = variable,
+                        transformNode = transformNode,
+                        expressionParser = expressionParser
+                    )
+                    animationResultWrapper.applyVariableOnShapeLayer(
+                        layer = layer,
+                        variable = variable,
+                        transformNode = transformNode,
+                        expressionParser = expressionParser
+                    )
+                }
             }
+
         }
         return animationResultWrapper.animation
     }
@@ -51,12 +56,13 @@ class KPLottieAnimationWrapper(var animation: KPLottieAnimation) {}
 fun KPLottieAnimationWrapper.applyVariableOnTextLayer(
     layer: KPLayer,
     variable: KPAnimationRuleVariable,
+    transformNode: KPAnimationRuleVariableTransformNode,
     expressionParser: KPProjectExpressionParser
 ) {
     // Return if the layer is not a KPTextLayer
     if (layer !is KPTextLayer) return
 
-    when (variable.transformType) {
+    when (transformNode.transformType) {
         KPAnimationRuleTransformType.POSITION -> {
             val expressionResult =
                 expressionParser.parseAndEvaluate(expression = variable.value, key = variable.key)
@@ -65,7 +71,7 @@ fun KPLottieAnimationWrapper.applyVariableOnTextLayer(
             val newK: KPMultiDimensionalListOrPrimitive? =
                 when (val currentK = layer.ks.p?.k) {
                     is KPMultiDimensionalList -> {
-                        val transformIndexForList = variable.transformIndexForList ?: 0
+                        val transformIndexForList = transformNode.transformIndexForList ?: 0
                         var list = currentK.values.toMutableList()
                         if (transformIndexForList < list.count()) {
                             list[transformIndexForList] = KPMultiDimensionalNodePrimitive(
@@ -93,6 +99,7 @@ fun KPLottieAnimationWrapper.applyVariableOnTextLayer(
 fun KPLottieAnimationWrapper.applyVariableOnShapeLayer(
     layer: KPLayer,
     variable: KPAnimationRuleVariable,
+    transformNode: KPAnimationRuleVariableTransformNode,
     expressionParser: KPProjectExpressionParser
 ) {
     if (layer !is KPShapeLayer) {
@@ -103,12 +110,12 @@ fun KPLottieAnimationWrapper.applyVariableOnShapeLayer(
     println("Expression: ${variable.value}")
     println("Expression result: $expressionResult")
 
-    when (variable.transformType) {
+    when (transformNode.transformType) {
         KPAnimationRuleTransformType.POSITION -> {
             val newK: KPMultiDimensionalListOrPrimitive? =
                 when (val currentK = layer.ks.p?.k) {
                     is KPMultiDimensionalList -> {
-                        val transformIndexForList = variable.transformIndexForList ?: 0
+                        val transformIndexForList = transformNode.transformIndexForList ?: 0
                         var list = currentK.values.toMutableList()
                         if (transformIndexForList < list.count()) {
                             list[transformIndexForList] = KPMultiDimensionalNodePrimitive(
@@ -128,12 +135,12 @@ fun KPLottieAnimationWrapper.applyVariableOnShapeLayer(
             (layer.ks.p as? KPMultiDimensionalSimple)?.k = newK
         }
         KPAnimationRuleTransformType.POSITION_IT -> {
-            val shape = layer.shapes?.firstOrNull { it.key == variable.transformKey } ?: return
+            val shape = layer.shapes?.firstOrNull { it.key == transformNode.transformKey } ?: return
             when (shape) {
                 is KPShapeGroup -> {
-                    println("variable.transformSubKey = ${variable.transformSubKey}")
-                    println("shape it ${shape.it.firstOrNull { it.key == variable.transformSubKey }}")
-                    shape.it.firstOrNull { it.key == variable.transformSubKey }?.let {
+                    println("variable.transformSubKey = ${transformNode.transformKey}")
+                    println("shape it ${shape.it.firstOrNull { it.key == transformNode.transformKey }}")
+                    shape.it.firstOrNull { it.key == transformNode.transformKey }?.let {
                         when (it) {
                             is KPShapeShape -> {
                                 it.ks?.jsonObject?.let { ks ->
@@ -143,7 +150,7 @@ fun KPLottieAnimationWrapper.applyVariableOnShapeLayer(
                                                 // Modify the JsonArray at the specified index
                                                 val modifiedInnerArray = buildJsonArray {
                                                     innerArray.forEachIndexed { index, jsonElement ->
-                                                        if (index == variable.transformIndexForList) {
+                                                        if (index == transformNode.transformIndexForList) {
                                                             add(JsonPrimitive(expressionResult))
                                                         } else {
                                                             add(jsonElement)
@@ -182,7 +189,7 @@ fun KPLottieAnimationWrapper.applyVariableOnShapeLayer(
             val newK: KPMultiDimensionalListOrPrimitive? =
                 when (val currentK = layer.ks.p?.k) {
                     is KPMultiDimensionalList -> {
-                        val transformIndexForList = variable.transformIndexForList ?: 0
+                        val transformIndexForList = transformNode.transformIndexForList ?: 0
                         var list = currentK.values.toMutableList()
                         if (transformIndexForList < currentK.values.count()) {
                             list[transformIndexForList] = KPMultiDimensionalNodePrimitive(
@@ -202,19 +209,19 @@ fun KPLottieAnimationWrapper.applyVariableOnShapeLayer(
             layer.ks.p?.k = newK
         }
         KPAnimationRuleTransformType.FRAME_IT -> {
-            val shape = layer.shapes?.firstOrNull { it.key == variable.transformKey } ?: return
+            val shape = layer.shapes?.firstOrNull { it.key == transformNode.transformKey } ?: return
 
             println("shape $shape")
             when (shape) {
                 is KPShapeGroup -> {
-                    shape.it.firstOrNull { it.key == variable.transformSubKey }?.let {
+                    shape.it.firstOrNull { it.key == transformNode.transformKey }?.let {
                         when (it) {
                             is KPShapeRect -> {
                                 val newK: KPMultiDimensionalListOrPrimitive? =
                                     when (val currentK = it.s?.k) {
                                         is KPMultiDimensionalList -> {
                                             val transformIndexForList =
-                                                variable.transformIndexForList ?: 0
+                                                transformNode.transformIndexForList ?: 0
                                             var list = currentK.values.toMutableList()
                                             if (transformIndexForList < currentK.values.count()) {
                                                 list[transformIndexForList] =
