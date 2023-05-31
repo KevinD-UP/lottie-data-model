@@ -307,7 +307,8 @@ fun KPLottieAnimationWrapper.applyVariableOnShapeLayer(
                                 it.ks?.jsonObject?.let { ks ->
                                     ks["k"]?.jsonObject?.let { k ->
                                         k["v"]?.jsonArray?.let { v ->
-                                            v.getOrNull(1)?.jsonArray?.let { innerArray ->
+                                            val index = transformNode.transformNodeVIndex ?: return
+                                            v.getOrNull(index)?.jsonArray?.let { innerArray ->
                                                 // Modify the JsonArray at the specified index
                                                 val modifiedInnerArray = buildJsonArray {
                                                     innerArray.forEachIndexed { index, jsonElement ->

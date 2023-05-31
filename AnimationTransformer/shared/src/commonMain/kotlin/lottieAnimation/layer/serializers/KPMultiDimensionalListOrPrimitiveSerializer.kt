@@ -21,8 +21,7 @@ object KPMultiDimensionalListOrPrimitiveSerializer : KSerializer<KPMultiDimensio
     }
 
     override fun deserialize(decoder: Decoder): KPMultiDimensionalListOrPrimitive {
-        val layer = decoder.decodeSerializableValue(JsonElement.serializer())
-        return when (layer) {
+        return when (val layer = decoder.decodeSerializableValue(JsonElement.serializer())) {
             is JsonArray -> KPMultiDimensionalList(values = jsonArrayToList(jsonArray = layer.jsonArray))
             is JsonPrimitive -> KPMultiDimensionalPrimitive(value = layer.jsonPrimitive)
             else -> throw Exception("unknown MultiDimensionalListOrPrimitiveSerializer....")

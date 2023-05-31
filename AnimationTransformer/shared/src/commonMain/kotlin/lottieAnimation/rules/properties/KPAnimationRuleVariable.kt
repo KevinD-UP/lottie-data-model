@@ -18,6 +18,7 @@ data class KPAnimationRuleVariableTransformNode(
     val layerType: Int?,
     val transformType: KPAnimationRuleTransformType?,
     val transformIndexForList: Int?,
+    val transformNodeVIndex: Int?,
     val transformKey: String?,
     val description: String?,
 )
