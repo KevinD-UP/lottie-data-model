@@ -73,10 +73,35 @@ fun KPLottieAnimationWrapper.applyVariableOnTextLayer(
                     is KPMultiDimensionalList -> {
                         val transformIndexForList = transformNode.transformIndexForList ?: 0
                         var list = currentK.values.toMutableList()
-                        if (transformIndexForList < list.count()) {
-                            list[transformIndexForList] = KPMultiDimensionalNodePrimitive(
-                                value = JsonPrimitive(expressionResult)
-                            )
+                        when (list.firstOrNull()) {
+                            is KPMultiDimensionNodeObject -> {
+                                list.forEach {
+                                    when (it) {
+                                        is KPMultiDimensionNodeObject -> {
+                                            var sList = it.s?.toMutableList()
+                                            if (sList != null && transformIndexForList < sList.count()) {
+                                                sList[transformIndexForList] = JsonPrimitive(expressionResult)
+                                                it.s = JsonArray(sList)
+                                            }
+                                            var eList = it.e?.toMutableList()
+                                            if (eList != null && transformIndexForList < eList.count()) {
+                                                eList[transformIndexForList] = JsonPrimitive(expressionResult)
+                                                it.e = JsonArray(eList)
+                                            }
+                                        }
+                                        else -> {}
+                                    }
+                                }
+                            }
+                            is KPMultiDimensionalNodePrimitive -> {
+                                if (transformIndexForList < list.count()) {
+                                    list[transformIndexForList] =
+                                        KPMultiDimensionalNodePrimitive(
+                                            value = JsonPrimitive(expressionResult)
+                                        )
+                                }
+                            }
+                            else -> {}
                         }
                         KPMultiDimensionalList(values = list)
                     }
