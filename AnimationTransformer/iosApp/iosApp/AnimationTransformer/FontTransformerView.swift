@@ -297,9 +297,9 @@ class FontTransformerViewModel: ObservableObject {
 
     @Published var text1: String = "Titre en haut"
     @Published var text2: String = "Titre en bas"
-    @Published var text3: String = "Sous-titre en haut"
-    @Published var text4: String = "Sous-titre en bas"
-    @Published var selectedAnim: AnimationType = .baliPlane
+    @Published var text3: String = "Text 3"
+    @Published var text4: String = "Text 4"
+    @Published var selectedAnim: AnimationType = .berlinPlane
     @Published var selectedFont: FontTypeAnim = .lato
     @Published var selectedThemeColor: ColorThemeType = .accor
 
