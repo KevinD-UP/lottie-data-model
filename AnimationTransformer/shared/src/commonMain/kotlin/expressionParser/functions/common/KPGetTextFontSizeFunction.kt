@@ -21,5 +21,4 @@ class KPGetTextFontSizeFunction(
         println("KPGetTextFontSizeFunction = $result")
         return result
     }
-
 }

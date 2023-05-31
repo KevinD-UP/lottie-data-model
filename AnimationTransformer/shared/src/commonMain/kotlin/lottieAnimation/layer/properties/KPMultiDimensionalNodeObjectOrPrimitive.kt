@@ -10,6 +10,7 @@ sealed class KPMultiDimensionalNodeObjectOrPrimitive
 
 @Serializable
 data class KPMultiDimensionNodeObject(
+    var key: String? = null,
     var t: JsonPrimitive? = null,
     var s: JsonArray? = null,
     var i: JsonObject? = null,

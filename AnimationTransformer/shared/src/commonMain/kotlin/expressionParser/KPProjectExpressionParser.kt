@@ -1,9 +1,6 @@
 package expressionParser
 
-import expressionParser.functions.common.KPGetBottomOfSafeAreaFunction
-import expressionParser.functions.common.KPGetTextFontSizeFunction
-import expressionParser.functions.common.KPMaxFunction
-import expressionParser.functions.common.KPMinFunction
+import expressionParser.functions.common.*
 import expressionParser.functions.platform.KPGetAscentFunction
 import expressionParser.functions.platform.KPGetLastLineBottomFunction
 import expressionParser.functions.platform.KPGetTextLayerWidthFunction
@@ -46,14 +43,19 @@ class KPProjectExpressionParser(
         "getTextFontSize" to KPGetTextFontSizeFunction(
             lottieAnimation = animation
         ),
-
+        "getShapeHeight" to KPGetShapeHeightFunction(
+            lottieAnimation = animation
+        ),
+        "getShapeWidth" to KPGetShapeWidthFunction(
+            lottieAnimation = animation
+        ),
     )
     private val commonFunctions = mapOf(
         "min" to KPMinFunction(),
         "max" to KPMaxFunction(),
         "getResultForKey" to storeResults
     )
-    private val functions =  nativeFunctions + commonFunctions
+    private val functions = nativeFunctions + commonFunctions
 
     val expressionParser: KPExpressionParser = KPDefaultExpressionParser(functions = functions)
 
