@@ -44,6 +44,10 @@ enum class KPAnimationRuleVariableType {
 enum class KPAnimationRuleTransformType {
     @SerialName("position")
     POSITION,
+    @SerialName("position_s")
+    POSITION_S,
+    @SerialName("position_e")
+    POSITION_E,
     @SerialName("position_it")
     POSITION_IT,
     @SerialName("frame")

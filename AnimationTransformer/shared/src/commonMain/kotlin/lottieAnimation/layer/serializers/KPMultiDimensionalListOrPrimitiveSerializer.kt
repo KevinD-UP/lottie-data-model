@@ -34,6 +34,7 @@ object KPMultiDimensionalListOrPrimitiveSerializer : KSerializer<KPMultiDimensio
             when (it) {
                 is JsonPrimitive -> KPMultiDimensionalNodePrimitive(value = it.jsonPrimitive)
                 is JsonObject -> KPMultiDimensionNodeObject(
+                    key = it.jsonObject["key"]?.jsonPrimitive?.content,
                     t = it.jsonObject["t"]?.jsonPrimitive,
                     s = it.jsonObject["s"]?.jsonArray,
                     i = it.jsonObject["i"]?.jsonObject,
