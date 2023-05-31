@@ -189,6 +189,7 @@
                     "layerType": 4,
                     "transformKey": "lineLeftTransformKey",
                     "transformType": "position_it",
+                    "transformNodeVIndex": 1,
                     "transformIndexForList": 1,
                     "description": "lineLeft end position y"
                 }
@@ -204,6 +205,7 @@
                     "layerType": 4,
                     "transformKey": "lineRightTransformKey",
                     "transformType": "position_it",
+                    "transformNodeVIndex": 1,
                     "transformIndexForList": 1,
                     "description": "lineRight end position y"
                 }
@@ -254,6 +256,7 @@
                     "layerType": 4,
                     "transformKey": "lineTopTransformKey",
                     "transformType": "position_it",
+                    "transformNodeVIndex": 1,
                     "transformIndexForList": 0,
                     "description": "lineTop end position x"
                 }
@@ -269,6 +272,7 @@
                     "layerType": 4,
                     "transformKey": "lineBottomTransformKey",
                     "transformType": "position_it",
+                    "transformNodeVIndex": 1,
                     "transformIndexForList": 0,
                     "description": "lineBottom end position x"
                 }
