@@ -34,15 +34,49 @@
     },
     {
       "key": "$var0",
+      "transformNodes" : [
+          {
+              "ind": 1,
+              "layerType": 5,
+              "transformKey": "textTopTransformKey",
+              "transformType": "position_s",
+              "transformIndexForList": 1,
+              "description": "titleTop y position"
+          },
+          {
+              "ind": 1,
+              "layerType": 5,
+              "transformKey": "textTopTransformKey",
+              "transformType": "position_e",
+              "transformIndexForList": 1,
+              "description": "titleTop y position"
+          }
+      ],
       "value": "1080/4-getTextMeasureHeight(1)/2+getAscent(1)",
-      "type": "number",
-      "description": "titleTop y position"
+      "type": "number"
     },
     {
       "key": "$var1",
+      "transformNodes" : [
+          {
+              "ind": 2,
+              "layerType": 5,
+              "transformKey": "textBottomTransformKey",
+              "transformType": "position_s",
+              "transformIndexForList": 1,
+              "description": "titleBottom y position"
+          },
+          {
+              "ind": 2,
+              "layerType": 5,
+              "transformKey": "textBottomTransformKey",
+              "transformType": "position_e",
+              "transformIndexForList": 1,
+              "description": "titleBottom y position"
+          }
+      ],
       "value": "1080*3/4-getTextMeasureHeight(2)/2+getAscent(2)",
-      "type": "number",
-      "description": "titleBottom y position"
+      "type": "number"
     }
   ]
 }
