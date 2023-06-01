@@ -34,27 +34,97 @@
     },
     {
       "key": "$var0",
+      "transformNodes" : [
+          {
+              "ind": 1,
+              "layerType": 5,
+              "transformKey": "textTopContainerTransformKey_1",
+              "transformType": "position_e",
+              "transformIndexForList": 1,
+              "description": "titleTop y position"
+          },
+          {
+              "ind": 1,
+              "layerType": 5,
+              "transformKey": "textTopContainerTransformKey_1",
+              "transformType": "position_s",
+              "transformIndexForList": 1,
+              "description": "titleTop y position"
+          },
+          {
+              "ind": 1,
+              "layerType": 5,
+              "transformKey": "textTopContainerTransformKey_2",
+              "transformType": "position_e",
+              "transformIndexForList": 1,
+              "description": "titleTop y position"
+          },
+          {
+              "ind": 1,
+              "layerType": 5,
+              "transformKey": "textTopContainerTransformKey_2",
+              "transformType": "position_s",
+              "transformIndexForList": 1,
+              "description": "titleTop y position"
+          }
+      ],
       "value": "540-getTextMeasureHeight(1)+getAscent(1)-getTextFontSize(1)*0.2",
-      "type": "number",
-      "description": "titleTop y position"
+      "type": "number"
     },
     {
       "key": "$var1",
+      "transformNodes" : [
+          {
+              "ind": 3,
+              "layerType": 5,
+              "transformKey": "textBottomTransformKey",
+              "transformType": "position_s",
+              "transformIndexForList": 1,
+              "description": "titleBottom y position"
+          },
+          {
+              "ind": 3,
+              "layerType": 5,
+              "transformKey": "textBottomTransformKey",
+              "transformType": "position_e",
+              "transformIndexForList": 1,
+              "description": "titleBottom y position"
+          }
+      ],
       "value": "540+getAscent(3)+getTextFontSize(3)*0.2",
-      "type": "number",
-      "description": "titleBottom y position"
+      "type": "number"
     },
     {
       "key": "$var2",
+      "transformNodes" : [
+          {
+              "ind": 2,
+              "layerType": 4,
+              "transformKey": "lineTransformKey",
+              "transformType": "position_it",
+              "transformIndexForList": 0,
+              "transformNodeVIndex": 0,
+              "description": "first line x position"
+          }
+      ],
       "value": "-max(getTextLayerWidth(1),getTextLayerWidth(3))/2",
-      "type": "number",
-      "description": "first line x position"
+      "type": "number"
     },
     {
       "key": "$var3",
+      "transformNodes" : [
+          {
+              "ind": 2,
+              "layerType": 4,
+              "transformKey": "lineTransformKey",
+              "transformType": "position_it",
+              "transformIndexForList": 0,
+              "transformNodeVIndex": 1,
+              "description": "last line x position"
+          }
+      ],
       "value": "max(getTextLayerWidth(1),getTextLayerWidth(3))/2",
-      "type": "number",
-      "description": "last line x position"
+      "type": "number"
     }
   ]
 }
