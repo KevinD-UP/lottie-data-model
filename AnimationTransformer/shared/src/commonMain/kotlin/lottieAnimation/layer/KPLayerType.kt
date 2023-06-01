@@ -6,7 +6,7 @@ import lottieAnimation.layer.serializers.KPLayerTypeSerializer
 @Serializable(with = KPLayerTypeSerializer::class)
 enum class KPLayerType {
     PRECOMP_LAYER,
-    SOLID_COLOR_LAYER,
+    SOLID_LAYER,
     IMAGE_LAYER,
     NULL_LAYER,
     SHAPE_LAYER,

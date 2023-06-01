@@ -13,7 +13,7 @@ object KPLayerSerializer : KSerializer<KPLayer> {
     override fun serialize(encoder: Encoder, value: KPLayer) {
         when (value) {
             is KPPrecompositionLayer -> encoder.encodeSerializableValue(KPPrecompositionLayer.serializer(), value)
-            is KPSolidColorLayer -> encoder.encodeSerializableValue(KPSolidColorLayer.serializer(), value)
+            is KPSolidLayer -> encoder.encodeSerializableValue(KPSolidLayer.serializer(), value)
             is KPImageLayer -> encoder.encodeSerializableValue(KPImageLayer.serializer(), value)
             is KPNullLayer -> encoder.encodeSerializableValue(KPNullLayer.serializer(), value)
             is KPShapeLayer -> encoder.encodeSerializableValue(KPShapeLayer.serializer(), value)
@@ -32,8 +32,8 @@ object KPLayerSerializer : KSerializer<KPLayer> {
                 KPPrecompositionLayer.serializer(),
                 layer.jsonObject
             )
-            KPLayerType.SOLID_COLOR_LAYER -> Json.decodeFromJsonElement(
-                KPSolidColorLayer.serializer(),
+            KPLayerType.SOLID_LAYER -> Json.decodeFromJsonElement(
+                KPSolidLayer.serializer(),
                 layer.jsonObject
             )
             KPLayerType.IMAGE_LAYER -> Json.decodeFromJsonElement(

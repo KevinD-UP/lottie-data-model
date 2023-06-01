@@ -31,6 +31,12 @@ class KPVariableTransformer(
         variables.forEach { variable ->
             variable.transformNodes?.forEach { transformNode ->
                 animation.layers.find { it.ind == transformNode.ind }?.let { layer ->
+                    animationResultWrapper.applyVariableOnSolidLayer(
+                        layer = layer,
+                        variable = variable,
+                        transformNode = transformNode,
+                        expressionParser = expressionParser
+                    )
                     animationResultWrapper.applyVariableOnTextLayer(
                         layer = layer,
                         variable = variable,
@@ -53,6 +59,39 @@ class KPVariableTransformer(
 
 class KPLottieAnimationWrapper(var animation: KPLottieAnimation) {}
 
+/**
+ * Type layer 1
+ */
+fun KPLottieAnimationWrapper.applyVariableOnSolidLayer(
+    layer: KPLayer,
+    variable: KPAnimationRuleVariable,
+    transformNode: KPAnimationRuleVariableTransformNode,
+    expressionParser: KPProjectExpressionParser
+) {
+    // Return if the layer is not a KPTextLayer
+    if (layer !is KPSolidLayer) return
+    val expressionResult =
+        expressionParser.parseAndEvaluate(expression = variable.value, key = variable.key)
+    println("Expression: ${variable.value}")
+    println("Expression result: $expressionResult")
+
+    when (transformNode.transformType) {
+        KPAnimationRuleTransformType.SOURCE_W -> {
+            layer.sw = JsonPrimitive(expressionResult)
+            println("variable ${variable.key} (transformType: ${transformNode.transformType})")
+        }
+        KPAnimationRuleTransformType.SOURCE_H -> {
+            layer.sh = JsonPrimitive(expressionResult)
+            println("variable ${variable.key} (transformType: ${transformNode.transformType})")
+        }
+        else -> {}
+    }
+    println("variable ${variable.key} updated with $expressionResult")
+}
+
+/**
+ * Type layer 5
+ */
 fun KPLottieAnimationWrapper.applyVariableOnTextLayer(
     layer: KPLayer,
     variable: KPAnimationRuleVariable,
@@ -61,13 +100,12 @@ fun KPLottieAnimationWrapper.applyVariableOnTextLayer(
 ) {
     // Return if the layer is not a KPTextLayer
     if (layer !is KPTextLayer) return
-
+    val expressionResult =
+        expressionParser.parseAndEvaluate(expression = variable.value, key = variable.key)
+    println("Expression: ${variable.value}")
+    println("Expression result: $expressionResult")
     when (transformNode.transformType) {
         KPAnimationRuleTransformType.POSITION -> {
-            val expressionResult =
-                expressionParser.parseAndEvaluate(expression = variable.value, key = variable.key)
-            println("Expression: ${variable.value}")
-            println("Expression result: $expressionResult")
             val newK: KPMultiDimensionalListOrPrimitive? =
                 when (val currentK = layer.ks.p?.k) {
                     is KPMultiDimensionalList -> {
@@ -98,10 +136,6 @@ fun KPLottieAnimationWrapper.applyVariableOnTextLayer(
             (layer.ks.p as? KPMultiDimensionalSimple)?.k = newK
         }
         KPAnimationRuleTransformType.POSITION_S -> {
-            val expressionResult =
-                expressionParser.parseAndEvaluate(expression = variable.value, key = variable.key)
-            println("Expression: ${variable.value}")
-            println("Expression result: $expressionResult")
             val newK: KPMultiDimensionalListOrPrimitive? =
                 when (val currentK = layer.ks.p?.k) {
                     is KPMultiDimensionalList -> {
@@ -136,10 +170,6 @@ fun KPLottieAnimationWrapper.applyVariableOnTextLayer(
             (layer.ks.p as? KPMultiDimensionalSimple)?.k = newK
         }
         KPAnimationRuleTransformType.POSITION_E -> {
-            val expressionResult =
-                expressionParser.parseAndEvaluate(expression = variable.value, key = variable.key)
-            println("Expression: ${variable.value}")
-            println("Expression result: $expressionResult")
             val newK: KPMultiDimensionalListOrPrimitive? =
                 when (val currentK = layer.ks.p?.k) {
                     is KPMultiDimensionalList -> {
@@ -180,6 +210,9 @@ fun KPLottieAnimationWrapper.applyVariableOnTextLayer(
     }
 }
 
+/**
+ * Type layer 4
+ */
 fun KPLottieAnimationWrapper.applyVariableOnShapeLayer(
     layer: KPLayer,
     variable: KPAnimationRuleVariable,

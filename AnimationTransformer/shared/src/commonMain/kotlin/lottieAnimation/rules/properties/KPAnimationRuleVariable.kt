@@ -54,7 +54,11 @@ enum class KPAnimationRuleTransformType {
     @SerialName("frame")
     FRAME,
     @SerialName("frame_it")
-    FRAME_IT
+    FRAME_IT,
+    @SerialName("source_width")
+    SOURCE_W,
+    @SerialName("source_height")
+    SOURCE_H,
 }
 
 

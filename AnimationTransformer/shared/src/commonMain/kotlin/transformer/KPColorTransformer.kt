@@ -63,7 +63,7 @@ class KPColorTransformer {
                     // Set layer color depending on its type
                     when (targetLayer) {
                         is KPTextLayer -> setTextColor(colorArray, targetLayer)
-                        is KPSolidColorLayer -> setSolidColor(color, targetLayer)
+                        is KPSolidLayer -> setSolidColor(color, targetLayer)
                         is KPShapeLayer -> {
                             setShapeColor(colorArray, targetLayer)
                         }
@@ -87,7 +87,7 @@ class KPColorTransformer {
                         is KPTextLayer -> {
                             // TODO: To implement
                         }
-                        is KPSolidColorLayer -> {
+                        is KPSolidLayer -> {
                             // TODO: To implement
                         }
                         is KPShapeLayer -> setShapeColor(colorArray, targetLayer, index)
@@ -132,7 +132,7 @@ class KPColorTransformer {
         return modifiedAnimation
     }
 
-    private fun setSolidColor(color: String, layer: KPSolidColorLayer) {
+    private fun setSolidColor(color: String, layer: KPSolidLayer) {
         layer.sc = color
     }
 
@@ -359,7 +359,7 @@ class KPColorTransformer {
         val currentLayerColor = when (layer) {
             is KPTextLayer -> getTextColor(layer)
             is KPShapeLayer -> null // TODO: To Implement
-            is KPSolidColorLayer -> null // TODO: To Implement
+            is KPSolidLayer -> null // TODO: To Implement
             else -> null
         } ?: return
 
@@ -379,7 +379,7 @@ class KPColorTransformer {
         val currentLayerColor = when (layer) {
             is KPTextLayer -> getTextColor(layer)
             is KPShapeLayer -> null // TODO: To Implement
-            is KPSolidColorLayer -> null // TODO: To Implement
+            is KPSolidLayer -> null // TODO: To Implement
             else -> null
         } ?: return
 

@@ -64,7 +64,7 @@ data class KPPrecompositionLayer(
 }
 
 @Serializable
-data class KPSolidColorLayer(
+data class KPSolidLayer(
     override var ct: Long? = null,
     override var nm: String? = null,
     override var mn: String? = null,
@@ -106,7 +106,7 @@ data class KPSolidColorLayer(
      */
     var sw: JsonElement
 ) : KPLayer(), KPVisualLayer {
-    override var ty: KPLayerType = KPLayerType.SOLID_COLOR_LAYER
+    override var ty: KPLayerType = KPLayerType.SOLID_LAYER
 }
 
 @Serializable

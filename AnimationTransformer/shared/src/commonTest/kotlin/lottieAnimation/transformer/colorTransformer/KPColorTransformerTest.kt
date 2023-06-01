@@ -75,7 +75,7 @@ class KPColorTransformerTest {
         expectedBackground1Color.add(1.0f)
         assertEquals(expectedBackground1Color, background1Color)
         // -------- titleBackground 2 -------
-        val titleBackground2Color = (result.layers.firstOrNull { 10 == it.ind } as KPSolidColorLayer).sc
+        val titleBackground2Color = (result.layers.firstOrNull { 10 == it.ind } as KPSolidLayer).sc
         val expectedTitleBackground2Color = colors["titleBackground"] ?: ""
         assertEquals(expectedTitleBackground2Color, titleBackground2Color)
     }
