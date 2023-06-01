@@ -79,6 +79,7 @@
             "a": 1,
             "k": [
               {
+                "key": "titleTransformKey",
                 "i": {
                   "x": 0.833,
                   "y": 0.833
@@ -268,9 +269,11 @@
         "ao": 0,
         "shapes": [
           {
+            "kp_transform_key": "lineStartTransformKey",
             "ty": "gr",
             "it": [
               {
+                "kp_transform_key": "lineStartTransformKey",
                 "ind": 0,
                 "ty": "sh",
                 "ix": 1,
