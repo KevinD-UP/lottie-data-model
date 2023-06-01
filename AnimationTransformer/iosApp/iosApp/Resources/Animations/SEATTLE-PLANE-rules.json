@@ -55,57 +55,293 @@
     },
     {
       "key": "$var0",
+      "transformNodes" : [
+          {
+              "ind": 7,
+              "layerType": 5,
+              "transformKey": "textBottomTransformKey",
+              "transformType": "position_s",
+              "transformIndexForList": 1,
+              "description": "textBottom y position"
+          },
+          {
+              "ind": 7,
+              "layerType": 5,
+              "transformKey": "textBottomTransformKey",
+              "transformType": "position_e",
+              "transformIndexForList": 1,
+              "description": "textBottom y position"
+          },
+          {
+              "ind": 7,
+              "layerType": 5,
+              "transformKey": "textBottomTransformKey",
+              "transformType": "position_s",
+              "transformIndexForList": 1,
+              "description": "textBottom y position"
+          },
+          {
+              "ind": 7,
+              "layerType": 5,
+              "transformKey": "textBottomTransformKey",
+              "transformType": "position_e",
+              "transformIndexForList": 1,
+              "description": "textBottom y position"
+          },
+          {
+              "ind": 7,
+              "layerType": 5,
+              "transformKey": "textBottomTransformKey",
+              "transformType": "position_s",
+              "transformIndexForList": 1,
+              "description": "textBottom y position"
+          },
+          {
+              "ind": 7,
+              "layerType": 5,
+              "transformKey": "textBottomTransformKey",
+              "transformType": "position_e",
+              "transformIndexForList": 1,
+              "description": "textBottom y position"
+          }
+      ],
       "value": "min(getBottomOfSafeArea()+getAscent(7)-getTextMeasureHeight(7)+getLastLineDescent(7)-50,980+getAscent(7)-getTextMeasureHeight(7)+getLastLineDescent(7))",
-      "type": "number",
-      "description": "textBottom y position"
+      "type": "number"
     },
     {
       "key": "$var1",
+      "transformNodes" : [
+          {
+              "ind": 8,
+              "layerType": 4,
+              "transformKey": "textBottomContainerTransformKey",
+              "transformType": "frame_it",
+              "transformIndexForList": 1,
+              "description": "textBottomContainer height"
+          },
+          {
+              "ind": 6,
+              "layerType": 4,
+              "transformKey": "textBottomContainerTransformKey",
+              "transformType": "frame_it",
+              "transformIndexForList": 1,
+              "description": "textBottomContainer height"
+          }
+      ],
       "value": "getTextMeasureHeight(7)+46",
-      "type": "number",
-      "description": "textBottomContainer height"
+      "type": "number"
     },
     {
       "key": "$var2",
+      "transformNodes" : [
+          {
+              "ind": 8,
+              "layerType": 4,
+              "transformKey": "textBottomContainerTransformKey",
+              "transformType": "frame_it",
+              "transformIndexForList": 0,
+              "description": "textTopContainer width"
+          },
+          {
+              "ind": 6,
+              "layerType": 4,
+              "transformKey": "textBottomContainerTransformKey",
+              "transformType": "frame_it",
+              "transformIndexForList": 0,
+              "description": "textBottomContainer width"
+          }
+      ],
       "value": "max(getTextLayerWidth(4)+64,getTextLayerWidth(7)+46)",
-      "type": "number",
-      "description": "textTopContainer and textBottomContainer width"
+      "type": "number"
     },
     {
       "key": "$var3",
-      "value": "$var0-getAscent(7)+getTextMeasureHeight(7)/2",
-      "type": "number",
-      "description": "textBottomContainer position y"
+      "transformNodes" : [
+          {
+              "ind": 8,
+              "layerType": 4,
+              "transformType": "position",
+              "transformIndexForList": 1,
+              "description": "textBottomContainer position y"
+          },
+          {
+              "ind": 6,
+              "layerType": 4,
+              "transformType": "position",
+              "transformIndexForList": 1,
+              "description": "textBottomContainer position y"
+          }
+      ],
+      "value": "getResultForKey(\"$var0\")-getAscent(7)+getTextMeasureHeight(7)/2",
+      "type": "number"
     },
     {
       "key": "$var4",
+      "transformNodes" : [
+          {
+              "ind": 3,
+              "layerType": 4,
+              "transformKey": "textTopContainerTransformKey",
+              "transformType": "frame_it",
+              "transformIndexForList": 1,
+              "description": "textTopContainer height"
+          },
+          {
+              "ind": 5,
+              "layerType": 4,
+              "transformKey": "textTopContainerTransformKey",
+              "transformType": "frame_it",
+              "transformIndexForList": 1,
+              "description": "textTopContainer height"
+          }
+      ],
       "value": "getTextMeasureHeight(4)+64",
-      "type": "number",
-      "description": "textTopContainer height"
+      "type": "number"
     },
     {
       "key": "$var5",
-      "value": "$var0-getAscent(7)-getTextMeasureHeight(4)+getAscent(4)-23-32",
-      "type": "number",
-      "description": "textTop position y"
+      "transformNodes" : [
+          {
+              "ind": 4,
+              "layerType": 5,
+              "transformKey": "textTopTransformKey",
+              "transformType": "position_s",
+              "transformIndexForList": 1,
+              "description": "textTop position y"
+          },
+          {
+              "ind": 4,
+              "layerType": 5,
+              "transformKey": "textTopTransformKey",
+              "transformType": "position_e",
+              "transformIndexForList": 1,
+              "description": "textTop position y"
+          },
+          {
+              "ind": 4,
+              "layerType": 5,
+              "transformKey": "textTopTransformKey",
+              "transformType": "position_s",
+              "transformIndexForList": 1,
+              "description": "textTop position y"
+          },
+          {
+              "ind": 4,
+              "layerType": 5,
+              "transformKey": "textTopTransformKey",
+              "transformType": "position_e",
+              "transformIndexForList": 1,
+              "description": "textTop position y"
+          },
+          {
+              "ind": 4,
+              "layerType": 5,
+              "transformKey": "textTopTransformKey",
+              "transformType": "position_s",
+              "transformIndexForList": 1,
+              "description": "textTop position y"
+          },
+          {
+              "ind": 4,
+              "layerType": 5,
+              "transformKey": "textTopTransformKey",
+              "transformType": "position_e",
+              "transformIndexForList": 1,
+              "description": "textTop position y"
+          }
+      ],
+      "value": "getResultForKey(\"$var0\")-getAscent(7)-getTextMeasureHeight(4)+getAscent(4)-23-32",
+      "type": "number"
     },
     {
       "key": "$var6",
-      "value": "$var5-getAscent(4)+getTextMeasureHeight(4)/2",
-      "type": "number",
-      "description": "textTopContainer position y"
+      "transformNodes" : [
+          {
+              "ind": 3,
+              "layerType": 4,
+              "transformType": "position",
+              "transformIndexForList": 1,
+              "description": "textTopContainer position y"
+          }
+      ],
+      "value": "getResultForKey(\"$var5\")-getAscent(4)+getTextMeasureHeight(4)/2",
+      "type": "number"
     },
     {
       "key": "$var7",
+      "transformNodes" : [
+          {
+              "ind": 1,
+              "layerType": 5,
+              "transformType": "position_s",
+              "transformIndexForList": 1,
+              "description": "titleTop position y"
+          },
+          {
+              "ind": 1,
+              "layerType": 5,
+              "transformType": "position_e",
+              "transformIndexForList": 1,
+              "description": "titleTop position y"
+          }
+      ],
       "value": "540-getTextMeasureHeight(1)+getAscent(1)-getTextFontSize(1)*0.2",
-      "type": "number",
-      "description": "titleTop position y"
+      "type": "number"
     },
     {
       "key": "$var8",
+      "transformNodes" : [
+          {
+              "ind": 2,
+              "layerType": 5,
+              "transformKey": "titleTopTransformKey",
+              "transformType": "position_s",
+              "transformIndexForList": 1,
+              "description": "titleBottom position y"
+          },
+          {
+              "ind": 2,
+              "layerType": 5,
+              "transformKey": "titleTopTransformKey",
+              "transformType": "position_e",
+              "transformIndexForList": 1,
+              "description": "titleBottom position y"
+          },
+          {
+              "ind": 2,
+              "layerType": 5,
+              "transformKey": "titleTopTransformKey",
+              "transformType": "position_s",
+              "transformIndexForList": 1,
+              "description": "titleBottom position y"
+          },
+          {
+              "ind": 2,
+              "layerType": 5,
+              "transformKey": "titleTopTransformKey",
+              "transformType": "position_e",
+              "transformIndexForList": 1,
+              "description": "titleBottom position y"
+          },
+          {
+              "ind": 2,
+              "layerType": 5,
+              "transformKey": "titleTopTransformKey",
+              "transformType": "position_s",
+              "transformIndexForList": 1,
+              "description": "titleBottom position y"
+          },
+          {
+              "ind": 2,
+              "layerType": 5,
+              "transformKey": "titleTopTransformKey",
+              "transformType": "position_e",
+              "transformIndexForList": 1,
+              "description": "titleBottom position y"
+          }
+      ],
       "value": "540+getAscent(2)+getTextFontSize(2)*0.2",
-      "type": "number",
-      "description": "titleBottom position y"
+      "type": "number"
     }
   ]
 }
