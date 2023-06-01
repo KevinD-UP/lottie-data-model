@@ -61,6 +61,10 @@ enum class KPAnimationRuleTransformType {
     SOURCE_H,
     @SerialName("anchor")
     ANCHOR,
+    @SerialName("out_point")
+    OUT_POINT,
+    @SerialName("time")
+    TIME
 }
 
 
