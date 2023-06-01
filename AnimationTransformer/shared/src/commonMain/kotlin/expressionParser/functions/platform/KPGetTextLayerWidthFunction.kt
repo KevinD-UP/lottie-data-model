@@ -22,11 +22,13 @@ class KPGetTextLayerWidthFunction(
         val text = item.s.t
         val fontName = item.s.f
         val fontSize = item.s.s?.jsonPrimitive?.doubleOrNull ?: return 0.0
-        return functionsDelegate.getTextLayerWidth(
+        val result = functionsDelegate.getTextLayerWidth(
             text = text,
             fontName = fontName,
             fontSize = fontSize
         )
+        println("KPGetTextLayerWidthFunction = $result")
+        return result
     }
 
 }
