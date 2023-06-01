@@ -49,6 +49,9 @@ class KPProjectExpressionParser(
         "getShapeWidth" to KPGetShapeWidthFunction(
             lottieAnimation = animation
         ),
+        "getAnimationFrameCount" to KPGetAnimationFrameCountFunction(
+            lottieAnimation = animation
+        ),
     )
     private val commonFunctions = mapOf(
         "min" to KPMinFunction(),
