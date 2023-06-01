@@ -413,7 +413,7 @@ fun KPLottieAnimationWrapper.applyVariableOnShapeLayer(
 
                                                 // Build the modified JsonElement from the innermost level to the outermost
                                                 val modifiedV = v.toMutableList()
-                                                    .apply { set(1, modifiedInnerArray) }
+                                                    .apply { set(index, modifiedInnerArray) }
                                                     .toJsonArray()
                                                 val modifiedK =
                                                     k.toMutableMap().apply { put("v", modifiedV) }
@@ -421,8 +421,6 @@ fun KPLottieAnimationWrapper.applyVariableOnShapeLayer(
                                                 val modifiedKs =
                                                     ks.toMutableMap().apply { put("k", modifiedK) }
                                                         .toJsonObject()
-
-                                                modifiedKs
 
                                                 println("variable ${variable.key} updated with $modifiedKs")
                                                 it.ks = modifiedKs
