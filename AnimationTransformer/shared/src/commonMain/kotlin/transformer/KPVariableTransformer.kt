@@ -31,6 +31,11 @@ class KPVariableTransformer(
         variables.forEach { variable ->
             variable.transformNodes?.forEach { transformNode ->
                 animation.layers.find { it.ind == transformNode.ind }?.let { layer ->
+                    animationResultWrapper.applyVariableUnitFunction(
+                        variable = variable,
+                        transformNode = transformNode,
+                        expressionParser = expressionParser
+                    )
                     animationResultWrapper.applyVariableOnSolidLayer(
                         layer = layer,
                         variable = variable,
@@ -58,6 +63,18 @@ class KPVariableTransformer(
 }
 
 class KPLottieAnimationWrapper(var animation: KPLottieAnimation) {}
+
+fun KPLottieAnimationWrapper.applyVariableUnitFunction(
+    variable: KPAnimationRuleVariable,
+    transformNode: KPAnimationRuleVariableTransformNode,
+    expressionParser: KPProjectExpressionParser
+) {
+    if (transformNode.transformType != KPAnimationRuleTransformType.UNIT) return
+    val expressionResult =
+        expressionParser.parseAndEvaluate(expression = variable.value, key = variable.key)
+    println("Expression: ${variable.value}")
+    println("Expression result: $expressionResult")
+}
 
 /**
  * Type layer 1

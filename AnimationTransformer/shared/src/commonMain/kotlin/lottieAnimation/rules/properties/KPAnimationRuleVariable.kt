@@ -43,6 +43,8 @@ enum class KPAnimationRuleVariableType {
 
 @Serializable
 enum class KPAnimationRuleTransformType {
+    @SerialName("unit")
+    UNIT,
     @SerialName("position")
     POSITION,
     @SerialName("position_s")
