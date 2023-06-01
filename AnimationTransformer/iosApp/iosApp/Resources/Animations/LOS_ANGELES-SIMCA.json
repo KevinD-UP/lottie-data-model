@@ -50,6 +50,7 @@
             "a": 1,
             "k": [
               {
+                "kp_transform_key":"textTransformKey",
                 "i": {
                   "x": 0.667,
                   "y": 1
