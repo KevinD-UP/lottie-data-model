@@ -59,6 +59,8 @@ enum class KPAnimationRuleTransformType {
     SOURCE_W,
     @SerialName("source_height")
     SOURCE_H,
+    @SerialName("anchor")
+    ANCHOR,
 }
 
 

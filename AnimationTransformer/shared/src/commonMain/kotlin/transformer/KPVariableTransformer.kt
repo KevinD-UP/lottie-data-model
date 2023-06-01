@@ -204,6 +204,31 @@ fun KPLottieAnimationWrapper.applyVariableOnTextLayer(
             println("variable ${variable.key} updated with $newK (transformType: ${transformNode.transformType})")
             (layer.ks.p as? KPMultiDimensionalSimple)?.k = newK
         }
+        KPAnimationRuleTransformType.ANCHOR -> {
+            val newK: KPMultiDimensionalListOrPrimitive? =
+                when (val currentK = layer.ks.a?.k) {
+                    is KPMultiDimensionalList -> {
+                        val transformIndexForList = transformNode.transformIndexForList ?: 0
+                        var list = currentK.values.toMutableList()
+                        when (list.firstOrNull()) {
+                            is KPMultiDimensionalNodePrimitive -> {
+                                if (transformIndexForList < list.count()) {
+                                    list[transformIndexForList] =
+                                        KPMultiDimensionalNodePrimitive(
+                                            value = JsonPrimitive(expressionResult)
+                                        )
+                                    println("variable ${variable.key} transformType: ${transformNode.transformType} transformKey: ${transformNode.transformKey} value: $expressionResult")
+                                }
+                            }
+                            else -> {}
+                        }
+                        KPMultiDimensionalList(values = list)
+                    }
+                    else -> null
+                }
+            println("variable ${variable.key} updated with $newK (transformType: ${transformNode.transformType})")
+            (layer.ks.p as? KPMultiDimensionalSimple)?.k = newK
+        }
         else -> {
             // Handle other transform types if necessary
         }
