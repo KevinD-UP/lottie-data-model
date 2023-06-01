@@ -20,9 +20,17 @@
   "variables": [
     {
       "key": "$var0",
+      "transformNodes": [
+          {
+              "ind": 1,
+              "layerType": 5,
+              "transformType": "position",
+              "transformIndexForList": 1,
+              "description": "title y position"
+          }
+      ],
       "value": "540-getTextMeasureHeight(1)/2+getAscent(1)",
-      "type": "number",
-      "description": "title y position"
+      "type": "number"
     }
   ]
 }
