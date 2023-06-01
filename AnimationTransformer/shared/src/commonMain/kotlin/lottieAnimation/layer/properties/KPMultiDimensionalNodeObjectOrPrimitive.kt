@@ -1,5 +1,6 @@
 package lottieAnimation.layer.properties
 
+import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import kotlinx.serialization.json.JsonArray
 import kotlinx.serialization.json.JsonObject
@@ -10,7 +11,8 @@ sealed class KPMultiDimensionalNodeObjectOrPrimitive
 
 @Serializable
 data class KPMultiDimensionNodeObject(
-    var key: String? = null,
+    @SerialName("kp_transform_key")
+    var kpTransformKey: String? = null,
     var t: JsonPrimitive? = null,
     var s: JsonArray? = null,
     var i: JsonObject? = null,

@@ -155,7 +155,7 @@
             "a": 1,
             "k": [
               {
-                "key": "titleTopTransformKey_1",
+                "kp_transform_key": "titleTopTransformKey_1",
                 "i": {
                   "x": 0,
                   "y": 1
@@ -187,7 +187,7 @@
                 ]
               },
               {
-                "key": "titleTopTransformKey_1",
+                "kp_transform_key": "titleTopTransformKey_1",
                 "i": {
                   "x": 0,
                   "y": 0
@@ -219,7 +219,7 @@
                 ]
               },
               {
-                "key": "titleTopTransformKey_2",
+                "kp_transform_key": "titleTopTransformKey_2",
                 "i": {
                   "x": 0,
                   "y": 1
@@ -424,7 +424,7 @@
             "a": 1,
             "k": [
               {
-                "key": "titleBottomTransformKey_1",
+                "kp_transform_key": "titleBottomTransformKey_1",
                 "i": {
                   "x": 0,
                   "y": 1
@@ -456,7 +456,7 @@
                 ]
               },
               {
-                "key": "titleBottomTransformKey_1",
+                "kp_transform_key": "titleBottomTransformKey_1",
                 "i": {
                   "x": 0.833,
                   "y": 0.833
@@ -488,7 +488,7 @@
                 ]
               },
               {
-                "key": "titleBottomTransformKey_2",
+                "kp_transform_key": "titleBottomTransformKey_2",
                 "i": {
                   "x": 0.833,
                   "y": 0.833
@@ -693,7 +693,7 @@
             "a": 1,
             "k": [
               {
-                "key": "textTopTransformKey",
+                "kp_transform_key": "textTopTransformKey",
                 "i": {
                   "x": 0.833,
                   "y": 0.833
@@ -725,7 +725,7 @@
                 ]
               },
               {
-                "key": "textTopTransformKey",
+                "kp_transform_key": "textTopTransformKey",
                 "i": {
                   "x": 0.833,
                   "y": 0.833
@@ -757,7 +757,7 @@
                 ]
               },
               {
-                "key": "textTopTransformKey",
+                "kp_transform_key": "textTopTransformKey",
                 "i": {
                   "x": 0.833,
                   "y": 0.833
@@ -962,7 +962,7 @@
             "a": 1,
             "k": [
               {
-                "key": "textTopContainerTransformKey_1",
+                "kp_transform_key": "textTopContainerTransformKey_1",
                 "i": {
                   "x": 0.833,
                   "y": 0.833
@@ -994,7 +994,7 @@
                 ]
               },
               {
-                "key": "textTopContainerTransformKey_2",
+                "kp_transform_key": "textTopContainerTransformKey_2",
                 "i": {
                   "x": 0.833,
                   "y": 0.833
@@ -1026,7 +1026,7 @@
                 ]
               },
               {
-                "key": "textTopContainerTransformKey_2",
+                "kp_transform_key": "textTopContainerTransformKey_2",
                 "i": {
                   "x": 0.833,
                   "y": 0.833
@@ -1086,11 +1086,11 @@
         "shapes": [
           {
             "ty": "gr",
-            "key": "textTopContainerTransformKey",
+            "kp_transform_key": "textTopContainerTransformKey",
             "it": [
               {
                 "ty": "rc",
-                "key": "textTopContainerTransformKey",
+                "kp_transform_key": "textTopContainerTransformKey",
                 "d": 1,
                 "s": {
                   "a": 0,
@@ -1303,7 +1303,7 @@
             "a": 1,
             "k": [
               {
-                "key": "textBottomTransformKey",
+                "kp_transform_key": "textBottomTransformKey",
                 "i": {
                   "x": 0.833,
                   "y": 0.833
@@ -1335,7 +1335,7 @@
                 ]
               },
               {
-                "key": "textBottomTransformKey",
+                "kp_transform_key": "textBottomTransformKey",
                 "i": {
                   "x": 0.833,
                   "y": 0.833
@@ -1367,7 +1367,7 @@
                 ]
               },
               {
-                "key": "textBottomTransformKey",
+                "kp_transform_key": "textBottomTransformKey",
                 "i": {
                   "x": 0.833,
                   "y": 0.833
@@ -1572,7 +1572,7 @@
             "a": 1,
             "k": [
               {
-                "key": "textBottomContainerTransformKey",
+                "kp_transform_key": "textBottomContainerTransformKey",
                 "i": {
                   "x": 0.833,
                   "y": 0.833
@@ -1604,7 +1604,7 @@
                 ]
               },
               {
-                "key": "textBottomContainerTransformKey",
+                "kp_transform_key": "textBottomContainerTransformKey",
                 "i": {
                   "x": 0.833,
                   "y": 0.833
@@ -1636,7 +1636,7 @@
                 ]
               },
               {
-                "key": "textBottomContainerTransformKey",
+                "kp_transform_key": "textBottomContainerTransformKey",
                 "i": {
                   "x": 0.833,
                   "y": 0.833
@@ -1696,11 +1696,11 @@
         "shapes": [
           {
             "ty": "gr",
-            "key": "textBottomContainerTransformKey",
+            "kp_transform_key": "textBottomContainerTransformKey",
             "it": [
               {
                 "ty": "rc",
-                "key": "textBottomContainerTransformKey",
+                "kp_transform_key": "textBottomContainerTransformKey",
                 "d": 1,
                 "s": {
                   "a": 0,
