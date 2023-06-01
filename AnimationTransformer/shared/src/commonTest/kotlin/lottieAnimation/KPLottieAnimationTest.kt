@@ -89,6 +89,15 @@ class KPLottieAnimationTest {
     }
 
     @Test
+    fun testDecodeKpTransformKey() {
+        val animationsToTest = listOf<String>(
+            "src/commonTest/resources/BALI-PLANE-kp_transform_key.json"
+        )
+
+        animationsToTest(animationsToTest)
+    }
+
+    @Test
     fun testDecode() {
         val animationsToTest = listOf<String>(
             "src/commonTest/resources/lottiefiles-carnival-archery.json",
