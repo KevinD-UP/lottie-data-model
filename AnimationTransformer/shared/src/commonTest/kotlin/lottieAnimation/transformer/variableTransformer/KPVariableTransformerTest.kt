@@ -21,9 +21,23 @@ import kotlin.test.assertTrue
 class KPVariableTransformerTest {
     @Test
     fun testVariableTransformerAlgiersFord() {
-        val pathToAnimation = "src/commonTest/resources/animations/ALGIERS-FORD.json"
+        val sut = setupSUT("ALGIERS-FORD")
+
+        val textLayer0 = sut.layers[0]
+        assertTextLayerNodeS_y(textLayer0, 482.0)
+        assertTextLayerNodeE_y(textLayer0, 482.0)
+
+        val textLayer1 = sut.layers[1]
+        assertTextLayerNodeS_y(textLayer1, 707.0)
+        assertTextLayerNodeE_y(textLayer1, 707.0)
+    }
+
+    fun setupSUT(
+        animationName: String
+    ): KPLottieAnimation {
+        val pathToAnimation = "src/commonTest/resources/animations/$animationName.json"
         val pathToAnimationRules =
-            "src/commonTest/resources/animations/ALGIERS-FORD-rules.json"
+            "src/commonTest/resources/animations/$animationName-rules.json"
         val functionsDelegateMock = AnimationTransformerFunctionsDelegateMock()
         val variableTransformer = KPVariableTransformer(functionsDelegateMock)
         val animationJson = FileSystem.SYSTEM.read(pathToAnimation.toPath()) {
@@ -38,15 +52,7 @@ class KPVariableTransformerTest {
         }
         val lottieAnimation = json.decodeFromString<KPLottieAnimation>(animationJson)
         val animationRules = json.decodeFromString<KPAnimationRules>(animationRulesJson)
-        val sut = variableTransformer.transformVariables(lottieAnimation, animationRules)
-
-        val textLayer0 = sut.layers[0]
-        assertTextLayerNodeS_y(textLayer0, 482.0)
-        assertTextLayerNodeE_y(textLayer0, 482.0)
-
-        val textLayer1 = sut.layers[1]
-        assertTextLayerNodeS_y(textLayer1, 707.0)
-        assertTextLayerNodeE_y(textLayer1, 707.0)
+        return variableTransformer.transformVariables(lottieAnimation, animationRules)
     }
 
     fun assertTextLayerNodeS_x(layer: KPLayer, expectedValue: Double) {
