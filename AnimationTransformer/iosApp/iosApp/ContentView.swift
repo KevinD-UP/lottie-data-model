@@ -12,7 +12,7 @@ struct ContentView: View {
                     Text("Expression")
                 }
                 NavigationLink(destination: FontTransformerView()) {
-                    Text("FontTransformer")
+                    Text("AnimationTransformer")
                 }
             }
         }
