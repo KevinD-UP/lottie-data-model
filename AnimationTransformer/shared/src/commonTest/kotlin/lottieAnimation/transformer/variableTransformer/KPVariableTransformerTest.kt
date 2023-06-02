@@ -91,7 +91,15 @@ class KPVariableTransformerTest {
         assertTextLayerPositionKeyframeEndY(textLayer2, 1, 823.5)
         assertTextLayerPositionKeyframeStartY(textLayer2, 2, 823.5)
         assertTextLayerPositionKeyframeEndY(textLayer2, 2, 823.5)
+    }
 
+    @Test
+    fun testVariableTransformerAlgiersSimca() {
+        val sut = setupSUT("ALGIERS-SIMCA")
+
+        val textLayer0 = sut.layers[0]
+        assertTextLayerPositionKeyframeStartY(textLayer0, 0, 594.5)
+        assertTextLayerPositionKeyframeEndY(textLayer0, 0, 594.5)
     }
 
     fun setupSUT(
@@ -116,100 +124,100 @@ class KPVariableTransformerTest {
         val animationRules = json.decodeFromString<KPAnimationRules>(animationRulesJson)
         return variableTransformer.transformVariables(lottieAnimation, animationRules)
     }
+}
 
-    fun assertTextLayerPositionKeyframeStartX(layer: KPLayer, keyframeIndex: Int, expectedValue: Double) {
-        assertTrue(layer is KPTextLayer)
-        val kList = layer.ks.p?.k
-        assertTrue(kList is KPMultiDimensionalList)
-        val node = kList?.values?.get(keyframeIndex)
-        assertTrue(node is KPMultiDimensionNodeObject)
-        val sValue = node.s?.get(0)?.jsonPrimitive?.doubleOrNull
-        assertEquals(expectedValue, sValue)
-    }
+fun assertTextLayerPositionKeyframeStartX(layer: KPLayer, keyframeIndex: Int, expectedValue: Double) {
+    assertTrue(layer is KPTextLayer)
+    val kList = layer.ks.p?.k
+    assertTrue(kList is KPMultiDimensionalList)
+    val node = kList?.values?.get(keyframeIndex)
+    assertTrue(node is KPMultiDimensionNodeObject)
+    val sValue = node.s?.get(0)?.jsonPrimitive?.doubleOrNull
+    assertEquals(expectedValue, sValue)
+}
 
-    fun assertTextLayerPositionKeyframeStartY(layer: KPLayer, keyframeIndex: Int, expectedValue: Double) {
-        assertTrue(layer is KPTextLayer)
-        val kList = layer.ks.p?.k
-        assertTrue(kList is KPMultiDimensionalList)
-        val node = kList?.values?.get(keyframeIndex)
-        assertTrue(node is KPMultiDimensionNodeObject)
-        val sValue = node.s?.get(1)?.jsonPrimitive?.doubleOrNull
-        assertEquals(expectedValue, sValue)
-    }
+fun assertTextLayerPositionKeyframeStartY(layer: KPLayer, keyframeIndex: Int, expectedValue: Double) {
+    assertTrue(layer is KPTextLayer)
+    val kList = layer.ks.p?.k
+    assertTrue(kList is KPMultiDimensionalList)
+    val node = kList?.values?.get(keyframeIndex)
+    assertTrue(node is KPMultiDimensionNodeObject)
+    val sValue = node.s?.get(1)?.jsonPrimitive?.doubleOrNull
+    assertEquals(expectedValue, sValue)
+}
 
-    fun assertTextLayerPositionKeyframeEndX(layer: KPLayer, keyframeIndex: Int, expectedValue: Double) {
-        assertTrue(layer is KPTextLayer)
-        val kList = layer.ks.p?.k
-        assertTrue(kList is KPMultiDimensionalList)
-        val node = kList?.values?.get(keyframeIndex)
-        assertTrue(node is KPMultiDimensionNodeObject)
-        val sValue = node.e?.get(0)?.jsonPrimitive?.doubleOrNull
-        assertEquals(expectedValue, sValue)
-    }
+fun assertTextLayerPositionKeyframeEndX(layer: KPLayer, keyframeIndex: Int, expectedValue: Double) {
+    assertTrue(layer is KPTextLayer)
+    val kList = layer.ks.p?.k
+    assertTrue(kList is KPMultiDimensionalList)
+    val node = kList?.values?.get(keyframeIndex)
+    assertTrue(node is KPMultiDimensionNodeObject)
+    val sValue = node.e?.get(0)?.jsonPrimitive?.doubleOrNull
+    assertEquals(expectedValue, sValue)
+}
 
-    fun assertTextLayerPositionKeyframeEndY(layer: KPLayer, keyframeIndex: Int, expectedValue: Double) {
-        assertTrue(layer is KPTextLayer)
-        val kList = layer.ks.p?.k
-        assertTrue(kList is KPMultiDimensionalList)
-        val node = kList?.values?.get(keyframeIndex)
-        assertTrue(node is KPMultiDimensionNodeObject)
-        val sValue = node.e?.get(1)?.jsonPrimitive?.doubleOrNull
-        assertEquals(expectedValue, sValue)
-    }
+fun assertTextLayerPositionKeyframeEndY(layer: KPLayer, keyframeIndex: Int, expectedValue: Double) {
+    assertTrue(layer is KPTextLayer)
+    val kList = layer.ks.p?.k
+    assertTrue(kList is KPMultiDimensionalList)
+    val node = kList?.values?.get(keyframeIndex)
+    assertTrue(node is KPMultiDimensionNodeObject)
+    val sValue = node.e?.get(1)?.jsonPrimitive?.doubleOrNull
+    assertEquals(expectedValue, sValue)
+}
 
-    fun assertShapeLayerPositonKeyframeStartX(layer: KPLayer, keyframeIndex: Int, expectedValue: Double) {
-        assertTrue(layer is KPShapeLayer)
-        val kList = layer.ks.p?.k
-        assertTrue(kList is KPMultiDimensionalList)
-        val node = kList?.values?.get(keyframeIndex)
-        assertTrue(node is KPMultiDimensionNodeObject)
-        val sValue = node.s?.get(0)?.jsonPrimitive?.doubleOrNull
-        assertEquals(expectedValue, sValue)
-    }
+fun assertShapeLayerPositonKeyframeStartX(layer: KPLayer, keyframeIndex: Int, expectedValue: Double) {
+    assertTrue(layer is KPShapeLayer)
+    val kList = layer.ks.p?.k
+    assertTrue(kList is KPMultiDimensionalList)
+    val node = kList?.values?.get(keyframeIndex)
+    assertTrue(node is KPMultiDimensionNodeObject)
+    val sValue = node.s?.get(0)?.jsonPrimitive?.doubleOrNull
+    assertEquals(expectedValue, sValue)
+}
 
-    fun assertShapeLayerPositionKeyframeStartY(layer: KPLayer, keyframeIndex: Int, expectedValue: Double) {
-        assertTrue(layer is KPShapeLayer)
-        val kList = layer.ks.p?.k
-        assertTrue(kList is KPMultiDimensionalList)
-        val node = kList?.values?.get(keyframeIndex)
-        assertTrue(node is KPMultiDimensionNodeObject)
-        val sValue = node.s?.get(1)?.jsonPrimitive?.doubleOrNull
-        assertEquals(expectedValue, sValue)
-    }
+fun assertShapeLayerPositionKeyframeStartY(layer: KPLayer, keyframeIndex: Int, expectedValue: Double) {
+    assertTrue(layer is KPShapeLayer)
+    val kList = layer.ks.p?.k
+    assertTrue(kList is KPMultiDimensionalList)
+    val node = kList?.values?.get(keyframeIndex)
+    assertTrue(node is KPMultiDimensionNodeObject)
+    val sValue = node.s?.get(1)?.jsonPrimitive?.doubleOrNull
+    assertEquals(expectedValue, sValue)
+}
 
-    fun assertShapeLayerPositionKeyframeEndX(layer: KPLayer, keyframeIndex: Int, expectedValue: Double) {
-        assertTrue(layer is KPShapeLayer)
-        val kList = layer.ks.p?.k
-        assertTrue(kList is KPMultiDimensionalList)
-        val node = kList?.values?.get(keyframeIndex)
-        assertTrue(node is KPMultiDimensionNodeObject)
-        val sValue = node.e?.get(0)?.jsonPrimitive?.doubleOrNull
-        assertEquals(expectedValue, sValue)
-    }
+fun assertShapeLayerPositionKeyframeEndX(layer: KPLayer, keyframeIndex: Int, expectedValue: Double) {
+    assertTrue(layer is KPShapeLayer)
+    val kList = layer.ks.p?.k
+    assertTrue(kList is KPMultiDimensionalList)
+    val node = kList?.values?.get(keyframeIndex)
+    assertTrue(node is KPMultiDimensionNodeObject)
+    val sValue = node.e?.get(0)?.jsonPrimitive?.doubleOrNull
+    assertEquals(expectedValue, sValue)
+}
 
-    fun assertShapeLayerPositionKeyframeEndY(layer: KPLayer, keyframeIndex: Int, expectedValue: Double) {
-        assertTrue(layer is KPShapeLayer)
-        val kList = layer.ks.p?.k
-        assertTrue(kList is KPMultiDimensionalList)
-        val node = kList?.values?.get(keyframeIndex)
-        assertTrue(node is KPMultiDimensionNodeObject)
-        val sValue = node.e?.get(1)?.jsonPrimitive?.doubleOrNull
-        assertEquals(expectedValue, sValue)
-    }
+fun assertShapeLayerPositionKeyframeEndY(layer: KPLayer, keyframeIndex: Int, expectedValue: Double) {
+    assertTrue(layer is KPShapeLayer)
+    val kList = layer.ks.p?.k
+    assertTrue(kList is KPMultiDimensionalList)
+    val node = kList?.values?.get(keyframeIndex)
+    assertTrue(node is KPMultiDimensionNodeObject)
+    val sValue = node.e?.get(1)?.jsonPrimitive?.doubleOrNull
+    assertEquals(expectedValue, sValue)
+}
 
-    fun assertShapeLayerRectWidth(layer: KPLayer, shapeIndex: Int, itemIndex: Int, expectedValue: Double) {
-        assertTrue(layer is KPShapeLayer)
-        val shape = layer.shapes?.get(shapeIndex)
-        assertTrue(shape is KPShapeGroup)
-        val it = shape.it[itemIndex]
-        assertTrue(it is KPShapeRect)
-        val nodeK = it.s?.k
-        assertTrue(nodeK is KPMultiDimensionalList)
-        val nodeWidth = nodeK.values?.get(0)
-        assertTrue(nodeWidth is KPMultiDimensionalNodePrimitive)
-        val widthValue = nodeWidth?.value?.doubleOrNull
-        assertEquals(expectedValue, widthValue)
-    }
+fun assertShapeLayerRectWidth(layer: KPLayer, shapeIndex: Int, itemIndex: Int, expectedValue: Double) {
+    assertTrue(layer is KPShapeLayer)
+    val shape = layer.shapes?.get(shapeIndex)
+    assertTrue(shape is KPShapeGroup)
+    val it = shape.it[itemIndex]
+    assertTrue(it is KPShapeRect)
+    val nodeK = it.s?.k
+    assertTrue(nodeK is KPMultiDimensionalList)
+    val nodeWidth = nodeK.values?.get(0)
+    assertTrue(nodeWidth is KPMultiDimensionalNodePrimitive)
+    val widthValue = nodeWidth?.value?.doubleOrNull
+    assertEquals(expectedValue, widthValue)
 }
 
 /**
