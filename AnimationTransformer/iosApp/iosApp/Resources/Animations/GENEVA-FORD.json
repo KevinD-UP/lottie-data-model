@@ -79,7 +79,7 @@
             "a": 1,
             "k": [
               {
-                "key": "titleTransformKey",
+                "kp_transform_key": "titleTransformKey",
                 "i": {
                   "x": 0.833,
                   "y": 0.833
