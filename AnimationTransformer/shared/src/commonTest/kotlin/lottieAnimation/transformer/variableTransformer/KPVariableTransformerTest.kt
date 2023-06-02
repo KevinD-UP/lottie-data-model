@@ -32,6 +32,19 @@ class KPVariableTransformerTest {
         assertTextLayerNodeE_y(textLayer1, 707.0)
     }
 
+    @Test
+    fun testVariableTransformerAlgiersPeugeot() {
+        val sut = setupSUT("ALGIERS-PEUGEOT")
+
+        val textLayer0 = sut.layers[0]
+        assertTextLayerNodeS_y(textLayer0, 347.5)
+        assertTextLayerNodeE_y(textLayer0, 347.5)
+
+        val textLayer1 = sut.layers[1]
+        assertTextLayerNodeS_y(textLayer1, 887.5)
+        assertTextLayerNodeE_y(textLayer1, 887.5)
+    }
+
     fun setupSUT(
         animationName: String
     ): KPLottieAnimation {
