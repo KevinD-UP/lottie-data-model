@@ -109,6 +109,16 @@ class KPVariableTransformerTest {
         val textLayer0 = sut.layers[0]
         assertTextLayerPositionY(textLayer0, 582.0)
     }
+
+    @Test
+    fun testVariableTransformerBaliPeugeot() {
+        val sut = setupSUT("BALI-PEUGEOT")
+
+        val textLayer0 = sut.layers[0]
+        assertTextLayerPositionY(textLayer0, 347.5)
+        val textLayer1 = sut.layers[1]
+        assertTextLayerPositionY(textLayer1, 887.5)
+    }
 }
 
 fun setupSUT(
