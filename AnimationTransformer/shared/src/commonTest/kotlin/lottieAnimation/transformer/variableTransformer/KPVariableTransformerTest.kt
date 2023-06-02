@@ -244,6 +244,26 @@ fun assertShapeLayerPositionKeyframeEndY(layer: KPLayer, keyframeIndex: Int, exp
     assertEquals(expectedValue, sValue)
 }
 
+fun assertShapeLayerPositionX(layer: KPLayer, expectedValue: Double) {
+    assertTrue(layer is KPShapeLayer)
+    val kList = layer.ks.p?.k
+    assertTrue(kList is KPMultiDimensionalList)
+    val node = kList?.values?.get(0)
+    assertTrue(node is KPMultiDimensionalNodePrimitive)
+    val xValue = node.value?.doubleOrNull
+    assertEquals(expectedValue, xValue)
+}
+
+fun assertShapeLayerPositionY(layer: KPLayer, expectedValue: Double) {
+    assertTrue(layer is KPShapeLayer)
+    val kList = layer.ks.p?.k
+    assertTrue(kList is KPMultiDimensionalList)
+    val node = kList?.values?.get(1)
+    assertTrue(node is KPMultiDimensionalNodePrimitive)
+    val yValue = node.value?.doubleOrNull
+    assertEquals(expectedValue, yValue)
+}
+
 fun assertShapeLayerRectWidth(layer: KPLayer, shapeIndex: Int, itemIndex: Int, expectedValue: Double) {
     assertTrue(layer is KPShapeLayer)
     val shape = layer.shapes?.get(shapeIndex)
@@ -253,6 +273,20 @@ fun assertShapeLayerRectWidth(layer: KPLayer, shapeIndex: Int, itemIndex: Int, e
     val nodeK = it.s?.k
     assertTrue(nodeK is KPMultiDimensionalList)
     val nodeWidth = nodeK.values?.get(0)
+    assertTrue(nodeWidth is KPMultiDimensionalNodePrimitive)
+    val widthValue = nodeWidth?.value?.doubleOrNull
+    assertEquals(expectedValue, widthValue)
+}
+
+fun assertShapeLayerRectHeight(layer: KPLayer, shapeIndex: Int, itemIndex: Int, expectedValue: Double) {
+    assertTrue(layer is KPShapeLayer)
+    val shape = layer.shapes?.get(shapeIndex)
+    assertTrue(shape is KPShapeGroup)
+    val it = shape.it[itemIndex]
+    assertTrue(it is KPShapeRect)
+    val nodeK = it.s?.k
+    assertTrue(nodeK is KPMultiDimensionalList)
+    val nodeWidth = nodeK.values?.get(1)
     assertTrue(nodeWidth is KPMultiDimensionalNodePrimitive)
     val widthValue = nodeWidth?.value?.doubleOrNull
     assertEquals(expectedValue, widthValue)
