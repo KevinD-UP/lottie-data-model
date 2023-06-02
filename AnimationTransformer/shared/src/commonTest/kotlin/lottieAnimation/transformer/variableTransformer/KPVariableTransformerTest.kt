@@ -166,6 +166,26 @@ fun assertTextLayerPositionKeyframeEndY(layer: KPLayer, keyframeIndex: Int, expe
     assertEquals(expectedValue, sValue)
 }
 
+fun assertTextLayerPositionX(layer: KPLayer, expectedValue: Double) {
+    assertTrue(layer is KPTextLayer)
+    val kList = layer.ks.p?.k
+    assertTrue(kList is KPMultiDimensionalList)
+    val node = kList?.values?.get(0)
+    assertTrue(node is KPMultiDimensionalNodePrimitive)
+    val xValue = node.value?.doubleOrNull
+    assertEquals(expectedValue, xValue)
+}
+
+fun assertTextLayerPositionY(layer: KPLayer, expectedValue: Double) {
+    assertTrue(layer is KPTextLayer)
+    val kList = layer.ks.p?.k
+    assertTrue(kList is KPMultiDimensionalList)
+    val node = kList?.values?.get(1)
+    assertTrue(node is KPMultiDimensionalNodePrimitive)
+    val yValue = node.value?.doubleOrNull
+    assertEquals(expectedValue, yValue)
+}
+
 fun assertShapeLayerPositonKeyframeStartX(layer: KPLayer, keyframeIndex: Int, expectedValue: Double) {
     assertTrue(layer is KPShapeLayer)
     val kList = layer.ks.p?.k
