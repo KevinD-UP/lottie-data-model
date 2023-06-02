@@ -292,6 +292,26 @@ fun assertShapeLayerRectHeight(layer: KPLayer, shapeIndex: Int, itemIndex: Int, 
     assertEquals(expectedValue, widthValue)
 }
 
+fun assertShapeLayerShapeKeyframeValueX(layer: KPLayer, shapeIndex: Int, itemIndex: Int, valueIndex: Int, expectedValue: Double) {
+    assertTrue(layer is KPShapeLayer)
+    val shape = layer.shapes?.get(shapeIndex)
+    assertTrue(shape is KPShapeGroup)
+    val it = shape.it[itemIndex]
+    assertTrue(it is KPShapeShape)
+    val yValue = it.ks?.jsonObject?.get("k")?.jsonObject?.get("v")?.jsonArray?.get(valueIndex)?.jsonArray?.get(0)?.jsonPrimitive?.doubleOrNull
+    assertEquals(expectedValue, yValue)
+}
+
+fun assertShapeLayerShapeKeyframeValueY(layer: KPLayer, shapeIndex: Int, itemIndex: Int, valueIndex: Int, expectedValue: Double) {
+    assertTrue(layer is KPShapeLayer)
+    val shape = layer.shapes?.get(shapeIndex)
+    assertTrue(shape is KPShapeGroup)
+    val it = shape.it[itemIndex]
+    assertTrue(it is KPShapeShape)
+    val yValue = it.ks?.jsonObject?.get("k")?.jsonObject?.get("v")?.jsonArray?.get(valueIndex)?.jsonArray?.get(1)?.jsonPrimitive?.doubleOrNull
+    assertEquals(expectedValue, yValue)
+}
+
 /**
  * Do not modify, it is assumptions for variable transformer test (mock)
  */
