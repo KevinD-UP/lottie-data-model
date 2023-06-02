@@ -101,6 +101,14 @@ class KPVariableTransformerTest {
         assertTextLayerPositionKeyframeStartY(textLayer0, 0, 594.5)
         assertTextLayerPositionKeyframeEndY(textLayer0, 0, 594.5)
     }
+
+    @Test
+    fun testVariableTransformerBaliFord() {
+        val sut = setupSUT("BALI-FORD")
+
+        val textLayer0 = sut.layers[0]
+        assertTextLayerPositionY(textLayer0, 582.0)
+    }
 }
 
 fun setupSUT(
