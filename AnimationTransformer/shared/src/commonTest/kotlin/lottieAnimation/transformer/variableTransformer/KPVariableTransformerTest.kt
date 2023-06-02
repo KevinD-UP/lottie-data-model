@@ -101,29 +101,29 @@ class KPVariableTransformerTest {
         assertTextLayerPositionKeyframeStartY(textLayer0, 0, 594.5)
         assertTextLayerPositionKeyframeEndY(textLayer0, 0, 594.5)
     }
+}
 
-    fun setupSUT(
-        animationName: String
-    ): KPLottieAnimation {
-        val pathToAnimation = "src/commonTest/resources/animations/$animationName.json"
-        val pathToAnimationRules =
-            "src/commonTest/resources/animations/$animationName-rules.json"
-        val functionsDelegateMock = AnimationTransformerFunctionsDelegateMock()
-        val variableTransformer = KPVariableTransformer(functionsDelegateMock)
-        val animationJson = FileSystem.SYSTEM.read(pathToAnimation.toPath()) {
-            readUtf8()
-        }
-        val animationRulesJson = FileSystem.SYSTEM.read(pathToAnimationRules.toPath()) {
-            readUtf8()
-        }
-        val json = Json {
-            explicitNulls = false
-            encodeDefaults = true
-        }
-        val lottieAnimation = json.decodeFromString<KPLottieAnimation>(animationJson)
-        val animationRules = json.decodeFromString<KPAnimationRules>(animationRulesJson)
-        return variableTransformer.transformVariables(lottieAnimation, animationRules)
+fun setupSUT(
+    animationName: String
+): KPLottieAnimation {
+    val pathToAnimation = "src/commonTest/resources/animations/$animationName.json"
+    val pathToAnimationRules =
+        "src/commonTest/resources/animations/$animationName-rules.json"
+    val functionsDelegateMock = AnimationTransformerFunctionsDelegateMock()
+    val variableTransformer = KPVariableTransformer(functionsDelegateMock)
+    val animationJson = FileSystem.SYSTEM.read(pathToAnimation.toPath()) {
+        readUtf8()
     }
+    val animationRulesJson = FileSystem.SYSTEM.read(pathToAnimationRules.toPath()) {
+        readUtf8()
+    }
+    val json = Json {
+        explicitNulls = false
+        encodeDefaults = true
+    }
+    val lottieAnimation = json.decodeFromString<KPLottieAnimation>(animationJson)
+    val animationRules = json.decodeFromString<KPAnimationRules>(animationRulesJson)
+    return variableTransformer.transformVariables(lottieAnimation, animationRules)
 }
 
 fun assertTextLayerPositionKeyframeStartX(layer: KPLayer, keyframeIndex: Int, expectedValue: Double) {
