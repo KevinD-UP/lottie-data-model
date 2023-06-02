@@ -16,9 +16,34 @@
   "variables": [
     {
       "key": "$var0",
+      "transformNodes": [
+          {
+              "ind": 1,
+              "layerType": 5,
+              "transformKey": "titleTransformKey_1"
+              "transformType": "position_e",
+              "transformIndexForList": 1,
+              "description": "title y position"
+          },
+          {
+              "ind": 1,
+              "layerType": 5,
+              "transformKey": "titleTransformKey_2"
+              "transformType": "position_s",
+              "transformIndexForList": 1,
+              "description": "title y position"
+          },
+          {
+              "ind": 1,
+              "layerType": 5,
+              "transformKey": "titleTransformKey_2"
+              "transformType": "position_e",
+              "transformIndexForList": 1,
+              "description": "title y position"
+          }
+      ],
       "value": "540-getTextMeasureHeight(1)/2+getAscent(1)",
-      "type": "number",
-      "description": "title y position"
+      "type": "number"
     }
   ]
 }
