@@ -394,6 +394,34 @@ class KPVariableTransformerTest {
         val textLayer1 = sut.layers[1]
         assertTextLayerPositionKeyframeEndY(textLayer1, 0, 778.0)
     }
+
+    @Test
+    fun testVariableTransformerLosAngelesPlane() {
+        val sut = setupSUT("LOS_ANGELES-PLANE")
+
+        val textLayer0 = sut.layers[0]
+        assertTextLayerPositionY(textLayer0, 445.0)
+        val textLayer1 = sut.layers[1]
+        assertTextLayerPositionKeyframeEndY(textLayer1, 0, 813.0)
+        assertTextLayerPositionKeyframeStartY(textLayer1, 0, 813.0)
+        val textLayer2 = sut.layers[2]
+        assertTextLayerPositionKeyframeEndY(textLayer2, 0, 854.0)
+        assertTextLayerPositionKeyframeStartY(textLayer2, 0, 854.0)
+        val textLayer3 = sut.layers[3]
+        assertTextLayerPositionKeyframeEndY(textLayer3, 0, 1000.0)
+        assertTextLayerPositionKeyframeStartY(textLayer3, 0, 1000.0)
+        assertTextLayerPositionKeyframeStartX(textLayer3, 0, 1633.0)
+        assertTextLayerAnimatePositionX(textLayer3, 673.0)
+        assertTextLayerPositionKeyframeEndX(textLayer3, 0, 2433.0)
+        val solidLayer4 = sut.layers[4]
+        assertSolidLayerSourceWidth(solidLayer4, 1346.0)
+        assertSolidLayerSourceHeight(solidLayer4, 125.0)
+        assertSolidLayerAnimatePositionX(solidLayer4, 1346.0)
+        assertSolidLayerPositionKeyframeStartY(solidLayer4, 0, 910.0)
+        assertSolidLayerPositionKeyframeEndY(solidLayer4, 0, 910.0)
+        assertSolidLayerPositionKeyframeStartX(solidLayer4, 0, 1633.0)
+        assertSolidLayerPositionKeyframeEndX(solidLayer4, 0, 2433.0)
+    }
 }
 
 fun setupSUT(
@@ -615,6 +643,116 @@ fun assertTextLayerOp(layer: KPLayer, expectedValue: Double) {
 fun assertShapeLayerOp(layer: KPLayer, expectedValue: Double) {
     assertTrue(layer is KPShapeLayer)
     assertEquals(expectedValue, layer?.op?.jsonPrimitive?.doubleOrNull)
+}
+
+fun assertTextLayerAnimatePositionX(layer: KPLayer, expectedValue: Double) {
+    assertTrue(layer is KPTextLayer)
+    val kList = layer.ks.a?.k
+    assertTrue(kList is KPMultiDimensionalList)
+    val node = kList?.values?.get(0)
+    assertTrue(node is KPMultiDimensionalNodePrimitive)
+    val xValue = node.value?.doubleOrNull
+    assertEquals(expectedValue, xValue)
+}
+
+fun assertTextLayerAnimatePositionY(layer: KPLayer, expectedValue: Double) {
+    assertTrue(layer is KPTextLayer)
+    val kList = layer.ks.a?.k
+    assertTrue(kList is KPMultiDimensionalList)
+    val node = kList?.values?.get(1)
+    assertTrue(node is KPMultiDimensionalNodePrimitive)
+    val yValue = node.value?.doubleOrNull
+    assertEquals(expectedValue, yValue)
+}
+
+fun assertShapeLayerAnimatePositionX(layer: KPLayer, expectedValue: Double) {
+    assertTrue(layer is KPShapeLayer)
+    val kList = layer.ks.a?.k
+    assertTrue(kList is KPMultiDimensionalList)
+    val node = kList?.values?.get(0)
+    assertTrue(node is KPMultiDimensionalNodePrimitive)
+    val xValue = node.value?.doubleOrNull
+    assertEquals(expectedValue, xValue)
+}
+
+fun assertShapeLayerAnimatePositionY(layer: KPLayer, expectedValue: Double) {
+    assertTrue(layer is KPShapeLayer)
+    val kList = layer.ks.a?.k
+    assertTrue(kList is KPMultiDimensionalList)
+    val node = kList?.values?.get(1)
+    assertTrue(node is KPMultiDimensionalNodePrimitive)
+    val yValue = node.value?.doubleOrNull
+    assertEquals(expectedValue, yValue)
+}
+
+fun assertSolidLayerSourceWidth(layer: KPLayer, expectedValue: Double) {
+    assertTrue(layer is KPSolidLayer)
+    assertEquals(expectedValue, layer?.sw?.jsonPrimitive?.doubleOrNull)
+}
+
+fun assertSolidLayerSourceHeight(layer: KPLayer, expectedValue: Double) {
+    assertTrue(layer is KPSolidLayer)
+    assertEquals(expectedValue, layer?.sh?.jsonPrimitive?.doubleOrNull)
+}
+
+fun assertSolidLayerAnimatePositionX(layer: KPLayer, expectedValue: Double) {
+    assertTrue(layer is KPSolidLayer)
+    val kList = layer.ks.a?.k
+    assertTrue(kList is KPMultiDimensionalList)
+    val node = kList?.values?.get(0)
+    assertTrue(node is KPMultiDimensionalNodePrimitive)
+    val xValue = node.value?.doubleOrNull
+    assertEquals(expectedValue, xValue)
+}
+
+fun assertSolidLayerAnimatePositionY(layer: KPLayer, expectedValue: Double) {
+    assertTrue(layer is KPSolidLayer)
+    val kList = layer.ks.a?.k
+    assertTrue(kList is KPMultiDimensionalList)
+    val node = kList?.values?.get(1)
+    assertTrue(node is KPMultiDimensionalNodePrimitive)
+    val yValue = node.value?.doubleOrNull
+    assertEquals(expectedValue, yValue)
+}
+
+fun assertSolidLayerPositionKeyframeStartX(layer: KPLayer, keyframeIndex: Int, expectedValue: Double) {
+    assertTrue(layer is KPSolidLayer)
+    val kList = layer.ks.p?.k
+    assertTrue(kList is KPMultiDimensionalList)
+    val node = kList?.values?.get(keyframeIndex)
+    assertTrue(node is KPMultiDimensionNodeObject)
+    val sValue = node.s?.get(0)?.jsonPrimitive?.doubleOrNull
+    assertEquals(expectedValue, sValue)
+}
+
+fun assertSolidLayerPositionKeyframeStartY(layer: KPLayer, keyframeIndex: Int, expectedValue: Double) {
+    assertTrue(layer is KPSolidLayer)
+    val kList = layer.ks.p?.k
+    assertTrue(kList is KPMultiDimensionalList)
+    val node = kList?.values?.get(keyframeIndex)
+    assertTrue(node is KPMultiDimensionNodeObject)
+    val sValue = node.s?.get(1)?.jsonPrimitive?.doubleOrNull
+    assertEquals(expectedValue, sValue)
+}
+
+fun assertSolidLayerPositionKeyframeEndX(layer: KPLayer, keyframeIndex: Int, expectedValue: Double) {
+    assertTrue(layer is KPSolidLayer)
+    val kList = layer.ks.p?.k
+    assertTrue(kList is KPMultiDimensionalList)
+    val node = kList?.values?.get(keyframeIndex)
+    assertTrue(node is KPMultiDimensionNodeObject)
+    val sValue = node.e?.get(0)?.jsonPrimitive?.doubleOrNull
+    assertEquals(expectedValue, sValue)
+}
+
+fun assertSolidLayerPositionKeyframeEndY(layer: KPLayer, keyframeIndex: Int, expectedValue: Double) {
+    assertTrue(layer is KPSolidLayer)
+    val kList = layer.ks.p?.k
+    assertTrue(kList is KPMultiDimensionalList)
+    val node = kList?.values?.get(keyframeIndex)
+    assertTrue(node is KPMultiDimensionNodeObject)
+    val eValue = node.e?.get(1)?.jsonPrimitive?.doubleOrNull
+    assertEquals(expectedValue, eValue)
 }
 
 /**
