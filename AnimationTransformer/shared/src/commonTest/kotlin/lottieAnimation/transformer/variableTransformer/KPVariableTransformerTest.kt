@@ -157,8 +157,12 @@ class KPVariableTransformerTest {
     fun testVariableTransformerBerlinFord() {
         val sut = setupSUT("BERLIN-FORD")
 
+        val textLayer0 = sut.layers[0]
+        assertTextLayerOp(textLayer0, 60.0)
         val shapeLayer1 = sut.layers[1]
-        assertShapeLayerOp(shapeLayer1, 0.0)
+        assertShapeLayerOp(shapeLayer1, 60.0)
+        val shapeLayer2 = sut.layers[2]
+        assertShapeLayerOp(shapeLayer2, 60.0)
     }
 }
 
@@ -221,8 +225,28 @@ fun assertTextLayerPositionKeyframeEndY(layer: KPLayer, keyframeIndex: Int, expe
     assertTrue(kList is KPMultiDimensionalList)
     val node = kList?.values?.get(keyframeIndex)
     assertTrue(node is KPMultiDimensionNodeObject)
-    val sValue = node.e?.get(1)?.jsonPrimitive?.doubleOrNull
-    assertEquals(expectedValue, sValue)
+    val eValue = node.e?.get(1)?.jsonPrimitive?.doubleOrNull
+    assertEquals(expectedValue, eValue)
+}
+
+fun assertTextLayerPositionKeyframeTime(layer: KPLayer, keyframeIndex: Int, expectedValue: Double) {
+    assertTrue(layer is KPTextLayer)
+    val kList = layer.ks.p?.k
+    assertTrue(kList is KPMultiDimensionalList)
+    val node = kList?.values?.get(keyframeIndex)
+    assertTrue(node is KPMultiDimensionNodeObject)
+    val tValue = node.t?.doubleOrNull
+    assertEquals(expectedValue, tValue)
+}
+
+fun assertShapeLayerPositionKeyframeTime(layer: KPLayer, keyframeIndex: Int, expectedValue: Double) {
+    assertTrue(layer is KPShapeLayer)
+    val kList = layer.ks.p?.k
+    assertTrue(kList is KPMultiDimensionalList)
+    val node = kList?.values?.get(keyframeIndex)
+    assertTrue(node is KPMultiDimensionNodeObject)
+    val tValue = node.t?.doubleOrNull
+    assertEquals(expectedValue, tValue)
 }
 
 fun assertTextLayerPositionX(layer: KPLayer, expectedValue: Double) {
