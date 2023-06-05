@@ -159,6 +159,7 @@ class KPVariableTransformerTest {
 
         val textLayer0 = sut.layers[0]
         assertTextLayerOp(textLayer0, 60.0)
+        assertTextLayerPositionKeyframeTime(textLayer0, 3, 59.0)
         val shapeLayer1 = sut.layers[1]
         assertShapeLayerOp(shapeLayer1, 60.0)
         val shapeLayer2 = sut.layers[2]
