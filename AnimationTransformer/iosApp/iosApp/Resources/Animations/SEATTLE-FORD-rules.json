@@ -21,24 +21,21 @@
               "ind": 1,
               "layerType": 5,
               "transformKey": "titleTransformKey_1"
-              "transformType": "position_e",
-              "transformIndexForList": 1,
+              "transformType": "position_end_y",
               "description": "title y position"
           },
           {
               "ind": 1,
               "layerType": 5,
               "transformKey": "titleTransformKey_2"
-              "transformType": "position_s",
-              "transformIndexForList": 1,
+              "transformType": "position_start_y",
               "description": "title y position"
           },
           {
               "ind": 1,
               "layerType": 5,
               "transformKey": "titleTransformKey_2"
-              "transformType": "position_e",
-              "transformIndexForList": 1,
+              "transformType": "position_end_y",              
               "description": "title y position"
           }
       ],

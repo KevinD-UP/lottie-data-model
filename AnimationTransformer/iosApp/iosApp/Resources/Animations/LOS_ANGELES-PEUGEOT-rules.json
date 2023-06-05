@@ -35,8 +35,7 @@
               "ind": 1,
               "layerType": 5,
               "transformKey": "textTopTransformKey",
-              "transformType": "position_e",
-              "transformIndexForList": 1,
+              "transformType": "position_end_y",
               "description": "titleTop y position"
           }
       ],
@@ -50,8 +49,7 @@
               "ind": 2,
               "layerType": 5,
               "transformKey": "textBottomTransformKey",
-              "transformType": "position_e",
-              "transformIndexForList": 1,
+              "transformType": "position_end_y",              
               "description": "titleBottom y position"
           }
       ],

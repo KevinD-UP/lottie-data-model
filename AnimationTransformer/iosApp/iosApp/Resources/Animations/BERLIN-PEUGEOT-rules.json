@@ -45,8 +45,7 @@
               "ind": 2,
               "layerType": 5,
               "transformKey": "textRightTransformKey",
-              "transformType": "position_e",
-              "transformIndexForList": 1,
+              "transformType": "position_end_y",
               "description": "titleRight y position"
           }
       ],
@@ -60,8 +59,7 @@
               "ind": 4,
               "layerType": 5,
               "transformKey": "textLeftTransformKey",
-              "transformType": "position_e",
-              "transformIndexForList": 1,
+              "transformType": "position_end_y",
               "description": "titleLeft y position"
           }
       ],
@@ -75,8 +73,7 @@
               "ind": 2,
               "layerType": 5,
               "transformKey": "textRightTransformKey",
-              "transformType": "position_s",
-              "transformIndexForList": 1,
+              "transformType": "position_start_y",
               "description": "titleRight hidden y position"
           }
       ],
@@ -90,8 +87,7 @@
               "ind": 4,
               "layerType": 5,
               "transformKey": "textLeftTransformKey",
-              "transformType": "position_s",
-              "transformIndexForList": 1,
+              "transformType": "position_start_y",
               "description": "titleLeft hidden y position"
           }
       ],
@@ -105,8 +101,7 @@
               "ind": 3,
               "layerType": 4,
               "transformKey": "MatteTransformKey",
-              "transformType": "frame_it",
-              "transformIndexForList": 1,
+              "transformType": "frame_it_height",
               "description": "titleRight mask"
           }
       ],
@@ -120,8 +115,7 @@
               "ind": 5,
               "layerType": 4,
               "transformKey": "MatteTransformKey",
-              "transformType": "frame_it",
-              "transformIndexForList": 1,
+              "transformType": "frame_it_height",              
               "description": "titleLeft mask"
           }
       ],

@@ -66,8 +66,7 @@
                 {
                     "ind": 8,
                     "layerType": 5,
-                    "transformType": "position",
-                    "transformIndexForList": 1,
+                    "transformType": "position_y",
                     "description": "textBottom y position"
                 }
             ],
@@ -80,8 +79,7 @@
                 {
                     "ind": 7,
                     "layerType": 5,
-                    "transformType": "position",
-                    "transformIndexForList": 1,
+                    "transformType": "position_y",
                     "description": "textTop y position"
                 }
             ],
@@ -95,8 +93,7 @@
                     "ind": 9,
                     "layerType": 4,
                     "transformKey": "subTitleContainerTransformKey",
-                    "transformType": "frame_it",
-                    "transformIndexForList": 0,
+                    "transformType": "frame_it_width",
                     "description": "subTitleContainer width"
                 }
             ],
@@ -110,8 +107,7 @@
                     "ind": 9,
                     "layerType": 4,
                     "transformKey": "subTitleContainerTransformKey",
-                    "transformType": "frame_it",
-                    "transformIndexForList": 1,
+                    "transformType": "frame_it_height",
                     "description": "subTitleContainer height"
                 }
             ],
@@ -124,8 +120,7 @@
                 {
                     "ind": 9,
                     "layerType": 4,
-                    "transformType": "frame",
-                    "transformIndexForList": 1,
+                    "transformType": "frame_height",
                     "description": "subTitleContainer position y"
                 }
             ],
@@ -138,8 +133,7 @@
                 {
                     "ind": 4,
                     "layerType": 4,
-                    "transformType": "position",
-                    "transformIndexForList": 1,
+                    "transformType": "position_y",
                     "description": "lineLeft position y"
                 }
             ],
@@ -152,8 +146,7 @@
                 {
                     "ind": 3,
                     "layerType": 4,
-                    "transformType": "position",
-                    "transformIndexForList": 1,
+                    "transformType": "position_y",
                     "description": "lineRight position y"
                 }
             ],
@@ -166,15 +159,13 @@
                 {
                     "ind": 3,
                     "layerType": 4,
-                    "transformType": "position",
-                    "transformIndexForList": 0,
+                    "transformType": "position_x",
                     "description": "lineRight position x"
                 },
                 {
                     "ind": 6,
                     "layerType": 4,
-                    "transformType": "position",
-                    "transformIndexForList": 0,
+                    "transformType": "position_x",
                     "description": "lineBottom position x"
                 }
             ],
@@ -188,9 +179,8 @@
                     "ind": 4,
                     "layerType": 4,
                     "transformKey": "lineLeftTransformKey",
-                    "transformType": "position_it",
+                    "transformType": "position_it_y",
                     "transformNodeVIndex": 1,
-                    "transformIndexForList": 1,
                     "description": "lineLeft end position y"
                 }
             ],
@@ -204,9 +194,8 @@
                     "ind": 3,
                     "layerType": 4,
                     "transformKey": "lineRightTransformKey",
-                    "transformType": "position_it",
+                    "transformType": "position_it_y",
                     "transformNodeVIndex": 1,
-                    "transformIndexForList": 1,
                     "description": "lineRight end position y"
                 }
             ],
@@ -219,15 +208,13 @@
                 {
                     "ind": 5,
                     "layerType": 4,
-                    "transformType": "position",
-                    "transformIndexForList": 0,
+                    "transformType": "position_x",
                     "description": "lineTop position x"
                 },
                 {
                     "ind": 4,
                     "layerType": 4,
-                    "transformType": "position",
-                    "transformIndexForList": 0,
+                    "transformType": "position_x",
                     "description": "lineLeft position x"
                 }
             ],
@@ -240,8 +227,7 @@
                 {
                     "ind": 5,
                     "layerType": 4,
-                    "transformType": "position",
-                    "transformIndexForList": 1,
+                    "transformType": "position_y",
                     "description": "lineTop position y"
                 }
             ],
@@ -255,9 +241,8 @@
                     "ind": 5,
                     "layerType": 4,
                     "transformKey": "lineTopTransformKey",
-                    "transformType": "position_it",
+                    "transformType": "position_it_x",
                     "transformNodeVIndex": 1,
-                    "transformIndexForList": 0,
                     "description": "lineTop end position x"
                 }
             ],
@@ -271,9 +256,8 @@
                     "ind": 6,
                     "layerType": 4,
                     "transformKey": "lineBottomTransformKey",
-                    "transformType": "position_it",
+                    "transformType": "position_it_x",
                     "transformNodeVIndex": 1,
-                    "transformIndexForList": 0,
                     "description": "lineBottom end position x"
                 }
             ],
@@ -286,8 +270,7 @@
                 {
                     "ind": 6,
                     "layerType": 4,
-                    "transformType": "position",
-                    "transformIndexForList": 1,
+                    "transformType": "position_y",
                     "description": "lineBottom position y"
                 }
             ],
@@ -300,8 +283,7 @@
                 {
                     "ind": 1,
                     "layerType": 5,
-                    "transformType": "position",
-                    "transformIndexForList": 1,
+                    "transformType": "position_y",
                     "description": "titleTop position y"
                 }
             ],
@@ -314,8 +296,7 @@
                 {
                     "ind": 2,
                     "layerType": 5,
-                    "transformType": "position",
-                    "transformIndexForList": 1,
+                    "transformType": "position_y",                    
                     "description": "titleBottom position y"
                 }
             ],

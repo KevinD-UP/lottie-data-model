@@ -35,8 +35,7 @@
           {
               "ind": 1,
               "layerType": 5,
-              "transformType": "anchor",
-              "transformIndexForList": 1,
+              "transformType": "anchor_y",
               "description": "text top y anchor point"
           }
       ],
@@ -49,8 +48,7 @@
           {
               "ind": 3,
               "layerType": 5,
-              "transformType": "anchor",
-              "transformIndexForList": 1,
+              "transformType": "anchor_y",
               "description": "background text y anchor point"
           }
       ],
@@ -64,8 +62,7 @@
               "ind": 1,
               "layerType": 5,
               "transformKey": "topTextTransformKey",
-              "transformType": "position_s",
-              "transformIndexForList": 0,
+              "transformType": "position_start_x",
               "description": "text top final x position"
           }
       ],
@@ -79,16 +76,14 @@
               "ind": 2,
               "layerType": 5,
               "transformKey": "mainTextTransformKey_1",
-              "transformType": "position_s",
-              "transformIndexForList": 1,
+              "transformType": "position_start_y",
               "description": "main text y position"
           },
           {
               "ind": 2,
               "layerType": 5,
               "transformKey": "mainTextTransformKey_2",
-              "transformType": "position_s",
-              "transformIndexForList": 1,
+              "transformType": "position_start_y",              
               "description": "main text y position"
           }
       ],

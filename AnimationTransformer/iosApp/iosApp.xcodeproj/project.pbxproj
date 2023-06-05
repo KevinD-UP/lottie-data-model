@@ -36,7 +36,6 @@
 		14A87AEB2A20DBA200B91A0B /* BERLIN-PLANE-rules.json in Resources */ = {isa = PBXBuildFile; fileRef = 14A87AA82A20DBA100B91A0B /* BERLIN-PLANE-rules.json */; };
 		14A87AEC2A20DBA200B91A0B /* ALGIERS-SIMCA-rules.json in Resources */ = {isa = PBXBuildFile; fileRef = 14A87AA92A20DBA100B91A0B /* ALGIERS-SIMCA-rules.json */; };
 		14A87AED2A20DBA200B91A0B /* SEATTLE-PLANE.json in Resources */ = {isa = PBXBuildFile; fileRef = 14A87AAA2A20DBA100B91A0B /* SEATTLE-PLANE.json */; };
-		14A87AEE2A20DBA200B91A0B /* BALI-PLANE-rules-OLD.json in Resources */ = {isa = PBXBuildFile; fileRef = 14A87AAB2A20DBA100B91A0B /* BALI-PLANE-rules-OLD.json */; };
 		14A87AEF2A20DBA200B91A0B /* BOGOTA-MCLAREN.json in Resources */ = {isa = PBXBuildFile; fileRef = 14A87AAC2A20DBA100B91A0B /* BOGOTA-MCLAREN.json */; };
 		14A87AF02A20DBA200B91A0B /* BOGOTA-DODGE-rules.json in Resources */ = {isa = PBXBuildFile; fileRef = 14A87AAD2A20DBA100B91A0B /* BOGOTA-DODGE-rules.json */; };
 		14A87AF12A20DBA200B91A0B /* BOGOTA-RAM-rules.json in Resources */ = {isa = PBXBuildFile; fileRef = 14A87AAE2A20DBA100B91A0B /* BOGOTA-RAM-rules.json */; };
@@ -81,7 +80,6 @@
 		14A87B182A20DBA200B91A0B /* GENEVA-PLANE-rules.json in Resources */ = {isa = PBXBuildFile; fileRef = 14A87AD52A20DBA200B91A0B /* GENEVA-PLANE-rules.json */; };
 		14A87B192A20DBA200B91A0B /* BOGOTA-TOYOTA-rules.json in Resources */ = {isa = PBXBuildFile; fileRef = 14A87AD62A20DBA200B91A0B /* BOGOTA-TOYOTA-rules.json */; };
 		14A87B1A2A20DBA200B91A0B /* PARIS-OWL-rules.json in Resources */ = {isa = PBXBuildFile; fileRef = 14A87AD72A20DBA200B91A0B /* PARIS-OWL-rules.json */; };
-		14A87B1C2A20EE2D00B91A0B /* ALGIERS-PLANE-rules-OLD.json in Resources */ = {isa = PBXBuildFile; fileRef = 14A87B1B2A20EE2D00B91A0B /* ALGIERS-PLANE-rules-OLD.json */; };
 		14E32E142A0E738800241750 /* FunctionsDelegateNative.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E32E132A0E738700241750 /* FunctionsDelegateNative.swift */; };
 		14E59B7F2A04F64F00B83531 /* FontTransformerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E59B7E2A04F64F00B83531 /* FontTransformerView.swift */; };
 		14E59B822A04F7DB00B83531 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 14E59B812A04F7DB00B83531 /* Lottie */; };
@@ -121,7 +119,6 @@
 		14A87AA82A20DBA100B91A0B /* BERLIN-PLANE-rules.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "BERLIN-PLANE-rules.json"; sourceTree = "<group>"; };
 		14A87AA92A20DBA100B91A0B /* ALGIERS-SIMCA-rules.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "ALGIERS-SIMCA-rules.json"; sourceTree = "<group>"; };
 		14A87AAA2A20DBA100B91A0B /* SEATTLE-PLANE.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "SEATTLE-PLANE.json"; sourceTree = "<group>"; };
-		14A87AAB2A20DBA100B91A0B /* BALI-PLANE-rules-OLD.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "BALI-PLANE-rules-OLD.json"; sourceTree = "<group>"; };
 		14A87AAC2A20DBA100B91A0B /* BOGOTA-MCLAREN.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "BOGOTA-MCLAREN.json"; sourceTree = "<group>"; };
 		14A87AAD2A20DBA100B91A0B /* BOGOTA-DODGE-rules.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "BOGOTA-DODGE-rules.json"; sourceTree = "<group>"; };
 		14A87AAE2A20DBA100B91A0B /* BOGOTA-RAM-rules.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "BOGOTA-RAM-rules.json"; sourceTree = "<group>"; };
@@ -166,7 +163,6 @@
 		14A87AD52A20DBA200B91A0B /* GENEVA-PLANE-rules.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "GENEVA-PLANE-rules.json"; sourceTree = "<group>"; };
 		14A87AD62A20DBA200B91A0B /* BOGOTA-TOYOTA-rules.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "BOGOTA-TOYOTA-rules.json"; sourceTree = "<group>"; };
 		14A87AD72A20DBA200B91A0B /* PARIS-OWL-rules.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "PARIS-OWL-rules.json"; sourceTree = "<group>"; };
-		14A87B1B2A20EE2D00B91A0B /* ALGIERS-PLANE-rules-OLD.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "ALGIERS-PLANE-rules-OLD.json"; sourceTree = "<group>"; };
 		14E32E132A0E738700241750 /* FunctionsDelegateNative.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FunctionsDelegateNative.swift; sourceTree = "<group>"; };
 		14E59B7E2A04F64F00B83531 /* FontTransformerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontTransformerView.swift; sourceTree = "<group>"; };
 		2152FB032600AC8F00CF470E /* iOSApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOSApp.swift; sourceTree = "<group>"; };
@@ -231,7 +227,6 @@
 				14A87AA12A20DBA100B91A0B /* ALGIERS-FORD.json */,
 				14A87ACB2A20DBA200B91A0B /* ALGIERS-PEUGEOT-rules.json */,
 				14A87ABB2A20DBA200B91A0B /* ALGIERS-PEUGEOT.json */,
-				14A87B1B2A20EE2D00B91A0B /* ALGIERS-PLANE-rules-OLD.json */,
 				14A87AC32A20DBA200B91A0B /* ALGIERS-PLANE-rules.json */,
 				14A87AC52A20DBA200B91A0B /* ALGIERS-PLANE.json */,
 				14A87AA92A20DBA100B91A0B /* ALGIERS-SIMCA-rules.json */,
@@ -240,7 +235,6 @@
 				14A87AC82A20DBA200B91A0B /* BALI-FORD.json */,
 				14A87AC92A20DBA200B91A0B /* BALI-PEUGEOT-rules.json */,
 				14A87AC12A20DBA200B91A0B /* BALI-PEUGEOT.json */,
-				14A87AAB2A20DBA100B91A0B /* BALI-PLANE-rules-OLD.json */,
 				14A87AA72A20DBA100B91A0B /* BALI-PLANE-rules.json */,
 				14A87AC72A20DBA200B91A0B /* BALI-PLANE.json */,
 				14A87AA22A20DBA100B91A0B /* BERLIN-FORD-rules.json */,
@@ -418,7 +412,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				14A87AEE2A20DBA200B91A0B /* BALI-PLANE-rules-OLD.json in Resources */,
 				14A87AEB2A20DBA200B91A0B /* BERLIN-PLANE-rules.json in Resources */,
 				14A87AEF2A20DBA200B91A0B /* BOGOTA-MCLAREN.json in Resources */,
 				14A87AFD2A20DBA200B91A0B /* BOGOTA-LINCOLN-rules.json in Resources */,
@@ -487,7 +480,6 @@
 				14A87B0A2A20DBA200B91A0B /* BALI-PLANE.json in Resources */,
 				14A87B022A20DBA200B91A0B /* SEATTLE-PEUGEOT-rules.json in Resources */,
 				14A87B122A20DBA200B91A0B /* BOGOTA-AVENTI.json in Resources */,
-				14A87B1C2A20EE2D00B91A0B /* ALGIERS-PLANE-rules-OLD.json in Resources */,
 				14A87AF12A20DBA200B91A0B /* BOGOTA-RAM-rules.json in Resources */,
 				14A87ADC2A20DBA200B91A0B /* BOGOTA-MCLAREN-rules.json in Resources */,
 				14A87AF82A20DBA200B91A0B /* BOGOTA-VECTOR-rules.json in Resources */,

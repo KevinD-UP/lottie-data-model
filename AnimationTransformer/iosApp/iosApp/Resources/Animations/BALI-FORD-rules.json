@@ -24,8 +24,7 @@
           {
               "ind": 1,
               "layerType": 5,
-              "transformType": "position",
-              "transformIndexForList": 1,
+              "transformType": "position_y",              
               "description": "title y position"
           }
       ],

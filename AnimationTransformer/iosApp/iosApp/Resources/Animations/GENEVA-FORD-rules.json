@@ -25,16 +25,14 @@
               "ind": 1,
               "layerType": 5,
               "transformKey": "titleTransformKey"
-              "transformType": "position_e",
-              "transformIndexForList": 1,
+              "transformType": "position_end_y",
               "description": "title y position"
           },
           {
               "ind": 1,
               "layerType": 5,
               "transformKey": "titleTransformKey"
-              "transformType": "position_s",
-              "transformIndexForList": 1,
+              "transformType": "position_start_y",
               "description": "title y position"
           }
       ],
@@ -48,9 +46,8 @@
               "ind": 2,
               "layerType": 4,
               "transformKey": "lineStartTransformKey",
-              "transformType": "position_it",
+              "transformType": "position_it_x",
               "transformNodeVIndex": 0,
-              "transformIndexForList": 0,
               "description": "line start position x"
           }
       ],
@@ -64,9 +61,8 @@
               "ind": 2,
               "layerType": 4,
               "transformKey": "lineStartTransformKey",
-              "transformType": "position_it",
-              "transformNodeVIndex": 1,
-              "transformIndexForList": 0,
+              "transformType": "position_it_x",
+              "transformNodeVIndex": 1,              
               "description": "line end position x"
           }
       ],
