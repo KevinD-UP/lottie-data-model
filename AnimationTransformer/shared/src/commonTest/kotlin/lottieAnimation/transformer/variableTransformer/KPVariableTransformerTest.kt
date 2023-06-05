@@ -422,6 +422,14 @@ class KPVariableTransformerTest {
         assertSolidLayerPositionKeyframeStartX(solidLayer4, 0, 1633.0)
         assertSolidLayerPositionKeyframeEndX(solidLayer4, 0, 2433.0)
     }
+
+    @Test
+    fun testVariableTransformerLosAngelesSimca() {
+        val sut = setupSUT("LOS_ANGELES-SIMCA")
+
+        val textLayer0 = sut.layers[0]
+        assertTextLayerPositionKeyframeEndY(textLayer0, 0, 609.5)
+    }
 }
 
 fun setupSUT(
