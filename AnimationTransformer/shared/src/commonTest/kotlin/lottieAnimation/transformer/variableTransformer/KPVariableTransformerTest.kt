@@ -125,7 +125,7 @@ class KPVariableTransformerTest {
         val textLayer0 = sut.layers[0]
         assertTextLayerPositionY(textLayer0, 436.0)
         val textLayer1 = sut.layers[1]
-        assertTextLayerPositionY(textLayer1, 0.0)
+        assertTextLayerPositionY(textLayer1, 837.0)
         val textLayer7 = sut.layers[7]
         assertTextLayerPositionY(textLayer7, 960.0)
         val textLayer6 = sut.layers[6]
@@ -155,7 +155,9 @@ class KPVariableTransformerTest {
 
     @Test
     fun testVariableTransformerBerlinFord() {
+        val sut = setupSUT("BERLIN-FORD")
 
+        assertOp(sut, 59.9400024414062)
     }
 }
 
@@ -350,8 +352,12 @@ fun assertShapeLayerShapeKeyframeValueY(layer: KPLayer, shapeIndex: Int, itemInd
     assertEquals(expectedValue, yValue)
 }
 
-fun assertOp(lottieAnimation: KPLottieAnimation, expectedValue: Double) {
-    assertEquals(expectedValue, lottieAnimation.op?.jsonPrimitive?.doubleOrNull)
+fun assertTextLayerOp(layer: KPTextLayer, expectedValue: Double) {
+    assertEquals(expectedValue, layer?.op?.jsonPrimitive?.doubleOrNull)
+}
+
+fun assertShapeLayerOp(layer: KPShapeLayer, expectedValue: Double) {
+    assertEquals(expectedValue, layer?.op?.jsonPrimitive?.doubleOrNull)
 }
 
 /**
