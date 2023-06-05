@@ -165,6 +165,22 @@ class KPVariableTransformerTest {
         val shapeLayer2 = sut.layers[2]
         assertShapeLayerOp(shapeLayer2, 60.0)
     }
+
+    @Test
+    fun testVariableTransformerBerlinPeugeot() {
+        val sut = setupSUT("BERLIN-PEUGEOT")
+
+        val textLayer1 = sut.layers[1]
+        assertTextLayerPositionKeyframeEndY(textLayer1, 0, 578.5)
+        assertTextLayerPositionKeyframeStartY(textLayer1, 0, 760.0)
+        val shapeLayer2 = sut.layers[2]
+        assertShapeLayerRectHeight(shapeLayer2, 0, 0, 131.0)
+        val textLayer3 = sut.layers[3]
+        assertTextLayerPositionKeyframeEndY(textLayer3, 0, 578.5)
+        assertTextLayerPositionKeyframeStartY(textLayer3, 0, 760.0)
+        val shapeLayer4 = sut.layers[4]
+        assertShapeLayerRectHeight(shapeLayer4, 0, 0, 131.0)
+    }
 }
 
 fun setupSUT(
