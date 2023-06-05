@@ -151,6 +151,10 @@ class KPVariableTransformerTest {
         assertShapeLayerPositionX(shapeLayer5, 1338.5)
         assertShapeLayerShapeKeyframeValueX(shapeLayer5, 0, 0, 1, -757.0)
         assertShapeLayerPositionY(shapeLayer5, 1042.0)
+    }
+
+    @Test
+    fun testVariableTransformerBerlinFord() {
 
     }
 }
@@ -344,6 +348,10 @@ fun assertShapeLayerShapeKeyframeValueY(layer: KPLayer, shapeIndex: Int, itemInd
     assertTrue(it is KPShapeShape)
     val yValue = it.ks?.jsonObject?.get("k")?.jsonObject?.get("v")?.jsonArray?.get(valueIndex)?.jsonArray?.get(1)?.jsonPrimitive?.doubleOrNull
     assertEquals(expectedValue, yValue)
+}
+
+fun assertOp(lottieAnimation: KPLottieAnimation, expectedValue: Double) {
+    assertEquals(expectedValue, lottieAnimation.op?.jsonPrimitive?.doubleOrNull)
 }
 
 /**
