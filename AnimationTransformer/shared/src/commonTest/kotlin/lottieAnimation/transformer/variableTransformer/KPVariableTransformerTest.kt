@@ -1,9 +1,7 @@
 package lottieAnimation.transformer.variableTransformer
 
 import kotlinx.serialization.decodeFromString
-import kotlinx.serialization.json.Json
-import kotlinx.serialization.json.doubleOrNull
-import kotlinx.serialization.json.jsonPrimitive
+import kotlinx.serialization.json.*
 import lottieAnimation.KPLottieAnimation
 import lottieAnimation.layer.*
 import lottieAnimation.layer.properties.KPMultiDimensionNodeObject
@@ -118,6 +116,42 @@ class KPVariableTransformerTest {
         assertTextLayerPositionY(textLayer0, 347.5)
         val textLayer1 = sut.layers[1]
         assertTextLayerPositionY(textLayer1, 887.5)
+    }
+
+    @Test
+    fun testVariableTransformerBaliPlane() {
+        val sut = setupSUT("BALI-PLANE")
+
+        val textLayer0 = sut.layers[0]
+        assertTextLayerPositionY(textLayer0, 436.0)
+        val textLayer1 = sut.layers[1]
+        assertTextLayerPositionY(textLayer1, 0.0)
+        val textLayer7 = sut.layers[7]
+        assertTextLayerPositionY(textLayer7, 960.0)
+        val textLayer6 = sut.layers[6]
+        assertTextLayerPositionY(textLayer6, 830.0)
+        val shapeLayer8 = sut.layers[8]
+        assertShapeLayerRectWidth(shapeLayer8, 1, 0, 747.0)
+        assertShapeLayerRectHeight(shapeLayer8, 1, 0, 334.0)
+        assertShapeLayerPositionY(shapeLayer8, 870.0)
+        val shapeLayer3 = sut.layers[3]
+        assertShapeLayerPositionX(shapeLayer3, 581.5)
+        assertShapeLayerPositionY(shapeLayer3, 1047.0)
+        assertShapeLayerShapeKeyframeValueY(shapeLayer3, 0, 0, 1, -354.0)
+        assertShapeLayerPositionX(shapeLayer3, 581.5)
+        var shapeLayer4 = sut.layers[4]
+        assertShapeLayerPositionX(shapeLayer4, 581.5)
+        assertShapeLayerPositionY(shapeLayer4, 698.0)
+        assertShapeLayerShapeKeyframeValueX(shapeLayer4, 0, 0, 1, 757.0)
+        val shapeLayer2 = sut.layers[2]
+        assertShapeLayerPositionX(shapeLayer2, 1338.5)
+        assertShapeLayerPositionY(shapeLayer2, 693.0)
+        assertShapeLayerShapeKeyframeValueY(shapeLayer2, 0, 0, 1, 354.0)
+        val shapeLayer5 = sut.layers[5]
+        assertShapeLayerPositionX(shapeLayer5, 1338.5)
+        assertShapeLayerShapeKeyframeValueX(shapeLayer5, 0, 0, 1, -757.0)
+        assertShapeLayerPositionY(shapeLayer5, 1042.0)
+
     }
 }
 
