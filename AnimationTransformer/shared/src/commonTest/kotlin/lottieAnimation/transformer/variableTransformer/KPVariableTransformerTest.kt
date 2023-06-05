@@ -186,11 +186,11 @@ class KPVariableTransformerTest {
     fun testVariableTransformerBerlinPlane() {
         val sut = setupSUT("BERLIN-PLANE")
 
-        val textLayer0 = sut.layers[1]
-        assertTextLayerPositionKeyframeEndY(textLayer0, 0, 950.0)
-        assertTextLayerPositionKeyframeStartY(textLayer0, 1, 950.0)
-        assertTextLayerPositionKeyframeEndY(textLayer0, 1, 950.0)
-        assertTextLayerPositionKeyframeStartY(textLayer0, 2, 950.0)
+        val textLayer0 = sut.layers[0]
+        assertTextLayerPositionKeyframeEndY(textLayer0, 0, 825.0)
+        assertTextLayerPositionKeyframeStartY(textLayer0, 1, 825.0)
+        assertTextLayerPositionKeyframeEndY(textLayer0, 1, 825.0)
+        assertTextLayerPositionKeyframeStartY(textLayer0, 2, 825.0)
 
         val textLayer1 = sut.layers[1]
         assertTextLayerPositionKeyframeEndY(textLayer1, 0, 950.0)
@@ -223,6 +223,23 @@ class KPVariableTransformerTest {
         val shapeLayer1 = sut.layers[1]
         assertShapeLayerShapeKeyframeValueX(shapeLayer1, 0, 0, 0, -805.0)
         assertShapeLayerShapeKeyframeValueX(shapeLayer1, 0, 0, 1, 805.0)
+    }
+
+    @Test
+    fun testVariableTransformerGenevaPeugeot() {
+        val sut = setupSUT("GENEVA-PEUGEOT")
+
+        val textLayer0 = sut.layers[0]
+        assertTextLayerPositionKeyframeEndY(textLayer0, 0, 449.0)
+        assertTextLayerPositionKeyframeStartY(textLayer0, 0, 449.0)
+        assertTextLayerPositionKeyframeEndY(textLayer0, 1, 449.0)
+        assertTextLayerPositionKeyframeStartY(textLayer0, 1, 449.0)
+        val shapeLayer1 = sut.layers[1]
+        assertShapeLayerShapeKeyframeValueX(shapeLayer1, 0, 0, 0, -440.5)
+        assertShapeLayerShapeKeyframeValueX(shapeLayer1, 0, 0, 1, 440.5)
+        val textLayer2 = sut.layers[2]
+        assertTextLayerPositionKeyframeEndY(textLayer2, 0, 802.0)
+        assertTextLayerPositionKeyframeStartY(textLayer2, 0, 802.0)
     }
 }
 
