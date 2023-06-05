@@ -241,6 +241,43 @@ class KPVariableTransformerTest {
         assertTextLayerPositionKeyframeEndY(textLayer2, 0, 802.0)
         assertTextLayerPositionKeyframeStartY(textLayer2, 0, 802.0)
     }
+
+    @Test
+    fun testVariableTransformerGenevaPlane() {
+        val sut = setupSUT("GENEVA-PLANE")
+
+        val textLayer0 = sut.layers[0]
+        assertTextLayerPositionKeyframeStartY(textLayer0, 0, 428.0)
+        assertTextLayerPositionKeyframeEndY(textLayer0, 0, 428.0)
+        assertTextLayerPositionKeyframeStartY(textLayer0, 1, 428.0)
+        assertTextLayerPositionKeyframeEndY(textLayer0, 1, 428.0)
+        assertTextLayerPositionKeyframeStartY(textLayer0, 2, 428.0)
+        assertTextLayerPositionKeyframeEndY(textLayer0, 2, 428.0)
+        val textLayer1 = sut.layers[1]
+        assertTextLayerPositionKeyframeEndY(textLayer1, 0, 861.0)
+        assertTextLayerPositionKeyframeStartY(textLayer1, 1, 861.0)
+        assertTextLayerPositionKeyframeEndY(textLayer1, 1, 861.0)
+        assertTextLayerPositionKeyframeStartY(textLayer1, 2, 861.0)
+        val textLayer2 = sut.layers[2]
+        assertTextLayerPositionKeyframeStartY(textLayer2, 0, 856.0)
+        assertTextLayerPositionKeyframeEndY(textLayer2, 0, 856.0)
+        assertTextLayerPositionKeyframeStartY(textLayer2, 1, 856.0)
+        assertTextLayerPositionKeyframeEndY(textLayer2, 1, 856.0)
+        assertTextLayerPositionKeyframeStartY(textLayer2, 2, 856.0)
+        assertTextLayerPositionKeyframeEndY(textLayer2, 2, 856.0)
+        val shapeLayer3 = sut.layers[3]
+        assertShapeLayerPositionY(shapeLayer3, 886.0)
+        assertShapeLayerShapeKeyframeValueX(shapeLayer3, 0, 0, 0, -476.0)
+        assertShapeLayerShapeKeyframeValueX(shapeLayer3, 0, 0, 1, 476.0)
+        val textLayer4 = sut.layers[4]
+        assertTextLayerPositionKeyframeStartY(textLayer4, 0, 960.0)
+        assertTextLayerPositionKeyframeEndY(textLayer4, 0, 960.0)
+        assertTextLayerPositionKeyframeStartY(textLayer4, 1, 960.0)
+        assertTextLayerPositionKeyframeEndY(textLayer4, 1, 960.0)
+        assertTextLayerPositionKeyframeStartY(textLayer4, 2, 960.0)
+        assertTextLayerPositionKeyframeEndY(textLayer4, 2, 960.0)
+
+    }
 }
 
 fun setupSUT(
