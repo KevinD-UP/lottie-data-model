@@ -338,6 +338,22 @@
               "transformType": "position_e",
               "transformIndexForList": 1,
               "description": "titleBottom position y"
+          },
+          {
+              "ind": 2,
+              "layerType": 5,
+              "transformKey": "titleTopTransformKey",
+              "transformType": "position_s",
+              "transformIndexForList": 1,
+              "description": "titleBottom position y"
+          },
+          {
+              "ind": 2,
+              "layerType": 5,
+              "transformKey": "titleTopTransformKey",
+              "transformType": "position_e",
+              "transformIndexForList": 1,
+              "description": "titleBottom position y"
           }
       ],
       "value": "540+getAscent(2)+getTextFontSize(2)*0.2",
