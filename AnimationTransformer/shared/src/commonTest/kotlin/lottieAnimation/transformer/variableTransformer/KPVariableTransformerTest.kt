@@ -211,6 +211,19 @@ class KPVariableTransformerTest {
         val shapeLayer3 = sut.layers[3]
         assertShapeLayerRectHeight(shapeLayer3, 0, 0, 192.0)
     }
+
+    @Test
+    fun testVariableTransformerGenevaFord() {
+        val sut = setupSUT("GENEVA-FORD")
+
+        val textLayer0 = sut.layers[0]
+        assertTextLayerPositionKeyframeEndY(textLayer0, 0, 583.5)
+        assertTextLayerPositionKeyframeStartY(textLayer0, 0, 583.5)
+
+        val shapeLayer1 = sut.layers[1]
+        assertShapeLayerShapeKeyframeValueX(shapeLayer1, 0, 0, 0, -805.0)
+        assertShapeLayerShapeKeyframeValueX(shapeLayer1, 0, 0, 1, 805.0)
+    }
 }
 
 fun setupSUT(
