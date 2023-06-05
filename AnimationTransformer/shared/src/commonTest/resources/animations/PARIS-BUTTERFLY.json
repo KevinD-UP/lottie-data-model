@@ -76,6 +76,7 @@
                 ]
               },
               {
+                "kp_transform_key":"topTextTransformKey",
                 "t": 27.0000010997325,
                 "s": [
                   183,
@@ -279,6 +280,7 @@
             "a": 1,
             "k": [
               {
+                "kp_transform_key":"mainTextTransformKey_1",
                 "i": {
                   "x": 0.999,
                   "y": 0.997
@@ -305,6 +307,7 @@
                 ]
               },
               {
+                "kp_transform_key":"mainTextTransformKey_2",
                 "t": 27.0000010997325,
                 "s": [
                   125,

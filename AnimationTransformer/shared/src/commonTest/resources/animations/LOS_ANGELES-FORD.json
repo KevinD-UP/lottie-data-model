@@ -79,6 +79,7 @@
             "a": 1,
             "k": [
               {
+                "kp_transform_key": "titleTopTransformKey",
                 "i": {
                   "x": 0.833,
                   "y": 0.833
@@ -233,6 +234,7 @@
             "a": 1,
             "k": [
               {
+                "kp_transform_key": "titleBottomTransformKey",
                 "i": {
                   "x": 0.833,
                   "y": 0.833

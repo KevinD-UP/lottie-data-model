@@ -24,15 +24,42 @@
     },
     {
       "key": "$var0",
+      "transformNodes" : [
+          {
+              "ind": 3,
+              "layerType": 4,
+              "transformType": "out_point",
+              "description": "end of animation"
+          },
+          {
+              "ind": 2,
+              "layerType": 4,
+              "transformType": "out_point",
+              "description": "end of animation"
+          },
+          {
+              "ind": 1,
+              "layerType": 5,
+              "transformType": "out_point",
+              "description": "end of animation"
+          }
+      ],
       "value": "getAnimationFrameCount()",
-      "type": "number",
-      "description": "end of animation"
+      "type": "number"
     },
     {
       "key": "$var1",
+      "transformNodes" : [
+          {
+              "ind": 1,
+              "layerType": 5,
+              "transformType": "time",
+              "transformKey": "textTimeTransformKey"
+              "description": "1 frame before the end of the animation"
+          }
+      ],
       "value": "getAnimationFrameCount()-1",
-      "type": "number",
-      "description": "1 frame before the end of the animation"
+      "type": "number"
     }
   ]
 }

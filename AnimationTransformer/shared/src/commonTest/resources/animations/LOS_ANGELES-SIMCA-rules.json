@@ -16,9 +16,17 @@
   "variables": [
     {
       "key": "$var0",
+      "transformNodes" : [
+          {
+              "ind": 1,
+              "layerType": 5,
+              "transformKey": "textTransformKey",
+              "transformType": "position_end_Y",
+              "description": "titleTop y position"
+          }
+      ],
       "value": "540-getTextMeasureHeight(1)/2+getAscent(1)",
-      "type": "number",
-      "description": "titleTop y position"
+      "type": "number"
     }
   ]
 }

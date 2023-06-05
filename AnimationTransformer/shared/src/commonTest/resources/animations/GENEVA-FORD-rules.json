@@ -20,21 +20,54 @@
   "variables": [
     {
       "key": "$var0",
+      "transformNodes": [
+          {
+              "ind": 1,
+              "layerType": 5,
+              "transformKey": "titleTransformKey"
+              "transformType": "position_end_y",
+              "description": "title y position"
+          },
+          {
+              "ind": 1,
+              "layerType": 5,
+              "transformKey": "titleTransformKey"
+              "transformType": "position_start_y",
+              "description": "title y position"
+          }
+      ],
       "value": "540-getTextMeasureHeight(1)/2+getAscent(1)",
-      "type": "number",
-      "description": "title y position"
+      "type": "number"
     },
     {
       "key": "$var1",
+      "transformNodes" : [
+          {
+              "ind": 2,
+              "layerType": 4,
+              "transformKey": "lineStartTransformKey",
+              "transformType": "position_it_x",
+              "transformNodeVIndex": 0,
+              "description": "line start position x"
+          }
+      ],
       "value": "-getTextLayerWidth(1)/2",
-      "type": "number",
-      "description": "line start position X"
+      "type": "number"
     },
     {
       "key": "$var2",
+      "transformNodes" : [
+          {
+              "ind": 2,
+              "layerType": 4,
+              "transformKey": "lineStartTransformKey",
+              "transformType": "position_it_x",
+              "transformNodeVIndex": 1,              
+              "description": "line end position x"
+          }
+      ],
       "value": "getTextLayerWidth(1)/2",
-      "type": "number",
-      "description": "line end position X"
+      "type": "number"
     }
   ]
 }

@@ -155,6 +155,7 @@
             "a": 1,
             "k": [
               {
+                "kp_transform_key": "titleTopTransformKey_1",
                 "i": {
                   "x": 0,
                   "y": 1
@@ -186,6 +187,7 @@
                 ]
               },
               {
+                "kp_transform_key": "titleTopTransformKey_1",
                 "i": {
                   "x": 0,
                   "y": 0
@@ -217,6 +219,7 @@
                 ]
               },
               {
+                "kp_transform_key": "titleTopTransformKey_2",
                 "i": {
                   "x": 0,
                   "y": 1
@@ -421,6 +424,7 @@
             "a": 1,
             "k": [
               {
+                "kp_transform_key": "titleBottomTransformKey_1",
                 "i": {
                   "x": 0,
                   "y": 1
@@ -452,6 +456,7 @@
                 ]
               },
               {
+                "kp_transform_key": "titleBottomTransformKey_1",
                 "i": {
                   "x": 0.833,
                   "y": 0.833
@@ -483,6 +488,7 @@
                 ]
               },
               {
+                "kp_transform_key": "titleBottomTransformKey_2",
                 "i": {
                   "x": 0.833,
                   "y": 0.833
@@ -687,6 +693,7 @@
             "a": 1,
             "k": [
               {
+                "kp_transform_key": "textTopTransformKey",
                 "i": {
                   "x": 0.833,
                   "y": 0.833
@@ -718,6 +725,7 @@
                 ]
               },
               {
+                "kp_transform_key": "textTopTransformKey",
                 "i": {
                   "x": 0.833,
                   "y": 0.833
@@ -749,6 +757,7 @@
                 ]
               },
               {
+                "kp_transform_key": "textTopTransformKey",
                 "i": {
                   "x": 0.833,
                   "y": 0.833
@@ -953,6 +962,7 @@
             "a": 1,
             "k": [
               {
+                "kp_transform_key": "textTopContainerTransformKey_1",
                 "i": {
                   "x": 0.833,
                   "y": 0.833
@@ -984,6 +994,7 @@
                 ]
               },
               {
+                "kp_transform_key": "textTopContainerTransformKey_2",
                 "i": {
                   "x": 0.833,
                   "y": 0.833
@@ -1015,6 +1026,7 @@
                 ]
               },
               {
+                "kp_transform_key": "textTopContainerTransformKey_2",
                 "i": {
                   "x": 0.833,
                   "y": 0.833
@@ -1074,9 +1086,11 @@
         "shapes": [
           {
             "ty": "gr",
+            "kp_transform_key": "textTopContainerTransformKey",
             "it": [
               {
                 "ty": "rc",
+                "kp_transform_key": "textTopContainerTransformKey",
                 "d": 1,
                 "s": {
                   "a": 0,
@@ -1289,6 +1303,7 @@
             "a": 1,
             "k": [
               {
+                "kp_transform_key": "textBottomTransformKey",
                 "i": {
                   "x": 0.833,
                   "y": 0.833
@@ -1320,6 +1335,7 @@
                 ]
               },
               {
+                "kp_transform_key": "textBottomTransformKey",
                 "i": {
                   "x": 0.833,
                   "y": 0.833
@@ -1351,6 +1367,7 @@
                 ]
               },
               {
+                "kp_transform_key": "textBottomTransformKey",
                 "i": {
                   "x": 0.833,
                   "y": 0.833
@@ -1555,6 +1572,7 @@
             "a": 1,
             "k": [
               {
+                "kp_transform_key": "textBottomContainerTransformKey",
                 "i": {
                   "x": 0.833,
                   "y": 0.833
@@ -1586,6 +1604,7 @@
                 ]
               },
               {
+                "kp_transform_key": "textBottomContainerTransformKey",
                 "i": {
                   "x": 0.833,
                   "y": 0.833
@@ -1617,6 +1636,7 @@
                 ]
               },
               {
+                "kp_transform_key": "textBottomContainerTransformKey",
                 "i": {
                   "x": 0.833,
                   "y": 0.833
@@ -1676,9 +1696,11 @@
         "shapes": [
           {
             "ty": "gr",
+            "kp_transform_key": "textBottomContainerTransformKey",
             "it": [
               {
                 "ty": "rc",
+                "kp_transform_key": "textBottomContainerTransformKey",
                 "d": 1,
                 "s": {
                   "a": 0,
