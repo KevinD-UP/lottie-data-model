@@ -21,7 +21,7 @@
               "ind": 1,
               "layerType": 5,
               "transformKey": "textTransformKey",
-              "transformType": "position_end_Y",
+              "transformType": "position_end_y",
               "description": "titleTop y position"
           }
       ],
