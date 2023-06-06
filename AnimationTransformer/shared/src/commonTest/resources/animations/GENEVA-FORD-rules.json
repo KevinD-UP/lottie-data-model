@@ -24,14 +24,14 @@
           {
               "ind": 1,
               "layerType": 5,
-              "transformKey": "titleTransformKey"
+              "transformKeyframeIndexes": [0],
               "transformType": "position_end_y",
               "description": "title y position"
           },
           {
               "ind": 1,
               "layerType": 5,
-              "transformKey": "titleTransformKey"
+              "transformKeyframeIndexes": [0],
               "transformType": "position_start_y",
               "description": "title y position"
           }
@@ -45,7 +45,8 @@
           {
               "ind": 2,
               "layerType": 4,
-              "transformKey": "lineStartTransformKey",
+              "transformShapeIndex": 0,
+              "transformShapeItIndex": 0,
               "transformType": "position_it_x",
               "transformNodeVIndex": 0,
               "description": "line start position x"
@@ -60,7 +61,8 @@
           {
               "ind": 2,
               "layerType": 4,
-              "transformKey": "lineStartTransformKey",
+              "transformShapeIndex": 0,
+              "transformShapeItIndex": 0,
               "transformType": "position_it_x",
               "transformNodeVIndex": 1,              
               "description": "line end position x"

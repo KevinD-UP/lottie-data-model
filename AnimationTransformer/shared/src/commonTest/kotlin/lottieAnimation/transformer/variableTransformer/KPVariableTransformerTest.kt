@@ -230,10 +230,10 @@ class KPVariableTransformerTest {
         val sut = setupSUT("GENEVA-PEUGEOT")
 
         val textLayer0 = sut.layers[0]
-        assertTextLayerPositionKeyframeEndY(textLayer0, 0, 449.0)
-        assertTextLayerPositionKeyframeStartY(textLayer0, 0, 449.0)
-        assertTextLayerPositionKeyframeEndY(textLayer0, 1, 449.0)
-        assertTextLayerPositionKeyframeStartY(textLayer0, 1, 449.0)
+        assertTextLayerPositionKeyframeEndY(textLayer0, 0, 228.21999999999997)
+        assertTextLayerPositionKeyframeStartY(textLayer0, 0, 228.21999999999997)
+        assertTextLayerPositionKeyframeEndY(textLayer0, 1, 228.21999999999997)
+        assertTextLayerPositionKeyframeStartY(textLayer0, 1, 228.21999999999997)
         val shapeLayer1 = sut.layers[1]
         assertShapeLayerShapeKeyframeValueX(shapeLayer1, 0, 0, 0, -127.08)
         assertShapeLayerShapeKeyframeValueX(shapeLayer1, 0, 0, 1, 127.08)
@@ -247,35 +247,35 @@ class KPVariableTransformerTest {
         val sut = setupSUT("GENEVA-PLANE")
 
         val textLayer0 = sut.layers[0]
-        assertTextLayerPositionKeyframeStartY(textLayer0, 0, 428.0)
-        assertTextLayerPositionKeyframeEndY(textLayer0, 0, 428.0)
-        assertTextLayerPositionKeyframeStartY(textLayer0, 1, 428.0)
-        assertTextLayerPositionKeyframeEndY(textLayer0, 1, 428.0)
-        assertTextLayerPositionKeyframeStartY(textLayer0, 2, 428.0)
-        assertTextLayerPositionKeyframeEndY(textLayer0, 2, 428.0)
+        assertTextLayerPositionKeyframeStartY(textLayer0, 0, 218.21999999999997)
+        assertTextLayerPositionKeyframeEndY(textLayer0, 0, 218.21999999999997)
+        assertTextLayerPositionKeyframeStartY(textLayer0, 1, 218.21999999999997)
+        assertTextLayerPositionKeyframeEndY(textLayer0, 1, 218.21999999999997)
+        assertTextLayerPositionKeyframeStartY(textLayer0, 2, 218.21999999999997)
+        assertTextLayerPositionKeyframeEndY(textLayer0, 2, 218.21999999999997)
         val textLayer1 = sut.layers[1]
         assertTextLayerPositionKeyframeEndY(textLayer1, 0, 455.82)
         assertTextLayerPositionKeyframeStartY(textLayer1, 1, 455.82)
         assertTextLayerPositionKeyframeEndY(textLayer1, 1, 455.82)
         assertTextLayerPositionKeyframeStartY(textLayer1, 2, 455.82)
         val textLayer2 = sut.layers[2]
-        assertTextLayerPositionKeyframeStartY(textLayer2, 0, 856.0)
-        assertTextLayerPositionKeyframeEndY(textLayer2, 0, 856.0)
-        assertTextLayerPositionKeyframeStartY(textLayer2, 1, 856.0)
-        assertTextLayerPositionKeyframeEndY(textLayer2, 1, 856.0)
-        assertTextLayerPositionKeyframeStartY(textLayer2, 2, 856.0)
-        assertTextLayerPositionKeyframeEndY(textLayer2, 2, 856.0)
+        assertTextLayerPositionKeyframeStartY(textLayer2, 0, -314.82)
+        assertTextLayerPositionKeyframeEndY(textLayer2, 0, -314.82)
+        assertTextLayerPositionKeyframeStartY(textLayer2, 1, -314.82)
+        assertTextLayerPositionKeyframeEndY(textLayer2, 1, -314.82)
+        assertTextLayerPositionKeyframeStartY(textLayer2, 2, -314.82)
+        assertTextLayerPositionKeyframeEndY(textLayer2, 2, -314.82)
         val shapeLayer3 = sut.layers[3]
         assertShapeLayerPositionY(shapeLayer3, 123.18)
         assertShapeLayerShapeKeyframeValueX(shapeLayer3, 0, 0, 0, -476.0)
         assertShapeLayerShapeKeyframeValueX(shapeLayer3, 0, 0, 1, 476.0)
         val textLayer4 = sut.layers[4]
-        assertTextLayerPositionKeyframeStartY(textLayer4, 0, 960.0)
-        assertTextLayerPositionKeyframeEndY(textLayer4, 0, 960.0)
-        assertTextLayerPositionKeyframeStartY(textLayer4, 1, 960.0)
-        assertTextLayerPositionKeyframeEndY(textLayer4, 1, 960.0)
-        assertTextLayerPositionKeyframeStartY(textLayer4, 2, 960.0)
-        assertTextLayerPositionKeyframeEndY(textLayer4, 2, 960.0)
+        assertTextLayerPositionKeyframeStartY(textLayer4, 0, 510.35999999999996)
+        assertTextLayerPositionKeyframeEndY(textLayer4, 0, 510.35999999999996)
+        assertTextLayerPositionKeyframeStartY(textLayer4, 1, 510.35999999999996)
+        assertTextLayerPositionKeyframeEndY(textLayer4, 1, 510.35999999999996)
+        assertTextLayerPositionKeyframeStartY(textLayer4, 2, 510.35999999999996)
+        assertTextLayerPositionKeyframeEndY(textLayer4, 2, 510.35999999999996)
     }
 
     @Test
@@ -284,14 +284,14 @@ class KPVariableTransformerTest {
 
         //var0
         val textLayer7 = sut.layers[6]
-        assertTextLayerPositionKeyframeStartY(textLayer7, 0, 980.0)
-        assertTextLayerPositionKeyframeEndY(textLayer7, 0, 980.0)
+        assertTextLayerPositionKeyframeStartY(textLayer7, 0, 460.35999999999996)
+        assertTextLayerPositionKeyframeEndY(textLayer7, 0, 460.35999999999996)
 
-        assertTextLayerPositionKeyframeStartY(textLayer7, 1, 980.0)
-        assertTextLayerPositionKeyframeEndY(textLayer7, 1, 980.0)
+        assertTextLayerPositionKeyframeStartY(textLayer7, 1, 460.35999999999996)
+        assertTextLayerPositionKeyframeEndY(textLayer7, 1, 460.35999999999996)
 
-        assertTextLayerPositionKeyframeStartY(textLayer7, 2, 980.0)
-        assertTextLayerPositionKeyframeEndY(textLayer7, 2, 980.0)
+        assertTextLayerPositionKeyframeStartY(textLayer7, 2, 460.35999999999996)
+        assertTextLayerPositionKeyframeEndY(textLayer7, 2, 460.35999999999996)
 
         //var1
         val shapeLayer6 = sut.layers[5]
@@ -323,30 +323,25 @@ class KPVariableTransformerTest {
         assertTextLayerPositionKeyframeEndY(textLayer4, 2, 275.75999999999993)
         //var6
         assertShapeLayerPositionY(shapeLayer3,478.73999999999995)
-        assertShapeLayerPositionY(shapeLayer5, 817.0)
+        assertShapeLayerPositionY(shapeLayer5, 478.73999999999995)
         //var7
         val textLayer1 = sut.layers[0]
-        assertTextLayerPositionKeyframeStartY(textLayer1, 0, 436.0)
-        assertTextLayerPositionKeyframeEndY(textLayer1, 0, 436.0)
-
-        assertTextLayerPositionKeyframeStartY(textLayer1, 1, 436.0)
-        assertTextLayerPositionKeyframeEndY(textLayer1, 1, 436.0)
-
-        assertTextLayerPositionKeyframeStartY(textLayer1, 2, 436.0)
-        assertTextLayerPositionKeyframeEndY(textLayer1, 2, 436.0)
+        assertTextLayerPositionKeyframeStartY(textLayer1, 0, 222.21999999999997)
+        assertTextLayerPositionKeyframeEndY(textLayer1, 0, 222.21999999999997)
+        assertTextLayerPositionKeyframeStartY(textLayer1, 1, 222.21999999999997)
+        assertTextLayerPositionKeyframeEndY(textLayer1, 1, 222.21999999999997)
+        assertTextLayerPositionKeyframeStartY(textLayer1, 2, 222.21999999999997)
+        assertTextLayerPositionKeyframeEndY(textLayer1, 2, 222.21999999999997)
         //var8
         val textLayer2 = sut.layers[1]
-        assertTextLayerPositionKeyframeStartY(textLayer2, 0, 837.0)
-        assertTextLayerPositionKeyframeEndY(textLayer2, 0, 837.0)
-
-        assertTextLayerPositionKeyframeStartY(textLayer2, 1, 837.0)
-        assertTextLayerPositionKeyframeEndY(textLayer2, 1, 837.0)
-
-        assertTextLayerPositionKeyframeStartY(textLayer2, 2, 837.0)
-        assertTextLayerPositionKeyframeEndY(textLayer2, 2, 837.0)
-
-        assertTextLayerPositionKeyframeStartY(textLayer2, 2, 837.0)
-        assertTextLayerPositionKeyframeEndY(textLayer2, 2, 837.0)
+        assertTextLayerPositionKeyframeStartY(textLayer2, 0, 451.82)
+        assertTextLayerPositionKeyframeEndY(textLayer2, 0, 451.82)
+        assertTextLayerPositionKeyframeStartY(textLayer2, 1, 451.82)
+        assertTextLayerPositionKeyframeEndY(textLayer2, 1, 451.82)
+        assertTextLayerPositionKeyframeStartY(textLayer2, 2, 451.82)
+        assertTextLayerPositionKeyframeEndY(textLayer2, 2, 451.82)
+        assertTextLayerPositionKeyframeStartY(textLayer2, 3, 451.82)
+        assertTextLayerPositionKeyframeEndY(textLayer2, 3, 451.82)
     }
 
     @Test
@@ -405,8 +400,8 @@ class KPVariableTransformerTest {
         assertTextLayerPositionKeyframeEndY(textLayer1, 0, 447.82)
         assertTextLayerPositionKeyframeStartY(textLayer1, 0, 447.82)
         val textLayer2 = sut.layers[2]
-        assertTextLayerPositionKeyframeEndY(textLayer2, 0, 854.0)
-        assertTextLayerPositionKeyframeStartY(textLayer2, 0, 854.0)
+        assertTextLayerPositionKeyframeEndY(textLayer2, 0, 320.75999999999993)
+        assertTextLayerPositionKeyframeStartY(textLayer2, 0, 320.75999999999993)
         val textLayer3 = sut.layers[3]
         assertTextLayerPositionKeyframeEndY(textLayer3, 0, 490.35999999999996)
         assertTextLayerPositionKeyframeStartY(textLayer3, 0, 490.35999999999996)

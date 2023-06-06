@@ -55,14 +55,14 @@
                 {
                     "ind": 4,
                     "layerType": 5,
-                    "transformKey": "textBottomTransformKey",
+                    "transformKeyframeIndexes": [0],
                     "transformType": "position_end_y",
                     "description": "textBottom y position"
                 },
                 {
                     "ind": 4,
                     "layerType": 5,
-                    "transformKey": "textBottomTransformKey",
+                    "transformKeyframeIndexes": [0],
                     "transformType": "position_start_y",
                     "description": "textBottom y position"
                 }
@@ -108,14 +108,14 @@
                 {
                     "ind": 5,
                     "layerType": 1,
-                    "transformKey": "textBottomContainerTransformKey",
+                    "transformKeyframeIndexes": [0],
                     "transformType": "position_end_y",
                     "description": "textBottomContainer position y"
                 },
                 {
                     "ind": 5,
                     "layerType": 1,
-                    "transformKey": "textBottomContainerTransformKey",
+                    "transformKeyframeIndexes": [0],
                     "transformType": "position_start_y",
                     "description": "textBottomContainer position y"
                 }
@@ -129,14 +129,14 @@
                 {
                     "ind": 4,
                     "layerType": 5,
-                    "transformKey": "textBottomTransformKey",
+                    "transformKeyframeIndexes": [0],
                     "transformType": "position_start_x",
                     "description": "textBottom position x"
                 },
                 {
                     "ind": 5,
                     "layerType": 1,
-                    "transformKey": "textBottomContainerTransformKey",
+                    "transformKeyframeIndexes": [0],
                     "transformType": "position_start_x",
                     "description": "textBottomContainer position x"
                 }
@@ -163,14 +163,14 @@
                 {
                     "ind": 3,
                     "layerType": 5,
-                    "transformKey": "textTopTransformKey",
+                    "transformKeyframeIndexes": [0],
                     "transformType": "position_start_y",
                     "description": "textTop position y"
                 },
                 {
                     "ind": 3,
                     "layerType": 5,
-                    "transformKey": "textTopTransformKey",
+                    "transformKeyframeIndexes": [0],
                     "transformType": "position_end_y",
                     "description": "textTop position y"
                 }
@@ -184,7 +184,7 @@
                 {
                     "ind": 4,
                     "layerType": 5,
-                    "transformKey": "textBottomTransformKey",
+                    "transformKeyframeIndexes": [0],
                     "transformType": "position_end_x",
                     "description": "textBottom end position x"
                 }
@@ -198,7 +198,7 @@
                 {
                     "ind": 5,
                     "layerType": 1,
-                    "transformKey": "textBottomContainerTransformKey",
+                    "transformKeyframeIndexes": [0],
                     "transformType": "position_end_x",
                     "description": "textBottomContainer end position x"
                 }
@@ -225,14 +225,14 @@
                 {
                     "ind": 2,
                     "layerType": 5,
-                    "transformKey": "titleBottomTransformKey",
+                    "transformKeyframeIndexes": [0],
                     "transformType": "position_end_y",
                     "description": "titleBottom position y"
                 },
                 {
                     "ind": 2,
                     "layerType": 5,
-                    "transformKey": "titleBottomTransformKey",
+                    "transformKeyframeIndexes": [0],
                     "transformType": "position_start_y",
                     "description": "titleBottom position y"
                 }

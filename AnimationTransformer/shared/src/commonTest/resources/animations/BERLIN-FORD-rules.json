@@ -54,7 +54,7 @@
               "ind": 1,
               "layerType": 5,
               "transformType": "time",
-              "transformKey": "textTimeTransformKey"
+              "transformKeyframeIndexes": [3],
               "description": "1 frame before the end of the animation"
           }
       ],

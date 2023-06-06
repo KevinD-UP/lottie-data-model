@@ -79,7 +79,6 @@
             "a": 1,
             "k": [
               {
-                "kp_transform_key":"textTopTransformKey_1",
                 "i": {
                   "x": 0,
                   "y": 1
@@ -111,7 +110,6 @@
                 ]
               },
               {
-                "kp_transform_key":"textTopTransformKey_2",
                 "i": {
                   "x": 0,
                   "y": 1
@@ -302,12 +300,10 @@
         "shapes": [
           {
             "ty": "gr",
-            "kp_transform_key": "lineTransformKey",
             "it": [
               {
                 "ind": 0,
                 "ty": "sh",
-                "kp_transform_key": "lineTransformKey",
                 "ix": 1,
                 "ks": {
                   "a": 0,
@@ -515,8 +511,7 @@
           "p": {
             "a": 1,
             "k": [
-              {
-                "kp_transform_key":"textBottomTransformKey",
+              {                
                 "i": {
                   "x": 0,
                   "y": 0.959

@@ -56,7 +56,6 @@
           "a": 1,
           "k": [
             {
-              "kp_transform_key": "titleTopTransformKey",
               "i": {
                 "x": [
                   0.833
@@ -82,7 +81,6 @@
               ]
             },
             {
-              "kp_transform_key": "titleTopTransformKey",
               "i": {
                 "x": [
                   0.833
@@ -108,7 +106,6 @@
               ]
             },
             {
-              "kp_transform_key": "titleTopTransformKey",
               "i": {
                 "x": [
                   0.833
@@ -414,7 +411,6 @@
           "a": 1,
           "k": [
             {
-              "kp_transform_key": "titleBottomTransformKey_1",
               "i": {
                 "x": 0.833,
                 "y": 0.833
@@ -446,7 +442,6 @@
               ]
             },
             {
-              "kp_transform_key": "titleBottomTransformKey_3",
               "i": {
                 "x": 0.833,
                 "y": 0.833
@@ -478,7 +473,6 @@
               ]
             },
             {
-              "kp_transform_key": "titleBottomTransformKey_2",
               "i": {
                 "x": 0.833,
                 "y": 0.833
@@ -594,7 +588,6 @@
           "a": 1,
           "k": [
             {
-              "kp_transform_key": "textTopTransformKey",
               "i": {
                 "x": [
                   0.833
@@ -620,7 +613,6 @@
               ]
             },
             {
-              "kp_transform_key": "textTopTransformKey",
               "i": {
                 "x": [
                   0.833
@@ -646,7 +638,6 @@
               ]
             },
             {
-              "kp_transform_key": "textTopTransformKey",
               "i": {
                 "x": [
                   0.833
@@ -1185,7 +1176,6 @@
           "a": 1,
           "k": [
             {
-              "kp_transform_key": "textBottomTransformKey",
               "i": {
                 "x": [
                   0.833
@@ -1211,7 +1201,6 @@
               ]
             },
             {
-              "kp_transform_key": "textBottomTransformKey",
               "i": {
                 "x": [
                   0.833
@@ -1237,7 +1226,6 @@
               ]
             },
             {
-              "kp_transform_key": "textBottomTransformKey",
               "i": {
                 "x": [
                   0.833

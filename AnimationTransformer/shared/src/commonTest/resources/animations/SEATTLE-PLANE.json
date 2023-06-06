@@ -145,7 +145,6 @@
           "a": 1,
           "k": [
             {
-              "kp_transform_key": "titleTopTransformKey",
               "i": {
                 "x": 0,
                 "y": 1
@@ -177,7 +176,6 @@
               ]
             },
             {
-              "kp_transform_key": "titleTopTransformKey",
               "i": {
                 "x": 0.667,
                 "y": 0.667
@@ -209,7 +207,6 @@
               ]
             },
             {
-              "kp_transform_key": "titleTopTransformKey",
               "i": {
                 "x": 0,
                 "y": 1
@@ -775,11 +772,9 @@
       "shapes": [
         {
           "ty": "gr",
-          "kp_transform_key": "textTopContainerTransformKey",
           "it": [
             {
               "ty": "rc",
-              "kp_transform_key": "textTopContainerTransformKey",
               "d": 1,
               "s": {
                 "a": 0,
@@ -1018,7 +1013,6 @@
           "a": 1,
           "k": [
             {
-              "kp_transform_key": "textTopTransformKey",
               "i": {
                 "x": 0.667,
                 "y": 1
@@ -1050,7 +1044,6 @@
               ]
             },
             {
-              "kp_transform_key": "textTopTransformKey",
               "i": {
                 "x": 0.667,
                 "y": 0.667
@@ -1082,7 +1075,6 @@
               ]
             },
             {
-              "kp_transform_key": "textTopTransformKey",
               "i": {
                 "x": 0.667,
                 "y": 1
@@ -1481,11 +1473,9 @@
       "shapes": [
         {
           "ty": "gr",
-          "kp_transform_key": "textTopContainerTransformKey",
           "it": [
             {
               "ty": "rc",
-              "kp_transform_key": "textTopContainerTransformKey",
               "d": 1,
               "s": {
                 "a": 0,
@@ -1801,11 +1791,9 @@
       "shapes": [
         {
           "ty": "gr",
-          "kp_transform_key": "textBottomContainerTransformKey",
           "it": [
             {
               "ty": "rc",
-              "kp_transform_key": "textBottomContainerTransformKey",
               "d": 1,
               "s": {
                 "a": 0,
@@ -1930,7 +1918,6 @@
           "a": 1,
           "k": [
             {
-              "kp_transform_key": "textBottomTransformKey",
               "i": {
                 "x": [
                   0.667
@@ -1956,7 +1943,6 @@
               ]
             },
             {
-              "kp_transform_key": "textBottomTransformKey",
               "i": {
                 "x": [
                   0.667
@@ -1982,7 +1968,6 @@
               ]
             },
             {
-              "kp_transform_key": "textBottomTransformKey",
               "i": {
                 "x": [
                   0.667
@@ -2507,11 +2492,9 @@
       "shapes": [
         {
           "ty": "gr",
-          "kp_transform_key": "textBottomContainerTransformKey",
           "it": [
             {
               "ty": "rc",
-              "kp_transform_key": "textBottomContainerTransformKey",
               "d": 1,
               "s": {
                 "a": 0,

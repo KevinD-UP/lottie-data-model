@@ -7128,7 +7128,6 @@
             "a": 1,
             "k": [
               {
-                "kp_transform_key": "textTopTransformKey_1",
                 "i": {
                   "x": 0,
                   "y": 1
@@ -7160,7 +7159,6 @@
                 ]
               },
               {
-                "kp_transform_key": "textTopTransformKey_2",
                 "i": {
                   "x": 0,
                   "y": 0
@@ -7192,7 +7190,6 @@
                 ]
               },
               {
-                "kp_transform_key": "textTopTransformKey_3",
                 "i": {
                   "x": 1,
                   "y": 1
@@ -7340,7 +7337,6 @@
             "a": 1,
             "k": [
               {
-                "kp_transform_key": "textBottomTransformKey_1",
                 "i": {
                   "x": 0,
                   "y": 1
@@ -7372,7 +7368,6 @@
                 ]
               },
               {
-                "kp_transform_key": "textBottomTransformKey_2",
                 "i": {
                   "x": 0,
                   "y": 0
@@ -7404,7 +7399,6 @@
                 ]
               },
               {
-                "kp_transform_key": "textBottomTransformKey_3",
                 "i": {
                   "x": 1,
                   "y": 1
@@ -7524,7 +7518,6 @@
             "a": 1,
             "k": [
               {
-                "kp_transform_key": "titleTopTransformKey_1",
                 "i": {
                   "x": 0,
                   "y": 1
@@ -7556,7 +7549,6 @@
                 ]
               },
               {
-                "kp_transform_key": "titleTopTransformKey_2",
                 "i": {
                   "x": 0.706,
                   "y": 0.706
@@ -7588,7 +7580,6 @@
                 ]
               },
               {
-                "kp_transform_key": "titleTopTransformKey_2",
                 "i": {
                   "x": 0.007,
                   "y": 0.007
@@ -7620,7 +7611,6 @@
                 ]
               },
               {
-                "kp_transform_key": "titleTopTransformKey_3",
                 "i": {
                   "x": 1,
                   "y": 1
@@ -7767,11 +7757,9 @@
         "ao": 0,
         "shapes": [
           {
-            "kp_transform_key": "matteTransformKey",
             "ty": "gr",
             "it": [
               {
-                "kp_transform_key": "matteTransformKey",
                 "ty": "rc",
                 "d": 1,
                 "s": {

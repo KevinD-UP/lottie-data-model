@@ -47,28 +47,28 @@
           {
               "ind": 2,
               "layerType": 5,
-              "transformKey": "textBottomTransformKey_1"
+              "transformKeyframeIndexes": [0],
               "transformType": "position_end_y",
               "description": "textBottom y position"
           },
           {
               "ind": 2,
               "layerType": 5,
-              "transformKey": "textBottomTransformKey_2"
+              "transformKeyframeIndexes": [1],
               "transformType": "position_end_y",
               "description": "textBottom y position"
           },
           {
               "ind": 2,
               "layerType": 5,
-              "transformKey": "textBottomTransformKey_2"
+              "transformKeyframeIndexes": [1],
               "transformType": "position_start_y",
               "description": "textBottom y position"
           },
           {
               "ind": 2,
               "layerType": 5,
-              "transformKey": "textBottomTransformKey_3"
+              "transformKeyframeIndexes": [2],
               "transformType": "position_start_y",
               "description": "textBottom y position"
           }
@@ -82,28 +82,28 @@
           {
               "ind": 1,
               "layerType": 5,
-              "transformKey": "textTopTransformKey_1"
+              "transformKeyframeIndexes": [0],
               "transformType": "position_end_y",
               "description": "textTop y position"
           },
           {
               "ind": 1,
               "layerType": 5,
-              "transformKey": "textTopTransformKey_2"
+              "transformKeyframeIndexes": [1],
               "transformType": "position_end_y",
               "description": "textTop y position"
           },
           {
               "ind": 1,
               "layerType": 5,
-              "transformKey": "textTopTransformKey_2"
+              "transformKeyframeIndexes": [1],
               "transformType": "position_start_y",
               "description": "textTop y position"
           },
           {
               "ind": 1,
               "layerType": 5,
-              "transformKey": "textTopTransformKey_3"
+              "transformKeyframeIndexes": [2],
               "transformType": "position_start_y",
               "description": "textTop y position"
           }
@@ -117,28 +117,28 @@
           {
               "ind": 3,
               "layerType": 5,
-              "transformKey": "titleTopTransformKey_1"
+              "transformKeyframeIndexes": [0],
               "transformType": "position_end_y",
               "description": "titleTop y position"
           },
           {
               "ind": 3,
               "layerType": 5,
-              "transformKey": "titleTopTransformKey_2"
+              "transformKeyframeIndexes": [1, 2],
               "transformType": "position_end_y",
               "description": "titleTop y position"
           },
           {
               "ind": 3,
               "layerType": 5,
-              "transformKey": "titleTopTransformKey_2"
+              "transformKeyframeIndexes": [1, 2],
               "transformType": "position_start_y",
               "description": "titleTop y position"
           },
           {
               "ind": 3,
               "layerType": 5,
-              "transformKey": "titleTopTransformKey_3"
+              "transformKeyframeIndexes": [3],
               "transformType": "position_start_y",
               "description": "titleTop y position"
           }
@@ -153,14 +153,14 @@
           {
               "ind": 3,
               "layerType": 5,
-              "transformKey": "titleTopTransformKey_1"
+              "transformKeyframeIndexes": [0],
               "transformType": "position_start_y",
               "description": "titleTop y position"
           },
           {
               "ind": 3,
               "layerType": 5,
-              "transformKey": "titleTopTransformKey_3"
+              "transformKeyframeIndexes": [3],
               "transformType": "position_end_y",
               "description": "titleTop y position"
           }
@@ -175,7 +175,8 @@
           {
               "ind": 4,
               "layerType": 4,
-              "transformKey": "matteTransformKey"
+              "transformShapeIndex": 0,
+              "transformShapeItIndex": 0,
               "transformType": "frame_it_height",              
               "description": "matte height"
           }

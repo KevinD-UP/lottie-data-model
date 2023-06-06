@@ -61,14 +61,16 @@
           {
               "ind": 4,
               "layerType": 4,
-              "transformKey": "textTopContainerTransformKey",
+              "transformShapeIndex": 0,
+              "transformShapeItIndex": 0,
               "transformType": "frame_it_width",
               "description": "textTopContainer width"
           },
           {
               "ind": 6,
               "layerType": 4,
-              "transformKey": "textBottomContainerTransformKey",
+              "transformShapeIndex": 0,
+              "transformShapeItIndex": 0,
               "transformType": "frame_it_width",
               "description": "textBottomContainer width"
           }
@@ -82,14 +84,14 @@
           {
               "ind": 5,
               "layerType": 5,
-              "transformKey": "textBottomTransformKey",
+              "transformKeyframeIndexes": [0, 1, 2],
               "transformType": "position_start_y",
               "description": "textBottom y position"
           },
           {
               "ind": 5,
               "layerType": 5,
-              "transformKey": "textBottomTransformKey",
+              "transformKeyframeIndexes": [0, 1, 2],
               "transformType": "position_end_y",
               "description": "textBottom y position"
           }
@@ -103,14 +105,14 @@
           {
               "ind": 6,
               "layerType": 4,
-              "transformKey": "textBottomContainerTransformKey",
+              "transformKeyframeIndexes": [0, 1, 2],
               "transformType": "position_start_y",
               "description": "textBottomContainer y position"
           },
           {
               "ind": 6,
               "layerType": 4,
-              "transformKey": "textBottomContainerTransformKey",
+              "transformKeyframeIndexes": [0, 1, 2],
               "transformType": "position_end_y",
               "description": "textBottomContainer y position"
           }
@@ -124,21 +126,21 @@
           {
               "ind": 3,
               "layerType": 5,
-              "transformKey": "textTopTransformKey"
+              "transformKeyframeIndexes": [0, 1, 2],
               "transformType": "position_start_y",
               "description": "textTop y position"
           },
           {
               "ind": 3,
               "layerType": 5,
-              "transformKey": "textTopTransformKey"
+              "transformKeyframeIndexes": [0, 1, 2],
               "transformType": "position_end_y",
               "description": "textTop y position"
           },
           {
               "ind": 4,
               "layerType": 4,
-              "transformKey": "textTopContainerTransformKey_1"
+              "transformKeyframeIndexes": [0],
               "transformType": "position_start_y",
               "description": "textTopContainer y position"
           }
@@ -152,21 +154,21 @@
           {
               "ind": 4,
               "layerType": 4,
-              "transformKey": "textTopContainerTransformKey_1"
+              "transformKeyframeIndexes": [0],
               "transformType": "position_end_y",
               "description": "textTopContainer y position"
           },
           {
               "ind": 4,
               "layerType": 4,
-              "transformKey": "textTopContainerTransformKey_2"
+              "transformKeyframeIndexes": [1, 2],
               "transformType": "position_start_y",
               "description": "textTop y position"
           },
           {
               "ind": 4,
               "layerType": 4,
-              "transformKey": "textTopContainerTransformKey_2"
+              "transformKeyframeIndexes": [1, 2],
               "transformType": "position_end_y",
               "description": "textTop y position"
           }
@@ -181,21 +183,21 @@
           {
               "ind": 1,
               "layerType": 5,
-              "transformKey": "titleTopTransformKey_1"
+              "transformKeyframeIndexes": [0, 1],
               "transformType": "position_end_y",
               "description": "titleTop y position"
           },
           {
               "ind": 1,
               "layerType": 5,
-              "transformKey": "titleTopTransformKey_1"
+              "transformKeyframeIndexes": [0, 1],
               "transformType": "position_start_y",
               "description": "titleTop y position"
           },
           {
               "ind": 1,
               "layerType": 5,
-              "transformKey": "titleTopTransformKey_2"
+              "transformKeyframeIndexes": [2],
               "transformType": "position_start_y",
               "description": "titleTop y position"
           }
@@ -209,21 +211,21 @@
           {
               "ind": 2,
               "layerType": 5,
-              "transformKey": "titleBottomTransformKey_1"
+              "transformKeyframeIndexes": [0, 1],
               "transformType": "position_end_y",
               "description": "titleBottom y position"
           },
           {
               "ind": 2,
               "layerType": 5,
-              "transformKey": "titleBottomTransformKey_1"
+              "transformKeyframeIndexes": [0, 1],
               "transformType": "position_start_y",
               "description": "titleBottom y position"
           },
           {
               "ind": 2,
               "layerType": 5,
-              "transformKey": "titleBottomTransformKey_2"
+              "transformKeyframeIndexes": [2],
               "transformType": "position_start_y",              
               "description": "titleBottom y position"
           }

@@ -20,7 +20,7 @@
           {
               "ind": 1,
               "layerType": 5,
-              "transformKey": "textTransformKey",
+              "transformKeyframeIndexes": [0],
               "transformType": "position_end_y",
               "description": "titleTop y position"
           }

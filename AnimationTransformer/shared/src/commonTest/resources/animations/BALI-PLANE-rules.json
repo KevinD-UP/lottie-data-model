@@ -92,7 +92,8 @@
                 {
                     "ind": 9,
                     "layerType": 4,
-                    "transformKey": "subTitleContainerTransformKey",
+                    "transformShapeIndex": 1,
+                    "transformShapeItIndex": 0,
                     "transformType": "frame_it_width",
                     "description": "subTitleContainer width"
                 }
@@ -106,7 +107,8 @@
                 {
                     "ind": 9,
                     "layerType": 4,
-                    "transformKey": "subTitleContainerTransformKey",
+                    "transformShapeIndex": 1,
+                    "transformShapeItIndex": 0,
                     "transformType": "frame_it_height",
                     "description": "subTitleContainer height"
                 }
@@ -178,7 +180,8 @@
                 {
                     "ind": 4,
                     "layerType": 4,
-                    "transformKey": "lineLeftTransformKey",
+                    "transformShapeIndex": 0,
+                    "transformShapeItIndex": 0,
                     "transformType": "position_it_y",
                     "transformNodeVIndex": 1,
                     "description": "lineLeft end position y"
@@ -193,7 +196,8 @@
                 {
                     "ind": 3,
                     "layerType": 4,
-                    "transformKey": "lineRightTransformKey",
+                    "transformShapeIndex": 0,
+                    "transformShapeItIndex": 0,
                     "transformType": "position_it_y",
                     "transformNodeVIndex": 1,
                     "description": "lineRight end position y"
@@ -240,7 +244,8 @@
                 {
                     "ind": 5,
                     "layerType": 4,
-                    "transformKey": "lineTopTransformKey",
+                    "transformShapeIndex": 0,
+                    "transformShapeItIndex": 0,
                     "transformType": "position_it_x",
                     "transformNodeVIndex": 1,
                     "description": "lineTop end position x"
@@ -255,7 +260,8 @@
                 {
                     "ind": 6,
                     "layerType": 4,
-                    "transformKey": "lineBottomTransformKey",
+                    "transformShapeIndex": 0,
+                    "transformShapeItIndex": 0,
                     "transformType": "position_it_x",
                     "transformNodeVIndex": 1,
                     "description": "lineBottom end position x"

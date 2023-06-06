@@ -659,12 +659,10 @@
             "shapes": [
                 {
                     "ty": "gr",
-                    "kp_transform_key": "lineRightTransformKey",
                     "it": [
                         {
                             "ind": 0,
                             "ty": "sh",
-                            "kp_transform_key": "lineRightTransformKey",
                             "ix": 1,
                             "ks": {
                                 "a": 0,
@@ -960,11 +958,9 @@
             "shapes": [
                 {
                     "ty": "gr",
-                    "kp_transform_key": "lineLeftTransformKey",
                     "it": [
                         {
                             "ind": 0,
-                            "kp_transform_key": "lineLeftTransformKey",
                             "ty": "sh",
                             "ix": 1,
                             "ks": {
@@ -1261,12 +1257,10 @@
             "shapes": [
                 {
                     "ty": "gr",
-                    "kp_transform_key": "lineTopTransformKey",
                     "it": [
                         {
                             "ind": 0,
                             "ty": "sh",
-                            "kp_transform_key": "lineTopTransformKey",
                             "ix": 1,
                             "ks": {
                                 "a": 0,
@@ -1562,12 +1556,10 @@
             "shapes": [
                 {
                     "ty": "gr",
-                    "kp_transform_key": "lineBottomTransformKey",
                     "it": [
                         {
                             "ind": 0,
                             "ty": "sh",
-                            "kp_transform_key": "lineBottomTransformKey",
                             "ix": 1,
                             "ks": {
                                 "a": 0,
@@ -2323,12 +2315,10 @@
                 },
                 {
                     "ty": "gr",
-                    "kp_transform_key": "subTitleContainerTransformKey",
                     "it": [
                         {
                             "ty": "rc",
                             "d": 1,
-                            "kp_transform_key": "subTitleContainerTransformKey",
                             "s": {
                                 "a": 0,
                                 "k": [

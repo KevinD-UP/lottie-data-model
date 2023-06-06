@@ -38,28 +38,28 @@
           {
               "ind": 1,
               "layerType": 5,
-              "transformKey": "textTopContainerTransformKey_1",
+              "transformKeyframeIndexes": [0],
               "transformType": "position_end_y",
               "description": "titleTop y position"
           },
           {
               "ind": 1,
               "layerType": 5,
-              "transformKey": "textTopContainerTransformKey_1",
+              "transformKeyframeIndexes": [0],
               "transformType": "position_start_y",
               "description": "titleTop y position"
           },
           {
               "ind": 1,
               "layerType": 5,
-              "transformKey": "textTopContainerTransformKey_2",
+              "transformKeyframeIndexes": [1],
               "transformType": "position_end_y",
               "description": "titleTop y position"
           },
           {
               "ind": 1,
               "layerType": 5,
-              "transformKey": "textTopContainerTransformKey_2",
+              "transformKeyframeIndexes": [1],
               "transformType": "position_start_y",
               "description": "titleTop y position"
           }
@@ -73,14 +73,14 @@
           {
               "ind": 3,
               "layerType": 5,
-              "transformKey": "textBottomTransformKey",
+              "transformKeyframeIndexes": [0],
               "transformType": "position_start_y",
               "description": "titleBottom y position"
           },
           {
               "ind": 3,
               "layerType": 5,
-              "transformKey": "textBottomTransformKey",
+              "transformKeyframeIndexes": [0],
               "transformType": "position_end_y",
               "description": "titleBottom y position"
           }
@@ -94,7 +94,8 @@
           {
               "ind": 2,
               "layerType": 4,
-              "transformKey": "lineTransformKey",
+              "transformShapeIndex": 0,
+              "transformShapeItIndex": 0,
               "transformType": "position_it_x",
               "transformNodeVIndex": 0,
               "description": "first line x position"
@@ -109,7 +110,8 @@
           {
               "ind": 2,
               "layerType": 4,
-              "transformKey": "lineTransformKey",
+              "transformShapeIndex": 0,
+              "transformShapeItIndex": 0,
               "transformType": "position_it_x",              
               "transformNodeVIndex": 1,
               "description": "last line x position"

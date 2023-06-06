@@ -70,7 +70,6 @@
 		14F2A6AC2A2E7B0A00B399BA /* BALI-PLANE.json in Resources */ = {isa = PBXBuildFile; fileRef = 14F2A6692A2E7B0A00B399BA /* BALI-PLANE.json */; };
 		14F2A6AD2A2E7B0A00B399BA /* ALGIERS-PEUGEOT-rules.json in Resources */ = {isa = PBXBuildFile; fileRef = 14F2A66A2A2E7B0A00B399BA /* ALGIERS-PEUGEOT-rules.json */; };
 		14F2A6AE2A2E7B0A00B399BA /* BALI-PEUGEOT-rules.json in Resources */ = {isa = PBXBuildFile; fileRef = 14F2A66B2A2E7B0A00B399BA /* BALI-PEUGEOT-rules.json */; };
-		14F2A6AF2A2E7B0A00B399BA /* BERLIN-PLANE-rules-OLD.json in Resources */ = {isa = PBXBuildFile; fileRef = 14F2A66C2A2E7B0A00B399BA /* BERLIN-PLANE-rules-OLD.json */; };
 		14F2A6B02A2E7B0A00B399BA /* ALGIERS-SIMCA.json in Resources */ = {isa = PBXBuildFile; fileRef = 14F2A66D2A2E7B0A00B399BA /* ALGIERS-SIMCA.json */; };
 		14F2A6B12A2E7B0A00B399BA /* BOGOTA-DELOREAN.json in Resources */ = {isa = PBXBuildFile; fileRef = 14F2A66E2A2E7B0A00B399BA /* BOGOTA-DELOREAN.json */; };
 		14F2A6B22A2E7B0A00B399BA /* PARIS-BUTTERFLY-rules.json in Resources */ = {isa = PBXBuildFile; fileRef = 14F2A66F2A2E7B0A00B399BA /* PARIS-BUTTERFLY-rules.json */; };
@@ -152,7 +151,6 @@
 		14F2A6692A2E7B0A00B399BA /* BALI-PLANE.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = "BALI-PLANE.json"; path = "../../../../shared/src/commonTest/resources/animations/BALI-PLANE.json"; sourceTree = "<group>"; };
 		14F2A66A2A2E7B0A00B399BA /* ALGIERS-PEUGEOT-rules.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = "ALGIERS-PEUGEOT-rules.json"; path = "../../../../shared/src/commonTest/resources/animations/ALGIERS-PEUGEOT-rules.json"; sourceTree = "<group>"; };
 		14F2A66B2A2E7B0A00B399BA /* BALI-PEUGEOT-rules.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = "BALI-PEUGEOT-rules.json"; path = "../../../../shared/src/commonTest/resources/animations/BALI-PEUGEOT-rules.json"; sourceTree = "<group>"; };
-		14F2A66C2A2E7B0A00B399BA /* BERLIN-PLANE-rules-OLD.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = "BERLIN-PLANE-rules-OLD.json"; path = "../../../../shared/src/commonTest/resources/animations/BERLIN-PLANE-rules-OLD.json"; sourceTree = "<group>"; };
 		14F2A66D2A2E7B0A00B399BA /* ALGIERS-SIMCA.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = "ALGIERS-SIMCA.json"; path = "../../../../shared/src/commonTest/resources/animations/ALGIERS-SIMCA.json"; sourceTree = "<group>"; };
 		14F2A66E2A2E7B0A00B399BA /* BOGOTA-DELOREAN.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = "BOGOTA-DELOREAN.json"; path = "../../../../shared/src/commonTest/resources/animations/BOGOTA-DELOREAN.json"; sourceTree = "<group>"; };
 		14F2A66F2A2E7B0A00B399BA /* PARIS-BUTTERFLY-rules.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = "PARIS-BUTTERFLY-rules.json"; path = "../../../../shared/src/commonTest/resources/animations/PARIS-BUTTERFLY-rules.json"; sourceTree = "<group>"; };
@@ -241,7 +239,6 @@
 				14F2A6642A2E7B0A00B399BA /* BERLIN-FORD.json */,
 				14F2A64C2A2E7B0900B399BA /* BERLIN-PEUGEOT-rules.json */,
 				14F2A6732A2E7B0A00B399BA /* BERLIN-PEUGEOT.json */,
-				14F2A66C2A2E7B0A00B399BA /* BERLIN-PLANE-rules-OLD.json */,
 				14F2A6752A2E7B0A00B399BA /* BERLIN-PLANE-rules.json */,
 				14F2A6772A2E7B0A00B399BA /* BERLIN-PLANE.json */,
 				14F2A6712A2E7B0A00B399BA /* BOGOTA-AUSTIN-rules.json */,
@@ -465,7 +462,6 @@
 				14F2A68A2A2E7B0A00B399BA /* LOS_ANGELES-PLANE-rules.json in Resources */,
 				14F2A68C2A2E7B0A00B399BA /* SEATTLE-FORD.json in Resources */,
 				14F2A6BB2A2E7B0A00B399BA /* LOS_ANGELES-SIMCA-rules.json in Resources */,
-				14F2A6AF2A2E7B0A00B399BA /* BERLIN-PLANE-rules-OLD.json in Resources */,
 				14F2A6972A2E7B0A00B399BA /* BOGOTA-MCLAREN.json in Resources */,
 				14F2A6A62A2E7B0A00B399BA /* PARIS-FOX.json in Resources */,
 				14F2A6A12A2E7B0A00B399BA /* BOGOTA-ROUSH.json in Resources */,

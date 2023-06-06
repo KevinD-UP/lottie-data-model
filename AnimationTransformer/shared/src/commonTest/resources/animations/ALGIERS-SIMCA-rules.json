@@ -20,14 +20,14 @@
           {
               "ind": 1,
               "layerType": 5,
-              "transformKey": "textTransformKey",
+              "transformKeyframeIndexes": [0],
               "transformType": "position_start_y",
               "description": "title y position"
           },
           {
               "ind": 1,
               "layerType": 5,
-              "transformKey": "textTransformKey",
+              "transformKeyframeIndexes": [0],
               "transformType": "position_end_y",              
               "description": "title y position"
           }
