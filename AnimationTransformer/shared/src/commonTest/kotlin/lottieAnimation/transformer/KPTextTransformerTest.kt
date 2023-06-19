@@ -38,6 +38,54 @@ class KPTextTransformerTest {
     }
 
     @Test
+    fun testTextTransformationFourZero() {
+        val pathToAnimationAlgier = "src/commonTest/resources/animations/BALI-PEUGEOT.json"
+        val pathToAnimationRulesAlgiers =
+            "src/commonTest/resources/animations/BALI-PEUGEOT-rules 1.json"
+        val textTransformer = KPTextTransformer()
+        val animationJson = FileSystem.SYSTEM.read(pathToAnimationAlgier.toPath()) {
+            readUtf8()
+        }
+        val animationRulesJson = FileSystem.SYSTEM.read(pathToAnimationRulesAlgiers.toPath()) {
+            readUtf8()
+        }
+        val json = Json {
+            explicitNulls = false
+            encodeDefaults = true
+        }
+        val baseLottieAnimation = json.decodeFromString<KPLottieAnimation>(animationJson)
+        val lottieAnimation = json.decodeFromString<KPLottieAnimation>(animationJson)
+        val animationRules = json.decodeFromString<KPAnimationRules>(animationRulesJson)
+        val texts = listOf("FourZero", "FourZero Text")
+        val res = textTransformer.transformTexts(lottieAnimation, animationRules, texts)
+        assertNotEquals(baseLottieAnimation, res)
+    }
+
+    @Test
+    fun testTextTransformationZeroOne() {
+        val pathToAnimationAlgier = "src/commonTest/resources/animations/BALI-PEUGEOT.json"
+        val pathToAnimationRulesAlgiers =
+            "src/commonTest/resources/animations/BALI-PEUGEOT-rules 2.json"
+        val textTransformer = KPTextTransformer()
+        val animationJson = FileSystem.SYSTEM.read(pathToAnimationAlgier.toPath()) {
+            readUtf8()
+        }
+        val animationRulesJson = FileSystem.SYSTEM.read(pathToAnimationRulesAlgiers.toPath()) {
+            readUtf8()
+        }
+        val json = Json {
+            explicitNulls = false
+            encodeDefaults = true
+        }
+        val baseLottieAnimation = json.decodeFromString<KPLottieAnimation>(animationJson)
+        val lottieAnimation = json.decodeFromString<KPLottieAnimation>(animationJson)
+        val animationRules = json.decodeFromString<KPAnimationRules>(animationRulesJson)
+        val texts = listOf("ZeroOne", "ZeroOne text")
+        val res = textTransformer.transformTexts(lottieAnimation, animationRules, texts)
+        assertNotEquals(baseLottieAnimation, res)
+    }
+
+    @Test
     fun testFontTransformationNothing() {
         val pathToAnimationAlgier = "src/commonTest/resources/animations/algiers/a.json"
         val pathToAnimationRulesAlgiers =
