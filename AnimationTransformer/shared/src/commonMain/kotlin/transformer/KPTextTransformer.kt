@@ -16,7 +16,7 @@ class KPTextTransformer {
         animationRules.layerRules.forEach { layerRule ->
             if (layerRule.fontKey != null) {
                 val text = parseTextKey(texts, layerRule.textInd, layerRule.separator ?: " ")
-                val textLayer = animation.layers.find { it.ind == layerRule.ind && it.ty == KPLayerType.TEXT_LAYER } as? KPTextLayer
+                val textLayer = animation.layers.find { it.nm == layerRule.layerName && it.ty == KPLayerType.TEXT_LAYER } as? KPTextLayer
                 if (text != null && textLayer != null) {
                     textLayer.t.d.k.firstOrNull()?.s?.t = text.handleMultiLine(layerRule.maxLines)
                 }
