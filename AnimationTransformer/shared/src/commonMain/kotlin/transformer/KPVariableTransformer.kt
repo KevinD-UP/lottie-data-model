@@ -30,12 +30,12 @@ class KPVariableTransformer(
         val variables = animationRules.variables ?: return animationResultWrapper.animation
         variables.forEach { variable ->
             variable.transformNodes?.forEach { transformNode ->
+                animationResultWrapper.applyVariableUnitFunction(
+                    variable = variable,
+                    transformNode = transformNode,
+                    expressionParser = expressionParser
+                )
                 animation.layers.find { it.ind == transformNode.ind }?.let { layer ->
-                    animationResultWrapper.applyVariableUnitFunction(
-                        variable = variable,
-                        transformNode = transformNode,
-                        expressionParser = expressionParser
-                    )
                     animationResultWrapper.applyVariableOnSolidLayer(
                         layer = layer,
                         variable = variable,
