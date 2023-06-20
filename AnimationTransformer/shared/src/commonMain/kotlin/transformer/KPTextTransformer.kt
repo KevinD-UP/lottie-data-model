@@ -26,10 +26,9 @@ class KPTextTransformer {
     }
 
     private fun parseTextKey(texts: List<String>, textInds: List<Int>?, separator: String): String? {
-        val test = textInds?.joinToString(separator = separator) { index ->
+        return textInds?.joinToString(separator = separator) { index ->
             texts.getOrNull(index) ?: ""
         }?.trim().takeIf { it?.isNotEmpty() ?: false }
-        return test
     }
 
     private fun String.handleMultiLine(maxLines: Int): String {
