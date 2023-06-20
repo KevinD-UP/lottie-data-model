@@ -2,6 +2,7 @@
   "layerRules": [
     {
       "ind": 1,
+      "layerName": "text-text-textBold-0",
       "fontKey": "textBold",
       "textInd": [0,1],
       "maxLines": 1,

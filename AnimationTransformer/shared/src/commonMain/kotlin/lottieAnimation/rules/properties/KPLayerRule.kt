@@ -5,6 +5,7 @@ import kotlinx.serialization.Serializable
 @Serializable
 data class KPLayerRule(
     val ind: Int,
+    val layerName: String?,
     val textInd: List<Int>?,
     val lines: Int = 1,
     val maxLines: Int = 1,

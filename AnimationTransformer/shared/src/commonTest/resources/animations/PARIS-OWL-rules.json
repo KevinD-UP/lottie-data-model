@@ -2,18 +2,21 @@
   "layerRules": [
     {
       "ind": 1,
+      "layerName": "top text",
       "fontKey": "textBold",
       "textInd": [0],
       "colorKey": "text"
     },
     {
       "ind": 2,
+      "layerName": "bottom text",
       "fontKey": "text",
       "textInd": [1],
       "colorKey": "text"
     },
     {
       "ind": 3,
+      "layerName": "bg text",
       "fontKey": "textBold",
       "textInd": [0],
       "colorKey": "text",

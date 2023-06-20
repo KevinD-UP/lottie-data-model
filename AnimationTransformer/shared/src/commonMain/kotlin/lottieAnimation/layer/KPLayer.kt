@@ -9,6 +9,7 @@ import lottieAnimation.layer.serializers.KPShapeListSerializer
 sealed class KPLayer {
     abstract var ind: Int?
     abstract var ty: KPLayerType
+    abstract var nm: String?
 }
 
 @Serializable

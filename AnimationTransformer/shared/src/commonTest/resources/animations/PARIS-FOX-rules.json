@@ -2,6 +2,7 @@
   "layerRules": [
     {
       "ind": 1,
+      "layerName": "main_text",
       "fontKey": "textBold",
       "textInd": [0,1],
       "separator": "\r",
@@ -10,6 +11,7 @@
     },
     {
       "ind": 2,
+      "layerName": "bg_text_top",
       "fontKey": "textBold",
       "minWidth": 3000,
       "textInd": [0,0,0,0],
@@ -17,6 +19,7 @@
     },
     {
       "ind": 3,
+      "layerName": "bg_text_bottom",
       "fontKey": "textBold",
       "minWidth": 3000,
       "textInd": [0,0,0,0],
@@ -24,6 +27,7 @@
     },
     {
       "ind": 4,
+      "layerName": "title_top",
       "fontKey": "textBold",
       "minWidth": 2000,
       "textInd": [0,0,0,0],
@@ -31,6 +35,7 @@
     },
     {
       "ind": 5,
+      "layerName": "title_middle",
       "fontKey": "textBold",
       "minWidth": 2000,
       "textInd": [0,0,0,0],
@@ -38,6 +43,7 @@
     },
     {
       "ind": 6,
+      "layerName": "title_bottom",
       "fontKey": "textBold",
       "minWidth": 2000,
       "textInd": [0,0,0,0],
@@ -45,6 +51,7 @@
     },
     {
       "ind": 7,
+      "layerName": "big_title",
       "fontKey": "textBold",
       "textInd": [0,0,0,0],
       "colorKey": "text"

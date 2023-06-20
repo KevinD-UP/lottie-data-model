@@ -2,6 +2,7 @@
   "layerRules": [
     {
       "ind": 1,
+      "layerName": "textTop-gradientText-textBoldItalic-0",
       "fontKey": "textBoldItalic",
       "textInd": [0],
       "maxLines": 1,
@@ -10,6 +11,7 @@
     },
     {
       "ind": 2,
+      "layerName": "textBottom-gradientText-textBoldItalic-1",
       "fontKey": "textBoldItalic",
       "textInd": [1],
       "maxLines": 1,
