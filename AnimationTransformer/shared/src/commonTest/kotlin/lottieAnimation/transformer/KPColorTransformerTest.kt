@@ -1,4 +1,4 @@
-package lottieAnimation.transformer.colorTransformer
+package lottieAnimation.transformer
 
 import kotlinx.serialization.decodeFromString
 import kotlinx.serialization.json.*

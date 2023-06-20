@@ -1,4 +1,4 @@
-package lottieAnimation.transformer.variableTransformer
+package lottieAnimation.transformer
 
 import kotlinx.serialization.ExperimentalSerializationApi
 import kotlinx.serialization.decodeFromString
@@ -429,7 +429,7 @@ class KPVariableTransformerTest {
 }
 
 @OptIn(ExperimentalSerializationApi::class)
-fun setupSUT(
+fun KPVariableTransformerTest.setupSUT(
     animationName: String
 ): KPLottieAnimation {
     val pathToAnimation = "src/commonTest/resources/animations/$animationName.json"
@@ -452,7 +452,7 @@ fun setupSUT(
     return variableTransformer.transformVariables(lottieAnimation, animationRules)
 }
 
-fun assertTextLayerPositionKeyframeStartX(layer: KPLayer, keyframeIndex: Int, expectedValue: Double) {
+fun KPVariableTransformerTest.assertTextLayerPositionKeyframeStartX(layer: KPLayer, keyframeIndex: Int, expectedValue: Double) {
     assertTrue(layer is KPTextLayer)
     val kList = layer.ks.p?.k
     assertTrue(kList is KPMultiDimensionalList)
@@ -462,7 +462,7 @@ fun assertTextLayerPositionKeyframeStartX(layer: KPLayer, keyframeIndex: Int, ex
     assertEquals(expectedValue, sValue)
 }
 
-fun assertTextLayerPositionKeyframeStartY(layer: KPLayer, keyframeIndex: Int, expectedValue: Double) {
+fun KPVariableTransformerTest.assertTextLayerPositionKeyframeStartY(layer: KPLayer, keyframeIndex: Int, expectedValue: Double) {
     assertTrue(layer is KPTextLayer)
     val kList = layer.ks.p?.k
     assertTrue(kList is KPMultiDimensionalList)
@@ -472,7 +472,7 @@ fun assertTextLayerPositionKeyframeStartY(layer: KPLayer, keyframeIndex: Int, ex
     assertEquals(expectedValue, sValue)
 }
 
-fun assertTextLayerPositionKeyframeEndX(layer: KPLayer, keyframeIndex: Int, expectedValue: Double) {
+fun KPVariableTransformerTest.assertTextLayerPositionKeyframeEndX(layer: KPLayer, keyframeIndex: Int, expectedValue: Double) {
     assertTrue(layer is KPTextLayer)
     val kList = layer.ks.p?.k
     assertTrue(kList is KPMultiDimensionalList)
@@ -482,7 +482,7 @@ fun assertTextLayerPositionKeyframeEndX(layer: KPLayer, keyframeIndex: Int, expe
     assertEquals(expectedValue, sValue)
 }
 
-fun assertTextLayerPositionKeyframeEndY(layer: KPLayer, keyframeIndex: Int, expectedValue: Double) {
+fun KPVariableTransformerTest.assertTextLayerPositionKeyframeEndY(layer: KPLayer, keyframeIndex: Int, expectedValue: Double) {
     assertTrue(layer is KPTextLayer)
     val kList = layer.ks.p?.k
     assertTrue(kList is KPMultiDimensionalList)
@@ -492,7 +492,7 @@ fun assertTextLayerPositionKeyframeEndY(layer: KPLayer, keyframeIndex: Int, expe
     assertEquals(expectedValue, eValue)
 }
 
-fun assertTextLayerPositionKeyframeTime(layer: KPLayer, keyframeIndex: Int, expectedValue: Double) {
+fun KPVariableTransformerTest.assertTextLayerPositionKeyframeTime(layer: KPLayer, keyframeIndex: Int, expectedValue: Double) {
     assertTrue(layer is KPTextLayer)
     val kList = layer.ks.p?.k
     assertTrue(kList is KPMultiDimensionalList)
@@ -502,7 +502,7 @@ fun assertTextLayerPositionKeyframeTime(layer: KPLayer, keyframeIndex: Int, expe
     assertEquals(expectedValue, tValue)
 }
 
-fun assertShapeLayerPositionKeyframeTime(layer: KPLayer, keyframeIndex: Int, expectedValue: Double) {
+fun KPVariableTransformerTest.assertShapeLayerPositionKeyframeTime(layer: KPLayer, keyframeIndex: Int, expectedValue: Double) {
     assertTrue(layer is KPShapeLayer)
     val kList = layer.ks.p?.k
     assertTrue(kList is KPMultiDimensionalList)
@@ -512,7 +512,7 @@ fun assertShapeLayerPositionKeyframeTime(layer: KPLayer, keyframeIndex: Int, exp
     assertEquals(expectedValue, tValue)
 }
 
-fun assertTextLayerPositionX(layer: KPLayer, expectedValue: Double) {
+fun KPVariableTransformerTest.assertTextLayerPositionX(layer: KPLayer, expectedValue: Double) {
     assertTrue(layer is KPTextLayer)
     val kList = layer.ks.p?.k
     assertTrue(kList is KPMultiDimensionalList)
@@ -522,7 +522,7 @@ fun assertTextLayerPositionX(layer: KPLayer, expectedValue: Double) {
     assertEquals(expectedValue, xValue)
 }
 
-fun assertTextLayerPositionY(layer: KPLayer, expectedValue: Double) {
+fun KPVariableTransformerTest.assertTextLayerPositionY(layer: KPLayer, expectedValue: Double) {
     assertTrue(layer is KPTextLayer)
     val kList = layer.ks.p?.k
     assertTrue(kList is KPMultiDimensionalList)
@@ -532,7 +532,7 @@ fun assertTextLayerPositionY(layer: KPLayer, expectedValue: Double) {
     assertEquals(expectedValue, yValue)
 }
 
-fun assertShapeLayerPositonKeyframeStartX(layer: KPLayer, keyframeIndex: Int, expectedValue: Double) {
+fun KPVariableTransformerTest.assertShapeLayerPositonKeyframeStartX(layer: KPLayer, keyframeIndex: Int, expectedValue: Double) {
     assertTrue(layer is KPShapeLayer)
     val kList = layer.ks.p?.k
     assertTrue(kList is KPMultiDimensionalList)
@@ -542,7 +542,7 @@ fun assertShapeLayerPositonKeyframeStartX(layer: KPLayer, keyframeIndex: Int, ex
     assertEquals(expectedValue, sValue)
 }
 
-fun assertShapeLayerPositionKeyframeStartY(layer: KPLayer, keyframeIndex: Int, expectedValue: Double) {
+fun KPVariableTransformerTest.assertShapeLayerPositionKeyframeStartY(layer: KPLayer, keyframeIndex: Int, expectedValue: Double) {
     assertTrue(layer is KPShapeLayer)
     val kList = layer.ks.p?.k
     assertTrue(kList is KPMultiDimensionalList)
@@ -552,7 +552,7 @@ fun assertShapeLayerPositionKeyframeStartY(layer: KPLayer, keyframeIndex: Int, e
     assertEquals(expectedValue, sValue)
 }
 
-fun assertShapeLayerPositionKeyframeEndX(layer: KPLayer, keyframeIndex: Int, expectedValue: Double) {
+fun KPVariableTransformerTest.assertShapeLayerPositionKeyframeEndX(layer: KPLayer, keyframeIndex: Int, expectedValue: Double) {
     assertTrue(layer is KPShapeLayer)
     val kList = layer.ks.p?.k
     assertTrue(kList is KPMultiDimensionalList)
@@ -562,7 +562,7 @@ fun assertShapeLayerPositionKeyframeEndX(layer: KPLayer, keyframeIndex: Int, exp
     assertEquals(expectedValue, sValue)
 }
 
-fun assertShapeLayerPositionKeyframeEndY(layer: KPLayer, keyframeIndex: Int, expectedValue: Double) {
+fun KPVariableTransformerTest.assertShapeLayerPositionKeyframeEndY(layer: KPLayer, keyframeIndex: Int, expectedValue: Double) {
     assertTrue(layer is KPShapeLayer)
     val kList = layer.ks.p?.k
     assertTrue(kList is KPMultiDimensionalList)
@@ -572,7 +572,7 @@ fun assertShapeLayerPositionKeyframeEndY(layer: KPLayer, keyframeIndex: Int, exp
     assertEquals(expectedValue, sValue)
 }
 
-fun assertShapeLayerPositionX(layer: KPLayer, expectedValue: Double) {
+fun KPVariableTransformerTest.assertShapeLayerPositionX(layer: KPLayer, expectedValue: Double) {
     assertTrue(layer is KPShapeLayer)
     val kList = layer.ks.p?.k
     assertTrue(kList is KPMultiDimensionalList)
@@ -582,7 +582,7 @@ fun assertShapeLayerPositionX(layer: KPLayer, expectedValue: Double) {
     assertEquals(expectedValue, xValue)
 }
 
-fun assertShapeLayerPositionY(layer: KPLayer, expectedValue: Double) {
+fun KPVariableTransformerTest.assertShapeLayerPositionY(layer: KPLayer, expectedValue: Double) {
     assertTrue(layer is KPShapeLayer)
     val kList = layer.ks.p?.k
     assertTrue(kList is KPMultiDimensionalList)
@@ -592,7 +592,7 @@ fun assertShapeLayerPositionY(layer: KPLayer, expectedValue: Double) {
     assertEquals(expectedValue, yValue)
 }
 
-fun assertShapeLayerRectWidth(layer: KPLayer, shapeIndex: Int, itemIndex: Int, expectedValue: Double) {
+fun KPVariableTransformerTest.assertShapeLayerRectWidth(layer: KPLayer, shapeIndex: Int, itemIndex: Int, expectedValue: Double) {
     assertTrue(layer is KPShapeLayer)
     val shape = layer.shapes?.get(shapeIndex)
     assertTrue(shape is KPShapeGroup)
@@ -606,7 +606,7 @@ fun assertShapeLayerRectWidth(layer: KPLayer, shapeIndex: Int, itemIndex: Int, e
     assertEquals(expectedValue, widthValue)
 }
 
-fun assertShapeLayerRectHeight(layer: KPLayer, shapeIndex: Int, itemIndex: Int, expectedValue: Double) {
+fun KPVariableTransformerTest.assertShapeLayerRectHeight(layer: KPLayer, shapeIndex: Int, itemIndex: Int, expectedValue: Double) {
     assertTrue(layer is KPShapeLayer)
     val shape = layer.shapes?.get(shapeIndex)
     assertTrue(shape is KPShapeGroup)
@@ -620,7 +620,7 @@ fun assertShapeLayerRectHeight(layer: KPLayer, shapeIndex: Int, itemIndex: Int, 
     assertEquals(expectedValue, widthValue)
 }
 
-fun assertShapeLayerShapeKeyframeValueX(layer: KPLayer, shapeIndex: Int, itemIndex: Int, valueIndex: Int, expectedValue: Double) {
+fun KPVariableTransformerTest.assertShapeLayerShapeKeyframeValueX(layer: KPLayer, shapeIndex: Int, itemIndex: Int, valueIndex: Int, expectedValue: Double) {
     assertTrue(layer is KPShapeLayer)
     val shape = layer.shapes?.get(shapeIndex)
     assertTrue(shape is KPShapeGroup)
@@ -630,7 +630,7 @@ fun assertShapeLayerShapeKeyframeValueX(layer: KPLayer, shapeIndex: Int, itemInd
     assertEquals(expectedValue, yValue)
 }
 
-fun assertShapeLayerShapeKeyframeValueY(layer: KPLayer, shapeIndex: Int, itemIndex: Int, valueIndex: Int, expectedValue: Double) {
+fun KPVariableTransformerTest.assertShapeLayerShapeKeyframeValueY(layer: KPLayer, shapeIndex: Int, itemIndex: Int, valueIndex: Int, expectedValue: Double) {
     assertTrue(layer is KPShapeLayer)
     val shape = layer.shapes?.get(shapeIndex)
     assertTrue(shape is KPShapeGroup)
@@ -640,17 +640,17 @@ fun assertShapeLayerShapeKeyframeValueY(layer: KPLayer, shapeIndex: Int, itemInd
     assertEquals(expectedValue, yValue)
 }
 
-fun assertTextLayerOp(layer: KPLayer, expectedValue: Double) {
+fun KPVariableTransformerTest.assertTextLayerOp(layer: KPLayer, expectedValue: Double) {
     assertTrue(layer is KPTextLayer)
     assertEquals(expectedValue, layer.op.jsonPrimitive.doubleOrNull)
 }
 
-fun assertShapeLayerOp(layer: KPLayer, expectedValue: Double) {
+fun KPVariableTransformerTest.assertShapeLayerOp(layer: KPLayer, expectedValue: Double) {
     assertTrue(layer is KPShapeLayer)
     assertEquals(expectedValue, layer.op.jsonPrimitive.doubleOrNull)
 }
 
-fun assertTextLayerAnimatePositionX(layer: KPLayer, expectedValue: Double) {
+fun KPVariableTransformerTest.assertTextLayerAnimatePositionX(layer: KPLayer, expectedValue: Double) {
     assertTrue(layer is KPTextLayer)
     val kList = layer.ks.a?.k
     assertTrue(kList is KPMultiDimensionalList)
@@ -660,7 +660,7 @@ fun assertTextLayerAnimatePositionX(layer: KPLayer, expectedValue: Double) {
     assertEquals(expectedValue, xValue)
 }
 
-fun assertTextLayerAnimatePositionY(layer: KPLayer, expectedValue: Double) {
+fun KPVariableTransformerTest.assertTextLayerAnimatePositionY(layer: KPLayer, expectedValue: Double) {
     assertTrue(layer is KPTextLayer)
     val kList = layer.ks.a?.k
     assertTrue(kList is KPMultiDimensionalList)
@@ -670,7 +670,7 @@ fun assertTextLayerAnimatePositionY(layer: KPLayer, expectedValue: Double) {
     assertEquals(expectedValue, yValue)
 }
 
-fun assertShapeLayerAnimatePositionX(layer: KPLayer, expectedValue: Double) {
+fun KPVariableTransformerTest.assertShapeLayerAnimatePositionX(layer: KPLayer, expectedValue: Double) {
     assertTrue(layer is KPShapeLayer)
     val kList = layer.ks.a?.k
     assertTrue(kList is KPMultiDimensionalList)
@@ -680,7 +680,7 @@ fun assertShapeLayerAnimatePositionX(layer: KPLayer, expectedValue: Double) {
     assertEquals(expectedValue, xValue)
 }
 
-fun assertShapeLayerAnimatePositionY(layer: KPLayer, expectedValue: Double) {
+fun KPVariableTransformerTest.assertShapeLayerAnimatePositionY(layer: KPLayer, expectedValue: Double) {
     assertTrue(layer is KPShapeLayer)
     val kList = layer.ks.a?.k
     assertTrue(kList is KPMultiDimensionalList)
@@ -690,17 +690,17 @@ fun assertShapeLayerAnimatePositionY(layer: KPLayer, expectedValue: Double) {
     assertEquals(expectedValue, yValue)
 }
 
-fun assertSolidLayerSourceWidth(layer: KPLayer, expectedValue: Double) {
+fun KPVariableTransformerTest.assertSolidLayerSourceWidth(layer: KPLayer, expectedValue: Double) {
     assertTrue(layer is KPSolidLayer)
     assertEquals(expectedValue, layer.sw.jsonPrimitive.doubleOrNull)
 }
 
-fun assertSolidLayerSourceHeight(layer: KPLayer, expectedValue: Double) {
+fun KPVariableTransformerTest.assertSolidLayerSourceHeight(layer: KPLayer, expectedValue: Double) {
     assertTrue(layer is KPSolidLayer)
     assertEquals(expectedValue, layer.sh.jsonPrimitive.doubleOrNull)
 }
 
-fun assertSolidLayerAnimatePositionX(layer: KPLayer, expectedValue: Double) {
+fun KPVariableTransformerTest.assertSolidLayerAnimatePositionX(layer: KPLayer, expectedValue: Double) {
     assertTrue(layer is KPSolidLayer)
     val kList = layer.ks.a?.k
     assertTrue(kList is KPMultiDimensionalList)
@@ -710,7 +710,7 @@ fun assertSolidLayerAnimatePositionX(layer: KPLayer, expectedValue: Double) {
     assertEquals(expectedValue, xValue)
 }
 
-fun assertSolidLayerAnimatePositionY(layer: KPLayer, expectedValue: Double) {
+fun KPVariableTransformerTest.assertSolidLayerAnimatePositionY(layer: KPLayer, expectedValue: Double) {
     assertTrue(layer is KPSolidLayer)
     val kList = layer.ks.a?.k
     assertTrue(kList is KPMultiDimensionalList)
@@ -720,7 +720,7 @@ fun assertSolidLayerAnimatePositionY(layer: KPLayer, expectedValue: Double) {
     assertEquals(expectedValue, yValue)
 }
 
-fun assertSolidLayerPositionKeyframeStartX(layer: KPLayer, keyframeIndex: Int, expectedValue: Double) {
+fun KPVariableTransformerTest.assertSolidLayerPositionKeyframeStartX(layer: KPLayer, keyframeIndex: Int, expectedValue: Double) {
     assertTrue(layer is KPSolidLayer)
     val kList = layer.ks.p?.k
     assertTrue(kList is KPMultiDimensionalList)
@@ -730,7 +730,7 @@ fun assertSolidLayerPositionKeyframeStartX(layer: KPLayer, keyframeIndex: Int, e
     assertEquals(expectedValue, sValue)
 }
 
-fun assertSolidLayerPositionKeyframeStartY(layer: KPLayer, keyframeIndex: Int, expectedValue: Double) {
+fun KPVariableTransformerTest.assertSolidLayerPositionKeyframeStartY(layer: KPLayer, keyframeIndex: Int, expectedValue: Double) {
     assertTrue(layer is KPSolidLayer)
     val kList = layer.ks.p?.k
     assertTrue(kList is KPMultiDimensionalList)
@@ -740,7 +740,7 @@ fun assertSolidLayerPositionKeyframeStartY(layer: KPLayer, keyframeIndex: Int, e
     assertEquals(expectedValue, sValue)
 }
 
-fun assertSolidLayerPositionKeyframeEndX(layer: KPLayer, keyframeIndex: Int, expectedValue: Double) {
+fun KPVariableTransformerTest.assertSolidLayerPositionKeyframeEndX(layer: KPLayer, keyframeIndex: Int, expectedValue: Double) {
     assertTrue(layer is KPSolidLayer)
     val kList = layer.ks.p?.k
     assertTrue(kList is KPMultiDimensionalList)
@@ -750,7 +750,7 @@ fun assertSolidLayerPositionKeyframeEndX(layer: KPLayer, keyframeIndex: Int, exp
     assertEquals(expectedValue, sValue)
 }
 
-fun assertSolidLayerPositionKeyframeEndY(layer: KPLayer, keyframeIndex: Int, expectedValue: Double) {
+fun KPVariableTransformerTest.assertSolidLayerPositionKeyframeEndY(layer: KPLayer, keyframeIndex: Int, expectedValue: Double) {
     assertTrue(layer is KPSolidLayer)
     val kList = layer.ks.p?.k
     assertTrue(kList is KPMultiDimensionalList)
