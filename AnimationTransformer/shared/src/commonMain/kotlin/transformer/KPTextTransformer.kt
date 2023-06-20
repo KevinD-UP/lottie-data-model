@@ -18,35 +18,24 @@ class KPTextTransformer {
                 val text = parseTextKey(texts, layerRule.textInd, layerRule.separator ?: " ")
                 val textLayer = animation.layers.find { it.ind == layerRule.ind && it.ty == KPLayerType.TEXT_LAYER } as? KPTextLayer
                 if (text != null && textLayer != null) {
-                    textLayer.t.d.k.firstOrNull()?.s?.t = text.handleMultiLine(layerRule.maxLines, layerRule.separator ?: " ")
+                    textLayer.t.d.k.firstOrNull()?.s?.t = text.handleMultiLine(layerRule.maxLines)
                 }
             }
         }
         return animationResult
     }
 
-    private fun parseTextKey(texts: List<String>, textInds: List<Int>?, symbol: String): String? {
-
-        var text = ""
-        textInds?.forEach {
-            text += texts[it] + symbol
-        }
-
-        return text.trim().ifEmpty { null }
+    private fun parseTextKey(texts: List<String>, textInds: List<Int>?, separator: String): String? {
+        val test = textInds?.joinToString(separator = separator) { index ->
+            texts.getOrNull(index) ?: ""
+        }?.trim().takeIf { it?.isNotEmpty() ?: false }
+        return test
     }
 
-    private fun String.handleMultiLine(maxLines: Int, symbol: String): String {
-        // remove excess break lines
-        val text = this.replace(symbol, "\n")
-        var breakLineCount = 0
-        return text.map { c ->
-            if (c == '\n') {
-                breakLineCount++
-                if (breakLineCount >= maxLines) {
-                    return@map ' '
-                }
-            }
-            return@map c
-        }.joinToString("")
+    private fun String.handleMultiLine(maxLines: Int): String {
+        return this.replace("\r", "\n")
+            .split("\n")
+            .take(maxLines)
+            .joinToString(separator = "\n")
     }
 }
