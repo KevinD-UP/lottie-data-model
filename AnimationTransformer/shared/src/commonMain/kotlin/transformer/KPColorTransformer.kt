@@ -18,6 +18,8 @@ class KPColorTransformer {
         colors: Map<String, String>?
     ): KPLottieAnimation {
 
+        println("PHETS transformColor")
+
         val modifiedAnimation = animation.copy()
         if (colors == null) return modifiedAnimation
 
@@ -39,13 +41,18 @@ class KPColorTransformer {
                 val targetLayer = layers.find { it.ind == layerRule.ind }
 
                 if (color != null && targetLayer != null) {
-                    val colorArray = argbStringToFloatArray(color) ?: return@forEach
+                    val colorArray = hexaStringToRGBAFloatArray(color) ?: return@forEach
+                    print("PHETS fillcolor = ")
+                    colorArray.forEach {
+                        print("-$it-")
+                    }
+                    println("")
 
 
                     // Set layer fill effect color depending on its type
                     layerRule.fillColorKey?.let { fillColorKey ->
                         val fillColor = colors[fillColorKey] ?: return@let
-                        val fillColorArray = argbStringToFloatArray(fillColor) ?: return@let
+                        val fillColorArray = hexaStringToRGBAFloatArray(fillColor) ?: return@let
 
                         setLayerFillEffectColor(
                             targetLayer,
@@ -80,8 +87,9 @@ class KPColorTransformer {
                 val color = colors[colorKey]
                 val targetLayer = animation.layers.find { it.ind == layerRule.ind }
 
+                println("PHETS colorsKey $colorKey")
                 if (color != null && targetLayer != null) {
-                    val colorArray = argbStringToFloatArray(color) ?: return@forEachIndexed
+                    val colorArray = hexaStringToRGBAFloatArray(color) ?: return@forEachIndexed
                     // Set layer color depending on its type
                     when (targetLayer) {
                         is KPTextLayer -> {
@@ -111,7 +119,7 @@ class KPColorTransformer {
             if (layerRule.shadowKey != null) {
                 val shadowColor = colors[layerRule.shadowKey]
                 shadowColor?.let {
-                    val colorArray = argbStringToFloatArray(shadowColor) ?: return@let
+                    val colorArray = hexaStringToRGBAFloatArray(shadowColor) ?: return@let
                     val targetLayer = animation.layers.find { it.ind == layerRule.ind } ?: return@let
                     setShadowLayer(targetLayer as KPVisualLayer, colorArray)
                 }
@@ -159,7 +167,7 @@ class KPColorTransformer {
     }
 
     private fun setContainerGradientColor(color: String, index: Int, layer: KPLayer) {
-        val colorArray = argbStringToFloatArray(color) ?: return
+        val colorArray = hexaStringToRGBAFloatArray(color) ?: return
 
         if (layer is KPShapeLayer) {
             val shapeGroup = layer.shapes?.get(0) as KPShapeGroup
@@ -169,10 +177,15 @@ class KPColorTransformer {
             gradientFill?.let {
                 val currentGradientColor = it.g.k.k
                 if (currentGradientColor is KPMultiDimensionalList) {
+                    println("PHETS currentGradientColor $index = $currentGradientColor")
                     val newGradientColor = currentGradientColor.values.toMutableList()
-                    newGradientColor.add(index = index * 4 + 1, element = KPMultiDimensionalNodePrimitive(JsonPrimitive(colorArray[0]))) //R
-                    newGradientColor.add(index = index * 4 + 2, element = KPMultiDimensionalNodePrimitive(JsonPrimitive(colorArray[1]))) //G
-                    newGradientColor.add(index = index * 4 + 3, element = KPMultiDimensionalNodePrimitive(JsonPrimitive(colorArray[2]))) //B
+                    newGradientColor[index * 4 + 1] = KPMultiDimensionalNodePrimitive(JsonPrimitive(colorArray[0]))
+                    newGradientColor[index * 4 + 2] = KPMultiDimensionalNodePrimitive(JsonPrimitive(colorArray[1]))
+                    newGradientColor[index * 4 + 3] = KPMultiDimensionalNodePrimitive(JsonPrimitive(colorArray[2]))
+                    //newGradientColor.add(index = index * 4 + 1, element = KPMultiDimensionalNodePrimitive(JsonPrimitive(colorArray[0]))) //R
+                    //newGradientColor.add(index = index * 4 + 2, element = KPMultiDimensionalNodePrimitive(JsonPrimitive(colorArray[1]))) //G
+                    //newGradientColor.add(index = index * 4 + 3, element = KPMultiDimensionalNodePrimitive(JsonPrimitive(colorArray[2]))) //B
+                    println("PHETS newGradientColor $index = $newGradientColor")
                     it.g.k.k = KPMultiDimensionalList(newGradientColor)
                 }
             }
@@ -451,7 +464,8 @@ class KPColorTransformer {
             val opacityArray = buildJsonArray {
                 add(opacity)
             }
-
+            println("PHETS opacityArray = $opacityArray")
+            println("PHETS opacityKeyframe OLD = $opacityKeyframe")
             val startOpacity = opacityKeyframe.s
             startOpacity?.let {
                 val currentOpacity = it[0].jsonPrimitive.float
@@ -467,51 +481,8 @@ class KPColorTransformer {
                     opacityKeyframe.e = opacityArray
                 }
             }
+            println("PHETS opacityKeyframe NEW = $opacityKeyframe")
         }
-    }
-
-    private fun argbStringToFloatArray(argbString: String): FloatArray? {
-        return try {
-            val argb = argbString.trim().removePrefix("#")
-
-            // Extract the individual RGB components
-            val red: Int
-            val green: Int
-            val blue: Int
-            val alpha: Int
-
-            when (argb.length) {
-                6 -> {
-                    // 6-digit ARGB string (add default alpha FF)
-                    red = argb.substring(0, 2).toInt(16)
-                    green = argb.substring(2, 4).toInt(16)
-                    blue = argb.substring(4, 6).toInt(16)
-                    alpha = 255 // Default alpha value FF (fully opaque)
-                }
-                8 -> {
-                    // 8-digit ARGB string
-                    alpha = argb.substring(0, 2).toInt(16)
-                    red = argb.substring(2, 4).toInt(16)
-                    green = argb.substring(4, 6).toInt(16)
-                    blue = argb.substring(6, 8).toInt(16)
-                }
-                else -> {
-                    throw IllegalArgumentException("Invalid ARGB string: $argbString")
-                }
-            }
-
-            // Normalize the component values to the range of 0.0 to 1.0
-            val floatAlpha = alpha.toFloat() / 255
-            val floatRed = red.toFloat() / 255
-            val floatGreen = green.toFloat() / 255
-            val floatBlue = blue.toFloat() / 255
-
-            // Create and return the float array
-            floatArrayOf(floatRed, floatGreen, floatBlue)
-        } catch (e: Exception) {
-            null
-        }
-
     }
 
     // ---------------------- UTILS ----------------------
