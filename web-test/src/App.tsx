@@ -21,12 +21,12 @@ function App() {
     const animationRulesString: string = JSON.stringify(rules);
 
     const colors = {
-        text: '#000000',
+        text: '#FFFFF',
         shape: '#000000',
         background: '#000000'
     }
 
-    const animTransformJson = animationTransformer.transform(lottieAnimationString, animationRulesString, null, null, null)
+    const animTransformJson = animationTransformer.transformJs(lottieAnimationString, animationRulesString, null, null, colors)
 
     useEffect(() => {
         Lottie.loadAnimation({

@@ -32,8 +32,16 @@ class KPAnimationTransformer(
       fontsJson: dynamic = null,
       colorsJson: dynamic = null
     ) : String? {
-      val fonts = mapOf(fontsJson).mapValues { it.value?.toString() ?: "" }
-      val colors = mapOf(colorsJson).mapValues { it.value?.toString() ?: "" }
+      var fonts: Map<String, String>? = null
+      var colors: Map<String, String>?  = null
+
+      if(fontsJson != null) {
+        fonts = mapOf(fontsJson).mapValues { it.value?.toString() ?: "" }
+      }
+
+      if(colorsJson != null) {
+        colors = mapOf(colorsJson).mapValues { it.value?.toString() ?: "" }
+      }
 
       return transform(
         lottieJsonString = lottieJsonString,
