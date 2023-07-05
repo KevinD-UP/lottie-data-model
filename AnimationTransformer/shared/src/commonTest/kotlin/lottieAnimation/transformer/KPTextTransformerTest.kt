@@ -32,7 +32,7 @@ class KPTextTransformerTest {
         val baseLottieAnimation = json.decodeFromString<KPLottieAnimation>(animationJson)
         val lottieAnimation = json.decodeFromString<KPLottieAnimation>(animationJson)
         val animationRules = json.decodeFromString<KPAnimationRules>(animationRulesJson)
-        val texts = listOf("New text1", "New text2")
+        val texts = arrayOf("New text1", "New text2")
         val res = textTransformer.transformTexts(lottieAnimation, animationRules, texts)
         assertNotEquals(baseLottieAnimation, res)
     }
