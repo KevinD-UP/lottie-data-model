@@ -5,10 +5,14 @@ import kotlinx.serialization.encodeToString
 import kotlinx.serialization.json.Json
 import lottieAnimation.KPLottieAnimation
 import lottieAnimation.rules.properties.KPAnimationRules
+import kotlin.js.JsExport
+import kotlin.js.JsName
 
+@JsExport
 class KPAnimationTransformer(
     private val functionsDelegate: KPAnimationTransformerFunctionsDelegate
     ) {
+    @JsName("transform")
     fun transform(
         lottieJsonString: String,
         animationRulesJsonString: String,
@@ -18,6 +22,11 @@ class KPAnimationTransformer(
     )
             : String?
     {
+        if (colors != null) {
+            for ((key, value) in colors) {
+                println("$key -> $value")
+            }
+}
         val json = Json {
             explicitNulls = false
             encodeDefaults = true

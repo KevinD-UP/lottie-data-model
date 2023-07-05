@@ -6,7 +6,7 @@ import lottieAnimation.rules.properties.KPAnimationRules
 
 class KPTextTransformer {
 
-    fun transformTexts(animation: KPLottieAnimation, animationRules: KPAnimationRules, texts: List<String>? = null)
+    fun transformTexts(animation: KPLottieAnimation, animationRules: KPAnimationRules, texts: Array<String>? = null)
             : KPLottieAnimation
     {
         var animationResult = animation.copy()
@@ -24,7 +24,7 @@ class KPTextTransformer {
         return animationResult
     }
 
-    private fun parseTextKey(texts: List<String>, textInds: List<Int>?): String? {
+    private fun parseTextKey(texts: Array<String>, textInds: List<Int>?): String? {
         return textInds?.firstOrNull()?.let {
             if (it < texts.count()) {
                 texts[it]
