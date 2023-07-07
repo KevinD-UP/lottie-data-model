@@ -1,0 +1,46 @@
+{
+  "layerRules": [
+    {
+      "ind": 1,
+      "fontKey": "text",
+      "textInd": [0,1],
+      "maxLines": 1,
+      "maxWidth": 1632,
+      "colorKey": "slideFullText"
+    },
+    {
+      "ind": 2,
+      "colorKey": "slideFullBackground"
+    }
+  ],
+  "variables": [
+    {
+      "key": "$var0",
+      "transformNodes": [
+          {
+              "ind": 1,
+              "layerType": 5,
+              "transformKeyframeIndexes": [0],
+              "transformType": "position_end_y",
+              "description": "title y position"
+          },
+          {
+              "ind": 1,
+              "layerType": 5,
+              "transformKeyframeIndexes": [1,2],
+              "transformType": "position_start_y",
+              "description": "title y position"
+          },
+          {
+              "ind": 1,
+              "layerType": 5,
+              "transformKeyframeIndexes": [1,2],
+              "transformType": "position_end_y",              
+              "description": "title y position"
+          }
+      ],
+      "value": "540-getTextMeasureHeight(1)/2+getAscent(1)",
+      "type": "number"
+    }
+  ]
+}

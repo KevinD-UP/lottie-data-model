@@ -5,10 +5,7 @@ export class FunctionDelegate {
         if (!context) return 0;
 
         context.font = `${fontSize}px ${fontName}`;
-        console.log('context.font', context.font)
-        console.log('context', context)
         const metrics = context.measureText(text);
-        console.log('metrics', metrics)
         const ascent = metrics.fontBoundingBoxAscent;
 
         return ascent
