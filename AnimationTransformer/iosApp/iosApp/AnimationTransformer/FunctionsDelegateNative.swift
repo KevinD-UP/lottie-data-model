@@ -15,7 +15,8 @@ class FunctionsDelegateNative: KPAnimationTransformerFunctionsDelegate {
         debugPrint("DEMOAPP text \(text) - fontName \(fontName) - fontSize \(fontSize)")
         let font = getFont(fontName: fontName, fontSize: fontSize)
         debugPrint("DEMOAPP getAscent = \(font.ascender)")
-        return -Double(font.ascender)
+        //return -Double(font.ascender)
+        return Double(font.ascender)
     }
 
     func getDescent(text: String, fontName: String, fontSize: Double) -> Double {

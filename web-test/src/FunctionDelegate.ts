@@ -11,7 +11,8 @@ export class FunctionDelegate {
         console.log('metrics', metrics)
         const ascent = metrics.fontBoundingBoxAscent;
 
-        return 109.596;
+        return ascent
+
     }
 
     getDescent(text: string, fontName: string, fontSize: number): number {
