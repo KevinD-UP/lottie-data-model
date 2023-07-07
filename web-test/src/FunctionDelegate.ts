@@ -53,7 +53,7 @@ export class FunctionDelegate {
          const metrics = context.measureText(text);
          const fontHeight = metrics.fontBoundingBoxAscent + metrics.fontBoundingBoxDescent;
 
-         return 129.6
+         return fontHeight
     }
 
 

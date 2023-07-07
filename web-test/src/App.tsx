@@ -17,6 +17,7 @@ function App() {
     const [textColor, setTextColor] = useState('#FFFFFF')
     const [shapeColor, setShapeColor] = useState('#000000')
     const [backgroundColor, setBackgroundColor] = useState('#000000')
+    const [text, setText] = useState('Texte du Haut Texte du Bas')
 
 
     function transform() {
@@ -36,7 +37,7 @@ function App() {
         // @ts-ignore
         animationContainer.innerHTML = '';
 
-        const animTransformJson = animationTransformer.transformJs(lottieAnimationString, animationRulesString, null, font, colors)
+        const animTransformJson = animationTransformer.transformJs(lottieAnimationString, animationRulesString, [text], font, colors)
         Lottie.loadAnimation({
             // @ts-ignore
             container: animationContainer,
@@ -57,6 +58,7 @@ function App() {
             value={textColor}
             onChange={(e) => setTextColor(e.target.value)}
         />
+        <br/>
         <span>shapeColor</span>
         <input
             key={`shapeColor`}
@@ -64,12 +66,21 @@ function App() {
             value={shapeColor}
             onChange={(e) => setShapeColor(e.target.value)}
         />
+        <br/>
         <span>backgroundColor</span>
         <input
             key={`backgroundColor`}
             name="backgroundColor"
             value={backgroundColor}
             onChange={(e) => setBackgroundColor(e.target.value)}
+        />
+        <br/>
+        <span>text content</span>
+        <input
+            key={`text`}
+            name="text"
+            value={text}
+            onChange={(e) => setText(e.target.value)}
         />
         <button
             onClick={() => transform()}
