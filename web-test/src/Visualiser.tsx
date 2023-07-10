@@ -1,0 +1,72 @@
+import React, {useRef, useState} from 'react'
+import Lottie from "lottie-web"
+import './App.css';
+import {FunctionDelegate} from "./FunctionDelegate";
+import {animations, rules} from "./Fixture";
+const animationTransformerLib = require('./script/kmp_lib')
+
+function Visualiser(){
+
+    const animationTransformer = new animationTransformerLib.transformer.KPAnimationTransformer(new FunctionDelegate());
+
+    const animationContainerRef = useRef(null);
+    
+    const [animationLottieJsonName, setAnimationLottieJson] = useState("");
+    const [animationRulesJsonName, setAnimationRulesJson] = useState("");
+    const [animationLottieJson, setAnimationLottieJsonData] = useState("");
+    const [animationRulesJson, setAnimationRulesJsonData] = useState("");
+
+    async function transform(){
+        await fetch(`resource/${animationLottieJsonName}.json`)
+            .then(response => response.json())
+            .then(data => setAnimationLottieJsonData(JSON.stringify(data)))
+            .catch(error => console.error(error));
+        await fetch(`resource/${animationRulesJsonName}.json`)
+            .then(response => response.json())
+            .then(data => setAnimationRulesJsonData(JSON.stringify(data)))
+            .catch(error => console.error(error));
+
+        const animationContainer = animationContainerRef.current;
+
+        // Remove existing animation
+        // @ts-ignore
+        animationContainer.innerHTML = '';
+
+        const animTransformJson = animationTransformer.transformJs(animationLottieJson, animationRulesJson)
+        Lottie.loadAnimation({
+            // @ts-ignore
+            container: animationContainer,
+            renderer: "svg",
+            loop: true,
+            autoplay: true,
+            animationData: JSON.parse(animTransformJson),
+        });
+    }
+
+    return (
+        <>
+            <span> Animation </span>
+            <select value={animationLottieJsonName} onChange={(e) => setAnimationLottieJson(e.target.value)}>
+                <option value="">Select...</option>
+                {animations.map((animation) =>
+                    <option value={animation}>{animation}</option>
+                )}
+            </select>
+            <span> Rules </span>
+            <select value={animationRulesJsonName} onChange={(e) => setAnimationRulesJson(e.target.value)}>
+                <option value="">Select...</option>
+                {rules.map((rule) =>
+                    <option value={rule}>{rule}</option>
+                )}
+            </select>
+            <button
+                onClick={() => transform()}
+            >
+                <span>transform</span>
+            </button>
+            <div ref={animationContainerRef} id={'animation'}></div>
+        </>
+    );
+}
+
+export default Visualiser
