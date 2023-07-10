@@ -11,8 +11,8 @@ function Visualiser(){
 
     const animationContainerRef = useRef(null);
     
-    const [animationLottieJsonName, setAnimationLottieJson] = useState("");
-    const [animationRulesJsonName, setAnimationRulesJson] = useState("");
+    const [animationLottieJsonName, setAnimationLottieJson] = useState("ALGIERS-FORD");
+    const [animationRulesJsonName, setAnimationRulesJson] = useState("ALGIERS-FORD-rules");
     const [animationLottieJson, setAnimationLottieJsonData] = useState("");
     const [animationRulesJson, setAnimationRulesJsonData] = useState("");
 
@@ -47,14 +47,12 @@ function Visualiser(){
         <>
             <span> Animation </span>
             <select value={animationLottieJsonName} onChange={(e) => setAnimationLottieJson(e.target.value)}>
-                <option value="">Select...</option>
                 {animations.map((animation) =>
                     <option value={animation}>{animation}</option>
                 )}
             </select>
             <span> Rules </span>
             <select value={animationRulesJsonName} onChange={(e) => setAnimationRulesJson(e.target.value)}>
-                <option value="">Select...</option>
                 {rules.map((rule) =>
                     <option value={rule}>{rule}</option>
                 )}
