@@ -7,7 +7,9 @@ import lottieAnimation.layer.KPLayerType
 import lottieAnimation.layer.KPTextLayer
 import lottieAnimation.rules.properties.KPAnimationRules
 
-class KPFontTransformer {
+class KPFontTransformer(
+        private val delegate: KPAnimationTransformerFunctionsDelegate
+    ){
 
     fun transformFonts(animation: KPLottieAnimation, animationRules: KPAnimationRules, fonts: Map<String, String>? = null)
         : KPLottieAnimation
@@ -33,12 +35,11 @@ class KPFontTransformer {
         val fontPath = fonts[fontKey] ?: return null
         val fontName = fontPath.substringAfterLast("/").substringBefore(".")
         val splitFont = fontName.split('-')
-        // TODO: To compute ascent
-        if (splitFont.size == 1) return Font(fName = fontName, fFamily = splitFont[0], fStyle = splitFont[0], ascent = JsonPrimitive(value = 75.0))
+        val ascent = delegate.getAscent("gM", fontName, 108.0)
+        if (splitFont.size == 1) return Font(fName = fontName, fFamily = splitFont[0], fStyle = splitFont[0], ascent = JsonPrimitive(value = ascent))
         if (splitFont.size != 2) return null
         val fontFamily = splitFont[0]
         val fontStyle = splitFont[1]
-        // TODO: To compute ascent
-        return Font(fName = fontName, fFamily = fontFamily, fStyle = fontStyle, ascent = JsonPrimitive(value = 75.0))
+        return Font(fName = fontName, fFamily = fontFamily, fStyle = fontStyle, ascent = JsonPrimitive(value = ascent))
     }
 }
