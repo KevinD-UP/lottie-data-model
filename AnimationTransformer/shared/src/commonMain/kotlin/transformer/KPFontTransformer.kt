@@ -20,7 +20,9 @@ class KPFontTransformer(
         animationRules.layerRules.forEach { layerRule ->
             if (layerRule.fontKey != null) {
                 val font = parseFontKey(fonts, layerRule.fontKey)
-                val textLayer = animation.layers.find { it.ind == layerRule.ind && it.ty == KPLayerType.TEXT_LAYER } as? KPTextLayer
+                // Adding the font to the list of Font
+                font?.let { animationResult.fonts?.list = animationResult.fonts?.list?.plus(font) ?: mutableListOf(font) }
+                val textLayer = animationResult.layers.find { it.ind == layerRule.ind && it.ty == KPLayerType.TEXT_LAYER } as? KPTextLayer
                 println("textLayer = $textLayer")
                 println("font = $font")
                 if (font != null && textLayer != null) {
