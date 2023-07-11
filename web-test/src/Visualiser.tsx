@@ -1,8 +1,11 @@
-import React, {useRef, useState} from 'react'
+import React, {useEffect, useRef, useState} from 'react'
 import Lottie from "lottie-web"
 import './App.css';
 import {FunctionDelegate} from "./FunctionDelegate";
 import {animations, rules} from "./Fixture";
+import * as animation from "./resource/ALGIERS-FORD.json"
+import * as animationRules from "./resource/ALGIERS-FORD-rules.json"
+
 const animationTransformerLib = require('./script/kmp_lib')
 
 function Visualiser(){
@@ -13,8 +16,12 @@ function Visualiser(){
     
     const [animationLottieJsonName, setAnimationLottieJson] = useState("ALGIERS-FORD");
     const [animationRulesJsonName, setAnimationRulesJson] = useState("ALGIERS-FORD-rules");
-    const [animationLottieJson, setAnimationLottieJsonData] = useState("");
-    const [animationRulesJson, setAnimationRulesJsonData] = useState("");
+    const [animationLottieJson, setAnimationLottieJsonData] = useState(JSON.stringify(animation));
+    const [animationRulesJson, setAnimationRulesJsonData] = useState(JSON.stringify(animationRules));
+
+    useEffect(() => {
+        transform();
+    }, [animationLottieJson, animationRulesJson]);
 
     async function transform(){
         await fetch(`resource/${animationLottieJsonName}.json`)
