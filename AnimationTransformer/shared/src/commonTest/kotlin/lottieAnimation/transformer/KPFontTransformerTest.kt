@@ -5,6 +5,7 @@ import kotlinx.serialization.encodeToString
 import kotlinx.serialization.json.Json
 import lottieAnimation.KPLottieAnimation
 import lottieAnimation.rules.properties.KPAnimationRules
+import lottieAnimation.transformer.variableTransformer.AnimationTransformerFunctionsDelegateMock
 import okio.FileSystem
 import okio.Path.Companion.toPath
 import transformer.KPFontTransformer
@@ -32,7 +33,8 @@ class KPFontTransformerTest {
         val pathToAnimationAlgier = "src/commonTest/resources/animations/algiers/a.json"
         val pathToAnimationRulesAlgiers =
             "src/commonTest/resources/rules/algiers/ALGIERS-FORD-rules.json"
-        val fontTransformer = KPFontTransformer()
+        val functionsDelegateMock = AnimationTransformerFunctionsDelegateMock()
+        val fontTransformer = KPFontTransformer(functionsDelegateMock)
         val animationJson = FileSystem.SYSTEM.read(pathToAnimationAlgier.toPath()) {
             readUtf8()
         }
@@ -56,7 +58,8 @@ class KPFontTransformerTest {
         val pathToAnimationAlgier = "src/commonTest/resources/animations/algiers/a.json"
         val pathToAnimationRulesAlgiers =
             "src/commonTest/resources/rules/algiers/ALGIERS-FORD-rules.json"
-        val fontTransformer = KPFontTransformer()
+        val functionsDelegateMock = AnimationTransformerFunctionsDelegateMock()
+        val fontTransformer = KPFontTransformer(functionsDelegateMock)
         val animationJson = FileSystem.SYSTEM.read(pathToAnimationAlgier.toPath()) {
             readUtf8()
         }

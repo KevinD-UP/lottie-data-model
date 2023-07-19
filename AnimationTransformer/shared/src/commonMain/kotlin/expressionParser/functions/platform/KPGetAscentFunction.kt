@@ -22,11 +22,6 @@ class KPGetAscentFunction(
         val text = item.s.t
         val fontName = item.s.f
         val fontSize = item.s.s?.jsonPrimitive?.doubleOrNull ?: return 0.0
-        /*val result = -1.0 * functionsDelegate.getAscent(
-            text = text,
-            fontName = fontName,
-            fontSize = fontSize
-        )*/
         val result = functionsDelegate.getAscent(
 					 text = text,
 					 fontName = fontName,
