@@ -6,6 +6,7 @@
     },
     {
       "ind": 2,
+      "layerName": "textRight-gradientTop_gradientBottom-textBold-1",
       "fontKey": "textBold",
       "textInd": [1],
       "maxLines": 3,
@@ -17,6 +18,7 @@
     },
     {
       "ind": 4,
+      "layerName": "textLeft-gradientTop_gradientBottom-textBold-0",
       "fontKey": "textBold",
       "textInd": [0],
       "maxLines": 3,

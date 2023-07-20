@@ -2,6 +2,7 @@
     "layerRules": [
         {
             "ind": 1,
+            "layerName": "titleTop-titleText-title-0",
             "fontKey": "title",
             "textInd": [0],
             "maxLines": 1,
@@ -10,6 +11,7 @@
         },
         {
             "ind": 2,
+            "layerName": "titleBottom-titleText-title-1",
             "fontKey": "title",
             "textInd": [1],
             "maxLines": 1,
@@ -34,6 +36,7 @@
         },
         {
             "ind": 7,
+            "layerName": "textTop-text-textBold-2",
             "fontKey": "textBold",
             "textInd": [2],
             "maxLines": 1,
@@ -42,6 +45,7 @@
         },
         {
             "ind": 8,
+            "layerName": "textBottom-text-text-3",
             "fontKey": "text",
             "textInd": [3],
             "maxLines": 1,

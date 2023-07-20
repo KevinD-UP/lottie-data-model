@@ -15,6 +15,7 @@ data class KPAnimationRuleVariable(
 @Serializable
 data class KPAnimationRuleVariableTransformNode(
     val ind: Int?,
+    val layerName: String?,
     val layerType: Int?,
     val transformType: KPAnimationRuleTransformType?,
     var transformKeyframeIndexes: List<Int>?,

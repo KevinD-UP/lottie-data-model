@@ -2,6 +2,7 @@
   "layerRules": [
     {
       "ind": 1,
+      "layerName": "textTop-text-textBlackItalic-0",
       "fontKey": "textBlackItalic",
       "textInd": [0],
       "maxLines": 1,
@@ -14,6 +15,7 @@
     },
     {
       "ind": 3,
+      "layerName": "textBottom-text-textBlackItalic-1",
       "fontKey": "textBlackItalic",
       "textInd": [1],
       "maxLines": 1,

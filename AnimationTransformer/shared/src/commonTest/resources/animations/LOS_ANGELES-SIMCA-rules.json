@@ -2,6 +2,7 @@
   "layerRules": [
     {
       "ind": 1,
+      "layerName": "text-slideText-text-0",
       "fontKey": "text",
       "textInd": [0],
       "maxLines": 1,

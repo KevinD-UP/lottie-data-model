@@ -2,7 +2,6 @@
   "layerRules": [
     {
       "ind": 1,
-      "layerName": "textTop-text-textBold-0",
       "fontKey": "textBold",
       "textInd": [0],
       "maxLines": 1,
@@ -11,10 +10,10 @@
     },
     {
       "ind": 2,
-      "layerName": "textBottom-text-textBold-1",
       "fontKey": "textBold",
-      "textInd": [1],
-      "maxLines": 1,
+      "textInd": [0,1],
+      "separator": "\n",
+      "maxLines": 3,
       "maxWidth": 1632,
       "colorKey": "text"
     },
@@ -36,29 +35,15 @@
     },
     {
       "key": "$var0",
-      "transformNodes" : [
-          {
-              "ind": 1,
-              "layerType": 5,
-              "transformType": "position_y",
-              "description": "titleTop y position"
-          }
-      ],
       "value": "1080/4-getTextMeasureHeight(1)/2+getAscent(1)",
-      "type": "number"
+      "type": "number",
+      "description": "titleTop y position"
     },
     {
       "key": "$var1",
-      "transformNodes" : [
-          {
-              "ind": 2,
-              "layerType": 5,
-              "transformType": "position_y",              
-              "description": "titleBottom y position"
-          }
-      ],
       "value": "1080*3/4-getTextMeasureHeight(2)/2+getAscent(2)",
-      "type": "number"
+      "type": "number",
+      "description": "titleBottom y position"
     }
   ]
 }
