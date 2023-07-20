@@ -1,5 +1,6 @@
 package transformer
 
+@JsExport
 class KPAnimationTransformerJs(functionsDelegate: KPAnimationTransformerFunctionsDelegate): KPAnimationTransformer(functionsDelegate) {
     private fun entriesOf(jsObject: dynamic): List<Pair<String, Any?>> =
         (js("Object.entries") as (dynamic) -> Array<Array<Any?>>)
@@ -13,7 +14,7 @@ class KPAnimationTransformerJs(functionsDelegate: KPAnimationTransformerFunction
     fun transformJs(
         lottieJsonString: String,
         animationRulesJsonString: String,
-        texts: List<String>? = null,
+        texts: Array<String>? = null,
         fontsJson: dynamic = null,
         colorsJson: dynamic = null
     ) : String? {
