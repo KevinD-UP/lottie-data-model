@@ -15,7 +15,7 @@ class FunctionsDelegateNative: KPAnimationTransformerFunctionsDelegate {
         debugPrint("DEMOAPP text \(text) - fontName \(fontName) - fontSize \(fontSize)")
         let font = getFont(fontName: fontName, fontSize: fontSize)
         debugPrint("DEMOAPP getAscent = \(font.ascender)")
-        return -Double(font.ascender)
+        return Double(font.ascender)
     }
 
     func getDescent(text: String, fontName: String, fontSize: Double) -> Double {
@@ -49,7 +49,7 @@ class FunctionsDelegateNative: KPAnimationTransformerFunctionsDelegate {
             layerSize: layerSize, layerLineHeight: layerLineHeight, layerTracking: layerTracking)
         let textLines = applyTextBoxText.split(separator: "\n")
         let lineHeight = layerLineHeight
-        let ascent = -getAscent(text: text, fontName: fontName, fontSize: fontSize)
+        let ascent = getAscent(text: text, fontName: fontName, fontSize: fontSize)
         let descent = getLastLineBottom(text: text, fontName: fontName, fontSize: fontSize)
 
         let result = ascent + descent + lineHeight * Double(textLines.count - 1)

@@ -5,6 +5,7 @@ import lottieAnimation.KPLottieAnimation
 import lottieAnimation.layer.*
 import lottieAnimation.layer.properties.*
 import lottieAnimation.rules.properties.KPAnimationRules
+import kotlin.js.JsName
 
 class KPColorTransformer {
 

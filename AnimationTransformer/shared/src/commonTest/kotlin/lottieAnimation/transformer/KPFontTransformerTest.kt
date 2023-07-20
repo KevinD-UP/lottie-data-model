@@ -278,7 +278,8 @@ fun KPFontTransformerTest.setupSUT(
     val pathToAnimation = "src/commonTest/resources/animations/$animationName.json"
     val pathToAnimationRules =
         "src/commonTest/resources/animations/$animationName-rules.json"
-    val fontTransformer = KPFontTransformer()
+    val delegateMock = AnimationTransformerFunctionsDelegateMock()
+    val fontTransformer = KPFontTransformer(delegateMock)
     val animationJson = FileSystem.SYSTEM.read(pathToAnimation.toPath()) {
         readUtf8()
     }
