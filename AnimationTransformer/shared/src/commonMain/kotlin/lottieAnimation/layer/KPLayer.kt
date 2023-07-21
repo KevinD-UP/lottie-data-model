@@ -17,7 +17,7 @@ data class KPPrecompositionLayer(
     override var ct: Long? = null,
     override var nm: String? = null,
     override var mn: String? = null,
-    override var ddd: KPBooleanInt,
+    override var ddd: KPBooleanInt? = null,
     override var hd: Boolean? = null,
     override var ind: Int? = null,
     override var parent: Int? = null,
@@ -39,6 +39,7 @@ data class KPPrecompositionLayer(
     override var cl: String? = null,
     override var ln: String? = null,
     override var tg: String? = null,
+    override var hix: JsonElement? = null,
 
     /**
      * Reference Id
@@ -69,7 +70,7 @@ data class KPSolidLayer(
     override var ct: Long? = null,
     override var nm: String? = null,
     override var mn: String? = null,
-    override var ddd: KPBooleanInt,
+    override var ddd: KPBooleanInt? = null,
     override var hd: Boolean? = null,
     override var ind: Int? = null,
     override var parent: Int? = null,
@@ -91,6 +92,7 @@ data class KPSolidLayer(
     override var cl: String? = null,
     override var ln: String? = null,
     override var tg: String? = null,
+    override var hix: JsonElement? = null,
 
     /**
      * Color of the layer, unlike most other places, the color is a #rrggbb hex string
@@ -115,7 +117,7 @@ data class KPImageLayer(
     override var ct: Long? = null,
     override var nm: String? = null,
     override var mn: String? = null,
-    override var ddd: KPBooleanInt,
+    override var ddd: KPBooleanInt? = null,
     override var hd: Boolean? = null,
     override var ind: Int? = null,
     override var parent: Int? = null,
@@ -137,6 +139,7 @@ data class KPImageLayer(
     override var cl: String? = null,
     override var ln: String? = null,
     override var tg: String? = null,
+    override var hix: JsonElement? = null,
 
     /**
      * Image ID
@@ -152,7 +155,7 @@ data class KPShapeLayer(
     override var ct: Long? = null,
     override var nm: String? = null,
     override var mn: String? = null,
-    override var ddd: KPBooleanInt,
+    override var ddd: KPBooleanInt? = null,
     override var hd: Boolean? = null,
     override var ind: Int? = null,
     override var parent: Int? = null,
@@ -174,6 +177,7 @@ data class KPShapeLayer(
     override var cl: String? = null,
     override var ln: String? = null,
     override var tg: String? = null,
+    override var hix: JsonElement? = null,
 
     /**
      * Shapes
@@ -189,7 +193,7 @@ data class KPAudioLayer(
     override var ct: Long? = null,
     override var nm: String? = null,
     override var mn: String? = null,
-    override var ddd: KPBooleanInt,
+    override var ddd: KPBooleanInt? = null,
     override var hd: Boolean? = null,
     override var ind: Int? = null,
     override var parent: Int? = null,
@@ -197,6 +201,7 @@ data class KPAudioLayer(
     override var ip: JsonElement,
     override var op: JsonElement,
     override var st: JsonElement,
+    override var hix: JsonElement? = null,
 
     /**
      * Audio Settings
@@ -217,7 +222,7 @@ data class KPCameraLayer(
     override var ct: Long? = null,
     override var nm: String? = null,
     override var mn: String? = null,
-    override var ddd: KPBooleanInt,
+    override var ddd: KPBooleanInt? = null,
     override var hd: Boolean? = null,
     override var ind: Int? = null,
     override var parent: Int? = null,
@@ -225,6 +230,7 @@ data class KPCameraLayer(
     override var ip: JsonElement,
     override var op: JsonElement,
     override var st: JsonElement,
+    override var hix: JsonElement? = null,
 
     /**
      * Layer Transform
@@ -244,7 +250,7 @@ data class KPDataLayer(
     override var ct: Long? = null,
     override var nm: String? = null,
     override var mn: String? = null,
-    override var ddd: KPBooleanInt,
+    override var ddd: KPBooleanInt? = null,
     override var hd: Boolean? = null,
     override var ind: Int? = null,
     override var parent: Int? = null,
@@ -252,6 +258,7 @@ data class KPDataLayer(
     override var ip: JsonElement,
     override var op: JsonElement,
     override var st: JsonElement,
+    override var hix: JsonElement? = null,
 
     /**
      * Data source Id
@@ -267,38 +274,7 @@ data class KPNullLayer(
     override var ct: Long? = null,
     override var nm: String? = null,
     override var mn: String? = null,
-    override var ddd: KPBooleanInt,
-    override var hd: Boolean? = null,
-    override var ind: Int? = null,
-    override var parent: Int? = null,
-    override var sr: JsonElement? = null,
-    override var ip: JsonElement,
-    override var op: JsonElement,
-    override var st: JsonElement,
-    override var cp: Boolean? = null,
-    override var ks: KPTransform,
-    override var ao: Int? = null,
-    override var tt: JsonElement? = null,
-    override var td: Int? = null,
-    override var hasMask: Boolean? = null,
-    override var masksProperties: JsonElement? = null,
-    override var ef: List<KPTextEffect>? = null,
-    override var mb: Boolean? = null,
-    override var sy: JsonObject? = null,
-    override var bm: JsonElement? = null,
-    override var cl: String? = null,
-    override var ln: String? = null,
-    override var tg: String? = null
-) : KPLayer(), KPVisualLayer {
-    override var ty: KPLayerType = KPLayerType.NULL_LAYER
-}
-
-@Serializable
-data class KPTextLayer(
-    override var ct: Long? = null,
-    override var nm: String? = null,
-    override var mn: String? = null,
-    override var ddd: KPBooleanInt,
+    override var ddd: KPBooleanInt? = null,
     override var hd: Boolean? = null,
     override var ind: Int? = null,
     override var parent: Int? = null,
@@ -320,6 +296,39 @@ data class KPTextLayer(
     override var cl: String? = null,
     override var ln: String? = null,
     override var tg: String? = null,
+    override var hix: JsonElement? = null,
+) : KPLayer(), KPVisualLayer {
+    override var ty: KPLayerType = KPLayerType.NULL_LAYER
+}
+
+@Serializable
+data class KPTextLayer(
+    override var ct: Long? = null,
+    override var nm: String? = null,
+    override var mn: String? = null,
+    override var ddd: KPBooleanInt? = null,
+    override var hd: Boolean? = null,
+    override var ind: Int? = null,
+    override var parent: Int? = null,
+    override var sr: JsonElement? = null,
+    override var ip: JsonElement,
+    override var op: JsonElement,
+    override var st: JsonElement,
+    override var cp: Boolean? = null,
+    override var ks: KPTransform,
+    override var ao: Int? = null,
+    override var tt: JsonElement? = null,
+    override var td: Int? = null,
+    override var hasMask: Boolean? = null,
+    override var masksProperties: JsonElement? = null,
+    override var ef: List<KPTextEffect>? = null,
+    override var mb: Boolean? = null,
+    override var sy: JsonObject? = null,
+    override var bm: JsonElement? = null,
+    override var cl: String? = null,
+    override var ln: String? = null,
+    override var tg: String? = null,
+    override var hix: JsonElement? = null,
 
     /**
      * Data

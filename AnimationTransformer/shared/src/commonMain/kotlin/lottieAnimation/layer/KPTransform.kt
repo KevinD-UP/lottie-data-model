@@ -1,6 +1,7 @@
 package lottieAnimation.layer
 
 import kotlinx.serialization.Serializable
+import kotlinx.serialization.json.JsonElement
 import kotlinx.serialization.json.JsonObject
 import lottieAnimation.layer.properties.KPMultiDimensional
 import lottieAnimation.layer.serializers.KPMultiDimensionalSerializer
@@ -62,4 +63,9 @@ data class KPTransform(
      * Transform Skew axis
      */
     var sa: JsonObject? = null,
+
+    var or: JsonElement? = null,
+    var rx: JsonElement? = null,
+    var ry: JsonElement? = null,
+    var rz: JsonElement? = null,
 )

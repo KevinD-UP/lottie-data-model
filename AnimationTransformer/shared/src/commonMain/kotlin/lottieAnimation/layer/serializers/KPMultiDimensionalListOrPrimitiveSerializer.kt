@@ -40,6 +40,7 @@ object KPMultiDimensionalListOrPrimitiveSerializer : KSerializer<KPMultiDimensio
                     o = it.jsonObject["o"]?.jsonObject,
                     h = it.jsonObject["h"]?.jsonPrimitive,
                     e = it.jsonObject["e"]?.jsonArray,
+                    n = it.jsonObject["n"],
                     to = it.jsonObject["to"]?.jsonArray,
                     ti = it.jsonObject["ti"]?.jsonArray
                 )

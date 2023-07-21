@@ -13,7 +13,7 @@ interface KPBaseLayer : KPVisualObject {
      * Whether the layer is threedimensional
      * default: 0
      */
-    var ddd: KPBooleanInt
+    var ddd: KPBooleanInt?
 
     /**
      * Whether the layer is hidden
@@ -54,4 +54,6 @@ interface KPBaseLayer : KPVisualObject {
      * Start Time
      */
     var st: JsonElement
+
+    var hix: JsonElement?
 }
