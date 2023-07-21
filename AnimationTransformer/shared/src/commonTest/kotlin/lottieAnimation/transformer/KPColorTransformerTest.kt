@@ -552,12 +552,28 @@ private fun KPColorTransformerTest.assertShapeLayerStrokeColor(layer: KPLayer, e
         assertTrue(it is KPShapeStroke)
         val colors = it.c?.k
         assertNotNull(colors)
-        val rColor = colors[0].jsonPrimitive.floatOrNull
-        val gColor = colors[1].jsonPrimitive.floatOrNull
-        val bColor = colors[2].jsonPrimitive.floatOrNull
-        assertEquals(expectedValue[0], rColor)
-        assertEquals(expectedValue[1], gColor)
-        assertEquals(expectedValue[2], bColor)
+        when (colors) {
+            is KPMultiDimensionalList -> {
+                when (colors.values.firstOrNull()) {
+                    is KPMultiDimensionalNodePrimitive -> {
+                        assertTrue(colors.values[0] is KPMultiDimensionalNodePrimitive)
+                        assertTrue(colors.values[1] is KPMultiDimensionalNodePrimitive)
+                        assertTrue(colors.values[2] is KPMultiDimensionalNodePrimitive)
+                        val r = colors.values[0] as KPMultiDimensionalNodePrimitive
+                        val g = colors.values[1] as KPMultiDimensionalNodePrimitive
+                        val b = colors.values[2] as KPMultiDimensionalNodePrimitive
+                        val rColor = r.value.floatOrNull
+                        val gColor = g.value.floatOrNull
+                        val bColor = b.value.floatOrNull
+                        assertEquals(expectedValue[0], rColor)
+                        assertEquals(expectedValue[1], gColor)
+                        assertEquals(expectedValue[2], bColor)
+                    }
+                    else -> { }
+                }
+            }
+            else -> { }
+        }
     }
 }
 

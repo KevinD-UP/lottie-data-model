@@ -15,16 +15,13 @@ import lottieAnimation.layer.serializers.KPShapeListSerializer
 @Serializable
 sealed class KPShape {
     abstract var ind: JsonPrimitive?
-    @SerialName("kp_transform_key")
-    abstract var kpTransformKey: String?
     abstract var ty: String
+    abstract var bm: Int?
 }
 
 @Serializable
 data class KPShapeEllipse(
     override var ind: JsonPrimitive? = null,
-    @SerialName("kp_transform_key")
-    override var kpTransformKey: String? = null,
     var mn: String? = null,
     var nm: String? = null,
     var d: JsonElement? = null,
@@ -34,19 +31,18 @@ data class KPShapeEllipse(
     @Serializable(with = KPMultiDimensionalSerializer::class)
     var s: KPMultiDimensional? = null,
     var hd: Boolean? = null,
+    override var bm: Int? = null,
 ) : KPShape()
 
 @Serializable
 data class KPShapeFill(
     override var ind: JsonPrimitive? = null,
-    @SerialName("kp_transform_key")
-    override var kpTransformKey: String? = null,
     var mn: String? = null,
     var nm: String? = null,
     override var ty: String,
     var o: JsonObject,
     var c: KPShapeFillColor,
-    var bm: Int? = null,
+    override var bm: Int? = null,
     var r: Int? = null,
     var hd: Boolean? = null,
 ) : KPShape()
@@ -62,8 +58,6 @@ data class KPShapeFillColor(
 @Serializable
 data class KPShapeGFill(
     override var ind: JsonPrimitive? = null,
-    @SerialName("kp_transform_key")
-    override var kpTransformKey: String? = null,
     var mn: String? = null,
     var nm: String? = null,
     override var ty: String,
@@ -76,7 +70,7 @@ data class KPShapeGFill(
     var g: KPShapeGFillColor,
     var r: JsonElement? = null,
     var hd: Boolean? = null,
-    var bm: Int? = null,
+    override var bm: Int? = null,
 ) : KPShape()
 
 @Serializable
@@ -88,8 +82,6 @@ data class KPShapeGFillColor(
 @Serializable
 data class KPShapeGStroke(
     override var ind: JsonPrimitive? = null,
-    @SerialName("kp_transform_key")
-    override var kpTransformKey: String? = null,
     var mn: String? = null,
     var nm: String? = null,
     override var ty: String,
@@ -105,13 +97,12 @@ data class KPShapeGStroke(
     var lj: JsonPrimitive? = null,
     var ml: JsonPrimitive? = null,
     var hd: Boolean? = null,
+    override var bm: Int? = null,
 ) : KPShape()
 
 @Serializable
 data class KPShapeGroup(
     override var ind: JsonPrimitive? = null,
-    @SerialName("kp_transform_key")
-    override var kpTransformKey: String? = null,
     var mn: String? = null,
     var nm: String? = null,
     override var ty: String,
@@ -119,7 +110,7 @@ data class KPShapeGroup(
     @Serializable(with = KPShapeListSerializer::class)
     var it: List<KPShape>,
     var cix: Int? = null,
-    var bm: Int? = null,
+    override var bm: Int? = null,
     var ix: Int? = null,
     var hd: Boolean? = null,
 ) : KPShape()
@@ -127,20 +118,17 @@ data class KPShapeGroup(
 @Serializable
 data class KPShapeMerge(
     override var ind: JsonPrimitive? = null,
-    @SerialName("kp_transform_key")
-    override var kpTransformKey: String? = null,
     var mn: String? = null,
     var nm: String? = null,
     override var ty: String,
     var mm: JsonPrimitive? = null,
     var hd: Boolean? = null,
+    override var bm: Int? = null,
 ) : KPShape()
 
 @Serializable
 data class KPShapeRect(
     override var ind: JsonPrimitive? = null,
-    @SerialName("kp_transform_key")
-    override var kpTransformKey: String? = null,
     var mn: String? = null,
     var nm: String? = null,
     var d: JsonElement? = null,
@@ -151,25 +139,23 @@ data class KPShapeRect(
     var s: KPMultiDimensional? = null,
     var r: JsonElement? = null,
     var hd: Boolean? = null,
+    override var bm: Int? = null,
 ) : KPShape()
 
 @Serializable
 data class KPShapeRound(
     override var ind: JsonPrimitive? = null,
-    @SerialName("kp_transform_key")
-    override var kpTransformKey: String? = null,
     var mn: String? = null,
     var nm: String? = null,
     override var ty: String,
     var r: JsonElement? = null,
     var hd: Boolean? = null,
+    override var bm: Int? = null,
 ) : KPShape()
 
 @Serializable
 data class KPShapeShape(
     override var ind: JsonPrimitive? = null,
-    @SerialName("kp_transform_key")
-    override var kpTransformKey: String? = null,
     var mn: String? = null,
     var nm: String? = null,
     var d: JsonElement? = null,
@@ -177,13 +163,12 @@ data class KPShapeShape(
     var ks: JsonElement? = null,
     var ix: Int? = null,
     var hd: Boolean? = null,
+    override var bm: Int? = null,
 ) : KPShape()
 
 @Serializable
 data class KPShapeStar(
     override var ind: JsonPrimitive? = null,
-    @SerialName("kp_transform_key")
-    override var kpTransformKey: String? = null,
     var mn: String? = null,
     var nm: String? = null,
     var d: JsonElement? = null,
@@ -199,13 +184,12 @@ data class KPShapeStar(
     var pt: JsonObject,
     var sy: JsonObject,
     var hd: Boolean? = null,
+    override var bm: Int? = null,
 ) : KPShape()
 
 @Serializable
 data class KPShapeStroke(
     override var ind: JsonPrimitive? = null,
-    @SerialName("kp_transform_key")
-    override var kpTransformKey: String? = null,
     var mn: String? = null,
     var nm: String? = null,
     override var ty: String,
@@ -215,7 +199,7 @@ data class KPShapeStroke(
     var o: JsonElement? = null,
     var w: JsonObject? = null,
     var c: KPShapeStrokeColor? = null,
-    var bm: Int? = null,
+    override var bm: Int? = null,
     var d: JsonElement? = null,
     var hd: Boolean? = null,
 ) : KPShape()
@@ -223,15 +207,14 @@ data class KPShapeStroke(
 @Serializable
 data class KPShapeStrokeColor(
     var a: JsonPrimitive? = null,
-    var k: List<JsonPrimitive>,
+    @Serializable(with = KPMultiDimensionalListOrPrimitiveSerializer::class)
+    var k: KPMultiDimensionalListOrPrimitive,
     var ix: JsonPrimitive? = null
 )
 
 @Serializable
 data class KPShapeTransform(
     override var ind: JsonPrimitive? = null,
-    @SerialName("kp_transform_key")
-    override var kpTransformKey: String? = null,
     var nm: String? = null,
     override var ty: String,
     @Serializable(with = KPMultiDimensionalSerializer::class)
@@ -248,13 +231,12 @@ data class KPShapeTransform(
     var sa: JsonObject? = null,
     var cix: Int? = null,
     var hd: Boolean? = null,
+    override var bm: Int? = null,
 ) : KPShape()
 
 @Serializable
 data class KPShapeTrim(
     override var ind: JsonPrimitive? = null,
-    @SerialName("kp_transform_key")
-    override var kpTransformKey: String? = null,
     var mn: String? = null,
     var nm: String? = null,
     override var ty: String,
@@ -264,4 +246,5 @@ data class KPShapeTrim(
     var m: Int,
     var ix: Int,
     var hd: Boolean? = null,
+    override var bm: Int? = null,
 ) : KPShape()

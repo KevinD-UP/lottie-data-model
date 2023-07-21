@@ -321,13 +321,25 @@ class KPColorTransformer {
         layer.shapes?.let { shapes ->
             shapes.forEach { shape ->
                 if (shape is KPShapeStroke) {
-                    val newStrokeColor = listOf(
-                        JsonPrimitive(colorArray[0]), // R
-                        JsonPrimitive(colorArray[1]), // G
-                        JsonPrimitive(colorArray[2]), // B
-                        JsonPrimitive(1) // A (not used for opacity, use "o" instead)
-                    )
-                    shape.c?.k = newStrokeColor
+                    when (val kType = shape.c?.k) {
+                        is KPMultiDimensionalList -> {
+                            when (kType.values.firstOrNull()) {
+                                is KPMultiDimensionalNodePrimitive -> {
+                                    val newStrokeColor = listOf(
+                                        KPMultiDimensionalNodePrimitive(JsonPrimitive(colorArray[0])), // R
+                                        KPMultiDimensionalNodePrimitive(JsonPrimitive(colorArray[1])), // G
+                                        KPMultiDimensionalNodePrimitive(JsonPrimitive(colorArray[2])), // B
+                                        KPMultiDimensionalNodePrimitive(JsonPrimitive(1)) // A (not used for opacity, use "o" instead)
+                                    )
+                                    shape.c?.k = KPMultiDimensionalList(values = newStrokeColor)
+                                }
+                                else -> {
+
+                                }
+                            }
+                        }
+                        else -> { }
+                    }
                 }
 
                 if (shape is KPShapeGroup) {
@@ -340,13 +352,25 @@ class KPColorTransformer {
     private fun seekSetShapeStrokeColor(colorArray: FloatArray, shapeGroup: KPShapeGroup) {
         shapeGroup.it.forEach { shape ->
             if (shape is KPShapeStroke) {
-                val newStrokeColor = listOf(
-                    JsonPrimitive(colorArray[0]), // R
-                    JsonPrimitive(colorArray[1]), // G
-                    JsonPrimitive(colorArray[2]), // B
-                    JsonPrimitive(1) // A (not used for opacity, use "o" instead)
-                )
-                shape.c?.k = newStrokeColor
+                when (val kType = shape.c?.k) {
+                    is KPMultiDimensionalList -> {
+                        when (kType.values.firstOrNull()) {
+                            is KPMultiDimensionalNodePrimitive -> {
+                                val newStrokeColor = listOf(
+                                    KPMultiDimensionalNodePrimitive(JsonPrimitive(colorArray[0])), // R
+                                    KPMultiDimensionalNodePrimitive(JsonPrimitive(colorArray[1])), // G
+                                    KPMultiDimensionalNodePrimitive(JsonPrimitive(colorArray[2])), // B
+                                    KPMultiDimensionalNodePrimitive(JsonPrimitive(1)) // A (not used for opacity, use "o" instead)
+                                )
+                                shape.c?.k = KPMultiDimensionalList(values = newStrokeColor)
+                            }
+                            else -> {
+
+                            }
+                        }
+                    }
+                    else -> { }
+                }
             }
             if (shape is KPShapeGroup) {
                 seekSetShapeStrokeColor(colorArray, shape)
@@ -358,12 +382,28 @@ class KPColorTransformer {
         return when (val shape = layer.shapes?.getOrNull(0)) {
             is KPShapeGroup -> {
                 val strokeShape = shape.it.firstOrNull { it is KPShapeStroke } as? KPShapeStroke
-                val colorList = strokeShape?.c?.k ?: return null
-                return floatArrayOf(
-                    colorList[0].float,
-                    colorList[1].float,
-                    colorList[2].float
-                )
+                return when (val colorList = strokeShape?.c?.k) {
+                    is KPMultiDimensionalList -> {
+                        when (colorList.values.firstOrNull()) {
+                            is KPMultiDimensionalNodePrimitive -> {
+                                val r = colorList.values[0] as KPMultiDimensionalNodePrimitive
+                                val g = colorList.values[1] as KPMultiDimensionalNodePrimitive
+                                val b = colorList.values[2] as KPMultiDimensionalNodePrimitive
+                                floatArrayOf(
+                                    r.value.float,
+                                    g.value.float,
+                                    b.value.float
+                                )
+                            }
+                            else -> {
+                                null
+                            }
+                        }
+                    }
+                    else -> {
+                        null
+                    }
+                }
             }
             else -> null
         }

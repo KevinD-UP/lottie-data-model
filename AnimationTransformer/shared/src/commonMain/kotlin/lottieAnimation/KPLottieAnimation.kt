@@ -1221,7 +1221,7 @@ sealed class T {
 @Serializable
 data class CharacterData(
     var ch: String,
-    var data: Data,
+    var data: Data? = null,
     var fFamily: String,
     var size: Int,
     var style: String,

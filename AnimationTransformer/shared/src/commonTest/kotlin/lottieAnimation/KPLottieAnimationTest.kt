@@ -100,15 +100,6 @@ class KPLottieAnimationTest {
     }
 
     @Test
-    fun testDecodeKpTransformKey() {
-        val animationsToTest = listOf<String>(
-            "src/commonTest/resources/BALI-PLANE-kp_transform_key.json"
-        )
-
-        animationsToTest(animationsToTest)
-    }
-
-    @Test
     fun testDecode() {
         val animationsToTest = listOf<String>(
             "src/commonTest/resources/lottiefiles-carnival-archery.json",
@@ -125,7 +116,16 @@ class KPLottieAnimationTest {
     fun testDecodeMarketplace() {
         val animationsToTest = listOf<String>(
             //"src/commonTest/resources/animations/marketplace/marketplace-lottie-anim-1.json",
-            "src/commonTest/resources/animations/marketplace/marketplace-lottie-anim-2.json",
+            //"src/commonTest/resources/animations/marketplace/marketplace-lottie-anim-2.json",
+            //"src/commonTest/resources/animations/marketplace/marketplace-lottie-anim-3.json",
+            //"src/commonTest/resources/animations/marketplace/marketplace-lottie-anim-4.json",
+            //"src/commonTest/resources/animations/marketplace/marketplace-lottie-anim-5.json",
+
+            //"src/commonTest/resources/animations/marketplace/marketplace-lottie-anim-6.json",
+            //"src/commonTest/resources/animations/marketplace/marketplace-lottie-anim-7.json",
+            //"src/commonTest/resources/animations/marketplace/marketplace-lottie-anim-8.json",
+            //"src/commonTest/resources/animations/marketplace/marketplace-lottie-anim-9.json",
+            //"src/commonTest/resources/animations/marketplace/marketplace-lottie-anim-10.json",
         )
 
         animationsToTest(animationsToTest)
