@@ -131,5 +131,16 @@ class KPLottieAnimationTest {
         animationsToTest(animationsToTest)
     }
 
+    @Test
+    fun testDecodeAnimatedText() {
+        val animationsToTest = listOf<String>(
+            "src/commonTest/resources/animations/animatedText/Fade-In-Out-BG-textbox.json",
+            "src/commonTest/resources/animations/animatedText/Popin-In-Out-BG-textbox.json",
+            "src/commonTest/resources/animations/animatedText/Zoom-In-Out-BG-textbox.json",
+        )
+
+        animationsToTest(animationsToTest)
+    }
+
 }
 

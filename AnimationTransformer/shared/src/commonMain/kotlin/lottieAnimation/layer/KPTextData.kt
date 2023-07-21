@@ -196,7 +196,11 @@ data class KPTextAdditionalAnimationProperties(
     /**
      * Fill Color
      */
-    var fc: KPTextFillColor? = null
+    var fc: KPTextFillColor? = null,
+
+    var o: JsonElement? = null,
+
+    var p: JsonElement? = null
 )
 
 @Serializable
@@ -274,7 +278,9 @@ data class KPTextSubEffectValue(
     /**
      * index position
      */
-    val ix: JsonPrimitive? = null
+    val ix: JsonPrimitive? = null,
+
+    var x: JsonElement? = null
 )
 
 object KPTextCapsSerializer : KSerializer<KPTextCaps> {
