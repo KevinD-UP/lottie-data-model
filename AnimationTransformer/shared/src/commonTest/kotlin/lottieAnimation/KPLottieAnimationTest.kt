@@ -53,6 +53,17 @@ class KPLottieAnimationTest {
             assertNotNull(lottieAnimation)
             val outputJson = json.encodeToString(lottieAnimation)
             val outputAnimationElement = json.parseToJsonElement(outputJson)
+            println()
+            println()
+            println()
+            println("outputAnimationElement = $outputAnimationElement")
+            println()
+            println()
+            println()
+            println("animationElement = $animationElement")
+            println()
+            println()
+            println()
             assertEquals(outputAnimationElement, animationElement)
             println("path done = $path")
         }
@@ -109,5 +120,16 @@ class KPLottieAnimationTest {
 
         animationsToTest(animationsToTest)
     }
+
+    @Test
+    fun testDecodeMarketplace() {
+        val animationsToTest = listOf<String>(
+            //"src/commonTest/resources/animations/marketplace/marketplace-lottie-anim-1.json",
+            "src/commonTest/resources/animations/marketplace/marketplace-lottie-anim-2.json",
+        )
+
+        animationsToTest(animationsToTest)
+    }
+
 }
 
