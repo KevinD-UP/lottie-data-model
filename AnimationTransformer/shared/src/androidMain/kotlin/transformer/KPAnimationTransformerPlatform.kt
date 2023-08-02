@@ -9,6 +9,7 @@ class KPAnimationTransformerAndroid(functionsDelegate: KPAnimationTransformerFun
         animationRulesJsonString: String,
         texts: List<String>?,
         fonts: Map<String, String>?,
+        fontsModels: Map<String, FontModel>?,
         colors: Map<String, String>?
     ): String? {
         return commonTransform(
@@ -16,6 +17,7 @@ class KPAnimationTransformerAndroid(functionsDelegate: KPAnimationTransformerFun
             animationRulesJsonString,
             texts,
             fonts,
+            fontsModels,
             colors
         )
     }

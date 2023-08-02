@@ -19,6 +19,7 @@ abstract class KPAnimationTransformer(
         animationRulesJsonString: String,
         texts: List<String>? = null,
         fonts: Map<String, String>? = null,
+        fontsModels: Map<String, FontModel>? = null,
         colors: Map<String, String>? = null
     ): String?
 
@@ -27,6 +28,7 @@ abstract class KPAnimationTransformer(
         animationRulesJsonString: String,
         texts: List<String>? = null,
         fonts: Map<String, String>? = null,
+        fontsModels: Map<String, FontModel>? = null,
         colors: Map<String, String>? = null
     ) : String? {
       try {
@@ -43,7 +45,8 @@ abstract class KPAnimationTransformer(
         val animationFontTransformed = fontTransformer.transformFonts(
             animation = lottieAnimation,
             animationRules = animationRules,
-            fonts = fonts
+            fonts = fonts,
+            fontsModels = fontsModels
         )
         println("enter text transformer")
         val textTransformer = KPTextTransformer()

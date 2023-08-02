@@ -205,6 +205,7 @@ class ColorTransformer(
             animationRulesJson,
             listOf("Text1", "Text2", "Text3", "Text4"),
             null,
+            null,
             colors
         )
 
