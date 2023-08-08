@@ -63,10 +63,18 @@ abstract class KPAnimationTransformer(
             colors = colors
         )
 
+        println("enter opacity transformer")
+        val opacityTransformer = KPOpacityTransformer()
+        val animationOpacityTransformed = opacityTransformer.transformOpacity(
+          animation = animationColorTransformed,
+          animationRules = animationRules,
+          colors = colors
+        )
+
         println("enter variable transformer")
         val variableTransformer = KPVariableTransformer(delegate = functionsDelegate)
         val animationVariableTransformed = variableTransformer.transformVariables(
-            animation = animationColorTransformed,
+            animation = animationOpacityTransformed,
             animationRules = animationRules
         )
 

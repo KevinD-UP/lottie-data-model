@@ -24,10 +24,10 @@ fun hexaStringToRGBAFloatArray(argbString: String): FloatArray? {
             }
             8 -> {
                 // 8-digit ARGB string
-                alpha = argb.substring(0, 2).toInt(16)
-                red = argb.substring(2, 4).toInt(16)
-                green = argb.substring(4, 6).toInt(16)
-                blue = argb.substring(6, 8).toInt(16)
+                red = argb.substring(0, 2).toInt(16)
+                green = argb.substring(2, 4).toInt(16)
+                blue = argb.substring(4, 6).toInt(16)
+                alpha = argb.substring(6, 8).toInt(16)
             }
             else -> {
                 throw IllegalArgumentException("Invalid ARGB string: $argbString")
