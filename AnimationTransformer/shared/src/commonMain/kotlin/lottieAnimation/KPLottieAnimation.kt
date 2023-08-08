@@ -68,6 +68,8 @@ data class KPLottieAnimation(
      */
     var markers: List<Marker>? = null,
 
+    var props: JsonElement? = null,
+
     var mb: MotionBlur? = null,
 
     /**
