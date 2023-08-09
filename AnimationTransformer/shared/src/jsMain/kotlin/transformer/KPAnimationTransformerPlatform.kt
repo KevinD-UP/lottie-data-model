@@ -22,7 +22,8 @@ class KPAnimationTransformerJs(functionsDelegate: KPAnimationTransformerFunction
                 val nestedMap = mapOf(value).mapValues { it.value?.toString() ?: "" }
                 val fontModel = FontModel(
                     nestedMap["name"].toString(),
-                    nestedMap["size"]?.toInt()
+                    nestedMap["size"]?.toInt(),
+                    nestedMap["textAlign"]?.toInt()
                 )
                 map[key] = fontModel
             }

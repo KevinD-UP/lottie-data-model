@@ -4,11 +4,14 @@ import kotlinx.serialization.json.JsonPrimitive
 import lottieAnimation.Font
 import lottieAnimation.KPLottieAnimation
 import lottieAnimation.layer.KPLayerType
+import lottieAnimation.layer.KPTextJustify
 import lottieAnimation.layer.KPTextLayer
 import lottieAnimation.rules.properties.KPAnimationRules
+
 data class FontModel(
     val name: String,
-    val size: Int?
+    val size: Int?,
+    val textAlign: Int?
 )
 
 class KPFontTransformer(
@@ -38,6 +41,7 @@ class KPFontTransformer(
             if (layerRule.fontKey != null) {
                 val font = parseFontKey(fonts, fontsModels, layerRule.fontKey)
                 val size = parseFontSize(fontsModels, layerRule.fontKey)
+                val textAlign = parseTextAlign(fontsModels, layerRule.fontKey)
                 // Adding the font to the list of Font
                 font?.let { animationResult.fonts?.list = animationResult.fonts?.list?.plus(font) ?: mutableListOf(font) }
                 val textLayer = animationResult.layers.find { it.ind == layerRule.ind && it.ty == KPLayerType.TEXT_LAYER } as? KPTextLayer
@@ -45,6 +49,9 @@ class KPFontTransformer(
                     textLayer.t.d.k.firstOrNull()?.s?.f = font.fName
                     size?.let {
                         textLayer.t.d.k.firstOrNull()?.s?.s = JsonPrimitive(size)
+                    }
+                    textAlign?.let {
+                        textLayer.t.d.k.firstOrNull()?.s?.j = KPTextJustify.from(textAlign)
                     }
                 }
             }
@@ -56,6 +63,12 @@ class KPFontTransformer(
         val fonts = fontsModels ?: return null
         return fonts[fontKey]?.size
     }
+
+    private fun parseTextAlign(fontsModels: Map<String, FontModel>?, fontKey: String): Int? {
+        val fonts = fontsModels ?: return null
+        return fonts[fontKey]?.textAlign
+    }
+
 
     private fun parseFontKey(fonts: Map<String, String>?, fontsModels: Map<String, FontModel>?, fontKey: String): Font? {
 
