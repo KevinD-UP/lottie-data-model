@@ -179,6 +179,8 @@ data class KPShapeLayer(
     override var tg: String? = null,
     override var hix: JsonElement? = null,
 
+    var tp: JsonElement? = null,
+
     /**
      * Shapes
      */

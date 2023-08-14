@@ -1,0 +1,61 @@
+ {
+  "layerRules": [
+    {
+      "ind": 1,
+      "layerName": "#text1",
+      "fontKey": "textBold",
+      "textInd": [0],
+      "colorKey": "color1"
+    },
+    {
+      "ind": 2,
+      "layerName": "#background",
+      "colorKey": "background"
+    }
+  ],
+  "variables": [
+    {
+      "key": "$var0",
+      "transformNodes": [
+        {
+          "ind": 1,
+          "layerType": 5,
+          "transformType": "position_y",
+          "description": "text 0 y position offset"
+        }
+      ],
+      "value": "(1215-getTextMeasureHeight(1))/2",
+      "type": "number"
+    },
+    {
+      "key": "$var1",
+      "transformNodes": [
+        {
+          "ind": 2,
+          "layerType": 4,
+          "transformShapeIndex": 0,
+          "transformShapeItIndex": 0,
+          "transformType": "frame_it_width",
+          "description": "shape layer width"
+        }
+      ],
+      "value": "getTextLayerWidth(1)+50*2",
+      "type": "number"
+    },
+    {
+      "key": "$var2",
+      "transformNodes": [
+        {
+          "ind": 2,
+          "layerType": 4,
+          "transformShapeIndex": 0,
+          "transformShapeItIndex": 0,
+          "transformType": "frame_it_height",
+          "description": "shape layer height"
+        }
+      ],
+      "value": "getTextMeasureHeight(1)+25*2",
+      "type": "number"
+    }
+  ]
+}
