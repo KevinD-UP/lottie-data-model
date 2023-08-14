@@ -2,10 +2,10 @@ package transformer
 
 import kotlinx.serialization.json.JsonPrimitive
 import lottieAnimation.KPLottieAnimation
-import lottieAnimation.layer.KPLayer
 import lottieAnimation.layer.KPLayerType
+import lottieAnimation.layer.KPShapeGroup
 import lottieAnimation.layer.KPShapeLayer
-import lottieAnimation.layer.KPTextLayer
+import lottieAnimation.layer.KPShapeTransform
 import lottieAnimation.layer.properties.KPMultiDimensionalPrimitive
 import lottieAnimation.rules.properties.KPAnimationRules
 
@@ -25,7 +25,17 @@ class KPOpacityTransformer {
 				val targetLayer = animationResult.layers.find { it.ind == layerRule.ind && it.ty == KPLayerType.SHAPE_LAYER } as? KPShapeLayer
 				if (color != null && targetLayer != null) {
 					val opacity = color.opacityFromHex()
-					targetLayer.ks.o?.k = KPMultiDimensionalPrimitive(JsonPrimitive(opacity))
+					targetLayer.shapes?.forEach { shape ->
+						when(shape) {
+							is KPShapeGroup -> {
+								when (val shapeTransform = shape.it[2]){
+									is KPShapeTransform -> shapeTransform.o?.k = KPMultiDimensionalPrimitive(JsonPrimitive(opacity))
+									else -> {}
+								}
+							}
+							else -> {}
+						}
+					}
 				}
 			}
 		}

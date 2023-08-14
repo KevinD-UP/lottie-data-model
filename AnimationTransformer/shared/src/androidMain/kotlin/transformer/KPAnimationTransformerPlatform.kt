@@ -10,7 +10,9 @@ class KPAnimationTransformerAndroid(functionsDelegate: KPAnimationTransformerFun
         texts: List<String>?,
         fonts: Map<String, String>?,
         fontsModels: Map<String, FontModel>?,
-        colors: Map<String, String>?
+        colors: Map<String, String>?,
+        scale: Scale?,
+        size: AnimationSize?
     ): String? {
         return commonTransform(
             lottieJsonString,
@@ -18,7 +20,9 @@ class KPAnimationTransformerAndroid(functionsDelegate: KPAnimationTransformerFun
             texts,
             fonts,
             fontsModels,
-            colors
+            colors,
+            scale,
+            size
         )
     }
 }

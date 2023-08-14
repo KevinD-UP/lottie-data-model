@@ -39,23 +39,50 @@ class KPAnimationTransformerJs(functionsDelegate: KPAnimationTransformerFunction
         texts: Array<String>? = null,
         fontsJson: dynamic = null,
         fontsModelsJson: dynamic = null,
-        colorsJson: dynamic = null
+        colorsJson: dynamic = null,
+        scaleJson: dynamic = null,
+        sizeJson: dynamic = null
     ) : String? {
         var fonts: Map<String, String>? = null
-        var colors: Map<String, String>?  = null
+        var colors: Map<String, String>? = null
         var fontsModels: Map<String, FontModel>? = null
+        var scale: Scale? = null
+        var size: AnimationSize? = null
 
-        if(fontsJson != null) {
+        if (fontsJson != null) {
             fonts = mapOf(fontsJson).mapValues { it.value?.toString() ?: "" }
         }
 
-        if(fontsModelsJson != null) {
+        if (fontsModelsJson != null) {
             fontsModels = convertToObject(fontsModelsJson)
         }
 
-        if(colorsJson != null) {
+        if (colorsJson != null) {
             colors = mapOf(colorsJson).mapValues { it.value?.toString() ?: "" }
         }
+
+        if (scaleJson != null) {
+            val scaleMap = mapOf(scaleJson).mapValues { it.value?.toString() ?: "" }
+            scale = scaleMap["width"]?.let { width ->
+                scaleMap["height"]?.let { height ->
+                    val depth = scaleMap["depth"]?.toLongOrNull()
+                    Scale(width.toLong(), height.toLong(), depth)
+                }
+            }
+        }
+
+        if (sizeJson != null) {
+            val sizeMap = mapOf(sizeJson).mapValues { it.value?.toString() ?: "" }
+            size = sizeMap["width"]?.let {
+                sizeMap["height"]?.let { it1 ->
+                    AnimationSize(
+                        it.toLong(),
+                        it1.toLong()
+                    )
+                }
+            }
+        }
+
 
         return transform(
             lottieJsonString = lottieJsonString,
@@ -63,7 +90,9 @@ class KPAnimationTransformerJs(functionsDelegate: KPAnimationTransformerFunction
             texts = texts?.toList(),
             fonts = fonts,
             fontsModels = fontsModels,
-            colors = colors
+            colors = colors,
+            scale = scale,
+            size = size
         )
     }
 
@@ -73,7 +102,9 @@ class KPAnimationTransformerJs(functionsDelegate: KPAnimationTransformerFunction
         texts: List<String>?,
         fonts: Map<String, String>?,
         fontsModels: Map<String, FontModel>?,
-        colors: Map<String, String>?
+        colors: Map<String, String>?,
+        scale: Scale?,
+        size: AnimationSize?
     ): String? {
         return commonTransform(
             lottieJsonString,
@@ -81,7 +112,9 @@ class KPAnimationTransformerJs(functionsDelegate: KPAnimationTransformerFunction
             texts,
             fonts,
             fontsModels,
-            colors
+            colors,
+            scale,
+            size
         )
     }
 }

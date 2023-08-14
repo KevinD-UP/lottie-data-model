@@ -20,7 +20,9 @@ abstract class KPAnimationTransformer(
         texts: List<String>? = null,
         fonts: Map<String, String>? = null,
         fontsModels: Map<String, FontModel>? = null,
-        colors: Map<String, String>? = null
+        colors: Map<String, String>? = null,
+        scale: Scale? = null,
+        size: AnimationSize? = null
     ): String?
 
     fun commonTransform(
@@ -29,7 +31,9 @@ abstract class KPAnimationTransformer(
         texts: List<String>? = null,
         fonts: Map<String, String>? = null,
         fontsModels: Map<String, FontModel>? = null,
-        colors: Map<String, String>? = null
+        colors: Map<String, String>? = null,
+        scale: Scale? = null,
+        size: AnimationSize? = null
     ) : String? {
       try {
         val json = Json {
@@ -71,10 +75,24 @@ abstract class KPAnimationTransformer(
           colors = colors
         )
 
+        println("enter size transformer")
+        val sizeTransformer = KPSizeTransformer()
+        val animationSizeTransformed = sizeTransformer.transformSize(
+          animation = animationOpacityTransformed,
+          size = size
+        )
+
+        println("enter scale transformer")
+        val scaleTransformer = KPScaleTransformer()
+        val animationScaleTransformed = scaleTransformer.transformScale(
+          animation = animationSizeTransformed,
+          scale = scale
+        )
+
         println("enter variable transformer")
         val variableTransformer = KPVariableTransformer(delegate = functionsDelegate)
         val animationVariableTransformed = variableTransformer.transformVariables(
-            animation = animationOpacityTransformed,
+            animation = animationScaleTransformed,
             animationRules = animationRules
         )
 

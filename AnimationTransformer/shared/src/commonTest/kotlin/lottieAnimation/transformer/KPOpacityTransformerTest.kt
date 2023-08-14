@@ -6,7 +6,9 @@ import kotlinx.serialization.json.Json
 import kotlinx.serialization.json.JsonPrimitive
 import lottieAnimation.KPLottieAnimation
 import lottieAnimation.layer.KPLayer
+import lottieAnimation.layer.KPShapeGroup
 import lottieAnimation.layer.KPShapeLayer
+import lottieAnimation.layer.KPShapeTransform
 import lottieAnimation.layer.properties.KPMultiDimensionalListOrPrimitive
 import lottieAnimation.layer.properties.KPMultiDimensionalPrimitive
 import lottieAnimation.rules.properties.KPAnimationRules
@@ -47,7 +49,7 @@ class KPOpacityTransformerTest {
 
 private fun KPOpacityTransformerTest.assertShapeLayerOpacity(layer: KPLayer, expectedValue: KPMultiDimensionalListOrPrimitive) {
 	assertTrue(layer is KPShapeLayer)
-	val k = layer.ks.o?.k
+	val k = ((layer.shapes?.get(0) as KPShapeGroup).it[2] as KPShapeTransform).o?.k
 	assertEquals(expectedValue, k)
 }
 
