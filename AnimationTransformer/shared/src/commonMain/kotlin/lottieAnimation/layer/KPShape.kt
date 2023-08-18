@@ -205,10 +205,26 @@ data class KPShapeStroke(
 ) : KPShape()
 
 @Serializable
+data class KPShapeOffsetPath(
+    override var ind: JsonPrimitive? = null,
+    override var ty: String,
+    override var bm: Int? = null,
+
+    var nm: String? = null,
+    var a: JsonElement? = null,
+    var lj: JsonPrimitive? = null,
+    var ml: JsonElement? = null,
+    var ix: JsonPrimitive? = null,
+    var mn: String? = null,
+    var hd: Boolean? = null,
+) : KPShape()
+
+@Serializable
 data class KPShapeStrokeColor(
     var a: JsonPrimitive? = null,
     @Serializable(with = KPMultiDimensionalListOrPrimitiveSerializer::class)
     var k: KPMultiDimensionalListOrPrimitive,
+    var x: String? = null,
     var ix: JsonPrimitive? = null
 )
 

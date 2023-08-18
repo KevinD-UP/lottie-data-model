@@ -17,7 +17,8 @@ enum class KPShapeType(val value: String) {
     STAR("sr"),
     STROKE("st"),
     TRANSFORM("tr"),
-    TRIM("tm");
+    TRIM("tm"),
+    OFFSET_PATH("op");
 
     companion object {
         infix fun from(value: String): KPShapeType? =

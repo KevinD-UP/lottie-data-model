@@ -200,7 +200,13 @@ data class KPTextAdditionalAnimationProperties(
 
     var o: JsonElement? = null,
 
-    var p: JsonElement? = null
+    var p: JsonElement? = null,
+
+    var t: JsonElement? = null,
+
+    var ls: JsonElement? = null,
+
+    var sw: JsonElement? = null
 )
 
 @Serializable

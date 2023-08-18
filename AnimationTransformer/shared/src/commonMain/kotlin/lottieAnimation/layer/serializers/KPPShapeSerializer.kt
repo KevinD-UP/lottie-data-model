@@ -25,6 +25,7 @@ object KPPShapeSerializer : KSerializer<KPShape> {
             is KPShapeStroke -> encoder.encodeSerializableValue(KPShapeStroke.serializer(), value)
             is KPShapeTransform -> encoder.encodeSerializableValue(KPShapeTransform.serializer(), value)
             is KPShapeTrim -> encoder.encodeSerializableValue(KPShapeTrim.serializer(), value)
+            is KPShapeOffsetPath -> encoder.encodeSerializableValue(KPShapeOffsetPath.serializer(), value)
             else -> {}
         }
     }
@@ -83,6 +84,10 @@ object KPPShapeSerializer : KSerializer<KPShape> {
             )
             KPShapeType.STROKE -> Json.decodeFromJsonElement(
                 KPShapeStroke.serializer(),
+                layer.jsonObject
+            )
+            KPShapeType.OFFSET_PATH -> Json.decodeFromJsonElement(
+                KPShapeOffsetPath.serializer(),
                 layer.jsonObject
             )
 
