@@ -47,9 +47,13 @@ class KPFontTransformer(
                 val size = parseFontSize(fontsModels, layerRule.fontKey)
                 val textAlign = parseTextAlign(fontsModels, layerRule.fontKey)
                 // Adding the font to the list of Font
-                font?.let {
-                    animationResult.fonts?.list =
-                        animationResult.fonts?.list?.plus(font) ?: mutableListOf(font)
+                if (font != null) {
+                    if (animationResult.fonts?.list?.none { it.fName == font.fName } == true) {
+                        font.let {
+                            animationResult.fonts?.list =
+                                animationResult.fonts?.list?.plus(font) ?: mutableListOf(font)
+                        }
+                    }
                 }
                 val textLayer =
                     animationResult.layers.find { it.ind == layerRule.ind && it.ty == KPLayerType.TEXT_LAYER } as? KPTextLayer
