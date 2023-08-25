@@ -43,8 +43,6 @@ class KPEffectTransformer {
 
 			val sliderEffect = effect.ef.find { it.nm.toString().removeSurrounding("\"") == "Slider" }
 			val opacityEffect = effect.ef.find { it.nm.toString().removeSurrounding("\"") == "Opacity" }
-			println(effect)
-			println(opacityEffect)
 
 			when (EffectName.values()
 				.find { it.propertyName == effect.nm.toString().removeSurrounding("\"") } as EffectName) {

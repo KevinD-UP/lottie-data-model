@@ -6,6 +6,7 @@ import lottieAnimation.layer.KPLayerType
 import lottieAnimation.layer.KPShapeGroup
 import lottieAnimation.layer.KPShapeLayer
 import lottieAnimation.layer.KPShapeTransform
+import lottieAnimation.layer.properties.KPMultiDimensional
 import lottieAnimation.layer.properties.KPMultiDimensionalPrimitive
 import lottieAnimation.rules.properties.KPAnimationRules
 
@@ -25,17 +26,7 @@ class KPOpacityTransformer {
 				val targetLayer = animationResult.layers.find { it.ind == layerRule.ind && it.ty == KPLayerType.SHAPE_LAYER } as? KPShapeLayer
 				if (color != null && targetLayer != null) {
 					val opacity = color.opacityFromHex()
-					targetLayer.shapes?.forEach { shape ->
-						when(shape) {
-							is KPShapeGroup -> {
-								when (val shapeTransform = shape.it[2]){
-									is KPShapeTransform -> shapeTransform.o?.k = KPMultiDimensionalPrimitive(JsonPrimitive(opacity))
-									else -> {}
-								}
-							}
-							else -> {}
-						}
-					}
+					targetLayer.ks.o?.k = KPMultiDimensionalPrimitive(JsonPrimitive(opacity))
 				}
 			}
 		}

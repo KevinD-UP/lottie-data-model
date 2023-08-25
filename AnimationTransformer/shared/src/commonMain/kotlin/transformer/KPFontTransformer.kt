@@ -59,55 +59,57 @@ class KPFontTransformer(
                         textLayer.t.d.k.firstOrNull()?.s?.s = JsonPrimitive(size)
                     }
                     textAlign?.let {
+                        val panelX = (animationResult.layers.find { it.nm == "control_panel" } as KPNullLayer)
+                            .ef?.find { it.nm.toString() == "\"Panel_X\"" }
+                            ?.ef?.find { it.nm.toString() == "\"Slider\"" }?.v
+                        val condition = KPTextJustify.from(textAlign)?.name != textLayer.t.d.k.firstOrNull()?.s?.j?.name
+                        if(condition) {
+                            when (KPTextJustify.from(textAlign)) {
+                                KPTextJustify.LEFT -> {
+                                    panelX?.k =
+                                        KPMultiDimensionalPrimitive(
+                                            JsonPrimitive(
+                                                delegate.getTextLayerWidth(
+                                                    texts?.get(0) as String,
+                                                    font.fName,
+                                                    textLayer.t.d.k.firstOrNull()?.s?.s.toString()
+                                                        .toDouble()
+                                                ) / -2
+                                            )
+                                        )
+                                }
+
+                                KPTextJustify.RIGHT -> {
+                                    panelX?.k =
+                                        KPMultiDimensionalPrimitive(
+                                            JsonPrimitive(
+                                                delegate.getTextLayerWidth(
+                                                    texts?.get(0) as String,
+                                                    font.fName,
+                                                    textLayer.t.d.k.firstOrNull()?.s?.s.toString()
+                                                        .toDouble()
+                                                ) / 2
+                                            )
+                                        )
+                                }
+
+                                KPTextJustify.CENTER -> {
+                                    panelX?.k =
+                                        KPMultiDimensionalPrimitive(
+                                            JsonPrimitive(
+                                                0
+                                            )
+                                        )
+                                }
+
+                                else -> {}
+                            }
+                        }
                         textLayer.t.d.k.firstOrNull()?.s?.j = KPTextJustify.from(textAlign)
                         textLayer.ef?.find { it.nm.toString() == "\"T_Alignment\"" }?.ef?.firstOrNull()?.v?.k =
                             KPMultiDimensionalPrimitive(
                                 JsonPrimitive(textAlign)
                             )
-                        val panelX = (animationResult.layers.find { it.nm == "control_panel" } as KPNullLayer)
-                            .ef?.find { it.nm.toString() == "\"Panel_X\"" }
-                            ?.ef?.find { it.nm.toString() == "\"Slider\"" }?.v
-                        when (KPTextJustify.from(textAlign)) {
-                            KPTextJustify.LEFT -> {
-                                panelX?.k =
-                                KPMultiDimensionalPrimitive(
-                                    JsonPrimitive(
-                                        delegate.getTextLayerWidth(
-                                            texts?.get(0) as String,
-                                            font.fName,
-                                            textLayer.t.d.k.firstOrNull()?.s?.s.toString()
-                                                .toDouble()
-                                        ) / -2
-                                    )
-                                )
-                            }
-
-                            KPTextJustify.RIGHT -> {
-                                panelX?.k =
-                                    KPMultiDimensionalPrimitive(
-                                        JsonPrimitive(
-                                        delegate.getTextLayerWidth(
-                                            texts?.get(0) as String,
-                                            font.fName,
-                                            textLayer.t.d.k.firstOrNull()?.s?.s.toString()
-                                                .toDouble()
-                                            ) / 2
-                                        )
-                                    )
-                            }
-
-                            KPTextJustify.CENTER -> {
-                                panelX?.k =
-                                    KPMultiDimensionalPrimitive(
-                                        JsonPrimitive(
-                                            0
-                                        )
-                                    )
-                            }
-
-                            else -> {}
-                        }
-
                     }
                 }
             }

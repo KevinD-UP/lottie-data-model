@@ -40,7 +40,6 @@ class KPAnimationTransformerJs(functionsDelegate: KPAnimationTransformerFunction
         val bannerSkew = map["bannerSkew"].toString().toDouble() as? Double
         val bannerRoundness = map["bannerRoundness"].toString().toDouble() as? Double
         val bannerStrokeWidth = map["bannerStrokeWidth"].toString().toDouble() as? Double
-        val bannerDropShadow = map["bannerDropShadow"].toString().toDouble() as? Double
         val textCharaspacing = map["textCharaspacing"].toString().toDouble() as? Double
         val textStrokeWidth = map["textStrokeWidth"].toString().toDouble() as? Double
         val textDropShadow = map["textDropShadow"].toString().toDouble() as? Double
@@ -51,7 +50,6 @@ class KPAnimationTransformerJs(functionsDelegate: KPAnimationTransformerFunction
             bannerSkew,
             bannerRoundness,
             bannerStrokeWidth,
-            bannerDropShadow,
             textCharaspacing,
             textStrokeWidth,
             textDropShadow
