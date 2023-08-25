@@ -22,7 +22,7 @@ class KPScaleTransformer {
 		val animationResult = animation.copy()
 		if(scale == null) return animationResult
 
-		val targetLayer = animationResult.layers.find { it.nm == "control_panel" && it.ty == KPLayerType.NULL_LAYER } as? KPNullLayer
+		val targetLayer = animationResult.layers.find { it.nm == "scale" && it.ty == KPLayerType.NULL_LAYER } as? KPNullLayer
 		if(targetLayer != null) {
 			val depth = scale.depth ?: 100
 			targetLayer.ks.s?.k =

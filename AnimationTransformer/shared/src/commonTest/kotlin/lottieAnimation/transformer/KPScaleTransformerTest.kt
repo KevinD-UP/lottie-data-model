@@ -6,6 +6,7 @@ import kotlinx.serialization.json.Json
 import kotlinx.serialization.json.JsonPrimitive
 import lottieAnimation.KPLottieAnimation
 import lottieAnimation.layer.KPLayer
+import lottieAnimation.layer.KPLayerType
 import lottieAnimation.layer.KPNullLayer
 import lottieAnimation.layer.properties.KPMultiDimensionalList
 import lottieAnimation.layer.properties.KPMultiDimensionalListOrPrimitive
@@ -22,9 +23,9 @@ class KPScaleTransformerTest {
 
 	@Test
 	fun slideLeftRight_In_Out() {
-		val sut = setupSUT("SlideLeftRight_In-Out")
-		val controlPanelLayer = sut.layers[0] // control_panel is always at position 0
-		assertScale(controlPanelLayer, KPMultiDimensionalList(
+		val sut = setupSUT("SlideLeftRight_InOut_final")
+		val scaleLayer = sut.layers.find { it.nm == "scale" && it.ty == KPLayerType.NULL_LAYER } as KPLayer  // control_panel is always at position 0
+		assertScale(scaleLayer, KPMultiDimensionalList(
 			listOf(
 				KPMultiDimensionalNodePrimitive(JsonPrimitive(200)),
 				KPMultiDimensionalNodePrimitive(JsonPrimitive(200)),

@@ -10,7 +10,7 @@ class KPAnimationTransformerJs(functionsDelegate: KPAnimationTransformerFunction
     private fun mapOf(jsObject: dynamic): Map<String, Any?> =
         entriesOf(jsObject).toMap()
 
-    private fun convertToObject(jsObject: dynamic): Map<String, FontModel> {
+    private fun convertToFontModelMap(jsObject: dynamic): Map<String, FontModel> {
         val map = mutableMapOf<String, FontModel>()
 
         val entries = entriesOf(jsObject)
@@ -32,6 +32,33 @@ class KPAnimationTransformerJs(functionsDelegate: KPAnimationTransformerFunction
         return map
     }
 
+    private fun mapToEffects(jsObject: dynamic): Effects {
+        val map = mapOf(jsObject)
+
+        val bannerMarginWidth = map["bannerMarginWidth"].toString().toDouble() as? Double
+        val bannerMarginHeight = map["bannerMarginHeight"].toString().toDouble() as? Double
+        val bannerSkew = map["bannerSkew"].toString().toDouble() as? Double
+        val bannerRoundness = map["bannerRoundness"].toString().toDouble() as? Double
+        val bannerStrokeWidth = map["bannerStrokeWidth"].toString().toDouble() as? Double
+        val bannerDropShadow = map["bannerDropShadow"].toString().toDouble() as? Double
+        val textCharaspacing = map["textCharaspacing"].toString().toDouble() as? Double
+        val textStrokeWidth = map["textStrokeWidth"].toString().toDouble() as? Double
+        val textDropShadow = map["textDropShadow"].toString().toDouble() as? Double
+
+        return Effects(
+            bannerMarginWidth,
+            bannerMarginHeight,
+            bannerSkew,
+            bannerRoundness,
+            bannerStrokeWidth,
+            bannerDropShadow,
+            textCharaspacing,
+            textStrokeWidth,
+            textDropShadow
+        )
+    }
+
+
     @JsName("transformJs")
     fun transformJs(
         lottieJsonString: String,
@@ -41,20 +68,22 @@ class KPAnimationTransformerJs(functionsDelegate: KPAnimationTransformerFunction
         fontsModelsJson: dynamic = null,
         colorsJson: dynamic = null,
         scaleJson: dynamic = null,
-        sizeJson: dynamic = null
+        sizeJson: dynamic = null,
+        effectsJson: dynamic = null
     ) : String? {
         var fonts: Map<String, String>? = null
         var colors: Map<String, String>? = null
         var fontsModels: Map<String, FontModel>? = null
         var scale: Scale? = null
         var size: AnimationSize? = null
+        var effects: Effects? = null
 
         if (fontsJson != null) {
             fonts = mapOf(fontsJson).mapValues { it.value?.toString() ?: "" }
         }
 
         if (fontsModelsJson != null) {
-            fontsModels = convertToObject(fontsModelsJson)
+            fontsModels = convertToFontModelMap(fontsModelsJson)
         }
 
         if (colorsJson != null) {
@@ -83,6 +112,10 @@ class KPAnimationTransformerJs(functionsDelegate: KPAnimationTransformerFunction
             }
         }
 
+        if (effectsJson != null) {
+            effects = mapToEffects(effectsJson)
+        }
+
 
         return transform(
             lottieJsonString = lottieJsonString,
@@ -92,7 +125,8 @@ class KPAnimationTransformerJs(functionsDelegate: KPAnimationTransformerFunction
             fontsModels = fontsModels,
             colors = colors,
             scale = scale,
-            size = size
+            size = size,
+            effects = effects
         )
     }
 
@@ -104,7 +138,8 @@ class KPAnimationTransformerJs(functionsDelegate: KPAnimationTransformerFunction
         fontsModels: Map<String, FontModel>?,
         colors: Map<String, String>?,
         scale: Scale?,
-        size: AnimationSize?
+        size: AnimationSize?,
+        effects: Effects?
     ): String? {
         return commonTransform(
             lottieJsonString,
@@ -114,7 +149,8 @@ class KPAnimationTransformerJs(functionsDelegate: KPAnimationTransformerFunction
             fontsModels,
             colors,
             scale,
-            size
+            size,
+            effects
         )
     }
 }

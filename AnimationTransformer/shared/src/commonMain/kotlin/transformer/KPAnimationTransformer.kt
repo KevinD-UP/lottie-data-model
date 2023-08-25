@@ -22,7 +22,8 @@ abstract class KPAnimationTransformer(
         fontsModels: Map<String, FontModel>? = null,
         colors: Map<String, String>? = null,
         scale: Scale? = null,
-        size: AnimationSize? = null
+        size: AnimationSize? = null,
+        effects: Effects? = null
     ): String?
 
     fun commonTransform(
@@ -33,7 +34,8 @@ abstract class KPAnimationTransformer(
         fontsModels: Map<String, FontModel>? = null,
         colors: Map<String, String>? = null,
         scale: Scale? = null,
-        size: AnimationSize? = null
+        size: AnimationSize? = null,
+        effects: Effects? = null
     ) : String? {
       try {
         val json = Json {
@@ -50,7 +52,8 @@ abstract class KPAnimationTransformer(
             animation = lottieAnimation,
             animationRules = animationRules,
             fonts = fonts,
-            fontsModels = fontsModels
+            fontsModels = fontsModels,
+            texts = texts
         )
         println("enter text transformer")
         val textTransformer = KPTextTransformer()
@@ -89,10 +92,14 @@ abstract class KPAnimationTransformer(
           scale = scale
         )
 
+        println("enter effects transformer")
+        val effectTransformer = KPEffectTransformer()
+        val animationEffectTransformed = effectTransformer.transformEffect(animation = animationScaleTransformed, effects = effects)
+
         println("enter variable transformer")
         val variableTransformer = KPVariableTransformer(delegate = functionsDelegate)
         val animationVariableTransformed = variableTransformer.transformVariables(
-            animation = animationScaleTransformed,
+            animation = animationEffectTransformed,
             animationRules = animationRules
         )
 
