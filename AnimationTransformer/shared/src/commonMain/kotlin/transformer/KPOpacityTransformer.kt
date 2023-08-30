@@ -23,7 +23,7 @@ class KPOpacityTransformer {
 		animationRules.layerRules.forEach { layerRule ->
 			if(layerRule.colorKey != null) {
 				val color = colors[layerRule.colorKey]
-				val targetLayer = animationResult.layers.find { it.ind == layerRule.ind && it.ty == KPLayerType.SHAPE_LAYER } as? KPShapeLayer
+				val targetLayer = animationResult.layers.find { it.nm == layerRule.layerName && it.ty == KPLayerType.SHAPE_LAYER } as? KPShapeLayer
 				if (color != null && targetLayer != null) {
 					val opacity = color.opacityFromHex()
 					targetLayer.ks.o?.k = KPMultiDimensionalPrimitive(JsonPrimitive(opacity))
