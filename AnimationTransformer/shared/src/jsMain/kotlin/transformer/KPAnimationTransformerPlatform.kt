@@ -22,7 +22,7 @@ class KPAnimationTransformerJs(functionsDelegate: KPAnimationTransformerFunction
                 val nestedMap = mapOf(value).mapValues { it.value?.toString() ?: "" }
                 val fontModel = FontModel(
                     nestedMap["name"].toString(),
-                    nestedMap["size"]?.toInt(),
+                    null,
                     nestedMap["textAlign"]?.toInt()
                 )
                 map[key] = fontModel
@@ -37,22 +37,24 @@ class KPAnimationTransformerJs(functionsDelegate: KPAnimationTransformerFunction
 
         val bannerMarginWidth = map["bannerMarginWidth"].toString().toDouble() as? Double
         val bannerMarginHeight = map["bannerMarginHeight"].toString().toDouble() as? Double
+        /*
         val bannerSkew = map["bannerSkew"].toString().toDouble() as? Double
         val bannerRoundness = map["bannerRoundness"].toString().toDouble() as? Double
         val bannerStrokeWidth = map["bannerStrokeWidth"].toString().toDouble() as? Double
         val textCharaspacing = map["textCharaspacing"].toString().toDouble() as? Double
         val textStrokeWidth = map["textStrokeWidth"].toString().toDouble() as? Double
         val textDropShadow = map["textDropShadow"].toString().toDouble() as? Double
+         */
 
         return Effects(
             bannerMarginWidth,
             bannerMarginHeight,
-            bannerSkew,
-            bannerRoundness,
-            bannerStrokeWidth,
-            textCharaspacing,
-            textStrokeWidth,
-            textDropShadow
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
         )
     }
 
@@ -77,18 +79,22 @@ class KPAnimationTransformerJs(functionsDelegate: KPAnimationTransformerFunction
         var effects: Effects? = null
 
         if (fontsJson != null) {
+            println("Create Font Map")
             fonts = mapOf(fontsJson).mapValues { it.value?.toString() ?: "" }
         }
 
         if (fontsModelsJson != null) {
+            println("Create Font Model Map")
             fontsModels = convertToFontModelMap(fontsModelsJson)
         }
 
         if (colorsJson != null) {
+            println("Create Color Map")
             colors = mapOf(colorsJson).mapValues { it.value?.toString() ?: "" }
         }
 
         if (scaleJson != null) {
+            println("Create Scale object")
             val scaleMap = mapOf(scaleJson).mapValues { it.value?.toString() ?: "" }
             scale = scaleMap["width"]?.let { width ->
                 scaleMap["height"]?.let { height ->
@@ -99,6 +105,7 @@ class KPAnimationTransformerJs(functionsDelegate: KPAnimationTransformerFunction
         }
 
         if (sizeJson != null) {
+            println("Create AnimationSize object")
             val sizeMap = mapOf(sizeJson).mapValues { it.value?.toString() ?: "" }
             size = sizeMap["width"]?.let {
                 sizeMap["height"]?.let { it1 ->
@@ -111,6 +118,7 @@ class KPAnimationTransformerJs(functionsDelegate: KPAnimationTransformerFunction
         }
 
         if (effectsJson != null) {
+            println("Create Effects object")
             effects = mapToEffects(effectsJson)
         }
 

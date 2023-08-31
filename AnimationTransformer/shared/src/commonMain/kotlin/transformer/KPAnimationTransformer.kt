@@ -45,9 +45,9 @@ abstract class KPAnimationTransformer(
         }
         val lottieAnimation = json.decodeFromString<KPLottieAnimation?>(lottieJsonString) ?: return null
         val animationRules = json.decodeFromString<KPAnimationRules?>(animationRulesJsonString) ?: return null
-        val fontTransformer = KPFontTransformer(functionsDelegate)
 
         println("enter font transformer")
+        val fontTransformer = KPFontTransformer(functionsDelegate)
         val animationFontTransformed = fontTransformer.transformFonts(
             animation = lottieAnimation,
             animationRules = animationRules,
