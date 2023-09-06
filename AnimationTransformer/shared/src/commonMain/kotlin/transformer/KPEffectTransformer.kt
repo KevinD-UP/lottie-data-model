@@ -49,13 +49,13 @@ class KPEffectTransformer {
 				EffectName.BANNER_MARGIN_WIDTH -> {
 					if (effects.bannerMarginWidth != null)
 						sliderEffect?.v?.k =
-							KPMultiDimensionalPrimitive(JsonPrimitive(effects.bannerMarginWidth))
+							KPMultiDimensionalPrimitive(JsonPrimitive(effects.bannerMarginWidth * 2))
 				}
 
 				EffectName.BANNER_MARGIN_HEIGHT -> {
 					if (effects.bannerMarginHeight != null)
 						sliderEffect?.v?.k =
-							KPMultiDimensionalPrimitive(JsonPrimitive(effects.bannerMarginHeight))
+							KPMultiDimensionalPrimitive(JsonPrimitive(effects.bannerMarginHeight * 2))
 				}
 
 				EffectName.BANNER_SKEW -> {
