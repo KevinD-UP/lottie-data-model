@@ -1,0 +1,35 @@
+{
+  "name": "@pitchy-team/animation-transformer",
+  "version": "1.0.0",
+  "description": "Animation Transformer to customize Lottie Animation",
+  "main": "index.js",
+  "types": "@types/animation-transformer.d.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "semantic-release": "semantic-release"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://gitlab.com/pitchy-team/core/animation-transformer.git"
+  },
+  "bugs": {
+    "url": "https://gitlab.com/pitchy-team/core/animation-transformer/-/issues"
+  },
+  "homepage": "https://gitlab.com/pitchy-team/core/animation-transformer",
+  "keywords": [
+    "Lottie",
+    "Animation",
+    "Transformer"
+  ],
+  "publishConfig": {
+    "@pitchy-team:registry": "https://gitlab.com/api/v4/projects/32771828/packages/npm/"
+  },
+  "author": "",
+  "license": "UNLICENSED",
+  "devDependencies": {
+    "@semantic-release/git": "^10.0.1",
+    "@semantic-release/gitlab": "^12.0.5",
+    "@semantic-release/npm": "^10.0.5",
+    "semantic-release": "^21.1.1"
+  }
+}

@@ -1,0 +1,59 @@
+variables:
+  NPM_TOKEN: ${CI_JOB_TOKEN}
+
+stages:
+  - build
+  - deploy
+
+.move_animation_transformer:
+  before_script:
+    - cd AnimationTransformer 
+
+build_development_executable:
+  image: gradle:7.5
+  stage: build
+  extends: 
+    - .move_animation_transformer
+  script:
+    - ./gradlew JsBrowserDevelopmentWebpack
+    - mv ./shared/build/developmentExecutable/kmp_lib.js distJS/animation-transformer.development.js
+  only:
+    - master  # This job will only run on the 'master' branch
+
+build_production_executable:
+  image: gradle:7.5
+  stage: build
+  extends: 
+    - .move_animation_transformer
+  script:
+    - ./gradlew JsBrowserProductionWebpack
+    - mv ./shared/build/distributions/kmp_lib.js distJS/animation-transformer.production.js
+  only:
+    - master  # This job will only run on the 'master' branch
+
+
+release_npm:
+  image: node:18-alpine
+  stage: deploy
+  dependencies: 
+    - build_development_executable
+    - build_production_executable
+  extends: 
+    - .move_animation_transformer
+  variables:
+    GITLAB_TOKEN: $PERSONAL_TOKEN
+  script:
+    - apk update  # Update package repository information
+    - apk add git  # Install Git
+    - git --version
+    - cd distJS/
+    - npm ci --cache .npm --prefer-offline
+    - |
+      {
+        echo "@pitchy-team:registry=https://gitlab.com/api/v4/projects/32771828/packages/npm/"
+        echo "//gitlab.com/api/v4/projects/32771828/packages/npm/:_authToken=${CI_JOB_TOKEN}"
+      } | tee -a .npmrc
+    - npm run semantic-release
+    - echo "-- build completed succesfully"
+  only:
+    - master  # This job will only run on the 'master' branch
