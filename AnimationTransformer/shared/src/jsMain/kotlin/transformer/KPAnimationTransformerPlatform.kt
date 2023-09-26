@@ -54,6 +54,7 @@ class KPAnimationTransformerJs(functionsDelegate: KPAnimationTransformerFunction
             null,
             null,
             null,
+            null,
             null
         )
     }

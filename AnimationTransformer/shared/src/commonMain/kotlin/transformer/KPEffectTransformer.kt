@@ -12,6 +12,7 @@ data class Effects(
 	val bannerSkew: Double?,
 	val bannerRoundness: Double?,
 	val bannerStrokeWidth: Double?,
+	val bannerDropShadow: Double?,
 	val textCharaspacing: Double?,
 	val textStrokeWidth: Double?,
 	val textDropShadow: Double?
@@ -25,6 +26,7 @@ enum class EffectName(val propertyName: String) {
 	BANNER_SKEW("B_Skew"),
 	BANNER_ROUNDNESS("B_Roundness"),
 	BANNER_STROKE_WIDTH("B_Stroke_Width"),
+	BANNER_DROP_SHADOW("B_Shadow"),
 	TEXT_CHARASPACING("T_Charaspacing"),
 	TEXT_STROKE_WIDTH("T_Stroke_Width"),
 	TEXT_DROP_SHADOW("T_Shadow")
@@ -86,6 +88,13 @@ class KPEffectTransformer {
 					if (effects.textStrokeWidth != null)
 						sliderEffect?.v?.k =
 							KPMultiDimensionalPrimitive(JsonPrimitive(effects.textStrokeWidth))
+				}
+
+				EffectName.BANNER_DROP_SHADOW -> {
+					if (effects.bannerDropShadow != null) {
+						opacityEffect?.v?.k =
+							KPMultiDimensionalPrimitive(JsonPrimitive(effects.bannerDropShadow*2))
+					}
 				}
 
 				EffectName.TEXT_DROP_SHADOW -> {
