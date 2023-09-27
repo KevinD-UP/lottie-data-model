@@ -146,7 +146,8 @@ class KPLottieAnimationTest {
             //"src/commonTest/resources/animations/animatedText/SlideLeftRight_InOut_Height.json"
             //"src/commonTest/resources/animations/animatedText/SlideLeftRight_InOut_complete.json"
             //"src/commonTest/resources/animations/animatedText/SlideLeftRight_InOut_clean.json"
-            "src/commonTest/resources/animations/animatedText/SlideLeftRight_InOut_final.json"
+            //"src/commonTest/resources/animations/animatedText/SlideLeftRight_InOut_final.json"
+            "src/commonTest/resources/animations/animatedText/SlideLeftRight_In-Out_Palette.json"
         )
 
         animationsToTest(animationsToTest)

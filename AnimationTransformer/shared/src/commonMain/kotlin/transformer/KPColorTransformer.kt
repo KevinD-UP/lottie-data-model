@@ -26,6 +26,12 @@ class KPColorTransformer {
 
         val layers: MutableList<KPLayer> = modifiedAnimation.layers.toMutableList()
 
+        val paletteLayer = layers.find { it.nm == "palette" } as KPNullLayer?
+        if(paletteLayer != null) {
+            changePalette(paletteLayer, colors)
+            return modifiedAnimation
+        }
+
         animationRules.layerRules.forEach { layerRule ->
 
             if (layerRule.opacityKey != null) {
@@ -564,6 +570,22 @@ class KPColorTransformer {
         }
 
         return JsonArray(list)
+    }
+
+    private fun changePalette(paletteLayer: KPNullLayer, colors: Map<String, String>){
+        colors.forEach { (key, value) ->
+            println("key = $key, value=$value")
+            val colorEffect = paletteLayer.ef?.find { it.nm.toString().removeSurrounding("\"") == key }
+            println("colorEffect = $colorEffect")
+            val colorArray = hexaStringToRGBAFloatArray(value)
+            println("colorArray = $colorArray")
+            colorEffect?.ef?.get(0)?.v?.k = KPMultiDimensionalList(listOf(
+                KPMultiDimensionalNodePrimitive(JsonPrimitive(colorArray?.get(0))), // R
+                KPMultiDimensionalNodePrimitive(JsonPrimitive(colorArray?.get(1))), // G
+                KPMultiDimensionalNodePrimitive(JsonPrimitive(colorArray?.get(2))), // B
+                KPMultiDimensionalNodePrimitive(JsonPrimitive(1)) // A (not used for opacity, use "o" instead)
+            ))
+        }
     }
 
     private fun FloatArray.toJsonArray(): JsonArray {

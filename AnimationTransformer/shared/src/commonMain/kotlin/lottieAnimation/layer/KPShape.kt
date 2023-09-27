@@ -52,7 +52,8 @@ data class KPShapeFillColor(
     var a: JsonPrimitive? = null,
     @Serializable(with = KPMultiDimensionalListOrPrimitiveSerializer::class)
     var k: KPMultiDimensionalListOrPrimitive,
-    var ix: JsonPrimitive? = null
+    var ix: JsonPrimitive? = null,
+    var x: JsonElement? = null
 )
 
 @Serializable
