@@ -7,6 +7,8 @@ import lottieAnimation.layer.KPNullLayer
 import lottieAnimation.layer.properties.KPMultiDimensionalPrimitive
 
 data class Effects(
+	val panelX: Double?,
+	val panelY: Double?,
 	val bannerMarginWidth: Double?,
 	val bannerMarginHeight: Double?,
 	val bannerSkew: Double?,
@@ -48,6 +50,17 @@ class KPEffectTransformer {
 
 			when (EffectName.values()
 				.find { it.propertyName == effect.nm.toString().removeSurrounding("\"") } as EffectName) {
+				EffectName.PANEL_X -> {
+					if (effects.panelX != null)
+						sliderEffect?.v?.k =
+							KPMultiDimensionalPrimitive(JsonPrimitive(effects.panelX))
+				}
+				EffectName.PANEL_Y -> {
+					if (effects.panelY != null)
+						sliderEffect?.v?.k =
+							KPMultiDimensionalPrimitive(JsonPrimitive(effects.panelY))
+				}
+
 				EffectName.BANNER_MARGIN_WIDTH -> {
 					if (effects.bannerMarginWidth != null)
 						sliderEffect?.v?.k =

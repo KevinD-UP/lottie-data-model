@@ -35,6 +35,8 @@ class KPAnimationTransformerJs(functionsDelegate: KPAnimationTransformerFunction
     private fun mapToEffects(jsObject: dynamic): Effects {
         val map = mapOf(jsObject)
 
+        val panelX = map["panelX"].toString().toDouble() as? Double
+        val panelY = map["panelY"].toString().toDouble() as? Double
         val bannerMarginWidth = map["bannerMarginWidth"].toString().toDouble() as? Double
         val bannerMarginHeight = map["bannerMarginHeight"].toString().toDouble() as? Double
         /*
@@ -47,6 +49,8 @@ class KPAnimationTransformerJs(functionsDelegate: KPAnimationTransformerFunction
          */
 
         return Effects(
+            panelX,
+            panelY,
             bannerMarginWidth,
             bannerMarginHeight,
             null,
