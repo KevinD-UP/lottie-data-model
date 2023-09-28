@@ -25,8 +25,8 @@ class KPSizeTransformer {
 		if (targetLayer != null) {
 			targetLayer.ks.p?.k = KPMultiDimensionalList(
 				listOf(
-					KPMultiDimensionalNodePrimitive(JsonPrimitive(size.width/2)),
-					KPMultiDimensionalNodePrimitive(JsonPrimitive(size.height/2)),
+					KPMultiDimensionalNodePrimitive(JsonPrimitive(size.width)),
+					KPMultiDimensionalNodePrimitive(JsonPrimitive(size.height)),
 					KPMultiDimensionalNodePrimitive(JsonPrimitive(0))
 				)
 			)
