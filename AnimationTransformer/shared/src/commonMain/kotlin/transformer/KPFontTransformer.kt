@@ -12,8 +12,7 @@ import lottieAnimation.layer.KPTextLayer
 import lottieAnimation.rules.properties.KPAnimationRules
 
 data class FontModel(
-    val name: String,
-    val size: Int?,
+    val fontName: String?,
     val textAlign: Int?
 )
 
@@ -31,21 +30,102 @@ class KPFontTransformer(
 
     fun transformFonts(
         animation: KPLottieAnimation,
-        animationRules: KPAnimationRules,
+        animationRules: KPAnimationRules? = null,
         fonts: Map<String, String>? = null,
-        fontsModels: Map<String, FontModel>? = null,
+        fontModel: FontModel? = null,
         texts: List<String>? = null
     )
-        : KPLottieAnimation
-    {
+        : KPLottieAnimation {
         val animationResult = animation.copy()
-        if(fonts == null && fontsModels == null) return animationResult
+        if (fonts == null && fontModel == null) return animationResult
+
+        if (animationRules == null) {
+            val fontName = fontModel?.fontName?.substringAfterLast("/")?.substringBefore(".")
+            val splitFont = fontName?.split('-')
+            val ascent = fontName?.let { delegate.getAscent("gM", it, 108.0) }
+            val fontFamily = splitFont?.get(0)
+            val fontStyle = splitFont?.get(1)
+            val font = Font(
+                fName = fontName!!,
+                fFamily = fontFamily!!,
+                fStyle = fontStyle!!,
+                ascent = JsonPrimitive(value = ascent)
+            )
+            val textAlign = fontModel.textAlign
+            // Adding the font to the list of Font
+            if (animationResult.fonts?.list?.none { it.fName == font.fName } == true) {
+                font.let {
+                    animationResult.fonts?.list =
+                        animationResult.fonts?.list?.plus(font) ?: mutableListOf(font)
+                }
+            }
+            val textLayer =
+                animationResult.layers.find { it.nm == "text1" && it.ty == KPLayerType.TEXT_LAYER } as? KPTextLayer
+            val textTemplateLayer =
+                animationResult.layers.find { it.nm == "text1_template" && it.ty == KPLayerType.TEXT_LAYER } as? KPTextLayer
+            if (textLayer != null && textTemplateLayer != null) {
+                textLayer.t.d.k.firstOrNull()?.s?.f = font.fName
+                textTemplateLayer.t.d.k.firstOrNull()?.s?.f = font.fName
+                textAlign?.let {
+
+                    val condition =
+                        KPTextJustify.from(textAlign)?.name != textLayer.t.d.k.firstOrNull()?.s?.j?.name
+                    if (condition) {
+                        when (KPTextJustify.from(textAlign)) {
+                            KPTextJustify.LEFT -> {
+                                textLayer.ef?.find {it.nm.toString().removeSurrounding("\"") == "Repos_X"}?.ef?.get(0)?.v?.k =
+                                    KPMultiDimensionalPrimitive(
+                                        JsonPrimitive(
+                                            delegate.getTextLayerWidth(
+                                                texts?.get(0) as String,
+                                                font.fName,
+                                                textLayer.t.d.k.firstOrNull()?.s?.s.toString()
+                                                    .toDouble()
+                                            ) / -2
+                                        )
+                                    )
+                            }
+
+                            KPTextJustify.RIGHT -> {
+                                textLayer.ef?.find {it.nm.toString().removeSurrounding("\"") == "Repos_X"}?.ef?.get(0)?.v?.k =
+                                    KPMultiDimensionalPrimitive(
+                                        JsonPrimitive(
+                                            delegate.getTextLayerWidth(
+                                                texts?.get(0) as String,
+                                                font.fName,
+                                                textLayer.t.d.k.firstOrNull()?.s?.s.toString()
+                                                    .toDouble()
+                                            ) / 2
+                                        )
+                                    )
+                            }
+
+                            KPTextJustify.CENTER -> {
+                                textLayer.ef?.find {it.nm.toString().removeSurrounding("\"") == "Repos_X"}?.ef?.get(0)?.v?.k =
+                                    KPMultiDimensionalPrimitive(
+                                        JsonPrimitive(
+                                            0
+                                        )
+                                    )
+                            }
+
+                            else -> {}
+                        }
+                    }
+                    textLayer.t.d.k.firstOrNull()?.s?.j = KPTextJustify.from(textAlign)
+                    textLayer.ef?.find { it.nm.toString() == "\"T_Alignment\"" }?.ef?.firstOrNull()?.v?.k =
+                        KPMultiDimensionalPrimitive(
+                            JsonPrimitive(textAlign)
+                        )
+                    textTemplateLayer.t.d.k.firstOrNull()?.s?.j = KPTextJustify.from(textAlign)
+                }
+            }
+            return animationResult
+        }
 
         animationRules.layerRules.forEach { layerRule ->
             if (layerRule.fontKey != null) {
-                val font = parseFontKey(fonts, fontsModels, layerRule.fontKey)
-                val size = parseFontSize(fontsModels, layerRule.fontKey)
-                val textAlign = parseTextAlign(fontsModels, layerRule.fontKey)
+                val font = parseFontKey(fonts, layerRule.fontKey)
                 // Adding the font to the list of Font
                 if (font != null) {
                     if (animationResult.fonts?.list?.none { it.fName == font.fName } == true) {
@@ -59,104 +139,16 @@ class KPFontTransformer(
                     animationResult.layers.find { it.ind == layerRule.ind && it.ty == KPLayerType.TEXT_LAYER } as? KPTextLayer
                 if (font != null && textLayer != null) {
                     textLayer.t.d.k.firstOrNull()?.s?.f = font.fName
-                    size?.let {
-                        textLayer.t.d.k.firstOrNull()?.s?.s = JsonPrimitive(size)
-                    }
-                    textAlign?.let {
-                        val panelX = (animationResult.layers.find { it.nm == "control_panel" } as KPNullLayer)
-                            .ef?.find { it.nm.toString() == "\"Panel_X\"" }
-                            ?.ef?.find { it.nm.toString() == "\"Slider\"" }?.v
-                        val condition = KPTextJustify.from(textAlign)?.name != textLayer.t.d.k.firstOrNull()?.s?.j?.name
-                        if(condition) {
-                            when (KPTextJustify.from(textAlign)) {
-                                KPTextJustify.LEFT -> {
-                                    panelX?.k =
-                                        KPMultiDimensionalPrimitive(
-                                            JsonPrimitive(
-                                                delegate.getTextLayerWidth(
-                                                    texts?.get(0) as String,
-                                                    font.fName,
-                                                    textLayer.t.d.k.firstOrNull()?.s?.s.toString()
-                                                        .toDouble()
-                                                ) / -2
-                                            )
-                                        )
-                                }
-
-                                KPTextJustify.RIGHT -> {
-                                    panelX?.k =
-                                        KPMultiDimensionalPrimitive(
-                                            JsonPrimitive(
-                                                delegate.getTextLayerWidth(
-                                                    texts?.get(0) as String,
-                                                    font.fName,
-                                                    textLayer.t.d.k.firstOrNull()?.s?.s.toString()
-                                                        .toDouble()
-                                                ) / 2
-                                            )
-                                        )
-                                }
-
-                                KPTextJustify.CENTER -> {
-                                    panelX?.k =
-                                        KPMultiDimensionalPrimitive(
-                                            JsonPrimitive(
-                                                0
-                                            )
-                                        )
-                                }
-
-                                else -> {}
-                            }
-                        }
-                        textLayer.t.d.k.firstOrNull()?.s?.j = KPTextJustify.from(textAlign)
-                        textLayer.ef?.find { it.nm.toString() == "\"T_Alignment\"" }?.ef?.firstOrNull()?.v?.k =
-                            KPMultiDimensionalPrimitive(
-                                JsonPrimitive(textAlign)
-                            )
-                    }
                 }
             }
         }
         return animationResult
     }
 
-    private fun parseFontSize(fontsModels: Map<String, FontModel>?, fontKey: String): Int? {
-        val fonts = fontsModels ?: return null
-        return fonts[fontKey]?.size
-    }
-
-    private fun parseTextAlign(fontsModels: Map<String, FontModel>?, fontKey: String): Int? {
-        val fonts = fontsModels ?: return null
-        return fonts[fontKey]?.textAlign
-    }
-
-
-    private fun parseFontKey(fonts: Map<String, String>?, fontsModels: Map<String, FontModel>?, fontKey: String): Font? {
-
+    private fun parseFontKey(fonts: Map<String, String>?, fontKey: String): Font? {
         if (fonts != null) {
             val fontPath = fonts[fontKey] ?: return null
             val fontName = fontPath.substringAfterLast("/").substringBefore(".")
-            val splitFont = fontName.split('-')
-            val ascent = delegate.getAscent("gM", fontName, 108.0)
-            if (splitFont.size == 1) return Font(
-                fName = fontName,
-                fFamily = splitFont[0],
-                fStyle = splitFont[0],
-                ascent = JsonPrimitive(value = ascent)
-            )
-            if (splitFont.size != 2) return null
-            val fontFamily = splitFont[0]
-            val fontStyle = splitFont[1]
-            return Font(
-                fName = fontName,
-                fFamily = fontFamily,
-                fStyle = fontStyle,
-                ascent = JsonPrimitive(value = ascent)
-            )
-        } else if (fontsModels != null) {
-            val fontModel = fontsModels[fontKey] ?: return null
-            val fontName = fontModel.name.substringAfterLast("/").substringBefore(".")
             val splitFont = fontName.split('-')
             val ascent = delegate.getAscent("gM", fontName, 108.0)
             if (splitFont.size == 1) return Font(

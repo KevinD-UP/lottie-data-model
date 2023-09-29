@@ -15,9 +15,11 @@ class KPVariableTransformer(
 ) {
     fun transformVariables(
         animation: KPLottieAnimation,
-        animationRules: KPAnimationRules
+        animationRules: KPAnimationRules?
     )
             : KPLottieAnimation {
+        if(animationRules == null) return animation
+
         val expressionParser = KPProjectExpressionParser(
             animation = animation,
             functionsDelegate = delegate,

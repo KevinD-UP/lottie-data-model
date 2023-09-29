@@ -7,11 +7,20 @@ import lottieAnimation.rules.properties.KPAnimationRules
 
 class KPTextTransformer {
 
-    fun transformTexts(animation: KPLottieAnimation, animationRules: KPAnimationRules, texts: List<String>? = null)
+    fun transformTexts(animation: KPLottieAnimation, animationRules: KPAnimationRules?, texts: List<String>? = null)
             : KPLottieAnimation
     {
         var animationResult = animation.copy()
-        if(texts == null) return animationResult
+        if (texts == null) return animationResult
+        if (animationRules == null) {
+            val text = texts[0]
+            val textLayer = animation.layers.find { it.nm == "text1" && it.ty == KPLayerType.TEXT_LAYER } as? KPTextLayer
+            val textLayerTemplate = animation.layers.find { it.nm == "text1_template" && it.ty == KPLayerType.TEXT_LAYER } as? KPTextLayer
+            if (textLayer != null && textLayerTemplate != null) {
+                textLayer.t.d.k.firstOrNull()?.s?.t = text
+            }
+            return animationResult
+        }
 
         animationRules.layerRules.forEach { layerRule ->
             if (layerRule.fontKey != null) {

@@ -15,7 +15,7 @@ class KPColorTransformer {
 
     fun transformColor(
         animation: KPLottieAnimation,
-        animationRules: KPAnimationRules,
+        animationRules: KPAnimationRules?,
         colors: Map<String, String>?
     ): KPLottieAnimation {
 
@@ -26,9 +26,12 @@ class KPColorTransformer {
 
         val layers: MutableList<KPLayer> = modifiedAnimation.layers.toMutableList()
 
-        val paletteLayer = layers.find { it.nm == "palette" } as KPNullLayer?
-        if(paletteLayer != null) {
-            changePalette(paletteLayer, colors)
+        if(animationRules == null) {
+            val paletteLayer = layers.find { it.nm == "palette" } as KPNullLayer?
+            if (paletteLayer != null) {
+                changePalette(paletteLayer, colors)
+                return modifiedAnimation
+            }
             return modifiedAnimation
         }
 

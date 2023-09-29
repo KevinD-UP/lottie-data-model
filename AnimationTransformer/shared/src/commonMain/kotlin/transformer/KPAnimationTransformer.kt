@@ -19,7 +19,7 @@ abstract class KPAnimationTransformer(
         animationRulesJsonString: String,
         texts: List<String>? = null,
         fonts: Map<String, String>? = null,
-        fontsModels: Map<String, FontModel>? = null,
+        fontsModels: FontModel? = null,
         colors: Map<String, String>? = null,
         scale: Scale? = null,
         size: AnimationSize? = null,
@@ -31,7 +31,7 @@ abstract class KPAnimationTransformer(
         animationRulesJsonString: String,
         texts: List<String>? = null,
         fonts: Map<String, String>? = null,
-        fontsModels: Map<String, FontModel>? = null,
+        fontsModels: FontModel? = null,
         colors: Map<String, String>? = null,
         scale: Scale? = null,
         size: AnimationSize? = null,
@@ -44,28 +44,34 @@ abstract class KPAnimationTransformer(
             ignoreUnknownKeys = true
         }
         val lottieAnimation = json.decodeFromString<KPLottieAnimation?>(lottieJsonString) ?: return null
-        val animationRules = json.decodeFromString<KPAnimationRules?>(animationRulesJsonString) ?: return null
+        val animationRules: KPAnimationRules? = try {
+          json.decodeFromString(animationRulesJsonString)
+        } catch (e: Exception) {
+          null
+        }
+
+        println("enter text transformer")
+        val textTransformer = KPTextTransformer()
+        val animationTextTransformed = textTransformer.transformTexts(
+          animation = lottieAnimation,
+          animationRules = animationRules,
+          texts = texts
+        )
 
         println("enter font transformer")
         val fontTransformer = KPFontTransformer(functionsDelegate)
         val animationFontTransformed = fontTransformer.transformFonts(
-            animation = lottieAnimation,
+            animation = animationTextTransformed,
             animationRules = animationRules,
             fonts = fonts,
-            fontsModels = fontsModels,
+            fontModel = fontsModels,
             texts = texts
         )
-        println("enter text transformer")
-        val textTransformer = KPTextTransformer()
-        val animationTextTransformed = textTransformer.transformTexts(
-            animation = animationFontTransformed,
-            animationRules = animationRules,
-            texts = texts
-        )
+
         println("enter color transformer")
         val colorTransformer = KPColorTransformer()
         val animationColorTransformed = colorTransformer.transformColor(
-            animation = animationTextTransformed,
+            animation = animationFontTransformed,
             animationRules = animationRules,
             colors = colors
         )
