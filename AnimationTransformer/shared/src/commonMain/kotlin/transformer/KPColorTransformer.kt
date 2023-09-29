@@ -573,18 +573,20 @@ class KPColorTransformer {
     }
 
     private fun changePalette(paletteLayer: KPNullLayer, colors: Map<String, String>){
+        var i = 1;
         colors.forEach { (key, value) ->
-            println("key = $key, value=$value")
             val colorEffect = paletteLayer.ef?.find { it.nm.toString().removeSurrounding("\"") == key }
-            println("colorEffect = $colorEffect")
             val colorArray = hexaStringToRGBAFloatArray(value)
-            println("colorArray = $colorArray")
             colorEffect?.ef?.get(0)?.v?.k = KPMultiDimensionalList(listOf(
                 KPMultiDimensionalNodePrimitive(JsonPrimitive(colorArray?.get(0))), // R
                 KPMultiDimensionalNodePrimitive(JsonPrimitive(colorArray?.get(1))), // G
                 KPMultiDimensionalNodePrimitive(JsonPrimitive(colorArray?.get(2))), // B
                 KPMultiDimensionalNodePrimitive(JsonPrimitive(1)) // A (not used for opacity, use "o" instead)
             ))
+
+            val colorOpacityEffect = paletteLayer.ef?.find { it.nm.toString().removeSurrounding("\"") == "color_opacity$i" }
+            colorOpacityEffect?.ef?.get(0)?.v?.k =  KPMultiDimensionalPrimitive(JsonPrimitive(value.opacityFromHex()))
+            i++
         }
     }
 
@@ -607,4 +609,20 @@ class KPColorTransformer {
             return list.toFloatArray()
 
         }
+
+    private fun String.opacityFromHex(): Int {
+        if (!this.startsWith('#')) {
+            return 100
+        }
+
+        return when (this.length) {
+            9 -> { // 8-digit hex + '#'
+                // Extract the alpha component (last 2 characters)
+                val alphaHex = this.takeLast(2)
+
+                return alphaHex.toInt()
+            }
+            else -> 100
+        }
+    }
 }

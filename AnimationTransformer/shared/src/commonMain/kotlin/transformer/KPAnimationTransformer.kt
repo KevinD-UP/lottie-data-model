@@ -70,18 +70,10 @@ abstract class KPAnimationTransformer(
             colors = colors
         )
 
-        println("enter opacity transformer")
-        val opacityTransformer = KPOpacityTransformer()
-        val animationOpacityTransformed = opacityTransformer.transformOpacity(
-          animation = animationColorTransformed,
-          animationRules = animationRules,
-          colors = colors
-        )
-
         println("enter size transformer")
         val sizeTransformer = KPSizeTransformer()
         val animationSizeTransformed = sizeTransformer.transformSize(
-          animation = animationOpacityTransformed,
+          animation = animationColorTransformed,
           size = size
         )
 

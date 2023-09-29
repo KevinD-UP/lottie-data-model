@@ -224,7 +224,9 @@ data class KPTextFillColor(
     /**
      * Property index
      */
-    var ix: JsonPrimitive
+    var ix: JsonPrimitive,
+
+    var x: JsonElement? = null
 )
 
 @Serializable
