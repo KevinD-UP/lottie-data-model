@@ -63,6 +63,7 @@ declare module "@pitchy-team/animation-transformer" {
     class KPAnimationTransformerJs {
       constructor(functionsDelegate: KPAnimationTransformerFunctionsDelegate);
 
+      /* Transform an animation */
       transformJs(
         lottieJsonString: string,
         texts?: string[] | null,
@@ -72,6 +73,16 @@ declare module "@pitchy-team/animation-transformer" {
         scaleJson?: Scale | null,
         sizeJson?: AnimationSize | null,
         effectsJson?: Effects | null
+      ): string | null;
+
+      /* Return a JSON string representing width and height of an animation */
+      getAnimationSize(
+        lottieJsonString: string
+      ): string | null;
+
+      /* Return a JSON string representing the scale of an animation */
+      getScale(
+        lottieJsonString: string
       ): string | null;
     }
   }

@@ -74,6 +74,22 @@ const animationTransformed = animationTransformer.transformJs(
 )
 ```
 
+## Utils 
+
+The animation-transformer provides utils function to get informations inside of the animation :
+
+```
+/* Return a JSON string representing width and height of an animation */
+getAnimationSize(
+  lottieJsonString: string
+): string | null;
+
+/* Return a JSON string representing the scale of an animation */
+getScale(
+  lottieJsonString: string
+): string | null;
+```
+
 ## Module Structure
 
 Here's an overview of the module structure:
