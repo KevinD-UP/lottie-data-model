@@ -64,7 +64,6 @@ const effects = {
 
 const animationTransformed = animationTransformer.transformJs(
   lottieAnimationString,
-  animationRulesString,
   [texts],
   fonts,
   fontsModels,
