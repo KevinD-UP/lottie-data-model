@@ -10,7 +10,7 @@ We follow the Angular Commit Message Conventions for our Git commit messages. Th
 
 Each commit message should have the following format:
 
-<type>(<scope>): <subject>
+`<type>(<scope>): <subject>`
 
 - `<type>`: Describes the purpose of the commit (e.g., feat, fix, chore, docs, style, refactor, test).
 - `<scope>` (optional): Describes the scope of the change (e.g., component name, module).
