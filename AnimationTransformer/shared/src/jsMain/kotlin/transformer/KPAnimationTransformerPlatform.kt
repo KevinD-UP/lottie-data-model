@@ -1,5 +1,12 @@
 package transformer
 
+import kotlinx.serialization.decodeFromString
+import kotlinx.serialization.encodeToString
+import kotlinx.serialization.json.Json
+import lottieAnimation.KPLottieAnimation
+import lottieAnimation.layer.KPLayerType
+import lottieAnimation.layer.KPNullLayer
+
 @JsExport
 class KPAnimationTransformerJs(functionsDelegate: KPAnimationTransformerFunctionsDelegate): KPAnimationTransformer(functionsDelegate) {
     private fun entriesOf(jsObject: dynamic): List<Pair<String, Any?>> =
@@ -124,6 +131,43 @@ class KPAnimationTransformerJs(functionsDelegate: KPAnimationTransformerFunction
             size = size,
             effects = effects
         )
+    }
+
+    fun getAnimationSize(lottieJsonString: String): String? {
+        val json = Json {
+            explicitNulls = false
+            encodeDefaults = true
+            ignoreUnknownKeys = true
+        }
+        val lottieAnimation =
+            json.decodeFromString<KPLottieAnimation?>(lottieJsonString) ?: return null
+        val animationSize = AnimationSize(width = lottieAnimation.w, height = lottieAnimation.h)
+        // Convert the object to a JSON string
+        return Json.encodeToString(animationSize)
+    }
+
+    fun getScale(lottieJsonString: String): String? {
+        val json = Json {
+            explicitNulls = false
+            encodeDefaults = true
+            ignoreUnknownKeys = true
+        }
+        val lottieAnimation =
+            json.decodeFromString<KPLottieAnimation?>(lottieJsonString) ?: return null
+        val scaleLayer = lottieAnimation.layers.find {it.nm == "scale" && it.ty == KPLayerType.NULL_LAYER } as? KPNullLayer
+        val scaleArray = scaleLayer?.ks?.s?.k.toString()
+        // Remove the square brackets and split the string by commas
+        val elements = scaleArray
+            .substring(1, scaleArray.length - 1)
+            .split(",")
+            .map { it.trim().toLong() }
+
+        // Convert the list of elements to an array
+        val numbersArray = elements.toLongArray()
+
+        val scale = Scale(width = numbersArray[0], height = numbersArray[1], depth = numbersArray[2])
+        // Convert the object to a JSON string
+        return Json.encodeToString(scale)
     }
 
     override fun transform(

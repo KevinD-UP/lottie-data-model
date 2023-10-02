@@ -1,5 +1,6 @@
 package transformer
 
+import kotlinx.serialization.Serializable
 import kotlinx.serialization.json.JsonPrimitive
 import lottieAnimation.KPLottieAnimation
 import lottieAnimation.layer.KPLayerType
@@ -7,6 +8,7 @@ import lottieAnimation.layer.KPNullLayer
 import lottieAnimation.layer.properties.KPMultiDimensionalList
 import lottieAnimation.layer.properties.KPMultiDimensionalNodePrimitive
 
+@Serializable
 data class Scale(
 	val width: Long,
 	val height: Long,
