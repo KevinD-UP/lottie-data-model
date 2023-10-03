@@ -1,11 +1,13 @@
 package transformer
 
+import kotlinx.serialization.Serializable
 import kotlinx.serialization.json.JsonPrimitive
 import lottieAnimation.KPLottieAnimation
 import lottieAnimation.layer.KPLayerType
 import lottieAnimation.layer.KPNullLayer
 import lottieAnimation.layer.properties.KPMultiDimensionalPrimitive
 
+@Serializable
 data class Effects(
 	val panelX: Double?,
 	val panelY: Double?,

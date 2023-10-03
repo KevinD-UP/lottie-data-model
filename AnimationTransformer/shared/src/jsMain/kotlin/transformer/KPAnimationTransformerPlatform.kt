@@ -146,6 +146,34 @@ class KPAnimationTransformerJs(functionsDelegate: KPAnimationTransformerFunction
         return Json.encodeToString(animationSize)
     }
 
+    fun getAnimationPosition(lottieJsonString: String): String? {
+        val json = Json {
+            explicitNulls = false
+            encodeDefaults = true
+            ignoreUnknownKeys = true
+        }
+        val lottieAnimation =
+            json.decodeFromString<KPLottieAnimation?>(lottieJsonString) ?: return null
+        val controlPanelLayer = (lottieAnimation.layers.find { it.nm == "control_panel" && it.ty == KPLayerType.NULL_LAYER } as KPNullLayer)
+        val panelX = controlPanelLayer.ef?.find { it.nm.toString().removeSurrounding("\"") == "panelX"  }
+        val panelY = controlPanelLayer.ef?.find { it.nm.toString().removeSurrounding("\"") == "panelY"  }
+        val position = Effects(
+            panelX = panelX?.ef?.get(0)?.v?.k.toString().toDouble(),
+            panelY = panelY?.ef?.get(0)?.v?.k.toString().toDouble(),
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        )
+        // Convert the object to a JSON string
+        return Json.encodeToString(position)
+    }
+
     fun getScale(lottieJsonString: String): String? {
         val json = Json {
             explicitNulls = false

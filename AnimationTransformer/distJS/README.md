@@ -84,6 +84,11 @@ getAnimationSize(
   lottieJsonString: string
 ): string | null;
 
+/* Return a JSON string representing the position of an animation in the properties panelX and panelY */
+getAnimationPosition(
+  lottieJsonString: string
+): string | null;
+
 /* Return a JSON string representing the scale of an animation */
 getScale(
   lottieJsonString: string
